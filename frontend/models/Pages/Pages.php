@@ -2,7 +2,8 @@
 
 namespace frontend\models\Pages;
 
-use Yii\db\ActiveRecord;
+use yii;
+use yii\db\ActiveRecord;
 
 class Pages extends ActiveRecord {
 

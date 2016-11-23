@@ -43,6 +43,8 @@ return [
             'enablePrettyUrl' => true,
             'showScriptName' => false,
             'rules' => [
+              ['class' => 'frontend\components\Pages\PagesUrlRule'],
+              ['class' => 'frontend\components\Pages\StrictParseRequest']
             ],
         ],
 

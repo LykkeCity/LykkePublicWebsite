@@ -7,11 +7,15 @@ use yii\helpers\Url;
 
 class UrlHelper extends Url {
 
-  public static function isActive($controller, $class) {
-    if (Yii::$app->controller->id == $controller)
+  public static function isActive($url, $class = 'active') {
+
+    $url = strripos($url, '/') ? $url : $url.'/index';
+    
+    if (Yii::$app->controller->id.'/'.Yii::$app->controller->action->id == $url)
       return $class;
 
     return null;
+
   }
 
 }

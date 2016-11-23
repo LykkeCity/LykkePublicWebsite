@@ -9,6 +9,8 @@ use yii\bootstrap\Nav;
 use yii\bootstrap\NavBar;
 use yii\widgets\Breadcrumbs;
 use common\widgets\Alert;
+use backend\components\helpers\UrlHelper;
+
 
 AppAsset::register($this);
 ?>
@@ -28,14 +30,14 @@ AppAsset::register($this);
 <div class="wrap">
     <?php
     NavBar::begin([
-        'brandLabel' => 'My Company',
+        'brandLabel' => 'Lykke Back Office',
         'brandUrl' => Yii::$app->homeUrl,
         'options' => [
             'class' => 'navbar-inverse navbar-fixed-top',
         ],
     ]);
     $menuItems = [
-        ['label' => 'Home', 'url' => ['/site/index']],
+        ['label' => 'Мой профиль', 'url' => ['/index']],
     ];
     if (Yii::$app->user->isGuest) {
         $menuItems[] = ['label' => 'Login', 'url' => ['/site/login']];
@@ -43,7 +45,7 @@ AppAsset::register($this);
         $menuItems[] = '<li>'
             . Html::beginForm(['/site/logout'], 'post')
             . Html::submitButton(
-                'Logout (' . Yii::$app->user->identity->username . ')',
+                'Выйти',
                 ['class' => 'btn btn-link logout']
             )
             . Html::endForm()
@@ -61,15 +63,22 @@ AppAsset::register($this);
             'links' => isset($this->params['breadcrumbs']) ? $this->params['breadcrumbs'] : [],
         ]) ?>
         <?= Alert::widget() ?>
-        <?= $content ?>
+        <div class="col-md-3">
+          <ul class="nav nav-pills nav-stacked">
+            <li role="presentation" class="<?=UrlHelper::isActive('index');?>"><a href="<?=UrlHelper::to(['/index'])?>">Главная <?=Yii::$app->controller->id?></a></li>
+            <li role="presentation" class="<?=UrlHelper::isActive('site');?>"><a href="<?=UrlHelper::to(['/site/index'])?>">Страницы</a></li>
+            <li role="presentation" class="<?=UrlHelper::isActive('site/users');?>"><a href="<?=UrlHelper::to(['/site/users'])?>">Пользователи</a></li>
+          </ul>
+        </div>
+        <div class="col-md-9">
+            <?= $content ?>
+        </div>
     </div>
 </div>
 
 <footer class="footer">
     <div class="container">
-        <p class="pull-left">&copy; My Company <?= date('Y') ?></p>
-
-        <p class="pull-right"><?= Yii::powered() ?></p>
+        <p class="pull-left">&copy; Lykke <?= date('Y') ?></p>
     </div>
 </footer>
 
