@@ -15,6 +15,12 @@ class AppAsset extends AssetBundle
         'css/site.css',
     ];
     public $js = [
+      'js/bootstrap.min.js',
+      'js/fastclick.min.js',
+      'js/jquery.inview.min.js',
+      'js/jquery.royalslider.custom.min.js',
+      'js/jquery.ajaxchimp.min.js',
+      'js/functions.js',
     ];
     public $depends = [
         'yii\web\YiiAsset',

@@ -29,7 +29,7 @@ class PagesUrlRule extends CompositeUrlRule {
     foreach ($pages as $page) {
 
       $rule = [
-        'pattern' => ltrim($page['alias'], '/'),
+        'pattern' => ltrim($page['url'], '/'),
         'route'   => ltrim($page['route'], '/'),
       ];
 

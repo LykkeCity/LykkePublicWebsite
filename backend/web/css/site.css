@@ -11,7 +11,7 @@ body {
 }
 
 .wrap > .container {
-    padding: 70px 15px 20px;
+    /* padding: 70px 15px 20px; */
 }
 
 .footer {
@@ -119,3 +119,70 @@ a.desc:after {
     outline: none;
 }
 
+.bs-panel {
+    position: relative;
+    padding: 40px 8px 8px;
+    margin: 0 -15px 15px;
+    border-color: #e5e5e5 #eee #eee;
+    border-style: solid;
+    border-width: 1px 0;
+    -webkit-box-shadow: inset 0 3px 6px rgba(0,0,0,.05);
+    box-shadow: inset 0 3px 6px rgba(0,0,0,.05);
+}
+
+.bs-panel .bs-title {
+    position: absolute;
+    top: 15px;
+    left: 8px;
+    font-size: 12px;
+    font-weight: 700;
+    color: #959595;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+@media (min-width: 768px){
+    .bs-panel {
+        margin-right: 0;
+        margin-left: 0;
+        background-color: #fff;
+        border-color: #ddd;
+        border-width: 1px;
+        border-radius: 4px 4px 0 0;
+        -webkit-box-shadow: none;
+        box-shadow: none;
+    }
+}
+
+
+.navbar-fixed-top, .navbar-fixed-bottom{
+    position: relative;
+}
+
+.sub_page{
+    background: #f9f9f9;
+}
+
+.margin-b{
+    margin-bottom: 15px;
+}
+
+.navbar-brand > img{
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.navbar-brand{
+    padding: 8px 8px;
+}
+
+.site-login{
+    width: 50%;
+    margin: 0 auto;
+}
+
+.main-link .btn{
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
