@@ -3,16 +3,14 @@
 
 namespace frontend\controllers;
 
-
 use common\models\SitePages;
-use Yii;
-use yii\web\Controller;
 
-class IndexController extends Controller{
+class IndexController extends AppController{
 
 
   function actionIndex () {
-    return $this->render('index');
+    $page = SitePages::find()->where(['url' => '/'])->one();
+    return $this->render('index', ['page' => $page]);
   }
 
   function actionTest (){

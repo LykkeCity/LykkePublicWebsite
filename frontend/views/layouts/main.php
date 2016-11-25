@@ -61,79 +61,24 @@ AppAsset::register($this);
                   <!--<a href="https://lykke.com/city/start?do=login" class="btn btn--stroke pull-right hidden-xs hidden-sm">Sign In</a>-->
 
                   <ul class="nav nav--header">
-                    <!--<li>
-                        <a class="dropdown__control" href="https://lykke.com/lykkewallet/" >Wallet</a>
-                        <div class="dropdown__container">
-                            <ul class="dropdown__nav">
-                                <li ><a href="https://youtu.be/h5T2gRGcMso" target="_blank">Watch the video</a></li>
-    <li><a href="https://lykke.com/lykkewallet/privacy_policy.html">Privacy Policy</a></li>
-    <li><a href="https://lykke.com/city/terms_of_use">Terms of Use</a></li>
-                            </ul>
-                        </div>
-                    </li>-->
-                    <li class="_add_active_exchange">
-                      <a class="dropdown__control"
-                         href="https://lykke.com/exchange.php">Exchange</a>
-                      <div class="dropdown__container">
-                        <ul class="dropdown__nav">
-                          <li><a href="https://lykke.com/lykkex_rulebook.php">LykkeX
-                              Rulebook</a></li>
-                          <li><a
-                              href="https://lykke.com/term_conditions_colored_coins.php">Terms
-                              of Issuance</a></li>
-                          <li><a
-                              href="https://api.lykkex.com/swagger/ui/index#/"
-                              target="_blank">LykkeX API</a></li>
-                          <li><a href="https://github.com/LykkeCity/"
-                                 target="_blank">Github</a></li>
-                          <li><a
-                              href="https://lykke.com/Whitepaper_LykkeExchange.pdf">White
-                              Paper</a></li>
-                        </ul>
-                      </div>
-                    </li>
-                    <li class="_add_active_city">
-                      <a class="dropdown__control"
-                         href="https://lykke.com/city.php">City</a>
-                      <div class="dropdown__container">
-                        <ul class="dropdown__nav">
-                          <li><a href="https://lykke.com/city/faq">FAQ</a></li>
-                          <li><a
-                              href="https://lykke.com/city/about/openposition">Open
-                              Positions</a></li>
-                          <li><a
-                              href="https://lykke.com/city/openprojects/index">Projects
-                              Board</a></li>
-                          <li><a href="https://lykke.com/city/lykketimes">Lykke
-                              Times</a></li>
-                          <li><a
-                              href="https://lykke.com/city/blog/index">Blog</a>
-                          </li>
-                        </ul>
-                      </div>
-                    </li>
-                    <li class="_add_active_corp"><a class="dropdown__control"
-                                                    href="https://lykke.com/corp.php">Corp</a>
-                      <div class="dropdown__container">
-                        <ul class="dropdown__nav">
-                          <li><a href="https://lykke.com/leadership.php">Leadership</a>
-                          </li>
-                          <li><a href="https://lykke.com/technology.php">Technology </a>
-                          </li>
-                          <li><a
-                              href="https://lykke.com/contacts.php">Contacts</a>
-                          </li>
-                        </ul>
-                      </div>
-                    </li>
-                    <li><a
-                        href="http://blockchainexplorer.lykke.com/">Explorer</a>
-                    </li>
-                    <li><a href="https://streams.lykke.com/">Streams</a></li>
-                    <!--<li class="hidden-xs hidden-sm">
-                      <a class="btn btn-red" href="https://lykke.com/ico/">ICO</a>
-                    </li>-->
+                    <? foreach ($this->params['siteMenu'] as $item) { ?>
+                      <li class="_add_active_exchange">
+                        <a class="dropdown__control" href="<?=$item['url']?>"><?=$item['name']?></a>
+                        <? if (!empty($item['sub_pages'])) { ?>
+                            <div class="dropdown__container">
+                              <ul class="dropdown__nav">
+                                <? foreach ($item['sub_pages'] as $subItem) { ?>
+                                  <li>
+                                    <a href="<?=$subItem['url']?>"><?=$subItem['name']?></a>
+                                  </li>
+                                <? } ?>
+                              </ul>
+                            </div>
+                        <? } ?>
+                      </li>
+                    <? } ?>
                   </ul>
+
                 </div>
               </div>
             </div>

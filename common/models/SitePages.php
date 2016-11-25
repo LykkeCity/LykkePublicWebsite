@@ -68,9 +68,11 @@ class SitePages extends \yii\db\ActiveRecord {
     ];
   }
 
-  public static function getListPages() {
+  public static function getListPages($forMenu = FALSE) {
 
-    $getListPages = SitePages::find()->asArray()->all();
+    $getListPages = $forMenu
+      ? SitePages::find()->where(['published' => 1, 'in_menu' => 1])->asArray()->all()
+      : SitePages::find()->asArray()->all();
 
     $listPages = [];
     foreach ($getListPages as $key => $item) {
@@ -90,13 +92,14 @@ class SitePages extends \yii\db\ActiveRecord {
   public function InsertOrUpdate($post, $id = '') {
     if (empty($id)) {
       $page = new SitePages();
-    }else{
+    }
+    else {
       $page = SitePages::findOne($id);
     }
 
 
     $page->name = $post['name'];
-    $page->url = trim($post['url'], '/');
+    $page->url = $post['url'];
     $page->content = $post['content'];
     $page->parent = $post['parent'];
     $page->datetime = date("Y-m-d H:i:s", strtotime($post['datetime']));
