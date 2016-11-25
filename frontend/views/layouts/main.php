@@ -3,6 +3,7 @@
 /* @var $this \yii\web\View */
 /* @var $content string */
 
+use frontend\widgets\MainMenu;
 use yii\helpers\Html;
 use yii\bootstrap\Nav;
 use yii\bootstrap\NavBar;
@@ -27,13 +28,91 @@ AppAsset::register($this);
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Lykke – The Future of Markets</title>
     <?= Html::csrfMetaTags() ?>
-    <meta name="viewport"
-          content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+    <link rel="apple-touch-icon" sizes="180x180" href="/img/apple-touch-icon.png">
+    <link rel="icon" type="image/png" href="/img/favicon-32x32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="/img/favicon-16x16.png" sizes="16x16">
+    <link rel="manifest" href="/img/manifest.json">
+    <link rel="mask-icon" href="/img/safari-pinned-tab.svg" color="#5bbad5">
+    <meta name="theme-color" content="#ffffff">
+
     <?php $this->head() ?>
 
     <!--[if lte IE 9]>
     <script type="text/javascript" src="js/vendor/html5shiv.js"></script>
     <![endif]-->
+
+
+
+
+    <script>
+
+
+
+      var RatesData=[];
+      var GetAskPrice=function(ticker){
+        for (var i = 0 ; i < RatesData.length ; i++) {
+          var id=RatesData[i].Id;
+          if (id==ticker){
+            return RatesData[i].Ask;
+          } else return '';
+        }
+      }
+
+      var GetBidPrice=function(ticker){
+        for (var i = 0 ; i < RatesData.length ; i++) {
+          var id=RatesData[i].Id;
+          if (id==ticker){
+            return RatesData[i].Bid;
+          } else return '';
+        }
+      }
+
+      var BuildRatesTable=function(currency, table_id){
+        var date = new Date();
+        for (var i = 0 ; i < RatesData.length ; i++) {
+          if(RatesData[i].Id=='EURUSD'){
+            //$(aEURUSD_last).html( RatesData[i].Ask);
+            $(aEURUSD_bid).html( RatesData[i].Bid );
+            $(aEURUSD_ask).html( RatesData[i].Ask );
+          }
+          var Ticker='#'+RatesData[i].Id;
+          if (RatesData[i].Ask!=''){
+            $(Ticker).html(RatesData[i].Ask);
+          }
+        }
+      };
+
+
+      var UpdateTableRates=function() {
+        $.ajax({
+          type: 'GET',
+          url: 'https://lykke-api.azurewebsites.net/api/AllAssetPairRates',
+          data: '',
+          async: false,
+          beforeSend: function (xhr) {
+            if (xhr && xhr.overrideMimeType) {
+              xhr.overrideMimeType('application/json;charset=utf-8');
+            }
+          },
+          dataType: 'json',
+          success: function (data){
+            //$('#RatesJson').append(JSON.stringify(data.Result.Rates));
+            RatesData=data.Result.Rates;
+            BuildRatesTable();
+          },
+          error: function (response, status, error) {
+            //alert('error');
+          }
+        });
+      };
+      //setInterval(UpdateTableRates, 1000);
+
+
+    </script>
+
   </head>
   <body class="page_landing new_page">
   <?php $this->beginBody() ?>
@@ -58,27 +137,7 @@ AppAsset::register($this);
             <div class="t-simulate">
               <div class="t-row">
                 <div class="t-cell">
-                  <!--<a href="https://lykke.com/city/start?do=login" class="btn btn--stroke pull-right hidden-xs hidden-sm">Sign In</a>-->
-
-                  <ul class="nav nav--header">
-                    <? foreach ($this->params['siteMenu'] as $item) { ?>
-                      <li class="_add_active_exchange">
-                        <a class="dropdown__control" href="<?=$item['url']?>"><?=$item['name']?></a>
-                        <? if (!empty($item['sub_pages'])) { ?>
-                            <div class="dropdown__container">
-                              <ul class="dropdown__nav">
-                                <? foreach ($item['sub_pages'] as $subItem) { ?>
-                                  <li>
-                                    <a href="<?=$subItem['url']?>"><?=$subItem['name']?></a>
-                                  </li>
-                                <? } ?>
-                              </ul>
-                            </div>
-                        <? } ?>
-                      </li>
-                    <? } ?>
-                  </ul>
-
+                  <?= MainMenu::widget() ?>
                 </div>
               </div>
             </div>
@@ -117,48 +176,9 @@ AppAsset::register($this);
     </div>
   </header>
 
-  <div class="content">
-      <?=$content?>
-  </div>
-
+  <?= $content ?>
 
   <?php $this->endBody() ?>
-
-  <script>
-    var tag = document.createElement('script');
-
-    tag.src = "https://www.youtube.com/iframe_api";
-    var firstScriptTag = document.getElementsByTagName('script')[0];
-    firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
-
-
-    var player;
-
-    function onYouTubeIframeAPIReady() {
-      player = new YT.Player('player', {
-        videoId: 'h5T2gRGcMso',
-        height: '390',
-        width: '640',
-        events: {
-          'onReady': onPlayerReady
-        }
-      });
-    }
-
-    function onPlayerReady(event) {
-
-      // bind events
-      var playButton = document.getElementById("btn_video");
-      playButton.addEventListener("click", function () {
-        player.playVideo();
-
-        console.log('play')
-
-        $('.landing--video').addClass('video_played');
-      });
-
-    }
-  </script>
   </body>
   </html>
 <?php $this->endPage() ?>

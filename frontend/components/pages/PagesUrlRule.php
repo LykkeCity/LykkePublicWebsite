@@ -2,8 +2,8 @@
 
 namespace frontend\components\Pages;
 
+use common\models\SitePages;
 use yii;
-use frontend\models\Pages\Pages;
 use yii\caching\DbDependency;
 use yii\web\CompositeUrlRule;
 use yii\web\UrlRuleInterface;
@@ -23,13 +23,13 @@ class PagesUrlRule extends CompositeUrlRule {
       return $cache;
     }
 
-    $pages = Pages::find()->asArray(TRUE)->all();
+    $pages = SitePages::find()->asArray(TRUE)->all();
 
     $rules = [];
     foreach ($pages as $page) {
 
       $rule = [
-        'pattern' => ltrim($page['url'], '/'),
+        'pattern' => ltrim(str_replace("#", "\#", $page['url']), '/'),
         'route'   => ltrim($page['route'], '/'),
       ];
 
@@ -42,7 +42,7 @@ class PagesUrlRule extends CompositeUrlRule {
     }
 
     $cd = new DbDependency();
-    $cd->sql = 'SELECT MAX(id) FROM ' . Pages::tableName();
+    $cd->sql = 'SELECT MAX(id) FROM ' . SitePages::tableName();
 
     \Yii::$app->get($this->cacheComponent)
       ->set($this->cacheID, $rules, 60, $cd);

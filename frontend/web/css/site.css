@@ -1822,3 +1822,7 @@ hr.full { margin-left: 0; margin-right: 0; width: 100%; }
     .navbar-toggle .icon-bar + .icon-bar { margin-top: 3px; } }
 @media (min-width: 992px) { .header .header__text, .header .btn--stroke, .header .nav--header { -webkit-transition: all 0.2s; -moz-transition: all 0.2s; -ms-transition: all 0.2s; -o-transition: all 0.2s; transition: all 0.2s; }
     .page_nav__title { margin-left: 45px !important; } }
+
+.content-block{
+    padding-top: 108px;
+}

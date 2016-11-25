@@ -1,5 +1,5 @@
 
-<article class="content" style="padding-top: 108px;">
+<article class="content content-block" >
   <section class="landing landing--intro section--padding">
     <div class="container">
       <div class="landing_intro">
@@ -8,14 +8,11 @@
           Settle Immediately.&nbsp;Own Directly.</p>
 
         <div class="apps">
-          <div class="apps_apple"><a href="https://appsto.re/ru/Dwjvcb.i"
-                                     target="_blank"><img
+          <div class="apps_apple"><a href="https://appsto.re/ru/Dwjvcb.i" target="_blank"><img
                 src="/img/landing/appstore-badge.svg" width="203" alt=""></a>
           </div>
-          <div class="apps_google"><a
-              href="https://play.google.com/store/apps/details?id=com.lykkex.LykkeWallet"
-              target="_blank"><img src="/img/landing/google-play.svg"
-                                   width="203" alt=""></a></div>
+          <div class="apps_google"><a href="https://play.google.com/store/apps/details?id=com.lykkex.LykkeWallet" target="_blank">
+              <img src="/img/landing/google-play.svg" width="203" alt=""></a></div>
         </div>
 
         <div class="trading_data">
@@ -85,8 +82,8 @@
 
   <section class="landing landing--features section--padding">
     <div class="container">
-      <h1 class="text-center page__title"><img src="img/logo-lykke.svg" width="60" style="margin-top: -9px"> Lykke<span>Wallet</span></h1>
-      <p class="landing__subtitle">Lykke Wallet is a key element of the Lykke trading ecosystem. The Lykke Wallet iOS and Android apps make it simple for you to buy and sell digital currencies and assets on the Lykke Exchange, our next-generation trading platform with zero commission.  Immediate settlement and direct ownership are enabled by distributed ledger technology. Now anyone can trade easily!</p>
+
+      <?=$page['content']?>
 
       <div class="features">
         <div class="features__item features__item--dur1">
@@ -127,15 +124,12 @@
     <div class="container">
       <div class="landing--video">
         <div class="responsive_video">
-          <iframe id="player" frameborder="0" allowfullscreen="1"
-                  title="YouTube video player" width="640" height="390"
-                  src="https://www.youtube.com/embed/h5T2gRGcMso?enablejsapi=1&amp;origin=https%3A%2F%2Flykke.com&amp;widgetid=1"></iframe>
+          <div id="player"></div>
           <!--<iframe width="100%" id="video" height="315" src="https://www.youtube.com/embed/h5T2gRGcMso?enablejsapi=1" frameborder="0" allowfullscreen></iframe>-->
         </div>
 
         <button class="btn_video" id="btn_video">
-            <span class="btn_video__icon"><img src="/img/play.svg" width="50"
-                                               alt=""></span>
+          <span class="btn_video__icon"><img src="img/play.svg" width="50" alt=""></span>
           <span class="btn_video__text">WATCH VIDEO</span>
         </button>
       </div>
@@ -374,3 +368,40 @@
     </div>
   </section>
 </article>
+
+<script>
+  var tag = document.createElement('script');
+
+  tag.src = "https://www.youtube.com/iframe_api";
+  var firstScriptTag = document.getElementsByTagName('script')[0];
+  firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+
+
+  var player;
+
+  function onYouTubeIframeAPIReady() {
+    player = new YT.Player('player', {
+      videoId : 'h5T2gRGcMso',
+      height: '390',
+      width: '640',
+      events: {
+        'onReady': onPlayerReady
+      }
+    });
+  }
+
+  function onPlayerReady(event) {
+
+    // bind events
+    var playButton = document.getElementById("btn_video");
+    playButton.addEventListener("click", function() {
+      player.playVideo();
+
+      console.log('play')
+
+      $('.landing--video').addClass('video_played');
+    });
+
+  }
+</script>
+
