@@ -19,9 +19,9 @@ class PagesUrlRule extends CompositeUrlRule {
 
   protected function createRules() {
     $cache = \Yii::$app->get($this->cacheComponent)->get($this->cacheID);
-    if (!empty($cache)) {
+    /*if (!empty($cache)) {
       return $cache;
-    }
+    }*/
 
     $pages = SitePages::find()->asArray(TRUE)->all();
 
@@ -40,7 +40,7 @@ class PagesUrlRule extends CompositeUrlRule {
 
       $rules[] = $rule;
     }
-
+    
     $cd = new DbDependency();
     $cd->sql = 'SELECT MAX(id) FROM ' . SitePages::tableName();
 

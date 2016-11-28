@@ -28,7 +28,7 @@ function openKCFinder(div) {
             div.parent().parent().find('.imgFinder').attr('src', url);
         }
     };
-    window.open('/backend/web/js/plugins/tinymce/kcfinder/browse.php?type=image&dir=/userfiles/image',
+    window.open('/backend/web/js/plugins/tinymce/kcfinder/browse.php?type=image&dir=/frontend/web/userfiles',
         'kcfinder_image', 'status=0, toolbar=0, location=0, menubar=0, ' +
         'directories=0, resizable=1, scrollbars=0, width=800, height=600'
     );

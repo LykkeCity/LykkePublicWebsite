@@ -77,7 +77,7 @@ AppAsset::register($this);
           <li role="presentation" class="<?= UrlHelper::isActive('pages'); ?>">
             <a href="<?= UrlHelper::to(['/pages']) ?>">Страницы</a></li>
           <li role="presentation"
-              class="<?= UrlHelper::isActive('site/users'); ?>"><a
+              class="<?= UrlHelper::isActive('blog/index'); ?>"><a
               href="<?= UrlHelper::to(['/blog/']) ?>">Блог</a></li>
           <li role="presentation"
               class="<?= UrlHelper::isActive('site/users'); ?>"><a

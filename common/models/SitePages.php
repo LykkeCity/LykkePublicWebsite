@@ -4,27 +4,8 @@ namespace common\models;
 
 use Yii;
 
-/**
- * This is the model class for table "site_pages".
- *
- * @property integer $id
- * @property string $name
- * @property string $url
- * @property string $content
- * @property integer $parent
- * @property string $datetime
- * @property string $title
- * @property string $keywords
- * @property string $description
- * @property integer $author
- * @property string $route
- * @property integer $published
- * @property integer $in_menu
- */
 class SitePages extends \yii\db\ActiveRecord {
-  /**
-   * @inheritdoc
-   */
+
   public static function tableName() {
     return 'site_pages';
   }
@@ -90,12 +71,8 @@ class SitePages extends \yii\db\ActiveRecord {
 
 
   public function InsertOrUpdate($post, $id = '') {
-    if (empty($id)) {
-      $page = new SitePages();
-    }
-    else {
-      $page = SitePages::findOne($id);
-    }
+
+    $page = empty($id) ? new SitePages() : SitePages::findOne($id);
 
 
     $page->name = $post['name'];
@@ -110,6 +87,7 @@ class SitePages extends \yii\db\ActiveRecord {
     $page->route = $post['controller'] . '/' . $post['action'];
     $page->published = !isset($post['published']) ? 0 : $post['published'];
     $page->in_menu = !isset($post['in_menu']) ? 0 : $post['in_menu'];
+    $page->template = $post['template'];
 
     return $page->save() ? $page : FALSE;
 

@@ -132,6 +132,12 @@ else {
                  id="input-action"
                  value="index">
         </div>
+        <div class="form-group">
+          <label for="input-template">Шаблон</label>
+          <input name="template" type="text" class="form-control input-sm"
+                 id="input-template"
+                 value="index">
+        </div>
       </div>
     </div>
   </div>

@@ -13,7 +13,7 @@ $this->title = 'Главная';
        class="btn btn-block btn-default">Добавить страницу</a>
   </div>
   <div class="col-md-3 margin-b">
-    <a type="button" class="btn btn-block btn-default">Добавить пост</a>
+    <a  href="<?= UrlHelper::to(['blog/add']) ?>" type="button" class="btn btn-block btn-default">Добавить пост</a>
   </div>
   <div class="col-md-3 margin-b">
     <a type="button" class="btn btn-block btn-default">Добавить пользователя</a>

@@ -22,7 +22,7 @@ $_CONFIG = array(
 // GENERAL SETTINGS
 
     'disabled' => false,
-    'uploadURL' => "/userfiles",
+    'uploadURL' => "/frontend/web/userfiles",
     'uploadDir' => "",
     'theme' => "default",
 

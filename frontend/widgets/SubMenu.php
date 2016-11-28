@@ -17,6 +17,7 @@ class SubMenu extends Widget {
 
   public $parentId;
 
+
   function run() {
     if (!empty($this->parentId)) {
 
@@ -24,9 +25,9 @@ class SubMenu extends Widget {
         ->select(['name', 'url'])
         ->where(['parent' => $this->parentId])
         ->all();
-      
-      $currentUri = ltrim(UrlHelper::to(), '/');
 
+      $currentUri = ltrim(UrlHelper::to(), '/');
+      
       MainMenu::$parentId = $this->parentId;
 
       return $this->render('SubMenu', compact('subMenu', 'currentUri'));

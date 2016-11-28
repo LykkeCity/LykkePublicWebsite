@@ -4,10 +4,10 @@
 namespace backend\controllers;
 
 
+use frontend\controllers\AppController;
 use yii\filters\AccessControl;
-use yii\web\Controller;
 
-class IndexController extends Controller{
+class IndexController extends AppController{
 
   public function behaviors() {
     return [
@@ -35,6 +35,7 @@ class IndexController extends Controller{
 
 
   function actionIndex () {
+
     return $this->render('index');
   }
 

@@ -43,6 +43,7 @@ return [
             'enablePrettyUrl' => true,
             'showScriptName' => false,
             'rules' => [
+              'city/blog/<post_url:\w+>' => 'blog/index',
               ['class' => 'frontend\components\Pages\PagesUrlRule'],
               ['class' => 'frontend\components\Pages\StrictParseRequest']
             ],
