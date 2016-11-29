@@ -125,9 +125,6 @@ use \frontend\widgets\SubMenu;
 
 <?= Footer::widget(); ?>
 
-<script>
-  $('._add_active_exchange').addClass('active');
-</script>
 
 
 <script>
