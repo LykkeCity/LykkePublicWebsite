@@ -12,6 +12,8 @@ class SignupForm extends Model
     public $username;
     public $email;
     public $password;
+    public $firstname;
+    public $lastname;
 
 
     /**
@@ -22,16 +24,24 @@ class SignupForm extends Model
         return [
             ['username', 'trim'],
             ['username', 'required'],
-            ['username', 'unique', 'targetClass' => '\common\models\User', 'message' => 'This username has already been taken.'],
-            ['username', 'string', 'min' => 2, 'max' => 255],
+            ['username', 'unique', 'targetClass' => '\common\models\User', 'message' => 'Укажите логин (от 2 до 10 символов)'],
+            ['username', 'string', 'min' => 2, 'max' => 10],
+
+            ['firstname', 'trim'],
+            ['firstname', 'required', 'message' => 'Укажите Имя (минимум 2 символа)' ],
+            ['firstname', 'string', 'min' => 2, 'max' => 255],
+
+            ['lastname', 'trim'],
+            ['lastname', 'required', 'message' => 'Укажите Фамилию (минимум 2 символа)' ],
+            ['lastname', 'string', 'min' => 2, 'max' => 255],
 
             ['email', 'trim'],
             ['email', 'required'],
             ['email', 'email'],
             ['email', 'string', 'max' => 255],
-            ['email', 'unique', 'targetClass' => '\common\models\User', 'message' => 'This email address has already been taken.'],
+            ['email', 'unique', 'targetClass' => '\common\models\User', 'message' => 'Некорректный Email'],
 
-            ['password', 'required'],
+            ['password', 'required','message' => 'Некорректный пароль (минимум 6 символов)'],
             ['password', 'string', 'min' => 6],
         ];
     }
@@ -50,9 +60,22 @@ class SignupForm extends Model
         $user = new User();
         $user->username = $this->username;
         $user->email = $this->email;
+        $user->firstname = $this->firstname;
+        $user->lastname = $this->lastname;
         $user->setPassword($this->password);
         $user->generateAuthKey();
         
         return $user->save() ? $user : null;
+    }
+
+
+    public function attributeLabels() {
+      return [
+        'firstname' => 'Имя',
+        'lastname'  => 'Фамилия',
+        'username'  => 'Логин',
+        'email'     => 'Email',
+        'password'  => 'Пароль'
+      ];
     }
 }

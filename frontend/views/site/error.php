@@ -6,22 +6,22 @@
 /* @var $exception Exception */
 
 use yii\helpers\Html;
+use frontend\widgets\Footer;
+use \frontend\widgets\SubMenu;
 
 $this->title = $name;
 ?>
-<div class="site-error">
+<article class="content content-block container" style="padding-top: 270px;">
+  <div class="row ">
+    <div class="col-md-9 col-md-offset-1 col-sm-12 text-center">
 
-    <h1><?= Html::encode($this->title) ?></h1>
+      <h1><?= Html::encode($this->title) ?></h1>
 
-    <div class="alert alert-danger">
-        <?= nl2br(Html::encode($message)) ?>
+      <?= nl2br(Html::encode($message)) ?>
     </div>
 
-    <p>
-        The above error occurred while the Web server was processing your request.
-    </p>
-    <p>
-        Please contact us if you think this is a server error. Thank you.
-    </p>
-
+</article>
+<div style="position: absolute; bottom: 0px; width: 100%;">
+  <?= Footer::widget(); ?>
 </div>
+

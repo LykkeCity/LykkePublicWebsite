@@ -66,6 +66,11 @@ else {
         </div>
 
         <div class="form-group">
+          <label for="">Превью текст поста</label>
+          <textarea name="post_preview_text" id="editor" class="editor_basic"></textarea>
+        </div>
+
+        <div class="form-group">
           <label for="">Текст поста</label>
           <textarea name="post_text" id="editor" class="editor_full"></textarea>
         </div>

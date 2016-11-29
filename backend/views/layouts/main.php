@@ -39,9 +39,7 @@ AppAsset::register($this);
 
   if (!Yii::$app->user->isGuest) {
 
-    $menuItems = [
-      ['label' => 'Мой профиль', 'url' => ['/index']],
-    ];
+    $menuItems = [];
     $menuItems[] = '<li>'
       . Html::beginForm(['/site/logout'], 'post')
       . Html::submitButton(
@@ -80,8 +78,8 @@ AppAsset::register($this);
               class="<?= UrlHelper::isActive('blog/index'); ?>"><a
               href="<?= UrlHelper::to(['/blog/']) ?>">Блог</a></li>
           <li role="presentation"
-              class="<?= UrlHelper::isActive('site/users'); ?>"><a
-              href="<?= UrlHelper::to(['/site/users']) ?>">Пользователи</a></li>
+              class="<?= UrlHelper::isActive('user/index'); ?>"><a
+              href="<?= UrlHelper::to(['/user']) ?>">Пользователи</a></li>
         </ul>
       </div>
       <div class="col-md-9">

@@ -6,13 +6,23 @@ namespace frontend\controllers;
 
 use common\models\SitePages;
 use common\models\BlogPosts;
-use frontend\widgets\SubMenu;
 use Yii;
+use yii\web\NotFoundHttpException;
+
 class BlogController extends AppController{
 
 
+  public function actions()
+  {
+    return [
+      'error' => [
+        'class' => 'yii\web\ErrorAction',
+      ]
+    ];
+  }
+
   function actionIndex ($post_url = "") {
-    //костыль, потом убрать
+    //TODO - костыль, потом убрать
     $uri = explode('/', ltrim(Yii::$app->request->getUrl(), '/'));
     $uri = $uri[0].'/'.$uri[1];
 
@@ -28,8 +38,8 @@ class BlogController extends AppController{
       $post = BlogPosts::find()->where(['published' => 1, 'post_url' => $post_url])->one();
 
       if (empty($post))
-        Yii::$app->response->redirect('/city/blog');
-      
+        throw new NotFoundHttpException();
+
 
       return $this->render('post', ['page' => $page, 'post' => $post]);
 

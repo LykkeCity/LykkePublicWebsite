@@ -1,10 +1,4 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: Arkadiy
- * Date: 25.11.2016
- * Time: 17:58
- */
 
 namespace frontend\widgets;
 
@@ -27,7 +21,7 @@ class SubMenu extends Widget {
         ->all();
 
       $currentUri = ltrim(UrlHelper::to(), '/');
-      
+
       MainMenu::$parentId = $this->parentId;
 
       return $this->render('SubMenu', compact('subMenu', 'currentUri'));

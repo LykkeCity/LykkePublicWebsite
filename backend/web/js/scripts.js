@@ -36,6 +36,16 @@ function openKCFinder(div) {
 
 
 tinymce.init({
+    selector: ".editor_basic",
+    skin: 'light',
+    language: 'ru',
+    plugins: [
+        "searchreplace wordcount visualblocks visualchars code fullscreen insertdatetime nonbreaking, link, textcolor, colorpicker",
+    ],
+    toolbar1: "bold italic underline strikethrough | link unlink anchor | forecolor backcolor"
+});
+
+tinymce.init({
     file_browser_callback: imgManager,
     skin: 'light',
     selector: ".editor_full",
@@ -117,6 +127,9 @@ tinymce.init({
     ]
 
 });
+
+
+
 
 function translit(id, alias) {
     var space = '_';

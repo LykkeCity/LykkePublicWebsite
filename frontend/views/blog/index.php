@@ -23,7 +23,7 @@ use yii\helpers\Url;
             </div>
 
             <div class="post_text">
-              Lykke and Laboratoria Art&amp;Science Space have co-comissioned the art-object <em>silk</em>. The installation is tracking the real time changes in the market activities related to cryptocurrencies Bitcoin and Litecoin – independent and uncontrolled by any state peer-to-peer payment systems. Constantly changing currency rate of of Bitcoin against major world currencies is influencing the strain of strings in installation and the way the picks are hitting them…
+              <?=$post['post_preview_text']?>
             </div>
             <div class="post_footer">
               <a href="<?=Url::to([$page['url'].'/'.$post['post_url']])?>" class="wikilink1 blogtng_permalink">Read more</a>

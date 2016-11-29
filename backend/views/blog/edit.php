@@ -59,9 +59,14 @@ else {
           <img style="display: block;max-width: 20%;" src="<?=Yii::$app->urlManager->hostInfo.'/media/blog/'.$post['post_img']?>">
         </div>
         <div class="form-group">
-          <label for="input-post-img">Измменить изображение</label>
+          <label for="input-post-img">Изменить изображение</label>
           <input type="file" name="post_img" class="form-control input-sm"
                  id="input-post-img">
+        </div>
+
+        <div class="form-group">
+          <label for="">Превью текст поста</label>
+          <textarea name="post_preview_text" id="editor" class="editor_basic"><?=$post['post_preview_text']?></textarea>
         </div>
 
         <div class="form-group">

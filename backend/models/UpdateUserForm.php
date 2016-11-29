@@ -4,10 +4,8 @@ namespace backend\models;
 use yii\base\Model;
 use common\models\User;
 
-/**
- * Signup form
- */
-class SignupForm extends Model
+
+class UpdateUserForm extends Model
 {
     public $username;
     public $email;
@@ -24,7 +22,6 @@ class SignupForm extends Model
         return [
             ['username', 'trim'],
             ['username', 'required'],
-            ['username', 'unique', 'targetClass' => '\common\models\User', 'message' => 'Укажите логин (от 2 до 10 символов)'],
             ['username', 'string', 'min' => 2, 'max' => 10],
 
             ['firstname', 'trim'],
@@ -39,33 +36,30 @@ class SignupForm extends Model
             ['email', 'required'],
             ['email', 'email'],
             ['email', 'string', 'max' => 255],
-            ['email', 'unique', 'targetClass' => '\common\models\User', 'message' => 'Некорректный Email'],
 
-            ['password', 'required','message' => 'Некорректный пароль (минимум 6 символов)'],
-            ['password', 'string', 'min' => 6],
+            ['password', 'string', 'min' => 6, 'message' => 'Некорректный пароль (минимум 6 символов)'],
         ];
     }
 
-    /**
-     * Signs user up.
-     *
-     * @return User|null the saved model or null if saving fails
-     */
-    public function signup()
+
+    public function upadate($id)
     {
         if (!$this->validate()) {
             return null;
         }
-        
-        $user = new User();
+
+        $user = User::find()->where(['id'=>$id])->one();
         $user->username = $this->username;
         $user->email = $this->email;
         $user->firstname = $this->firstname;
         $user->lastname = $this->lastname;
-        $user->setPassword($this->password);
-        $user->generateAuthKey();
-        
-        return $user->save() ? $user : null;
+
+        if (!empty($this->password)) {
+          $user->setPassword($this->password);
+          $user->generateAuthKey();
+        }
+
+        return $user->save() ? $user : false;
     }
 
 
