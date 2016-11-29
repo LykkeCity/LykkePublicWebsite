@@ -53,6 +53,9 @@ class BlogController extends Controller{
 
   public function actionAdd() {
 
+    $result = null;
+    $blogPost = null;
+
     if (Yii::$app->request->isPost) {
       $model = new BlogPosts();
       $blogPost = $model->InsertOrUpdate(Yii::$app->request->post());
@@ -63,6 +66,8 @@ class BlogController extends Controller{
   }
 
   public function actionEdit($id) {
+
+    $result = null;
 
     if (empty($id))
       $this->redirect('index');

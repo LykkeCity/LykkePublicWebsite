@@ -45,6 +45,9 @@ class PagesController extends Controller {
 
   public function actionAdd() {
 
+    $result = null;
+    $page = null;
+
     if (Yii::$app->request->isPost) {
       $model = new SitePages();
       $page = $model->InsertOrUpdate(Yii::$app->request->post());
@@ -58,6 +61,8 @@ class PagesController extends Controller {
   }
 
   public function actionEdit($id) {
+
+    $result = null;
 
     if (empty($id))
       $this->redirect('index');

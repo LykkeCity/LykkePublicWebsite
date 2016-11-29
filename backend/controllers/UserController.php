@@ -70,6 +70,9 @@ class UserController  extends  Controller{
   }
 
   function actionEdit ($id){
+
+    $result = null;
+
     $modelUser = new User();
     $model = new UpdateUserForm();
 
