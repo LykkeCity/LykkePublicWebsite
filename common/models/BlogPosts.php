@@ -13,7 +13,7 @@ class BlogPosts extends \yii\db\ActiveRecord {
 
 
   public function InsertOrUpdate($post, $id = '') {
-
+    $resultUpload = null;
 
     $blogPost = empty($id) ? new BlogPosts() : BlogPosts::findOne($id);
 
