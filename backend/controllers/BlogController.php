@@ -54,7 +54,7 @@ class BlogController extends Controller{
   public function actionAdd() {
 
     $result = null;
-    $blogPostId = null; 
+    $blogPostId = null;
 
     if (Yii::$app->request->isPost) {
       $model = new BlogPosts();
