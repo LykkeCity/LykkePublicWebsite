@@ -46,16 +46,17 @@ class PagesController extends Controller {
   public function actionAdd() {
 
     $result = null;
-    $page = null;
+    $pageid = null;
 
     if (Yii::$app->request->isPost) {
       $model = new SitePages();
       $page = $model->InsertOrUpdate(Yii::$app->request->post());
       $result = $page ? 'success' : 'error';
+      $pageid = $page->id;
     }
 
     return $this->render('add', ['result'  => $result,
-                                 'id'      => $page->id,
+                                 'id'      => $pageid,
                                  'parents' => SitePages::find()->where(['parent' => ''])->all()
     ]);
   }

@@ -54,15 +54,16 @@ class BlogController extends Controller{
   public function actionAdd() {
 
     $result = null;
-    $blogPost = null;
+    $blogPostId = null;
 
     if (Yii::$app->request->isPost) {
       $model = new BlogPosts();
       $blogPost = $model->InsertOrUpdate(Yii::$app->request->post());
       $result = $blogPost ? 'success' : 'error';
+      $blogPostId = $blogPost->id;
     }
 
-    return $this->render('add', ['result'  => $result, 'id' => $blogPost->id,]);
+    return $this->render('add', ['result'  => $result, 'id' => $blogPostId]);
   }
 
   public function actionEdit($id) {
