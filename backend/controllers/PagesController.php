@@ -14,10 +14,10 @@ class PagesController extends Controller {
     return [
       'access' => [
         'class' => AccessControl::className(),
-        'only'  => ['index', 'add', 'edit'],
+        'only'  => ['index', 'add', 'edit', 'inlinesave'],
         'rules' => [
           [
-            'actions' => ['index', 'add', 'edit'],
+            'actions' => ['index', 'add', 'edit', 'inlinesave'],
             'allow'   => TRUE,
             'roles'   => ['@'],
           ],
@@ -26,8 +26,9 @@ class PagesController extends Controller {
       'verbs'  => [
         'class'   => VerbFilter::className(),
         'actions' => [
-          'add'  => ['post', 'get'],
-          'edit' => ['post', 'get'],
+          'add'        => ['post', 'get'],
+          'edit'       => ['post', 'get'],
+          'inlinesave' => ['post'],
         ],
       ],
     ];
@@ -91,8 +92,18 @@ class PagesController extends Controller {
   public function actionDeleted ($id){
     $page = SitePages::findOne($id);
     $page->delete();
-    
     $this->redirect('index');
+  }
+
+  function actionInlinesave () {
+    if (Yii::$app->request->isAjax){
+      if (Yii::$app->request->isPost){
+        $page = SitePages::findOne(Yii::$app->request->post('id'));
+        $page->content = Yii::$app->request->post('content');
+        return $page->save() ? 'success' : 'fail';
+      }
+    }
+
   }
 
 }

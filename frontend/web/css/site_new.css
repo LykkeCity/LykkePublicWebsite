@@ -1836,3 +1836,7 @@ hr.full { margin-left: 0; margin-right: 0; width: 100%; }
     margin-left: 28px !important;
     font-size: 20px;
 }
+
+.mce-floatpanel.mce-fixed{
+    box-shadow: 2px 4px 12px;
+}

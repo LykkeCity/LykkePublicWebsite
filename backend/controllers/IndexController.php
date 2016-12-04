@@ -6,6 +6,7 @@ namespace backend\controllers;
 
 use frontend\controllers\AppController;
 use yii\filters\AccessControl;
+use yii;
 
 class IndexController extends AppController{
 
@@ -35,7 +36,6 @@ class IndexController extends AppController{
 
 
   function actionIndex () {
-
     return $this->render('index');
   }
 

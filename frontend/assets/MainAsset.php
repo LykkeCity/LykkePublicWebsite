@@ -41,6 +41,7 @@ class MainAsset extends AssetBundle
     'js/jquery.inview.min.js',
     'js/jquery.royalslider.custom.min.js',
     'js/jquery.ajaxchimp.min.js',
+    'js/plugins/tinymce/tinymce.min.js',
     'js/functions.js',
   ];
   

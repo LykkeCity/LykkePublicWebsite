@@ -4,6 +4,7 @@
 /* @var $content string */
 
 use frontend\assets\MainAsset;
+use frontend\widgets\Frontend_Admin;
 use frontend\widgets\MainMenu;
 use frontend\widgets\Social;
 use yii\helpers\Html;
@@ -82,7 +83,11 @@ use common\widgets\Alert;
     </div>
   </header>
 
-  <?= $content ?>
+    <?=Frontend_Admin::widget();?>
+
+
+      <?= $content ?>
+
 
   <?php $this->endBody() ?>
   </body>

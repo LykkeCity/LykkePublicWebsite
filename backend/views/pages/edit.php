@@ -57,8 +57,24 @@ else {
 
         <div class="row">
           <div class="col-sm-12">
-            <textarea name="content" id="editor"
-                      class="editor_full"><?= $page['content'] ?></textarea>
+
+            <div>
+
+              <!-- Nav tabs -->
+              <ul class="nav nav-tabs" role="tablist">
+                <li role="presentation" class="active change_editor"><a href="#editor_view"  role="tab" data-toggle="tab">Визуальный редактор</a></li>
+                <li role="presentation" class="change_editor_html"><a href="#editor_view"  role="tab" data-toggle="tab">HTML редактор</a></li>
+              </ul>
+
+              <!-- Tab panes -->
+              <div class="tab-content">
+                <div role="tabpanel" class="tab-pane active" id="editor_view">
+                   <textarea style="width: 100%" name="content" id="editor" class="editor_full"><?= $page['content'] ?></textarea>
+                </div>
+              </div>
+
+            </div>
+
           </div>
         </div>
 
