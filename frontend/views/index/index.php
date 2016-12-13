@@ -5,43 +5,6 @@
 
 
 <script>
-  var tag = document.createElement('script');
-
-  tag.src = "https://www.youtube.com/iframe_api";
-  var firstScriptTag = document.getElementsByTagName('script')[0];
-  firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
-
-
-  var player;
-
-  function onYouTubeIframeAPIReady() {
-    player = new YT.Player('player', {
-      videoId : 'h5T2gRGcMso',
-      height: '390',
-      width: '640',
-      events: {
-        'onReady': onPlayerReady
-      }
-    });
-  }
-
-  function onPlayerReady(event) {
-
-    // bind events
-    var playButton = document.getElementById("btn_video");
-    playButton.addEventListener("click", function() {
-      player.playVideo();
-
-      console.log('play')
-
-      $('.landing--video').addClass('video_played');
-    });
-
-  }
-</script>
-
-
-<script>
 
   var RatesData=[];
   var GetAskPrice=function(ticker){

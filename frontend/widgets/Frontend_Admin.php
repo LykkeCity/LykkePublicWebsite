@@ -16,8 +16,8 @@ class Frontend_Admin extends Widget{
 
   public function run() {
     if (!Yii::$app->user->isGuest){
-      Yii::$app->view->registerCssFile('css/frontend-admin.css');
-      Yii::$app->view->registerJsFile('js/frontend-admin.js');
+      Yii::$app->view->registerCssFile('/css/frontend-admin.css');
+      Yii::$app->view->registerJsFile('/js/frontend-admin.js');
       return $this->render('Frontend_Admin');
     }
 

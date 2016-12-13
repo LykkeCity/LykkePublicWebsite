@@ -121,6 +121,11 @@ else {
                    value="1"> В меню
           </label>
         </div>
+        <div class="checkbox">
+          <label>
+            <input name="normal_tpl" type="checkbox" <?= $page['normal_tpl'] == 1 ? 'checked="checked"' : '';?>  value="1"> Обычный шаблон
+          </label>
+        </div>
         <div class="form-group">
           <label for="input-date">Родительская страница</label>
           <select name="parent" class="form-control">

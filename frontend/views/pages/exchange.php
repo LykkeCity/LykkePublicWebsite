@@ -8,9 +8,12 @@ use \frontend\widgets\SubMenu;
 
   <div class="row section--padding">
     <div class="col-sm-10 col-md-8 automargin">
-      <?= $page['content'] ?>
 
-      <h3 class="h3-alt">Market Data</h3>
+      <div class="inline-edit" data-page-id="<?=Yii::$app->controller->pageId?>">
+        <?= $page['content'] ?>
+      </div>
+
+
 
       <div class="table-header">
         <div id="ratestime"

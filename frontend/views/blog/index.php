@@ -8,7 +8,7 @@ use yii\helpers\Url;
     <?= SubMenu::widget(['parentId' => $page['parent'] == "" ? $page['id'] : $page['parent']]) ?>
 
     <div class="row ">
-      <div class="blog col-md-9 col-md-offset-1 col-sm-12">
+      <div class="blog col-md-9 automargin col-sm-12">
         <?= $page['content'] ?>
 
 

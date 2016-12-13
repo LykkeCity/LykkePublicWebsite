@@ -42,6 +42,8 @@ class MainAsset extends AssetBundle
     'js/jquery.royalslider.custom.min.js',
     'js/jquery.ajaxchimp.min.js',
     'js/plugins/tinymce/tinymce.min.js',
+    'https://www.youtube.com/iframe_api',
+    'js/YouTube.js',
     'js/functions.js',
   ];
   

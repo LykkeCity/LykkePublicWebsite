@@ -1,4 +1,3 @@
-// CODE ========================
 
 var wH = $(window).height(),
     wW = $(window).width(),
