@@ -7,7 +7,7 @@ $this->params['breadcrumbs'][] = $this->title;
 
 <div class="row">
   <div class="col-sm-12">
-    <a href="<?= UrlHelper::to(['/pages/add']) ?>"
+    <a href="<?= UrlHelper::to(['/page/add']) ?>"
        class="btn btn-primary btn-xs pull-right">
       <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
       Добавить страницу
@@ -29,12 +29,12 @@ $this->params['breadcrumbs'][] = $this->title;
       <td><?= $page['id'] ?></td>
       <td><?= $page['name'] ?></td>
       <td>
-        <a href="<?= UrlHelper::to(['/pages/edit', 'id' => $page['id']]) ?>"
+        <a href="<?= UrlHelper::to(['/page/edit', 'id' => $page['id']]) ?>"
            class="btn btn-primary btn-xs" data-toggle="tooltip"
            data-placement="top" title="Редактровать">
           <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>
         </a>
-        <a href="<?= UrlHelper::to(['/pages/deleted', 'id' => $page['id']]) ?>"
+        <a href="<?= UrlHelper::to(['/page/deleted', 'id' => $page['id']]) ?>"
            class="btn btn-danger btn-xs action-delete"
            data-toggle="tooltip" data-placement="top" title="Удалить">
           <span class="glyphicon glyphicon-trash" aria-hidden="true"></span>
@@ -49,7 +49,7 @@ $this->params['breadcrumbs'][] = $this->title;
           <td><?= $sub_page['name'] ?></td>
           <td>
             <a href="<?= UrlHelper::to([
-              '/pages/edit',
+              '/page/edit',
               'id' => $sub_page['id']
             ]) ?>"
                class="btn btn-primary btn-xs" data-toggle="tooltip"
@@ -58,7 +58,7 @@ $this->params['breadcrumbs'][] = $this->title;
                     aria-hidden="true"></span>
             </a>
             <a href="<?= UrlHelper::to([
-              '/pages/deleted',
+              '/page/deleted',
               'id' => $sub_page['id']
             ]) ?>" class="btn btn-danger btn-xs action-delete"
                data-toggle="tooltip" data-placement="top" title="Удалить">

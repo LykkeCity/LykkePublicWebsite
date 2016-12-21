@@ -1,6 +1,8 @@
 <?
+use frontend\widgets\AssetPairs;
 use frontend\widgets\Footer;
 use \frontend\widgets\SubMenu;
+use yii\helpers\Url;
 
 ?>
 <article class="content content-block container">
@@ -16,18 +18,11 @@ use \frontend\widgets\SubMenu;
 
 
       <div class="table-header">
-        <div id="ratestime"
-             class="pull-right text-muted marked-data hidden-xs"></div>
+        <div id="ratestime" class="pull-right text-muted marked-data hidden-xs"></div>
         <ul class="nav nav-tabs" role="tablist">
-          <li role="presentation" class="active"><a href="#tab_usd"
-                                                    aria-controls="tab_usd"
-                                                    role="tab"
-                                                    data-toggle="tab">USD</a>
-          </li>
-          <li role="presentation"><a href="#tab_chf" aria-controls="tab_chf"
-                                     role="tab" data-toggle="tab">CHF</a></li>
-          <li role="presentation"><a href="#tab_btc" aria-controls="tab_btc"
-                                     role="tab" data-toggle="tab">BTC</a></li>
+          <li role="presentation" class="active"><a href="#tab_usd" aria-controls="tab_usd" role="tab" data-toggle="tab">USD</a></li>
+          <li role="presentation"><a href="#tab_chf" aria-controls="tab_chf" role="tab" data-toggle="tab">CHF</a></li>
+          <li role="presentation"><a href="#tab_btc" aria-controls="tab_btc" role="tab" data-toggle="tab">BTC</a></li>
         </ul>
       </div>
 
@@ -35,94 +30,20 @@ use \frontend\widgets\SubMenu;
       <div class="tab-content">
         <div role="tabpanel" class="tab-pane active" id="tab_usd">
           <div class="table-responsive" id="RatesTableUSD">
-            <table class="table">
-              <tbody>
-              <tr>
-                <th>Asset pair</th>
-                <th>Asset1</th>
-                <th>Asset2</th>
-                <th>Bid price</th>
-                <th>Ask price</th>
-              </tr>
-              <tr>
-                <td>BTCCHF</td>
-                <td>
-                  <div
-                  ">BTC
-          </div">
-          </td>
-          <td><a href="exchange_CHF.php">CHF</a></td>
-          <td>737.607</td>
-          <td>737.854</td>
-          </tr>
-          <tr>
-            <td>CHFJPY</td>
-            <td>
-              <div
-              ">CHF
-        </div">
-        </td>
-        <td><a href="exchange_JPY.php">JPY</a></td>
-        <td>111.037</td>
-        <td>111.057</td>
-        </tr>
-        <tr>
-          <td>EURCHF</td>
-          <td><a href="exchange_EUR.php">EUR</a></td>
-          <td><a href="exchange_CHF.php">CHF</a></td>
-          <td>1.0758</td>
-          <td>1.07593</td>
-        </tr>
-        <tr>
-          <td>GBPCHF</td>
-          <td><a href="exchange_GBP.php">GBP</a></td>
-          <td><a href="exchange_CHF.php">CHF</a></td>
-          <td>1.26056</td>
-          <td>1.26084</td>
-        </tr>
-        <tr>
-          <td>LKKCHF</td>
-          <td><a href="exchange_LKK.php">LKK</a></td>
-          <td><a href="exchange_CHF.php">CHF</a></td>
-          <td>0.04673</td>
-          <td>0.04713</td>
-        </tr>
-        <tr>
-          <td>OTCBCCHF</td>
-          <td><a href="exchange_OTC.php">OTC</a></td>
-          <td><a href="exchange_BCC.php">BCC</a></td>
-          <td>149.5</td>
-          <td>150.5</td>
-        </tr>
-        <tr>
-          <td>RRBCHF</td>
-          <td><a href="exchange_RRB.php">RRB</a></td>
-          <td><a href="exchange_CHF.php">CHF</a></td>
-          <td>61.15893</td>
-          <td>61.78308</td>
-        </tr>
-        <tr>
-          <td>USDCHF</td>
-          <td><a href="exchange_USD.php">USD</a></td>
-          <td><a href="exchange_CHF.php">CHF</a></td>
-          <td>1.00919</td>
-          <td>1.00928</td>
-        </tr>
-        </tbody>
-        </table>
-
+            <?= AssetPairs::widget(['asset' => "USD", 'pageUrl' => $page['url']]) ?>
+          </div>
+        </div>
+        <div role="tabpanel" class="tab-pane" id="tab_chf">
+          <div class="table-responsive" id="RatesTableCHF">
+            <?= AssetPairs::widget(['asset' => "CHF", 'pageUrl' => $page['url']]) ?>
+          </div>
+        </div>
+        <div role="tabpanel" class="tab-pane" id="tab_btc">
+          <div class="table-responsive" id="RatesTableBTC">
+            <?= AssetPairs::widget(['asset' => "BTC", 'pageUrl' => $page['url']]) ?>
+          </div>
+        </div>
       </div>
-    </div>
-    <div role="tabpanel" class="tab-pane" id="tab_chf">
-      <div class="table-responsive" id="RatesTableCHF"></div>
-    </div>
-    <div role="tabpanel" class="tab-pane" id="tab_btc">
-      <div class="table-responsive" id="RatesTableBTC"></div>
-    </div>
-  </div>
-
-  </div>
-  </div>
 
 </article>
 

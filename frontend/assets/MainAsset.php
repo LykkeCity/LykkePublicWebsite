@@ -13,15 +13,6 @@ class MainAsset extends AssetBundle
 
     $this->jsOptions['position'] = View::POS_HEAD;
 
-    if (Yii::$app->request->url == Yii::$app->homeUrl
-      || Yii::$app->request->url == '/city'
-      || Yii::$app->request->url == '/corp'
-    ) {
-      $this->css[] = '/css/site_new.css';
-    }else{
-      $this->css[] = '/css/site.css';
-    }
-
     parent::init();
 
   }
@@ -31,7 +22,8 @@ class MainAsset extends AssetBundle
   public $baseUrl = '@web';
 
   public $css = [
-    'css/bootstrap.min.css'
+    'css/bootstrap.min.css',
+    '/css/site.css'
   ];
 
   public $js = [

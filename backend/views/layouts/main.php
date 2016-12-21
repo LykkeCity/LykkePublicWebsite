@@ -72,11 +72,14 @@ AppAsset::register($this);
         <ul class="nav nav-pills nav-stacked">
           <li role="presentation" class="<?= UrlHelper::isActive('index'); ?>">
             <a href="<?= UrlHelper::to(['/']) ?>">Главная</a></li>
-          <li role="presentation" class="<?= UrlHelper::isActive('pages'); ?>">
-            <a href="<?= UrlHelper::to(['/pages']) ?>">Страницы</a></li>
+          <li role="presentation" class="<?= UrlHelper::isActive('page'); ?>">
+            <a href="<?= UrlHelper::to(['/page']) ?>">Страницы</a></li>
           <li role="presentation"
               class="<?= UrlHelper::isActive('blog/index'); ?>"><a
               href="<?= UrlHelper::to(['/blog/']) ?>">Блог</a></li>
+          <li role="presentation"
+              class="<?= UrlHelper::isActive('asset/index'); ?> <?= UrlHelper::isActive('asset/pair'); ?>"><a
+              href="<?= UrlHelper::to(['/asset']) ?>">Активы</a></li>
           <li role="presentation"
               class="<?= UrlHelper::isActive('user/index'); ?>"><a
               href="<?= UrlHelper::to(['/user']) ?>">Пользователи</a></li>

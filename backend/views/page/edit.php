@@ -2,7 +2,7 @@
 use backend\components\helpers\UrlHelper;
 
 $this->title = 'Редактировать страницу';
-$this->params['breadcrumbs'][] = ['label' => 'Страницы', 'url' => ['/pages/']];
+$this->params['breadcrumbs'][] = ['label' => 'Страницы', 'url' => ['/page/']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 
@@ -27,11 +27,11 @@ else {
               class="btn btn-xs btn-success">
         Сохранить
       </button>
-      <a href="<?= UrlHelper::to(['/pages/add']) ?>"
+      <a href="<?= UrlHelper::to(['/page/add']) ?>"
          class="btn btn-xs btn-primary">
         Создать новую
       </a>
-      <a href="<?= UrlHelper::to(['/pages']) ?>"
+      <a href="<?= UrlHelper::to(['/page']) ?>"
          class="btn btn-xs btn-warning">
         Отмена
       </a>

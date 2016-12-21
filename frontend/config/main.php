@@ -44,6 +44,7 @@ return [
             'showScriptName' => false,
             'rules' => [
               'city/blog/<post_url:\w+>' => 'blog/index',
+              'exchange/<asset:\w+>' => 'exchange/index',
               ['class' => 'frontend\components\Pages\PagesUrlRule'],
               ['class' => 'frontend\components\Pages\StrictParseRequest']
             ],
