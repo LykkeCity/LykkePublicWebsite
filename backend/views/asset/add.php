@@ -17,7 +17,7 @@ else {
     <div class="alert alert-success text-center">
       <p><b>Актив успешно добавлен!</b></p>
       <br>
-      <a href="<?= UrlHelper::to(['asset/edit', 'id' => $assetId]) ?>"
+      <a href="<?= UrlHelper::to(['asset/edit', 'id' => $id]) ?>"
          class="btn btn-xs btn-success">
         Редактировать
       </a>

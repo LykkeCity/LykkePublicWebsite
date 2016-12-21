@@ -42,8 +42,9 @@ class AssetController  extends Controller{
   }
 
   function actionIndex(){
+    $result = null;
     $assets = Asset::find()->all();
-    return $this->render('index', ['assets' => $assets]);
+    return $this->render('index', ['assets' => $assets, 'result'  => $result]);
   }
 
   function actionAdd(){
