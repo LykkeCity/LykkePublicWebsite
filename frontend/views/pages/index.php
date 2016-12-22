@@ -3,21 +3,24 @@ use frontend\widgets\Footer;
 use \frontend\widgets\SubMenu;
 
 ?>
-<article class="content content-block">
-  <?= SubMenu::widget(['parentId' => $page['parent'] == "" ? $page['id'] : $page['parent']]) ?>
 
-  <? if ($page['normal_tpl'] == 1) {?>
-    <div class="inline-edit row section--padding" data-page-id="<?=Yii::$app->controller->pageId?>">
-      <div class="col-sm-8 automargin">
-        <?=$page['content']?>
+
+  <article class="content">
+    <?= SubMenu::widget(['parentId' => $page['parent'] == "" ? $page['id'] : $page['parent']]) ?>
+
+    <section class="text section--padding">
+      <div class="container">
+        <div class="row">
+          <div class="<?= $page['normal_tpl'] == 1 ? 'col-sm-8 automargin' : ''?>">
+            <div class="inline-edit" data-page-id="<?=Yii::$app->controller->pageId?>">
+              <?=$page['content']?>
+            </div>
+          </div>
+        </div>
       </div>
-    </div>
-  <? }else{?>
-    <div class="inline-edit section--padding" data-page-id="<?=Yii::$app->controller->pageId?>">
-      <?=$page['content']?>
-    </div>
-  <?  } ?>
+    </section>
 
-</article>
+  </article>
+
 
 <?= Footer::widget(); ?>

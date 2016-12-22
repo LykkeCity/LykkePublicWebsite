@@ -1,4 +1,4 @@
-<nav class="page_nav">
+<nav class="page_nav page__nav">
   <div class="page_nav__inner">
     <div class="container">
       <ul class="page_nav__list">

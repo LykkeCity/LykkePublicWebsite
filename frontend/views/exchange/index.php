@@ -5,45 +5,52 @@ use \frontend\widgets\SubMenu;
 use yii\helpers\Url;
 
 ?>
-<article class="content content-block container">
+
+<article class="content">
   <?= SubMenu::widget(['parentId' => $page['parent'] == "" ? $page['id'] : $page['parent']]) ?>
 
-  <div class="row section--padding">
-    <div class="col-sm-10 col-md-8 automargin">
+  <section class="exchange section--padding">
+    <div class="container">
+      <div class="row">
 
-      <div class="inline-edit" data-page-id="<?=Yii::$app->controller->pageId?>">
-        <?= $page['content'] ?>
-      </div>
+        <div class="col-sm-10 col-md-8 automargin">
 
-
-
-      <div class="table-header">
-        <div id="ratestime" class="pull-right text-muted marked-data hidden-xs"></div>
-        <ul class="nav nav-tabs" role="tablist">
-          <li role="presentation" class="active"><a href="#tab_usd" aria-controls="tab_usd" role="tab" data-toggle="tab">USD</a></li>
-          <li role="presentation"><a href="#tab_chf" aria-controls="tab_chf" role="tab" data-toggle="tab">CHF</a></li>
-          <li role="presentation"><a href="#tab_btc" aria-controls="tab_btc" role="tab" data-toggle="tab">BTC</a></li>
-        </ul>
-      </div>
-
-      <!-- Tab panes -->
-      <div class="tab-content">
-        <div role="tabpanel" class="tab-pane active" id="tab_usd">
-          <div class="table-responsive" id="RatesTableUSD">
-            <?= AssetPairs::widget(['asset' => "USD", 'pageUrl' => $page['url']]) ?>
+          <div class="inline-edit" data-page-id="<?=Yii::$app->controller->pageId?>">
+            <?= $page['content'] ?>
           </div>
-        </div>
-        <div role="tabpanel" class="tab-pane" id="tab_chf">
-          <div class="table-responsive" id="RatesTableCHF">
-            <?= AssetPairs::widget(['asset' => "CHF", 'pageUrl' => $page['url']]) ?>
+
+          <div class="table-header">
+            <div id="ratestime" class="pull-right text-muted marked-data hidden-xs"></div>
+            <ul class="nav nav-tabs" role="tablist">
+              <li role="presentation" class="active"><a href="#tab_usd" aria-controls="tab_usd" role="tab" data-toggle="tab">USD</a></li>
+              <li role="presentation"><a href="#tab_chf" aria-controls="tab_chf" role="tab" data-toggle="tab">CHF</a></li>
+              <li role="presentation"><a href="#tab_btc" aria-controls="tab_btc" role="tab" data-toggle="tab">BTC</a></li>
+            </ul>
           </div>
-        </div>
-        <div role="tabpanel" class="tab-pane" id="tab_btc">
-          <div class="table-responsive" id="RatesTableBTC">
-            <?= AssetPairs::widget(['asset' => "BTC", 'pageUrl' => $page['url']]) ?>
+
+          <!-- Tab panes -->
+          <div class="tab-content">
+            <div role="tabpanel" class="tab-pane active" id="tab_usd">
+              <div class="table-responsive" id="RatesTableUSD">
+                <?= AssetPairs::widget(['asset' => "USD", 'pageUrl' => $page['url']]) ?>
+              </div>
+            </div>
+            <div role="tabpanel" class="tab-pane" id="tab_chf">
+              <div class="table-responsive" id="RatesTableCHF">
+                <?= AssetPairs::widget(['asset' => "CHF", 'pageUrl' => $page['url']]) ?>
+              </div>
+            </div>
+            <div role="tabpanel" class="tab-pane" id="tab_btc">
+              <div class="table-responsive" id="RatesTableBTC">
+                <?= AssetPairs::widget(['asset' => "BTC", 'pageUrl' => $page['url']]) ?>
+              </div>
+            </div>
           </div>
+
         </div>
       </div>
+    </div>
+  </section>
 
 </article>
 

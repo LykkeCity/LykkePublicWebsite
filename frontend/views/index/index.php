@@ -1,3 +1,7 @@
+<?php
+  $this->params['class_body'] = "page_landing"
+?>
+
 <div class="inline-edit" data-page-id="<?=Yii::$app->controller->pageId?>">
   <?=$page['content']?>
 </div>

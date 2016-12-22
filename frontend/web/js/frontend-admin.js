@@ -13,7 +13,7 @@ $(document).ready(function() {
             ],
             toolbar: 'save insertfile undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image',
             save_onsavecallback: function () {
-                $.post('/control/pages/inlinesave/', {content:this.getContent(), id:$('.inline-edit').data('page-id')}, function (data) {
+                $.post('/control/page/inlinesave/', {content:this.getContent(), id:$('.inline-edit').data('page-id')}, function (data) {
                     if (data === 'success' ) {
                         alert('Изменения успешно сохранены!');
                     }else{

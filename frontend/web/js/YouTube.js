@@ -1,7 +1,6 @@
 var player;
 
 function onYouTubeIframeAPIReady() {
-    console.log($('#player').data('video-id'));
     player = new YT.Player('player', {
         //videoId : 'h5T2gRGcMso' - home,
         //videoId : 'Le3b6km81uc' - corp,
