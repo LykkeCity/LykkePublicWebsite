@@ -87,10 +87,12 @@ class SitePages extends \yii\db\ActiveRecord {
     $page->route = $post['controller'] . '/' . $post['action'];
     $page->published = !isset($post['published']) ? 0 : $post['published'];
     $page->in_menu = !isset($post['in_menu']) ? 0 : $post['in_menu'];
+    $page->normal_tpl = !isset($post['normal_tpl']) ? 0 : $post['normal_tpl'];
     $page->template = $post['template'];
 
     return $page->save() ? $page : FALSE;
 
   }
+  
 
 }

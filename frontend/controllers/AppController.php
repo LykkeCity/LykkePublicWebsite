@@ -12,6 +12,7 @@ use Yii;
 
 class AppController  extends Controller{
 
+  public $pageId;
 
 
 }

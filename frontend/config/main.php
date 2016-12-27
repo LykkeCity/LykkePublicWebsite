@@ -20,11 +20,11 @@ return [
         'user' => [
             'identityClass' => 'common\models\User',
             'enableAutoLogin' => true,
-            'identityCookie' => ['name' => '_identity-frontend', 'httpOnly' => true],
+            'identityCookie' => ['name' => '_identity-frontend'],
         ],
         'session' => [
             // this is the name of the session cookie used for login on the frontend
-            'name' => 'advanced-frontend',
+            'name' => 'advanced',
         ],
         'log' => [
             'traceLevel' => YII_DEBUG ? 3 : 0,
@@ -44,6 +44,7 @@ return [
             'showScriptName' => false,
             'rules' => [
               'city/blog/<post_url:\w+>' => 'blog/index',
+              'exchange/<asset:\w+>' => 'exchange/index',
               ['class' => 'frontend\components\Pages\PagesUrlRule'],
               ['class' => 'frontend\components\Pages\StrictParseRequest']
             ],

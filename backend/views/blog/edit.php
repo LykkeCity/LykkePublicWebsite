@@ -46,7 +46,7 @@ else {
 
         <div class="form-group">
           <label for="input-title">Заголовок</label>
-          <input type="text" name="post_title" onkeyup="translit(this, '#input-post_url')"
+          <input type="text" name="post_title"
                  class="form-control input-sm" id="input-title" value="<?=$post['post_title']?>" required>
         </div>
         <div class="form-group">

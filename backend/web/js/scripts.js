@@ -1,6 +1,10 @@
 $(function () {
     $('[data-toggle="tooltip"]').tooltip()
-})
+});
+
+
+
+
 
 
 function imgManager(field, url, type, win) {
@@ -45,13 +49,15 @@ tinymce.init({
     toolbar1: "bold italic underline strikethrough | link unlink anchor | forecolor backcolor"
 });
 
-tinymce.init({
+
+
+var timmceOption = {
     file_browser_callback: imgManager,
     skin: 'light',
     selector: ".editor_full",
     language: 'ru',
     plugins: [
-        "advlist autolink autosave link image lists charmap print preview hr anchor pagebreak spellchecker",
+        "noneditable importcss advlist autolink autosave link image lists charmap print preview hr anchor pagebreak spellchecker",
         "searchreplace wordcount visualblocks visualchars code fullscreen insertdatetime media nonbreaking",
         "table contextmenu directionality emoticons template textcolor paste textcolor colorpicker textpattern autoresize"
     ],
@@ -126,6 +132,33 @@ tinymce.init({
 
     ]
 
+};
+var htmlEditor ;
+
+$(document).ready(function () {
+    htmlEditor = $('#editor_view').html();
+    tinymce.init(timmceOption);
+});
+
+$('.change_editor').on('click', function () {
+    $('#editor_view').html('').html(htmlEditor);
+    tinymce.init(timmceOption);
+
+});
+
+$('.change_editor_html').on('click', function () {
+
+    $('.editor_full').tinymce().remove();
+    $('#editor_view').html('').html(htmlEditor);
+    editAreaLoader.init({
+        id: "editor"	// id of the textarea to transform
+        ,start_highlight: true	// if start with highlight
+        ,language: "ru"
+        ,allow_toggle: false
+        ,syntax: "html"
+        ,min_width:700
+        ,min_height:500
+    });
 });
 
 
