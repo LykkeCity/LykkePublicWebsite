@@ -1,6 +1,7 @@
 <?
 
 use backend\components\helpers\UrlHelper;
+use yii\widgets\LinkPager;
 
 $this->title = 'Блог';
 $this->params['breadcrumbs'][] = $this->title;
@@ -45,3 +46,8 @@ $this->params['breadcrumbs'][] = $this->title;
   <? } ?>
   </tbody>
 </table>
+<?php
+echo LinkPager::widget([
+  'pagination' => $pages,
+]);
+?>

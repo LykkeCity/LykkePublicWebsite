@@ -7,6 +7,7 @@ namespace frontend\controllers;
 use common\models\SitePages;
 use common\models\BlogPosts;
 use Yii;
+use yii\data\Pagination;
 use yii\web\NotFoundHttpException;
 
 class BlogController extends AppController{
@@ -21,6 +22,13 @@ class BlogController extends AppController{
     ];
   }
 
+
+  public function beforeAction($action) {
+    $this->enableCsrfValidation = false;
+    return parent::beforeAction($action);
+  }
+
+
   function actionIndex ($post_url = "") {
     //TODO - костыль, потом убрать
     $uri = explode('/', ltrim(Yii::$app->request->getUrl(), '/'));
@@ -30,8 +38,24 @@ class BlogController extends AppController{
 
     if (empty($post_url)){
 
-      $posts = BlogPosts::find()->where(['published' => 1])->orderBy(['post_datetime' => SORT_DESC])->all();
-      return $this->render('index', ['page' => $page, 'posts' => $posts]);
+      $this->processPageRequest('page');
+
+      $posts = BlogPosts::find()->where(['published' => 1])->orderBy(['post_datetime' => SORT_DESC]);
+      $countQuery = clone $posts;
+      
+      $pages = new Pagination(['totalCount' => $countQuery->count(), 'pageSize' => 10, 'validatePage' => false]);
+      $pages->pageSizeParam = false;
+
+      $posts = $posts->offset($pages->offset)
+        ->limit($pages->limit)
+        ->all();
+
+
+      if (Yii::$app->request->isAjax){
+        return $this->renderPartial('partialBlogItem', ['page' => $page, 'posts' => $posts]);
+      }
+
+      return $this->render('index', ['page' => $page, 'posts' => $posts, 'pages' => $pages]);
 
     }else{
 

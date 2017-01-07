@@ -13,6 +13,7 @@ use common\models\BlogPosts;
 use yii\filters\AccessControl;
 use yii\filters\VerbFilter;
 use yii\web\Controller;
+use yii\data\Pagination;
 use yii;
 
 
@@ -48,7 +49,20 @@ class BlogController extends Controller{
 
 
   public function actionIndex() {
-    return $this->render('index', ['posts' => BlogPosts::find()->orderBy(['id' => SORT_DESC])->all()]);
+   $posts = BlogPosts::find()->orderBy(['id' => SORT_DESC]);
+
+    $countQuery = clone $posts;
+
+    $pages = new Pagination(['totalCount' => $countQuery->count(), 'pageSize' => 10]);
+
+    $pages->pageSizeParam = false;
+    $pages->forcePageParam = false;
+
+    $posts = $posts->offset($pages->offset)
+      ->limit($pages->limit)
+      ->all();
+
+    return $this->render('index', ['posts' => $posts,  'pages' => $pages]);
   }
 
   public function actionAdd() {

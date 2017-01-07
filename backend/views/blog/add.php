@@ -61,6 +61,7 @@ else {
 
         <div class="form-group">
           <label for="input-post-img">Изображение</label>
+          <p><small>рекомендованный размер 1170х755</small></p>
           <input type="file" name="post_img" class="form-control input-sm"
                  id="input-post-img">
         </div>

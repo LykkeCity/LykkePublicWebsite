@@ -91,6 +91,7 @@ use yii\helpers\Html;
       <?= $content ?>
 
   <?php $this->endBody() ?>
+
   </body>
   </html>
 <?php $this->endPage() ?>
