@@ -10,6 +10,7 @@ use yii\base\Widget;
 class SubMenu extends Widget {
 
   public $parentId;
+  public $backUrl;
 
 
   function run() {
@@ -23,8 +24,10 @@ class SubMenu extends Widget {
       $currentUri = ltrim(UrlHelper::to(), '/');
 
       MainMenu::$parentId = $this->parentId;
+      
+      $backUrl = $this->backUrl;
 
-      return $this->render('SubMenu', compact('subMenu', 'currentUri'));
+      return $this->render('SubMenu', compact('subMenu', 'currentUri', 'backUrl'));
     }
   }
 

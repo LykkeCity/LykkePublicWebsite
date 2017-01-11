@@ -29,5 +29,10 @@ $this->params['breadcrumbs'][] = $this->title;
 
             <?php ActiveForm::end(); ?>
         </div>
+
+
+
+      <a href="https://lykke-auth-dev.azurewebsites.net/connect/authorize?client_id=80b1a982-742d-4e37-9cb6-ba1107203711&redirect_uri=http://lykke-city/control/site/login&response_type=code&scope=openid%20profile%20email%20profile&response_mode=form_post&state=<?=Yii::$app->request->getCsrfToken()?>">Войти</a>
+
     </div>
 </div>

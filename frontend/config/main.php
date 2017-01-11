@@ -18,9 +18,12 @@ return [
             'baseUrl' => "",
         ],
         'user' => [
-            'identityClass' => 'common\models\User',
+            'identityClass' => 'common\models\LykkeUser',
             'enableAutoLogin' => true,
-            'identityCookie' => ['name' => '_identity-frontend'],
+            'identityCookie' => ['name' => '_identity-frontend']
+        ],
+        'userAccess' =>[
+          'class' => 'common\models\LykkeUserAccess'
         ],
         'session' => [
             // this is the name of the session cookie used for login on the frontend

@@ -22,6 +22,7 @@ class MainAsset extends AssetBundle
     'js/vendor/bootstrap-custom.min.js',
     'js/vendor/fastclick.min.js',
     'js/vendor/jquery.inview.min.js',
+    'js/vendor/autosize.min.js',
     'js/plugins/tinymce/tinymce.min.js',
     'https://www.youtube.com/iframe_api',
     'js/YouTube.js',

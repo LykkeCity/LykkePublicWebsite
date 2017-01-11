@@ -1,5 +1,10 @@
+<?
+use yii\helpers\Url;
+?>
+
 <ul class="nav nav--header">
-  <? foreach ($siteMenu as $item) { ?>
+  <?
+  foreach ($siteMenu as $item) { ?>
     <li
       class=" <?= $currentUri === $item['url'] ? 'active' : '' ?>">
       <a class="dropdown__control"
@@ -19,4 +24,8 @@
       <? } ?>
     </li>
   <? } ?>
+  <li class="visible-xs">
+    <hr>
+  </li>
+  <li class="visible-xs"><a href="<?=Url::to(['site/signin'])?>">Sign In</a></li>
 </ul>

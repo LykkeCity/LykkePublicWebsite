@@ -1,9 +1,6 @@
 <?
 use frontend\widgets\Footer;
 use \frontend\widgets\SubMenu;
-use yii\web\View;
-
-Yii::$app->view->registerJsFile('/js/blog.js',  ['position' => View::POS_END, 'depends' => 'frontend\assets\MainAsset']);
 
 ?>
 

@@ -24,5 +24,70 @@ $(document).ready(function(){
             });
         }
     });
+    
+    
+    $('.post-comment').on('click', function () {
+        form = $('#form-comment').serialize();
+        $.ajax({
+            url: '/blog/comment',
+            method: 'POST',
+            data: form,
+            success: function(data) {
+                if (data !== 'error') {
+                    $('.messages_list').prepend(data);
+                }else{
+                    alert(data);
+                }
+            }
+        })
+    });
+
+    var  pageComments = 1;
+
+    $('.show-more').on('click', function () {
+
+
+        var id = $(this).data('id');
+
+        $.ajax({
+            url: '/blog/show-more-comments',
+            method: 'POST',
+            data: {'page':pageComments, 'id':id},
+            beforeSend: function() {
+                $('.show-more').fadeOut();
+            }
+        }).done(function(data){
+            if (data !== '') {
+                $('.messages_list').append(data);
+                pageComments += 1;
+                $('.show-more').fadeIn();
+            }else{
+                $('.show-more').fadeOut();
+            }
+        });
+
+    });
+
+
+    $(document).on('click', '.action_link-delete', function (e) {
+
+        if (confirm("Delete?")) {
+            var id = $(this).data('id'),
+                _this = $(this);
+
+            $.ajax({
+                url: '/blog/delete-comment',
+                method: 'POST',
+                data: {'id':id},
+                success: function() {
+                    _this.parents('.message_card').fadeOut();
+                }
+            })
+        }
+
+        e.preventDefault();
+
+    });
+    
 
 });

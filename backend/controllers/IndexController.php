@@ -4,7 +4,6 @@
 namespace backend\controllers;
 
 
-use frontend\controllers\AppController;
 use yii\filters\AccessControl;
 use yii;
 

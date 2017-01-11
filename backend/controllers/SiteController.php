@@ -6,11 +6,10 @@ use yii\web\Controller;
 use yii\filters\VerbFilter;
 use yii\filters\AccessControl;
 use common\models\LoginForm;
+use common\models\LykkeUserAccess;
 
-/**
- * Site controller
- */
-class SiteController extends Controller
+
+class SiteController extends AppController
 {
     /**
      * @inheritdoc
@@ -53,7 +52,14 @@ class SiteController extends Controller
         ];
     }
 
-    /**
+  public function beforeAction($action) {
+   $this->enableCsrfValidation = FALSE;
+
+    return parent::beforeAction($action);
+  }
+
+
+  /**
      * Displays homepage.
      *
      * @return string
@@ -75,6 +81,18 @@ class SiteController extends Controller
      */
     public function actionLogin()
     {
+
+      echo "<pre>";
+        print_r($_POST);
+      echo "</pre>";
+
+
+      echo "<pre>";
+       var_dump(Yii::$app->request->validateCsrfToken($_POST['state']));
+      echo "</pre>";
+
+
+
         if (!Yii::$app->user->isGuest) {
             return $this->goHome();
         }

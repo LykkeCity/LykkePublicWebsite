@@ -19,9 +19,13 @@ return [
             "baseUrl" => "/control"
         ],
         'user' => [
-            'identityClass' => 'common\models\User',
+            'identityClass' => 'common\models\LykkeUser',
             'enableAutoLogin' => true,
             'identityCookie' => ['name' => '_identity-backend'],
+            'loginUrl' => '/',
+        ],
+        'userAccess' =>[
+          'class' => 'common\models\LykkeUserAccess'
         ],
         'session' => [
             // this is the name of the session cookie used for login on the backend

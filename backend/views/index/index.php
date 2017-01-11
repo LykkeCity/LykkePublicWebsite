@@ -9,7 +9,7 @@ $this->title = 'Главная';
 </div>
 <div class="row main-link">
   <div class="col-md-3 margin-b">
-    <a href="<?= UrlHelper::to(['pages/add']) ?>"
+    <a href="<?= UrlHelper::to(['page/add']) ?>"
        class="btn btn-block btn-default">Добавить страницу</a>
   </div>
   <div class="col-md-3 margin-b">

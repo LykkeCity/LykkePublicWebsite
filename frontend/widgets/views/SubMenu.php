@@ -1,6 +1,11 @@
 <nav class="page_nav page__nav">
   <div class="page_nav__inner">
     <div class="container">
+
+      <? if (!empty($backUrl)) {?>
+        <a href="<?=$backUrl?>" class="back_link"></a>
+      <? }?>
+
       <ul class="page_nav__list">
         <? foreach ($subMenu as $item) { ?>
           <li

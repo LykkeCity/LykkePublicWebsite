@@ -25,7 +25,9 @@ class BlogPosts extends \yii\db\ActiveRecord {
     $blogPost->post_preview_text = $post['post_preview_text'];
     $blogPost->post_img = !empty($postImg) ? Inflector::slug(date('Y_m_d_h_i_s_') . $postImg->baseName, '_', TRUE) . '.' . $postImg->extension : $blogPost->post_img;
     $blogPost->post_datetime = date("Y-m-d H:i:s", strtotime($post['post_datetime']));
-    $blogPost->post_author = Yii::$app->user->id;
+    if (empty($id)) {
+      $blogPost->post_author = Yii::$app->user->id;
+    }
     $blogPost->published = !isset($post['published']) ? 0 : $post['published'];
 
     if (!empty($postImg)) {
@@ -39,6 +41,10 @@ class BlogPosts extends \yii\db\ActiveRecord {
     return $blogPost->save() ? $blogPost : FALSE;
 
 
+  }
+
+  public static function AuthorId($postId){
+    return self::findOne(['id' => $postId])->post_author;
   }
 
 

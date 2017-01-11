@@ -10,7 +10,7 @@ use yii\filters\VerbFilter;
 use yii\web\Controller;
 use yii;
 
-class AssetController  extends Controller{
+class AssetController  extends AppController{
 
   public function behaviors() {
     return [

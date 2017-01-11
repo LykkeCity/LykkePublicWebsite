@@ -8,7 +8,7 @@ use yii\filters\VerbFilter;
 use yii\web\Controller;
 use yii;
 
-class PageController extends Controller {
+class PageController extends AppController {
 
   public function behaviors() {
     return [

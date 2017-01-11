@@ -1,10 +1,5 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: Arkadiy
- * Date: 28.11.2016
- * Time: 15:13
- */
+
 
 namespace backend\controllers;
 
@@ -17,7 +12,7 @@ use yii\data\Pagination;
 use yii;
 
 
-class BlogController extends Controller{
+class BlogController extends AppController{
 
   public function behaviors() {
     return [

@@ -5,6 +5,7 @@ use frontend\widgets\Frontend_Admin;
 use frontend\widgets\MainMenu;
 use frontend\widgets\Social;
 use yii\helpers\Html;
+use yii\helpers\Url;
 
 
 ?>
@@ -80,12 +81,28 @@ use yii\helpers\Html;
           </div>
         </div>
 
-        <div class="col-sm-3">
+        <div class="col-sm-2 hidden-xs hidden-sm">
+          <? if (!Yii::$app->user->isGuest){?>
+            <div class="navbar-right">
+              <ul class="nav nav--header pull-right">
+                <li class="pull-right">
+                  <a class="dropdown__control" href=""><?=Yii::$app->user->identity->first_name?></a>
+                  <div class="dropdown__container">
+                    <ul class="dropdown__nav">
+                      <li><a href="<?=Url::to(['site/logout'])?>">Sign Out</a></li>
+                    </ul>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          <? }else{ ?>
+            <a class="btn btn-link pull-right" href="<?=Url::to(['site/signin'])?>">Sign In</a>
+          <? }?>
         </div>
-
       </div>
     </div>
   </header>
+
   <?=Frontend_Admin::widget();?>
 
       <?= $content ?>

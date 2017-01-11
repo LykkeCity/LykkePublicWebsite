@@ -11,7 +11,7 @@ use yii\filters\VerbFilter;
 use yii\filters\AccessControl;
 use yii\web\Controller;
 
-class UserController  extends  Controller{
+class UserController  extends  AppController{
 
   public function behaviors()
   {
