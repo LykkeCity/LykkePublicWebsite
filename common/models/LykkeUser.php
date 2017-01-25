@@ -6,8 +6,7 @@ use yii\db\ActiveRecord;
 use yii\web\IdentityInterface;
 
 
-class LykkeUser extends ActiveRecord implements IdentityInterface{
-
+class LykkeUser extends ActiveRecord implements IdentityInterface {
 
 
   public static function tableName() {
@@ -24,6 +23,7 @@ class LykkeUser extends ActiveRecord implements IdentityInterface{
     $user->first_name = $userInfo->firstName;
     $user->last_name = $userInfo->lastName;
     $user->email = $userInfo->email;
+    $user->blocked_comment = 0;
 
     return $user->save() ? $user : FALSE;
   }
@@ -47,6 +47,12 @@ class LykkeUser extends ActiveRecord implements IdentityInterface{
 
   public function validateAuthKey($authKey) {
     return $this->authKey === $authKey;
+  }
+
+  public function userBlockedComment($id) {
+    $user = static::findOne($id);
+    $user->blocked_comment = 1;
+    return $user->save() ? $user : FALSE;
   }
 
 }

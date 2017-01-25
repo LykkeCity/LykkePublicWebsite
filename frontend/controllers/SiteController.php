@@ -113,6 +113,8 @@ class SiteController extends AppController {
     return $this->goHome();
 
   }
+  
+  
 
 
 
