@@ -164,12 +164,12 @@ $(document).ready(function () {
             data: form,
             success: function (data) {
                 if (data !== 'error') {
-                    if (parent.find('.user_badge__title .label-edited').length == 0) {
-                        parent.find('.user_badge__title').append('<span class="middot">&middot;</span>  <div class="label label--dark label--text label-edited">edited <i class="icon icon--edit_alt"></i></div>');
+                    if (parent.find('.user_badge__title .label-edited:first').length == 0) {
+                        parent.find('.user_badge__title:first').append('<span class="middot">&middot;</span>  <div class="label label--dark label--text label-edited">edited <i class="icon icon--edit_alt"></i></div>');
                     } else {
-                        parent.find('.user_badge__title .label-edited').fadeOut(500).fadeIn(500);
+                        parent.find('.user_badge__title .label-edited:first').fadeOut(500).fadeIn(500);
                     }
-                    parent.find('.comment-text').text(data);
+                    parent.find('.comment-text:first').text(data);
                     _this.parents('.block-edit').toggle();
                 } else {
                     alert(data);
