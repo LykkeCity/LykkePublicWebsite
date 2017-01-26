@@ -82,7 +82,7 @@ $(document).ready(function () {
                 data: {'id': id},
                 success: function () {
                     _this.closest('.message_card').addClass('message_card--deleted');
-                    _this.closest('.message_card').find('.user_badge__title').append('<span class="middot">&middot;</span>  <span class="label label--dark label--text">deleted</span>');
+                    _this.closest('.message_card').find('.user_badge__title:first').append('<span class="middot">&middot;</span>  <span class="label label--dark label--text">deleted</span>');
                 }
             })
         }
@@ -103,10 +103,10 @@ $(document).ready(function () {
                 method: 'POST',
                 data: {'id': id},
                 success: function () {
-                    if (_this.closest('.message_card').find('.user_badge__title .label-spam').length == 0) {
-                        _this.closest('.message_card').find('.user_badge__title').append('<span class="middot">&middot;</span>  <div class="label label--text label--red label-spam">Suspicious comment</div>');
+                    if (_this.closest('.message_card').find('.user_badge__title .label-spam:first').length == 0) {
+                        _this.closest('.message_card').find('.user_badge__title:first').append('<span class="middot">&middot;</span>  <div class="label label--text label--red label-spam">Suspicious comment</div>');
                     } else {
-                        _this.closest('.message_card').find('.user_badge__title .label-spam').fadeOut(500).fadeIn(500);
+                        _this.closest('.message_card').find('.user_badge__title .label-spam:first').fadeOut(500).fadeIn(500);
                     }
                 }
             })
