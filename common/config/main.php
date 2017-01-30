@@ -1,9 +1,32 @@
 <?php
 return [
-    'vendorPath' => dirname(dirname(__DIR__)) . '/vendor',
-    'components' => [
-        'cache' => [
-            'class' => 'yii\caching\FileCache',
-        ],
+  'vendorPath' => dirname(dirname(__DIR__)) . '/vendor',
+  'components' => [
+    'cache'  => [
+      'class' => 'yii\caching\FileCache',
     ],
+    'db'     => [
+      'class'    => 'yii\db\Connection',
+      'dsn'      => 'mysql:host=' . getenv('DB_HOST') . ';dbname=' . getenv('DB_NAME') . '',
+      'username' => getenv('DB_USER_NAME'),
+      'password' => getenv('DB_PASSWORD'),
+      'charset'  => 'utf8',
+    ],
+    'mailer' => [
+      'class'            => 'yii\swiftmailer\Mailer',
+      'viewPath'         => '@common/mail',
+      'transport'        => [
+        'class'      => 'Swift_SmtpTransport',
+        'host'       => getenv('SMTP_HOST'),
+        'username'   => getenv('SMTP_USER_NAME'),
+        'password'   => getenv('SMTP_PASSWORD'),
+        'port'       => getenv('SMTP_PORT'),
+        'encryption' => getenv('SMTP_ENCRYPTION'),
+      ],
+      // send all mails to a file by default. You have to set
+      // 'useFileTransport' to false and configure a transport
+      // for the mailer to send real emails.
+      'useFileTransport' => FALSE,
+    ],
+  ],
 ];

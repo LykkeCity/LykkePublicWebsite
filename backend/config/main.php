@@ -1,12 +1,11 @@
 <?php
+
 $params = array_merge(
     require(__DIR__ . '/../../common/config/params.php'),
-    require(__DIR__ . '/../../common/config/params-local.php'),
-    require(__DIR__ . '/params.php'),
-    require(__DIR__ . '/params-local.php')
+    require(__DIR__ . '/params.php')
 );
 
-return [
+$config =  [
     'id' => 'app-backend',
     'basePath' => dirname(__DIR__),
     'controllerNamespace' => 'backend\controllers',
@@ -16,7 +15,8 @@ return [
     'components' => [
         'request' => [
             'csrfParam' => '_csrf-backend',
-            "baseUrl" => "/control"
+            "baseUrl" => "/control",
+            'cookieValidationKey' => 'v1I-AXrOy2HKIj1s0JX5gSdJYZkuw8nV'
         ],
         'user' => [
             'identityClass' => 'common\models\LykkeUser',
@@ -57,3 +57,18 @@ return [
     'params' => $params,
     'defaultRoute' => 'index/index'
 ];
+
+if (filter_var(getenv('YII_ENV_TEST'), FILTER_VALIDATE_BOOLEAN)) {
+  // configuration adjustments for 'dev' environment
+  $config['bootstrap'][] = 'debug';
+  $config['modules']['debug'] = [
+    'class' => 'yii\debug\Module',
+  ];
+
+  $config['bootstrap'][] = 'gii';
+  $config['modules']['gii'] = [
+    'class' => 'yii\gii\Module',
+  ];
+}
+
+return $config;

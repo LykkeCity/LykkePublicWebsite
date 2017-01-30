@@ -1,12 +1,10 @@
 <?php
 $params = array_merge(
     require(__DIR__ . '/../../common/config/params.php'),
-    require(__DIR__ . '/../../common/config/params-local.php'),
-    require(__DIR__ . '/params.php'),
-    require(__DIR__ . '/params-local.php')
+    require(__DIR__ . '/params.php')
 );
 
-return [
+$config = [
     'id' => 'app-frontend',
     'basePath' => dirname(__DIR__),
     'bootstrap' => ['log'],
@@ -16,6 +14,8 @@ return [
         'request' => [
             'csrfParam' => '_csrf-frontend',
             'baseUrl' => "",
+             // !!! insert a secret key in the following (if it is empty) - this is required by cookie validation
+            'cookieValidationKey' => 'NdzsZo-Wmetf46XSCak-aU6Hbi2HuHpb',
         ],
         'user' => [
             'identityClass' => 'common\models\LykkeUser',
@@ -57,3 +57,18 @@ return [
     'params' => $params,
     'defaultRoute' => 'index/index'
 ];
+
+if (filter_var(getenv('YII_ENV_TEST'), FILTER_VALIDATE_BOOLEAN)) {
+  // configuration adjustments for 'dev' environment
+  $config['bootstrap'][] = 'debug';
+  $config['modules']['debug'] = [
+    'class' => 'yii\debug\Module',
+  ];
+
+  $config['bootstrap'][] = 'gii';
+  $config['modules']['gii'] = [
+    'class' => 'yii\gii\Module',
+  ];
+}
+
+return $config;
