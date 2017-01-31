@@ -1,4 +1,15 @@
 <?php
+
+$oAuthHost = trim(getenv('OAUTH_HOST'), '/');
+
 return [
-    'adminEmail' => 'admin@example.com',
+  'adminEmail' => 'admin@example.com',
+  'oAuthLykke' => [
+    'urlAuthorize' => $oAuthHost . "/connect/authorize",
+    'urlLogout'    => $oAuthHost . "/connect/logout",
+    'urlToken'     => $oAuthHost . "/connect/token",
+    'urlUserInfo'  => $oAuthHost . "/connect/userinfo",
+    'clientId'     => getenv('OAUTH_CLIENT_ID'),
+    'clientSecret' => getenv('OAUTH_CLIENT_SECRET'),
+  ]
 ];
