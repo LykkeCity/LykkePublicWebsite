@@ -63,7 +63,7 @@ class BlogController extends AppController {
       $idAuthor = BlogPosts::AuthorId(Yii::$app->request->post('blog_post_id'));
       $this->sendNotificationsNewComments(Yii::$app->request->post('blog_post_id'));
 
-      return $this->renderPartial('partialCommentItem', [
+      return $this->renderPartial('partial_comment_item', [
         'comment'        => $newComment,
         'idAuthor'       => $idAuthor,
         'idPost'         => Yii::$app->request->post('blog_post_id'),
@@ -98,7 +98,7 @@ class BlogController extends AppController {
 
 
     if (Yii::$app->request->isAjax) {
-      return $this->renderPartial('partialBlogItem', [
+      return $this->renderPartial('partial_blog_item', [
         'page'  => $page,
         'posts' => $posts
       ]);
@@ -147,7 +147,7 @@ class BlogController extends AppController {
 
     $idAuthor = BlogPosts::AuthorId(Yii::$app->request->post('id'));
 
-    return $this->renderPartial('partialComments', [
+    return $this->renderPartial('partial_comments', [
       'comments' => $comments['comments'],
       'idAuthor' => $idAuthor,
       'idPost'   => Yii::$app->request->post('id')

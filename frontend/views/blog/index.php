@@ -15,7 +15,7 @@ use \frontend\widgets\SubMenu;
           <div class="col-sm-8 automargin">
             <h1> <?= $page['name'] ?></h1>
             <div class="news_list">
-              <?=$this->render('partialBlogItem', ['page' => $page, 'posts' => $posts]);?>
+              <?=$this->render('partial_blog_item', ['page' => $page, 'posts' => $posts]);?>
             </div>
             <div class="spinner_container" style="display: none;">
               <div class="spinner">
