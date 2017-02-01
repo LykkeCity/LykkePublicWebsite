@@ -1,6 +1,6 @@
 <?php
 
-namespace frontend\components\Pages;
+namespace frontend\components\pages;
 
 use common\models\SitePages;
 use yii;
