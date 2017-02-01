@@ -94,7 +94,7 @@ use yii\helpers\Url;
 
                 <div class="messages_list">
                   <?php
-                      echo $this->render('partialComments', ['comments' => $comments, 'idAuthor' => $post['post_author'], 'idPost' => $post['id']]);
+                      echo $this->render('partial_comments', ['comments' => $comments, 'idAuthor' => $post['post_author'], 'idPost' => $post['id']]);
                   ?>
                 </div>
 

@@ -93,7 +93,7 @@
       <?php
         if (!empty($comment['reply_comment'])){
           foreach ($comment['reply_comment'] as $reply_comment){
-            echo $this->render('partialCommentItem', ['comment' => $reply_comment, 'idAuthor' => $idAuthor, 'idPost' => $idPost, 'isReplyComment' => true]);
+            echo $this->render('partial_comment_item', ['comment' => $reply_comment, 'idAuthor' => $idAuthor, 'idPost' => $idPost, 'isReplyComment' => true]);
           }
         }
       ?>
