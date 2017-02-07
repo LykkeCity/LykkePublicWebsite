@@ -4,6 +4,7 @@
 namespace frontend\controllers;
 
 
+use common\classes\EmailNotifications;
 use common\models\BlogCommentsSubscribe;
 use common\models\LykkeUser;
 use common\models\SitePages;
@@ -214,16 +215,18 @@ class BlogController extends AppController {
 
 
   function sendNotificationsNewComments($postId) {
+
     $subscribe = new BlogCommentsSubscribe();
+    $emailNotifications = new EmailNotifications();
+
     $subscribes = $subscribe->getSubscribers($postId);
 
     foreach ($subscribes as $subscriber) {
-      Yii::$app->mailer->compose()
-        ->setFrom('Arkasha-94@mail.ru')
-        ->setTo($subscriber['email'])
-        ->setSubject('Тема сообщения')
-        ->setHtmlBody('<b>Новый комментарий</b>')
-        ->send();
+      $content = $emailNotifications->PrepareEmail($subscriber['email'], 'New comments at lykke.com', [
+        '%postTitle%' => $subscriber['post_title']
+      ]);
+
+      !$content ?: $emailNotifications->AddToEnqueues($content);
     }
 
   }

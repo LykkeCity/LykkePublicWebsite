@@ -43,9 +43,12 @@ class BlogCommentsSubscribe extends ActiveRecord {
     return  (new Query)->select("lu.first_name,
                     lu.email,
                     lu.last_name,
+                    bp.post_title,
+                    bp.post_url,              
                     sub.*")
       ->from(LykkeUser::tableName().' as lu')
       ->leftJoin(self::tableName().' sub', 'lu.id = sub.lykke_user_id')
+      ->leftJoin(BlogPosts::tableName().' bp', 'bp.id = '.$postId)
       ->where("sub.blog_post_id = ".$postId." AND sub.lykke_user_id != ".Yii::$app->user->id)->createCommand()->queryAll();
 
   }
