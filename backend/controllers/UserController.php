@@ -4,8 +4,9 @@
 namespace backend\controllers;
 
 use backend\models\UpdateUserForm;
-use common\models\User;
 use backend\models\SignupUserForm;
+use common\models\LykkeUser;
+use common\models\LykkeUserAccess;
 use Yii;
 use yii\filters\VerbFilter;
 use yii\filters\AccessControl;
@@ -20,7 +21,7 @@ class UserController  extends  AppController{
         'class' => AccessControl::className(),
         'rules' => [
           [
-            'actions' => ['index', 'add', 'edit', 'deleted'],
+            'actions' => ['index', 'admin', 'frontend', 'notify-spam', 'blocked-comment'],
             'allow' => true,
             'roles' => ['@'],
           ],
@@ -29,9 +30,10 @@ class UserController  extends  AppController{
       'verbs' => [
         'class' => VerbFilter::className(),
         'actions' => [
-          'add' => ['post', 'get'],
-          'edit' => ['post', 'get'],
-          'deleted' => ['post', 'get'],
+          'admin' => ['post', 'get'],
+          'frontend' => ['post', 'get'],
+          'notify-spam' => ['post', 'get'],
+          'blocked-comment' => ['post', 'get'],
         ],
       ],
     ];
@@ -39,55 +41,39 @@ class UserController  extends  AppController{
 
 
   function actionIndex(){
-
-
-    $users = User::find()->select(['id', 'firstname', 'lastname'])->asArray()->all();
-
+    $users = (new LykkeUser())->getAll();
     return $this->render('index', [
       'users' => $users,
     ]);
-
-
   }
 
-  function actionAdd () {
+  function actionAdmin(){
 
-    $model = new SignupUserForm();
-    if ($model->load(Yii::$app->request->post())) {
-      if ($user = $model->signup()) {
-        if (Yii::$app->getUser()->login($user)) {
-          return $this->redirect('index');
-        }
-      }
+    if(Yii::$app->request->isAjax){
+      $access = new LykkeUserAccess();
+      return $access->admin(Yii::$app->request->post());
     }
 
-
-
-    return $this->render('add', [
-      'model' => $model,
-    ]);
+    return false;
 
   }
 
-  function actionEdit ($id){
 
-    $result = null;
-
-    $modelUser = new User();
-    $model = new UpdateUserForm();
-
-    if ($model->load(Yii::$app->request->post())) {
-        $result =  $model->upadate($id) ? 'success' : 'error';
+  function actionNotifySpam(){
+    if(Yii::$app->request->isAjax){
+      $user = new LykkeUser();
+      return $user->notifySpam(Yii::$app->request->post());
     }
-    
-    return $this->render('edit', ['result' => $result, 'model' => $model, 'user' => $modelUser->find()->where(['id'=>$id])->asArray()->one()]);
+    return false;
   }
 
-  public function actionDeleted ($id){
-    $user = User::findOne($id);
-    $user->delete();
-
-    $this->redirect('index');
+  function actionBlockedComment(){
+    if(Yii::$app->request->isAjax){
+      $user = new LykkeUser();
+      return $user->blockedComment(Yii::$app->request->post());
+    }
+    return false;
   }
+
 
 }

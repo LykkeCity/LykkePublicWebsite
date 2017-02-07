@@ -4,6 +4,7 @@ namespace common\models;
 use Yii;
 use yii\db\ActiveRecord;
 use yii\web\IdentityInterface;
+use yii\db\Query;
 
 
 class LykkeUser extends ActiveRecord implements IdentityInterface {
@@ -41,6 +42,15 @@ class LykkeUser extends ActiveRecord implements IdentityInterface {
     return $this->id;
   }
 
+  public function getAll(){
+    return (new Query)->select("ua.*,
+                    ua.id as ua_id,
+                    lu.*")
+      ->from(self::tableName() . ' as lu')
+      ->leftJoin(LykkeUserAccess::tableName() . ' ua', 'lu.id = ua.lykke_user_id')
+      ->createCommand()->queryAll();
+  }
+
   public function getAuthKey() {
     return $this->authKey;
   }
@@ -54,5 +64,19 @@ class LykkeUser extends ActiveRecord implements IdentityInterface {
     $user->blocked_comment = 1;
     return $user->save() ? $user : FALSE;
   }
+
+  function blockedComment ($post){
+    $user = self::findOne(['id' => $post['id']]);
+    $user->	blocked_comment = $post['data'];
+    return $user->save() ? TRUE : FALSE;
+  }
+
+  function notifySpam ($post){
+    $user = self::findOne(['id' => $post['id']]);
+    $user->notify_spam = $post['data'];
+    return $user->save() ? TRUE : FALSE;
+  }
+
+
 
 }

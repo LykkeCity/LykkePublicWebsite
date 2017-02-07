@@ -24,4 +24,17 @@ class LykkeUserAccess extends ActiveRecord {
     $access->save();
   }
 
+
+  function admin($post){
+    $access = self::findOne(['lykke_user_id' => $post['id']]);
+    $access->admin_panel = $post['data'];
+    return $access->save() ? TRUE : FALSE;
+  }
+
+  function Frontend($post){
+    $access = self::findOne(['lykke_user_id' => $post['id']]);
+    $access->edit_frontent = $post['data'];
+    return $access->save() ? TRUE : FALSE;
+  }
+  
 }

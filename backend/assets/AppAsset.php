@@ -20,7 +20,8 @@ class AppAsset extends AssetBundle
       'js/plugins/tinymce/tinymce.min.js',
       'js/plugins/moment/moment.js',
       'js/plugins/datetimepicker/datetimepicker.min.js',
-      'js/scripts.js'
+      'js/scripts.js',
+      'js/user.js'
     ];
     public $depends = [
         'yii\web\YiiAsset',
