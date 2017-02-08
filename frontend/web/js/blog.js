@@ -214,7 +214,7 @@ $(document).ready(function () {
             data: {'id': id},
             success: function (data) {
                 if (data !== 'error') {
-                    _this.find('span').text('Unsubscribe');
+                    _this.removeClass('action-subscribe').addClass('action-unsubscribe').find('span').text('Unsubscribe');
                 } else {
                     alert("Error");
                 }
@@ -235,7 +235,7 @@ $(document).ready(function () {
             data: {'id': id},
             success: function (data) {
                 if (data !== 'error') {
-                    _this.find('span').text('Subscribe');
+                    _this.removeClass('action-unsubscribe').addClass('action-subscribe').find('span').text('Subscribe');
                 } else {
                     alert("Error");
                 }

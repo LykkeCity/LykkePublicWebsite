@@ -46,10 +46,10 @@ class BlogCommentsSubscribe extends ActiveRecord {
                     bp.post_title,
                     bp.post_url,              
                     sub.*")
-      ->from(LykkeUser::tableName().' as lu')
-      ->leftJoin(self::tableName().' sub', 'lu.id = sub.lykke_user_id')
+      ->from(self::tableName().' sub')
+      ->leftJoin(LykkeUser::tableName().' as lu', 'lu.id = sub.lykke_user_id')
       ->leftJoin(BlogPosts::tableName().' bp', 'bp.id = '.$postId)
-      ->where("sub.blog_post_id = ".$postId." AND sub.lykke_user_id != ".Yii::$app->user->id)->createCommand()->queryAll();
+      ->where("sub.blog_post_id = ".$postId." AND sub.subscribe = 1 AND sub.lykke_user_id != ".Yii::$app->user->id)->createCommand()->queryAll();
 
   }
 
