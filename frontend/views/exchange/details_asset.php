@@ -32,9 +32,9 @@ use yii\helpers\Url;
 
             <ul class="list-inline">
               <li><a href="#">Terms &amp; Conditions</a></li>
-              <li><a href="#">Coinprism metadata</a></li>
-              <li><a href="#">Asset definition</a></li>
-              <li><a href="#">Coin holders</a></li>
+              <li><a href="<?=$assetInfo['coinprism_metadata']?>">Coinprism metadata</a></li>
+              <li><a href="<?=$assetInfo['asset_definition']?>">Asset definition</a></li>
+              <li><a href="<?=$assetInfo['coin_holders']?>">Coin holders</a></li>
             </ul>
 
 

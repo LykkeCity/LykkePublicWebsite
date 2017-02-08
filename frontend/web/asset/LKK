@@ -1,0 +1,18 @@
+{
+  "asset_ids": [
+    "AXkedGbAH1XGDpAypVzA5eyjegX4FaCnvM"
+  ],
+  "contract_url": "https://lykke.com/Lykke_Corp_Placement_Memorandum.pdf",
+  "name_short": "Lykke",
+  "name": "Lykke Corp Equity",
+  "issuer": "Lykke Corp",
+  "description": "Lykke Corp is Swiss registered company that is crowd based at all levels. Lykke shares are issued in the form of Colored Coins. 
+Lykke builds a global marketplace for all asset classes and financial instruments. Our marketplace will use the distributed ledger technology pioneered by Bitcoin to offer immediate settlement and direct ownership.",
+  "description_mime": "text/x-markdown; charset=UTF-8",
+  "type": "Stock",
+  "divisibility": 6,
+  "link_to_website": true,
+  "icon_url": "https://www.lykke.com/asset/img/lykke-48.png",
+  "image_url": "https://www.lykke.com/asset/img/lykke-260.png",
+  "version": "1.0"
+}

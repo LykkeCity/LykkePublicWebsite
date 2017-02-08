@@ -1,0 +1,17 @@
+{
+  "asset_ids": [
+    "AYeENupK7A9LZ5BsQiXnp22tHHquoASsFc"
+  ],
+  "contract_url": "http://solarcoin.org/terms.pdf",
+  "name_short": "ccSLR",
+  "name": "SolarCoin colored coin",
+  "issuer": "SolarCoin Foundation",
+  "description": "The SolarCoin Colored Coin (ccSLR) is created by SolarCoin Foundation with technical support of Lykke and represent the IOU to exchange it to SolarCoin (SLR). Holder of one ccSLR is entitled to receive one SLR",
+  "description_mime": "text/x-markdown; charset=UTF-8",
+  "type": "Currency",
+  "divisibility": 8,
+  "link_to_website": true,
+  "icon_url": "http://solarcoin.org/solarcoin-48.png",
+  "image_url": "http://solarcoin.org/solarcoin-260.png",
+  "version": "1.0"
+}

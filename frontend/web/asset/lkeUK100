@@ -1,0 +1,18 @@
+{
+  "asset_ids": [
+    "AZ5bPpHtz3XkHCHy9FXwMbEQoAQapTZ4pb"
+  ],
+  "contract_url": "https://lykke.com/Lykke_Corp_Placement_Memorandum.pdf",
+  "name_short": "UK100",
+  "name": "UK 100 Index",
+  "issuer": "Lykke Corp",
+  "description": "The market value of Lykke the index is guaranteed by Lykke. Lykke builds a global marketplace for all asset classes and financial instruments. Our marketplace uses the distributed ledger technology to offer immediate settlement and direct ownership.
+Lykke shares are issued in the form of colored coins.",
+  "description_mime": "text/x-markdown; charset=UTF-8",
+  "type": "Index",
+  "divisibility": 6,
+  "link_to_website": true,
+  "icon_url": "https://www.lykke.com/asset/img/lykke-48.png",
+  "image_url": "https://www.lykke.com/asset/img/lykke-260.png",
+  "version": "1.0"
+}

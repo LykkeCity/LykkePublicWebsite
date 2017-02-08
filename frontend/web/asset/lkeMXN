@@ -1,0 +1,18 @@
+{
+  "asset_ids": [
+    "AS4EUBD2S23QphTLX5pF2Np2JpDm7E8XhV"
+  ],
+  "contract_url": "https://wiki.lykkex.com/term_conditions_colored_coins",
+  "name_short": "lkeMXN",
+  "name": "Lykke MXN",
+  "issuer": "Lykke",
+  "description": "The market value of Lykke CHF is guaranteed by Lykke. Lykke builds a global marketplace for all asset classes and financial instruments. Our marketplace uses the distributed ledger technology to offer immediate settlement and direct ownership.
+Lykke shares are issued in the form of colored coins.",
+  "description_mime": "text/x-markdown; charset=UTF-8",
+  "type": "Currency",
+  "divisibility": 6,
+  "link_to_website": true,
+  "icon_url": "https://www.lykke.com/asset/img/mxn-48.png",
+  "image_url": "https://www.lykke.com/asset/img/mxn-260.png",
+  "version": "1.0"
+}

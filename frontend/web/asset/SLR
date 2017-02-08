@@ -1,0 +1,17 @@
+{
+  "asset_ids": [
+    "AYeENupK7A9LZ5BsQiXnp22tHHquoASsFc"
+  ],
+  "contract_url": ".....https://lykke.com/city/term_conditions_colored_coins",
+  "name_short": "SLR",
+  "name": "Solar coin",
+  "issuer": "SolarCoin",
+  "description": ".....",
+  "description_mime": "text/x-markdown; charset=UTF-8",
+  "type": "Currency",
+  "divisibility": 8,
+  "link_to_website": true,
+  "icon_url": "https://....../solarcoin-48.png",
+  "image_url": "https://...../img/solarcoin-260.png",
+  "version": "1.0"
+}

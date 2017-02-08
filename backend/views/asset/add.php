@@ -97,6 +97,27 @@ else {
       </div>
     </div>
 
+    <div class="col-md-12">
+      <div class="bs-panel">
+        <div class="bs-title">Дополнительные поля</div>
+        <div class="form-group">
+          <label for="input-title">Coinprism metadata</label>
+          <input type="text" name="coinprism_metadata" class="form-control input-sm"
+                 id="input-title" value="">
+        </div>
+        <div class="form-group">
+          <label for="input-keywords">Asset definition</label>
+          <input type="text" name="asset_definition" class="form-control input-sm"
+                 id="input-keywords" value="">
+        </div>
+        <div class="form-group">
+          <label for="input-description">Coin holders</label>
+          <input type="text" name="coin_holders" class="form-control input-sm"
+                 id="input-description" value="">
+        </div>
+      </div>
+    </div>
+
 
     <div class="col-md-12">
     <div class="bs-panel">

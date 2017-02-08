@@ -1,0 +1,18 @@
+{
+  "asset_ids": [
+    "ANEjN5ngJJefc8RjKZHeAc37uHKzpwdsc8"
+  ],
+  "contract_url": "https://wiki.lykkex.com/term_conditions_colored_coins",
+  "name_short": "Lykke",
+  "name": "[DISCONTINUED] Lykke Corp Equity",
+  "issuer": "Lykke Corp",
+  "description": "***** This colored coin is discontinued ***** \r\n\r\n New Asset ID: AXkedGbAH1XGDpAypVzA5eyjegX4FaCnvM \r\n\r\nNew Asset webpage: https://www.coinprism.info/asset/AXkedGbAH1XGDpAypVzA5eyjegX4FaCnvM \r\n\r\nThe holders list and positions are synchronized as for the last mined block before coins dissemination (block height 428333). \r\n\r\n Lykke Corp is Swiss registered company that is crowd based at all levels. Lykke shares are issued in the form of Colored Coins.
+Lykke builds a global marketplace for all asset classes and financial instruments. Our marketplace will use the distributed ledger technology pioneered by Bitcoin to offer immediate settlement and direct ownership.",
+  "description_mime": "text/x-markdown; charset=UTF-8",
+  "type": "Stock",
+  "divisibility": 0,
+  "link_to_website": true,
+  "icon_url": "https://www.lykkex.com/img/coins/lykke-48.png",
+  "image_url": "https://www.lykkex.com/img/coins/lykke-260.png",
+  "version": "1.0"
+}
