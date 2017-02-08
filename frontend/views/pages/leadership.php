@@ -114,7 +114,7 @@ use \frontend\widgets\SubMenu;
                 <div class="leadership_item__info">
                   <div class="leadership_item__title h3">Thomas Birrer</div>
                   <div class="leadership_item__desc">Finance</div>
-                  <div class="leadership_item__text">Dr. Thomas K. Birrer is Director of Finance of Lykke Corp and a fellow and a fellow of the Lucerne University of Applied Sciences and Arts. At the Lucerne University of Science and Arts he is engaged as project leader and as tutor for the CAS Swiss Certified Treasurer (SCT) program. Thomas has a background in is in commerce and banking. He holds a Ph.D. (Dr. rer. pol.) in Economics from the University of Basel. Thomas has written a dissertation on coping with FX Risk Management in Swiss Enterprises. Thomas is a Swiss citizen and speaks German, French and English.</div>
+                  <div class="leadership_item__text">Dr. Thomas K. Birrer is Director of Finance of Lykke Corp and a fellow of the Lucerne University of Applied Sciences and Arts. At the University he is engaged as project leader and as tutor for the CAS Swiss Certified Treasurer (SCT) program. Thomas has a background in commerce and banking. He holds a Ph.D. (Dr. rer. pol.) in Economics from the University of Basel. Thomas has written a dissertation on coping with FX Risk Management in Swiss Enterprises. Thomas is a Swiss citizen and speaks German, French and English</div>
                 </div>
               </a>
             </div>

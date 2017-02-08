@@ -16,7 +16,7 @@ $this->title = 'Главная';
     <a  href="<?= UrlHelper::to(['blog/add']) ?>"  class="btn btn-block btn-default">Добавить пост</a>
   </div>
   <div class="col-md-3 margin-b">
-    <a href="<?= UrlHelper::to(['user/add']) ?>" class="btn btn-block btn-default">Добавить пользователя</a>
+    <a href="<?= UrlHelper::to(['asset/add']) ?>" class="btn btn-block btn-default">Добавить актив</a>
   </div>
   <div class="col-md-3 margin-b">
     <a href="/" type="button"

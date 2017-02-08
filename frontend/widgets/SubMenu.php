@@ -18,7 +18,7 @@ class SubMenu extends Widget {
 
       $subMenu = SitePages::find()
         ->select(['name', 'url'])
-        ->where(['parent' => $this->parentId])
+        ->where(['parent' => $this->parentId, 'in_menu' => 1])
         ->all();
 
       $currentUri = ltrim(UrlHelper::to(), '/');

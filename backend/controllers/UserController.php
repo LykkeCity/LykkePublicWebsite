@@ -58,6 +58,17 @@ class UserController  extends  AppController{
 
   }
 
+  function actionFrontend(){
+
+    if(Yii::$app->request->isAjax){
+      $access = new LykkeUserAccess();
+      return $access->Frontend(Yii::$app->request->post());
+    }
+
+    return false;
+
+  }
+
 
   function actionNotifySpam(){
     if(Yii::$app->request->isAjax){

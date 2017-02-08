@@ -87,9 +87,9 @@ use yii\helpers\Url;
               <ul class="nav nav--header pull-right">
                 <li class="pull-right">
                   <a class="dropdown__control" href=""><?=Yii::$app->user->identity->first_name?></a>
-                  <div class="dropdown__container">
+                  <div style="margin-left: -110px" class="dropdown__container">
                     <ul class="dropdown__nav">
-                      <li><a href="<?=Url::to(['site/logout'])?>">Sign Out</a></li>
+                      <li style="text-align: center;"><a href="<?=Url::to(['site/logout'])?>">Sign Out</a></li>
                     </ul>
                   </div>
                 </li>
