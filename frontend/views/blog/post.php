@@ -35,11 +35,11 @@ use yii\helpers\Url;
                   </div>
                 </div>
               </div>
-              <div class="col-sm-9 col-md-8">
+              <div id="unsubscribe" class="col-sm-9 col-md-8">
                   <div class="news_article__text text">
                     <?= $post['post_text'] ?>
                   </div>
-                  <div class="social_share">
+                  <div  class="social_share">
                     <div class="social_share__text">Liked this article? Share it!</div>
                     <ul class="social social--simple">
                       <li><a href="https://www.facebook.com/sharer.php?u=<?=Yii::$app->urlManager->hostInfo.Url::to([$page['url'].'/'.$post['post_url']])?>" target="_blank" class="social__item"><i class="icon icon--fb_simple"></i></a></li>
@@ -59,7 +59,7 @@ use yii\helpers\Url;
                     </table>
                   </div>
                 <?php }else{?>
-                      <div class="block_header">
+                      <div class="block_header" >
                         <button data-id="<?= $post['id'] ?>" type="button" class="btn btn-sm pull-right action-<?=$subscribe == 1 ? 'unsubscribe' : 'subscribe' ;?>"><i class="icon icon--mail"></i> <span><?=$subscribe == 1 ? 'Unsubscribe' : 'Subscribe' ;?></span></button>
                         <h3>Comments <span><?=$countComments?></span></h3>
                       </div>

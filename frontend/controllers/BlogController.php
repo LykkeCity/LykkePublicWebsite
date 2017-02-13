@@ -62,7 +62,7 @@ class BlogController extends AppController {
 
 
       $idAuthor = BlogPosts::AuthorId(Yii::$app->request->post('blog_post_id'));
-      $this->sendNotificationsNewComments(Yii::$app->request->post('blog_post_id'));
+      $this->sendNotificationsNewComments(Yii::$app->request->post('blog_post_id'), $newComment);
 
       return $this->renderPartial('partial_comment_item', [
         'comment'        => $newComment,
@@ -214,18 +214,26 @@ class BlogController extends AppController {
   }
 
 
-  function sendNotificationsNewComments($postId) {
+  function sendNotificationsNewComments($postId, $comment) {
 
     $subscribe = new BlogCommentsSubscribe();
     $emailNotifications = new EmailNotifications();
 
     $subscribes = $subscribe->getSubscribers($postId);
+    
 
     foreach ($subscribes as $subscriber) {
       $content = $emailNotifications->PrepareEmail($subscriber['email'], 'New comments at lykke.com', [
-        '%postTitle%' => $subscriber['post_title']
+        '@[name]' => $subscriber['first_name'],
+        '@[post_title]' => $subscriber['post_title'],
+        '@[comment_author]' => $comment['first_name'].' '.$comment['last_name'],
+        '@[date]' => date("M d, g:i a", strtotime($comment['date'])),
+        '@[comment_text]' => \yii\helpers\StringHelper::truncate($comment['comment'],358,'...'),
+        '@[post_link]' => Yii::$app->urlManager->hostInfo.'/city/blog/'.$subscriber['post_url'],
+        '@[unsubscribe_link]' => Yii::$app->urlManager->hostInfo.'/city/blog/'.$subscriber['post_url'].'#unsubscribe',
+        '@[year]' => date('Y'),
       ]);
-
+      
       !$content ?: $emailNotifications->AddToEnqueues($content);
     }
 
