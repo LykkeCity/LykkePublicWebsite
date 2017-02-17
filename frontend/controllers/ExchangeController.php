@@ -10,19 +10,13 @@ use Yii;
 
 class ExchangeController  extends AppController{
 
-  public function actionIndex($asset = ""){
-    //TODO - костыль, потом убрать
-    $uri = explode('/', ltrim(Yii::$app->request->getUrl(), '/'));
+  public function actionIndex(){
 
-    $page = SitePages::find()->where(['url' => $uri[0]])->one();
+    $page = SitePages::find()->where(['url' => trim(Yii::$app->request->getUrl(), '/')])->one();
     $this->pageId = $page['id'];
+    $assets = Asset::find()->asArray()->all();
+    return $this->render("index", ['page' => $page, 'assets' => $assets]);
 
-    if (empty($asset))
-      return $this->render("index", ['page' => $page]);
-
-    $assetInfo = Asset::find()->where(['name' => $asset])->one();
-
-    return $this->render("details_asset", ['page' => $page,'assetInfo' => $assetInfo]);
 
   }
 
