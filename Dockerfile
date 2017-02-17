@@ -49,6 +49,6 @@ RUN sed -i "s/; max_input_vars =.*/max_input_vars = 10000/" /etc/php5/cli/php.in
 # Ports
 EXPOSE 80 443
 
-ADD docker-entrypoint.sh /
+ADD doocker-entrypoint.sh /
 RUN chmod +x /docker-entrypoint.sh
 ENTRYPOINT ["/docker-entrypoint.sh"]
