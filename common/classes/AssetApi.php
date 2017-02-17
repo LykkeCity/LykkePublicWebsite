@@ -3,7 +3,7 @@
 
 namespace common\classes;
 
-
+//TODO - доработать класс
 class AssetApi {
 
   function GetAssetDictionary() {

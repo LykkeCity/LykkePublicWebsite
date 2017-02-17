@@ -1,0 +1,57 @@
+.ico_aside {
+    background: #000 url(/img/ico_banner_bg.png) no-repeat center;
+    padding: 36px 0;
+    padding: 2.25rem 0;
+    -webkit-background-size: 401px;
+    -moz-background-size: 401px;
+    -o-background-size: 401px;
+    background-size: 401px;
+}
+
+.ico_aside .container {
+    width: 1060px;
+    max-width: 100%;
+    padding-left: 20px !important;
+    padding-right: 20px !important;
+}
+
+.ico_aside .ico_header__title {
+    font-weight: 700;
+    color: #fff;
+    letter-spacing: -0.19px;
+    margin: 0;
+    font-size: 30px;
+    font-size: 1.875rem;
+    line-height: 35px;
+    line-height: 2.1875rem;
+}
+
+
+.ico_header__desc {
+    color: rgba(255, 255, 255, 0.5);
+    text-transform: uppercase;
+    font-size: 18px;
+    font-size: 1.125rem;
+    line-height: 35px;
+    line-height: 2.1875rem;
+    letter-spacing: 4px;
+    letter-spacing: 0.25rem;
+}
+
+
+.ico_aside .ico_header__desc {
+    font-size: 16px;
+    font-size: 1rem;
+    line-height: 24px;
+    line-height: 1.5rem;
+}
+
+
+@media (min-width: 768px) {
+    .ico_aside .row > div {
+        display: table-cell;
+        vertical-align: middle;
+        float: none;
+    }
+}
+

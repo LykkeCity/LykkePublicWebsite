@@ -14,7 +14,8 @@ class MainAsset extends AssetBundle
 
   public $css = [
     'css/vendor/bootstrap-custom.min.css',
-    '/css/style.css'
+    '/css/style.css',
+    '/css/ico_aside.css'
   ];
 
   public $js = [
