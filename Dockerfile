@@ -13,7 +13,7 @@ RUN curl -sS https://getcomposer.org/installer | php
 RUN mv composer.phar /usr/local/bin/composer
 RUN composer global require "fxp/composer-asset-plugin:^1.2.0"
 COPY . /app/public_html/
-#ADD app/.htaccess /app/public_html/.htaccess
+ADD docker/apache/.htaccess /app/public_html/.htaccess
 COPY docker/dump/ /dump/
 COPY docker/scripts/ /scripts/
 RUN chown -R www-data:www-data /app/public_html/frontend/web/assets
