@@ -26,8 +26,8 @@ RUN composer --working-dir=/app/public_html/ update
 
 # Apache settings
 ADD docker/apache/default-site.conf /etc/apache2/sites-available/default-site.conf
-ADD docker/apache/certs/server.crt /etc/apache2/certs/server.crt
-ADD docker/apache/certs/server.key /etc/apache2/certs/server.key
+ADD docker/apache/certs/server.crt-example /etc/apache2/certs/server.crt-example
+ADD docker/apache/certs/server.key-example /etc/apache2/certs/server.key-example
 RUN ln -s /etc/apache2/sites-available/default-site.conf /etc/apache2/sites-enabled/default-site.conf
 RUN a2enmod rewrite
 RUN a2dismod mpm_event
