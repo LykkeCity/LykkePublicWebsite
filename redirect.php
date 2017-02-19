@@ -14,7 +14,7 @@ $url = [
   "/contacts.php"                      => "/contacts",
   "/city/terms_of_use"                 => "/terms_of_use",
   "/city/privacy_policy"               => "/privacy_policy",
-  "/city/blog/2017-02-09/1-year_forward_offering"  => "/blog/1_year_forward_offering",
+  "/city/blog/2017-02-09/1-year_forward_offering"  => "/city/blog/1_year_forward_offering",
   "/city/blog/2017-01-26/seo_manager"  => "/city/blog/seo_manager"
 ];
 
