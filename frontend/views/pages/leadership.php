@@ -38,7 +38,7 @@ use \frontend\widgets\SubMenu;
             </div>
             <div class="leadership_item">
               <a href="#leadership_modal" class="leadership_item__control" data-toggle="modal">
-                <div class="leadership_item__image" data-big-image="/img/corp/leadership/big/6-steblyuk.jpg"><img src="/img/corp/leadership/6-steblyuk-preview.jpg" alt=""></div>
+                <div class="leadership_item__image" data-big-image="/img/corp/leadership/big/6_steblyuk.jpg"><img src="/img/corp/leadership/6-steblyuk-preview.jpg" alt=""></div>
                 <div class="leadership_item__info">
                   <div class="leadership_item__title h3">Arseniy Steblyuk</div>
                   <div class="leadership_item__desc">Risk Management</div>
