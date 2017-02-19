@@ -17,6 +17,7 @@ ADD docker/apache/.htaccess /app/public_html/.htaccess
 COPY docker/dump/ /dump/
 COPY docker/scripts/ /scripts/
 RUN chown -R www-data:www-data /app/public_html/frontend/web/assets
+RUN chown -R www-data:www-data /app/public_html/backend/web/assets
 RUN composer config --global github-oauth.github.com 7f320f72bdaf74dcd5f37b425883700c76c0c467
 RUN composer --working-dir=/app/public_html/ update
 
