@@ -1533,7 +1533,7 @@ tbody.collapse.in { display: table-row-group; }
 
 .winner_label { font-size: 10px; font-weight: 700; color: #bcc1c8; width: 22px; height: 22px; display: inline-block; vertical-align: middle; text-align: center; line-height: 22px; background: url(../img/competition/winner_2.svg) no-repeat center; }
 
-.winner_label--yellow { color: #fff; background: url(../img/competition/winner_1.svg) no-repeat center; }
+.winner_label--yellow { color: #fff; }
 
 .tags_list { margin-bottom: 30px; margin-bottom: 1.875rem; }
 
