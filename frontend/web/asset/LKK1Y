@@ -1,0 +1,18 @@
+{
+  "asset_ids": [
+    "APqPxxdPb1MnsbDvZTvPriaKxY9Bkx2CLw"
+  ],
+  "contract_url": "https://lykke.com/asset/doc/LKK1Y_Offering_Memorandum.pdf",
+  "name_short": "LKK1Y",
+  "name": "Lykke Corp Equity 1 Year Forward",
+  "issuer": "Lykke Corp",
+  "description": "1-year Lykke Coin is a forward contract between Lykke Corp and the investor, creating for the investor the obligation to purchase and for Lykke Corp the obligation to sell a certain amount ('nominal') of Lykke Shares ('base value') at a certain price ('forward price'), the latter of which will be paid in form of an advanced payment. 
+The forward period will be initiated by the trigger event, which is the coin holder's declaration of intent to receive the base value (the Lykke Shares). The owner of the 1-year Lykke Coin can pull the trigger at any time.",
+  "description_mime": "text/x-markdown; charset=UTF-8",
+  "type": "Forward",
+  "divisibility": 6,
+  "link_to_website": true,
+  "icon_url": "https://www.lykke.com/asset/img/lkk1y-48.png",
+  "image_url": "https://www.lykke.com/asset/img/lkk1y-260.png",
+  "version": "1.0"
+}

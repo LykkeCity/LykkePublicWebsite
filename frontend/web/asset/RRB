@@ -4,13 +4,13 @@
   ],
   "contract_url": ".....https://lykke.com/city/term_conditions_colored_coins",
   "name_short": "RRB",
-  "name": "InfiniteEARTH’s Rimba Raya Biodiversity Reserve REDD+ credit",
+  "name": "InfiniteEARTH`s Rimba Raya Biodiversity Reserve REDD+ credit",
   "issuer": "InfiniteEARTH",
-  "description": "Each “Rimba Raya Biodiversity Coin” (RRB) is backed by 22 tonnes of REDD+ credit, which protects 1.06 acres of Rimba Raya Biodiversity Reserve for one year. Includes $0.1 for VCS and $0.05 for CCB registration fee per tonne. VCU Serial Number Range: 4509-188527598-188538313-VCU-016-MER-ID-14-674-01012012-31122012-1 VCS Project Page: http://www.vcsprojectdatabase.org/index-no-tabs.html#/vcudetailsreport/78527 CCBA Project Page URL: http://www.climate-standards.org/?s=rimba
+  "description": "Each 'Rimba Raya Biodiversity Coin' (RRB) is backed by 22 tonnes of REDD+ credit, which protects 1.06 acres of Rimba Raya Biodiversity Reserve for one year. Includes $0.1 for VCS and $0.05 for CCB registration fee per tonne. VCU Serial Number Range: 4509-188527598-188538313-VCU-016-MER-ID-14-674-01012012-31122012-1 VCS Project Page: http://www.vcsprojectdatabase.org/index-no-tabs.html#/vcudetailsreport/78527 CCBA Project Page URL: http://www.climate-standards.org/?s=rimba
 Protected area: Rimba Raya Biodiversity Reserve protects 65,000 hectares in Borneo, Indonesia Issuer & Project Manager: InfiniteEARTH
 ",
   "description_mime": "text/x-markdown; charset=UTF-8",
-  "type": "InfiniteEARTH",
+  "type": "Commodity",
   "divisibility": 6,
   "link_to_website": true,
   "icon_url": "https://lykke.com/asset/img/rrb_48.jpg",

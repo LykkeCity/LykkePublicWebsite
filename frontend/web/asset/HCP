@@ -1,0 +1,17 @@
+{
+  "asset_ids": [
+    "AMXVqrRXEwfUuqUE4XozMb6ugb6L6PSFJ8"
+  ],
+  "contract_url": "lykke.com/HCP.pdf",
+  "name_short": "HCP",
+  "name": "Heyerdahl Climate Pioneers",
+  "issuer": "WIF",
+  "description": "The HCP colored coin (HCP) represents the IOU to exchange it to Mangrove tree CO2 certificate. Holder of one HCP is entitled to receive one Mangrove tree CO2 certificate",
+  "description_mime": "text/x-markdown; charset=UTF-8",
+  "type": "Commodity",
+  "divisibility": 6,
+  "link_to_website": true,
+  "icon_url": "https://lykke.com/asset/img/hcp-48.png",
+  "image_url": "https://lykke.com/asset/img/hcp-260.png",
+  "version": "1.0"
+}

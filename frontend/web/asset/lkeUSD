@@ -2,7 +2,7 @@
   "asset_ids": [
     "AWm6LaxuJgUQqJ372qeiUxXhxRWTXfpzog"
   ],
-  "contract_url": "https://lykke.com/city/term_conditions_colored_coins",
+  "contract_url": "https://lykke.com/term_conditions_colored_coins.php",
   "name_short": "lkeUSD",
   "name": "Lykke USD",
   "issuer": "Lykke Corp",
