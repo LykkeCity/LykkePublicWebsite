@@ -29,8 +29,8 @@ use yii\helpers\Url;
               <div><?=$assetPair['quotingAsset']['name']?></div>
             <?php } ?>
           </td>
-          <td class="bid_<?=$assetPair['id']?>"><?=$assetPair['rate']['bid']?></td>
-          <td class="ask_<?=$assetPair['id']?>"><?=$assetPair['rate']['ask']?></td>
+          <td class="bid_<?=$assetPair['id']?>"><?=$assetPair['rate']['bid'] == 0 ?'-': $assetPair['rate']['bid']; ?></td>
+          <td class="ask_<?=$assetPair['id']?>"><?=$assetPair['rate']['ask'] == 0 ?'-': $assetPair['rate']['bid'];?></td>
         </tr>
        <?php } ?>
   </tbody>

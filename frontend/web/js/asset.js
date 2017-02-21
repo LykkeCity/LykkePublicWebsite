@@ -11,8 +11,8 @@ $(document).ready(function () {
                         var bid = $(".bid_" + this.id),
                             ask = $(".ask_" + this.id);
 
-                        bid.text(this.bid);
-                        ask.text(this.ask);
+                        bid.text(this.bid == '0' ? '-' : this.bid);
+                        ask.text(this.ask == '0' ? '-' : this.ask);
                     })
 
             }

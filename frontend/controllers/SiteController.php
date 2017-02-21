@@ -31,7 +31,7 @@ class SiteController extends AppController {
       'client_id'     => Yii::$app->params['oAuthLykke']['clientId'],
       'redirect_uri'  => Yii::$app->getUrlManager()->hostInfo . '/site/auth',
       'response_type' => 'code',
-      'scope'         => 'openid profile email',
+      'scope'         => 'openid profile email address',
       'response_mode' => 'form_post',
       'state'         => Yii::$app->request->getCsrfToken(),
     ];
@@ -46,7 +46,6 @@ class SiteController extends AppController {
     Yii::$app->user->logout();
     return $this->goHome();
   }
-
 
 
   function actionAuth() {
@@ -66,8 +65,9 @@ class SiteController extends AppController {
       $responseJson = $this->cUrl(Yii::$app->params['oAuthLykke']['urlToken'], $params);
 
       if (!empty($responseJson->error)) {
-        return $this->render('error', ['name'    => 'AUTHORIZATION ERROR',
-                                       'message' => ''
+        return $this->render('error', [
+          'name'    => 'AUTHORIZATION ERROR',
+          'message' => ''
         ]);
       }
 
@@ -79,11 +79,12 @@ class SiteController extends AppController {
 
 
   function getUserInfo($access_token) {
-    $userInfo = $this->cUrl(Yii::$app->params['oAuthLykke']['urlUserInfo'].'?access_token='.$access_token, '', 'GET');
+    $userInfo = $this->cUrl(Yii::$app->params['oAuthLykke']['urlUserInfo'] . '?access_token=' . $access_token, '', 'GET');
 
     if (!empty($userInfo->error)) {
-      return $this->render('error', ['name'    => 'AUTHORIZATION ERROR',
-                                     'message' => ''
+      return $this->render('error', [
+        'name'    => 'AUTHORIZATION ERROR',
+        'message' => ''
       ]);
     }
 
@@ -91,21 +92,32 @@ class SiteController extends AppController {
 
   }
 
-  function authorizeUser($userInfo){
+  function authorizeUser($userInfo) {
 
     $model = new LykkeUser();
     $user = $model->findUserByEmail($userInfo->email);
 
-    if(empty($user)){
+    if (empty($user)) {
       $user = $model->addNewUser($userInfo);
-      if($user === FALSE)
-        return $this->render('error', ['name'    => 'AUTHORIZATION ERROR',
-                                       'message' => ''
+      if ($user === FALSE) {
+        return $this->render('error', [
+          'name'    => 'AUTHORIZATION ERROR',
+          'message' => ''
         ]);
+      }
 
-        $access = new LykkeUserAccess();
-        $access->accessByNewUser($user->id);
+      $access = new LykkeUserAccess();
+      $access->accessByNewUser($user->id);
 
+    }
+    else {
+      $user = $model->updateUserData($user->id, $userInfo);
+      if ($user === FALSE) {
+        return $this->render('error', [
+          'name'    => 'AUTHORIZATION ERROR',
+          'message' => ''
+        ]);
+      }
     }
 
     Yii::$app->user->login($user, 0);
@@ -113,11 +125,6 @@ class SiteController extends AppController {
     return $this->goHome();
 
   }
-  
-  
-
-
-
 
 
 }

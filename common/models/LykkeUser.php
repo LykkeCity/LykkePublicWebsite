@@ -29,6 +29,17 @@ class LykkeUser extends ActiveRecord implements IdentityInterface {
     return $user->save() ? $user : FALSE;
   }
 
+  function updateUserData($id, $userInfo) {
+    $user = static::findOne($id);
+
+    $user->first_name = $userInfo->firstName;
+    $user->last_name = $userInfo->lastName;
+    $user->email = $userInfo->email;
+
+    return $user->save() ? $user : FALSE;
+
+  }
+  
 
   public static function findIdentity($id) {
     return static::findOne($id);
@@ -42,7 +53,7 @@ class LykkeUser extends ActiveRecord implements IdentityInterface {
     return $this->id;
   }
 
-  public function getAll(){
+  public function getAll() {
     return (new Query)->select("ua.*,
                     ua.id as ua_id,
                     lu.*")
@@ -65,18 +76,17 @@ class LykkeUser extends ActiveRecord implements IdentityInterface {
     return $user->save() ? $user : FALSE;
   }
 
-  function blockedComment ($post){
+  function blockedComment($post) {
     $user = self::findOne(['id' => $post['id']]);
-    $user->	blocked_comment = $post['data'];
+    $user->blocked_comment = $post['data'];
     return $user->save() ? TRUE : FALSE;
   }
 
-  function notifySpam ($post){
+  function notifySpam($post) {
     $user = self::findOne(['id' => $post['id']]);
     $user->notify_spam = $post['data'];
     return $user->save() ? TRUE : FALSE;
   }
-
 
 
 }
