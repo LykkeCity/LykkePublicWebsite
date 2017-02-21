@@ -41,10 +41,13 @@ class UserController  extends  AppController{
 
 
   function actionIndex(){
-    $users = (new LykkeUser())->getAll();
+    $res = (new LykkeUser())->getAll();
+
     return $this->render('index', [
-      'users' => $users,
+      'users' => $res['users'],
+      'pages' => $res['pages'],
     ]);
+    
   }
 
   function actionAdmin(){

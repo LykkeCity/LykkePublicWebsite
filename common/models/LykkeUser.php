@@ -2,6 +2,8 @@
 namespace common\models;
 
 use Yii;
+use yii\data\Pagination;
+use yii\data\SqlDataProvider;
 use yii\db\ActiveRecord;
 use yii\web\IdentityInterface;
 use yii\db\Query;
@@ -39,7 +41,7 @@ class LykkeUser extends ActiveRecord implements IdentityInterface {
     return $user->save() ? $user : FALSE;
 
   }
-  
+
 
   public static function findIdentity($id) {
     return static::findOne($id);
@@ -54,12 +56,22 @@ class LykkeUser extends ActiveRecord implements IdentityInterface {
   }
 
   public function getAll() {
-    return (new Query)->select("ua.*,
+
+    $sql = (new Query)->select("ua.*,
                     ua.id as ua_id,
                     lu.*")
       ->from(self::tableName() . ' as lu')
-      ->leftJoin(LykkeUserAccess::tableName() . ' ua', 'lu.id = ua.lykke_user_id')
-      ->createCommand()->queryAll();
+      ->leftJoin(LykkeUserAccess::tableName() . ' ua', 'lu.id = ua.lykke_user_id');
+
+    $pages = new Pagination(['totalCount' => count($sql->createCommand()->queryAll()), 'pageSize' => 20]);
+
+    $pages->pageSizeParam = false;
+    $pages->forcePageParam = false;
+
+    $users = $sql->offset($pages->offset)
+      ->limit($pages->limit)->createCommand()->queryAll();
+
+    return $res = ['users' => $users, 'pages' => $pages];
   }
 
   public function getAuthKey() {
