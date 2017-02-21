@@ -16,6 +16,7 @@ $url = [
   "/city/privacy_policy"                          => "/privacy_policy",
   "/city/blog/2017-02-09/1-year_forward_offering" => "/city/blog/1_year_forward_offering",
   "/city/blog/2017-01-26/seo_manager"             => "/city/blog/seo_manager",
+  "/privacy"             => "/privacy_policy",
 
   "/city/blog/2017-01-25/lykke_talk_in_zurich"                                     => "https://temp.lykke.com/city/blog/2017-01-25/lykke_talk_in_zurich",
   "/city/blog/2017-01-20/chronobank"                                               => "https://temp.lykke.com/city/blog/2017-01-20/chronobank",
