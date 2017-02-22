@@ -21,7 +21,8 @@ class AppAsset extends AssetBundle
       'js/plugins/moment/moment.js',
       'js/plugins/datetimepicker/datetimepicker.min.js',
       'js/scripts.js',
-      'js/user.js'
+      'js/user.js',
+      'js/comments.js'
     ];
     public $depends = [
         'yii\web\YiiAsset',

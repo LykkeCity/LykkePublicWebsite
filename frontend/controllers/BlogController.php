@@ -4,12 +4,12 @@
 namespace frontend\controllers;
 
 
-use common\classes\EmailNotifications;
-use common\models\BlogCommentsSubscribe;
-use common\models\LykkeUser;
+use common\enum\CommentsType;
 use common\models\SitePages;
 use common\models\BlogPosts;
-use common\models\BlogPostComments;
+use common\models\Comments;
+use common\models\CommentsSubscribe;
+
 use Yii;
 use yii\data\Pagination;
 use yii\web\NotFoundHttpException;
@@ -51,30 +51,6 @@ class BlogController extends AppController {
 
   }
 
-  function actionComment() {
-    $comment = new BlogPostComments();
-    $newComment = $comment->newComment(Yii::$app->request->post());
-
-    if ($newComment !== FALSE) {
-      $newComment['first_name'] = Yii::$app->user->identity->first_name;
-      $newComment['last_name'] = Yii::$app->user->identity->last_name;
-      $isReplyComment = $newComment['reply_comment_id'] == NULL ? FALSE : TRUE;
-
-
-      $idAuthor = BlogPosts::AuthorId(Yii::$app->request->post('blog_post_id'));
-      $this->sendNotificationsNewComments(Yii::$app->request->post('blog_post_id'), $newComment);
-
-      return $this->renderPartial('partial_comment_item', [
-        'comment'        => $newComment,
-        'idAuthor'       => $idAuthor,
-        'idPost'         => Yii::$app->request->post('blog_post_id'),
-        'isReplyComment' => $isReplyComment
-      ]);
-    }
-
-    return 'error';
-  }
-
 
   function allPost($page) {
 
@@ -114,7 +90,6 @@ class BlogController extends AppController {
 
   }
 
-
   function detailsPost($page, $post_url) {
     $post = BlogPosts::find()->where([
       'published' => 1,
@@ -126,117 +101,20 @@ class BlogController extends AppController {
       throw new NotFoundHttpException();
     }
 
-    $comment = new BlogPostComments();
-    $subscribe = new BlogCommentsSubscribe();
+    $comment = new Comments();
+    $subscribe = new CommentsSubscribe();
 
-    $comments = $comment->getCommetnsPost($post['id']);
-    $subscribeStatus = $subscribe->subscribeStatus($post['id']);
+    $comments = $comment->getComments($post['id'], CommentsType::BLOG);
+    $subscribeStatus = $subscribe->subscribeStatus($post['id'], CommentsType::BLOG);
 
     return $this->render('post', [
       'page'          => $page,
       'subscribe'     => $subscribeStatus,
       'post'          => $post,
       'comments'      => $comments['comments'],
-      'countComments' => $comments['count']
+      'countComments' => $comments['count'],
+      'type'          =>  CommentsType::BLOG
     ]);
-  }
-
-  function actionShowMoreComments() {
-
-    $comment = new BlogPostComments();
-    $comments = $comment->getCommetnsPost(Yii::$app->request->post('id'), Yii::$app->request->post('page'));
-
-    $idAuthor = BlogPosts::AuthorId(Yii::$app->request->post('id'));
-
-    return $this->renderPartial('partial_comments', [
-      'comments' => $comments['comments'],
-      'idAuthor' => $idAuthor,
-      'idPost'   => Yii::$app->request->post('id')
-    ]);
-
-  }
-
-  function actionDeleteComment() {
-    $AuthorCommentId = BlogPostComments::AuthorCommentId(Yii::$app->request->post('id'));
-
-    if (Yii::$app->request->isAjax && Yii::$app->userAccess->access('edit_frontent') == 1 || $AuthorCommentId == Yii::$app->user->id) {
-      $comment = new BlogPostComments();
-      $comment->deleteComment(Yii::$app->request->post('id'));
-    }
-
-  }
-
-  function actionSpamComment() {
-
-    if (Yii::$app->request->isAjax) {
-      $comment = new BlogPostComments();
-      $comment->spamComment(Yii::$app->request->post('id'));
-    }
-
-  }
-
-  function actionEditComment() {
-    $AuthorCommentId = BlogPostComments::AuthorCommentId(Yii::$app->request->post('comment_id'));
-
-    if (Yii::$app->request->isAjax && $AuthorCommentId == Yii::$app->user->id) {
-      $comment = new BlogPostComments();
-      $result = $comment->editComment(Yii::$app->request->post());
-      return $result != FALSE ? $result : 'error';
-    }
-    return 'error';
-  }
-
-  function actionBlockedComment() {
-
-    if (Yii::$app->request->isAjax && Yii::$app->userAccess->access('edit_frontent') == 1) {
-      $userBlockedComment = new LykkeUser();
-      $res = $userBlockedComment->userBlockedComment(Yii::$app->request->post('id'));
-      return $res != FALSE ?: 'error';
-    }
-    return 'error';
-
-  }
-
-  function actionSubscribeComment() {
-    if (Yii::$app->request->isAjax) {
-      $subscribe = new BlogCommentsSubscribe();
-      $res = $subscribe->subscribe(Yii::$app->request->post('id'));
-      return $res != FALSE ?: 'error';
-    }
-  }
-
-  function actionUnsubscribeComment() {
-    if (Yii::$app->request->isAjax) {
-      $subscribe = new BlogCommentsSubscribe();
-      $res = $subscribe->unsubscribe(Yii::$app->request->post('id'));
-      return $res != FALSE ?: 'error';
-    }
-  }
-
-
-  function sendNotificationsNewComments($postId, $comment) {
-
-    $subscribe = new BlogCommentsSubscribe();
-    $emailNotifications = new EmailNotifications();
-
-    $subscribes = $subscribe->getSubscribers($postId);
-    
-
-    foreach ($subscribes as $subscriber) {
-      $content = $emailNotifications->PrepareEmail($subscriber['email'], 'New comments at lykke.com', [
-        '@[name]' => $subscriber['first_name'],
-        '@[post_title]' => $subscriber['post_title'],
-        '@[comment_author]' => $comment['first_name'].' '.$comment['last_name'],
-        '@[date]' => date("M d, g:i a", strtotime($comment['date'])),
-        '@[comment_text]' => \yii\helpers\StringHelper::truncate($comment['comment'],358,'...'),
-        '@[post_link]' => Yii::$app->urlManager->hostInfo.'/city/blog/'.$subscriber['post_url'],
-        '@[unsubscribe_link]' => Yii::$app->urlManager->hostInfo.'/city/blog/'.$subscriber['post_url'].'#unsubscribe',
-        '@[year]' => date('Y'),
-      ]);
-      
-      !$content ?: $emailNotifications->AddToEnqueues($content);
-    }
-
   }
 
 

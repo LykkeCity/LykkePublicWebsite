@@ -83,6 +83,9 @@ AppAsset::register($this);
           <li role="presentation"
               class="<?= UrlHelper::isActive('user/index'); ?>"><a
               href="<?= UrlHelper::to(['/user']) ?>">Пользователи</a></li>
+          <li role="presentation"
+              class="<?= UrlHelper::isActive('comments/index'); ?>"><a
+              href="<?= UrlHelper::to(['/comments']) ?>">Comments</a></li>
         </ul>
       </div>
       <div class="col-md-9">

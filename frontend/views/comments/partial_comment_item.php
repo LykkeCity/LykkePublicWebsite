@@ -64,7 +64,8 @@
         <div class="block-reply" style="display: none;">
           <form class="reply-comment-form">
               <input type="hidden" name="reply_comment_id" value="<?=$comment['id']?>">
-              <input type="hidden" name="blog_post_id" value="<?=$idPost?>">
+              <input type="hidden" name="page_post_id" value="<?=$idPage?>">
+              <input type="hidden" name="type" value="<?=$type?>">
               <textarea name="comment" id="" cols="30" rows="10" class="form-control message_card__reply form-control--textarea"></textarea>
               <div class="text-right">
                 <button type="button"  class="btn send-reply">Send</button>
@@ -76,7 +77,8 @@
             <div class="block-edit" style="display: none;">
               <form class="edit-comment-form">
                 <input type="hidden" name="comment_id" value="<?=$comment['id']?>">
-                <input type="hidden" name="blog_post_id" value="<?=$idPost?>">
+                <input type="hidden" name="page_post_id" value="<?=$idPage?>">
+                <input type="hidden" name="type" value="<?=$type?>">
                 <textarea name="comment" id="" cols="30" rows="10" class="form-control message_card__reply form-control--textarea edit-textarea"></textarea>
                 <div class="text-right">
                   <button type="button"  class="btn send-edit">Save</button>
@@ -93,7 +95,7 @@
       <?php
         if (!empty($comment['reply_comment'])){
           foreach ($comment['reply_comment'] as $reply_comment){
-            echo $this->render('partial_comment_item', ['comment' => $reply_comment, 'idAuthor' => $idAuthor, 'idPost' => $idPost, 'isReplyComment' => true]);
+            echo $this->render('partial_comment_item', ['comment' => $reply_comment, 'idAuthor' => $idAuthor, 'idPage' => $idPage, 'isReplyComment' => true, 'type' => $type]);
           }
         }
       ?>

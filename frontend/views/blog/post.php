@@ -1,4 +1,5 @@
 <?
+use common\enum\CommentsType;
 use frontend\widgets\Footer;
 use \frontend\widgets\SubMenu;
 use yii\helpers\Url;
@@ -60,13 +61,14 @@ use yii\helpers\Url;
                   </div>
                 <?php }else{?>
                       <div class="block_header" >
-                        <button data-id="<?= $post['id'] ?>" type="button" class="btn btn-sm pull-right action-<?=$subscribe == 1 ? 'unsubscribe' : 'subscribe' ;?>"><i class="icon icon--mail"></i> <span><?=$subscribe == 1 ? 'Unsubscribe' : 'Subscribe' ;?></span></button>
+                        <button data-id="<?= $post['id'] ?>" data-type="<?= CommentsType::BLOG ?>" type="button" class="btn btn-sm pull-right action-<?=$subscribe == 1 ? 'unsubscribe' : 'subscribe' ;?>"><i class="icon icon--mail"></i> <span><?=$subscribe == 1 ? 'Unsubscribe' : 'Subscribe' ;?></span></button>
                         <h3>Comments <span><?=$countComments?></span></h3>
                       </div>
                   <?php if (Yii::$app->user->identity->blocked_comment == 0) {?>
                       <form action="" class="form form--message" id="form-comment">
-                        <input type="hidden" name="blog_post_id" value=" <?= $post['id'] ?>">
+                        <input type="hidden" name="page_post_id" value=" <?= $post['id'] ?>">
                         <input type="hidden" name="author" value=" <?= $post['post_author'] ?>">
+                        <input type="hidden" name="type" value="<?=$type?>">
                         <div class="message_card message_card--form">
                           <div class="user_badge user_badge--small">
                             <div class="user_badge__img"><img src="/img/avatar.svg" alt=""></div>
@@ -94,14 +96,14 @@ use yii\helpers\Url;
 
                 <div class="messages_list">
                   <?php
-                      echo $this->render('partial_comments', ['comments' => $comments, 'idAuthor' => $post['post_author'], 'idPost' => $post['id']]);
+                      echo $this->render('/comments/partial_comments', ['comments' => $comments, 'idAuthor' => $post['post_author'], 'idPage' => $post['id'], 'type' => $type]);
                   ?>
                 </div>
-
-                <div class="show_more">
-                  <button type="button" class="btn btn-md show-more" data-id="<?= $post['id'] ?>">Show more</button>
-                </div>
-
+                <? if (!empty($comments)) {?>
+                  <div class="show_more">
+                    <button type="button" class="btn btn-md show-more" data-id="<?= $post['id'] ?>">Show more</button>
+                  </div>
+                <? } ?>
               </div>
             </div>
           </div>

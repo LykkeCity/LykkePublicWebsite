@@ -46,8 +46,7 @@ $config = [
             'enablePrettyUrl' => true,
             'showScriptName' => false,
             'rules' => [
-              'city/blog/<post_url:\w+>' => 'blog/index',
-              'exchange/<asset:\w+>' => 'exchange/index',
+              $params['uri_blog'].'/<post_url:\w+>' => 'blog/index',
               ['class' => 'frontend\components\pages\PagesUrlRule'],
               ['class' => 'frontend\components\pages\StrictParseRequest']
             ],

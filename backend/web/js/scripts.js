@@ -214,7 +214,7 @@ $(document).ready(function () {
     });
 
     $('.action-delete').on('click', function () {
-        if (!confirm('Удалить?')){
+        if (!confirm('You are sure?')){
             return false;
         }
     });
