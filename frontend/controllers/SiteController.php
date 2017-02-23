@@ -39,6 +39,10 @@ class SiteController extends AppController {
 
     $urlRedirect = Yii::$app->params['oAuthLykke']['urlAuthorize'] . "?" . http_build_query($getParams);
 
+    $session = Yii::$app->session;
+
+    $session->set('redirect_to', Yii::$app->request->referrer);
+
     Yii::$app->response->redirect($urlRedirect);
 
   }
@@ -131,7 +135,12 @@ class SiteController extends AppController {
 
     Yii::$app->user->login($user, 0);
 
-    return $this->goHome();
+
+    $session = Yii::$app->session;
+    $redirect = $session->get('redirect_to');
+    $session->remove('redirect_to');
+
+    return empty($redirect) ? $this->goHome() : $this->redirect($redirect);
 
   }
 
