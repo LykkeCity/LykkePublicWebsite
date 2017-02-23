@@ -1,0 +1,489 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no' name='viewport'>
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+
+    <!--[if lt IE 9]>
+      <script src="/ico/https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="/ico/https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+    <link href="/ico/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <link href="/ico/css/site.css?v.2.1" rel="stylesheet" type="text/css" />
+    <link href="/ico/css/mobile.css?v.2.1" rel="stylesheet" type="text/css" />
+    <title>Lykke Initial Coin Offering</title>
+</head>
+
+    <script src="/ico/js/jquery-2.2.4.min.js"></script>
+    <script type="text/javascript" src="/ico/js/jquery-ui.js"></script>
+    <script> 
+
+function addZeros(n, needLength) {
+  needLength = needLength || 2;
+  n = String(n);
+  while (n.length < needLength) {
+    n = "0" + n;
+  }
+  return n
+}
+        function XFormatPrice(_number) 
+        {
+            var decimal=0;
+            var separator=',';
+            var decpoint = '.';
+            var format_string = '#';
+            //var format_string = '# CHF'; 
+            var r=parseFloat(_number) 
+            var exp10=Math.pow(10,decimal);// �������� � ����������� ���������
+            r=Math.round(r*exp10)/exp10;// ��������� �� ������������ ����� ������ ����� ������� 
+            rr=Number(r).toFixed(decimal).toString().split('.');
+            b=rr[0].replace(/(\d{1,3}(?=(\d{3})+(?:\.\d|\b)))/g,"\$1"+separator);
+            r=(rr[1]?b+ decpoint +rr[1]:b);
+            return format_string.replace('#', r);
+        }
+        var UpdateAmounts=function() {
+        $.ajax({
+            type: 'GET',
+            url: 'https://lykke-api.azurewebsites.net/api/IcoCoinsSold',
+            data: '',
+            async: false,
+            beforeSend: function (xhr) {
+                if (xhr && xhr.overrideMimeType) {
+                    xhr.overrideMimeType('application/json;charset=utf-8');
+                }
+            },
+            dataType: 'jsonp',
+            success: function (data) {
+								endDate=new Date(2016,9,12);
+                nowDate=new Date();
+								DeltaT=endDate-nowDate;
+                DaysLeft=Math.floor(  DeltaT/1000/60/60/24  );
+                HoursLeft=Math.floor(  DeltaT/1000/60/60  ) - DaysLeft*24;
+                MinsLeft=Math.floor(  DeltaT/1000/60  ) - DaysLeft*24*60-HoursLeft*60;
+                SecsLeft=Math.floor(  DeltaT/1000) - DaysLeft*24*60*60-HoursLeft*60*60-MinsLeft*60;
+
+                //$('#RatesJson').append(JSON.stringify(data.Result.Rates));
+                var amount=data.Result.Amount;
+                $(coins_bought).html(XFormatPrice(amount)); 
+                $(coins_left).html(XFormatPrice(30000000-amount)); 
+                $(chf_raised).html(XFormatPrice(amount*0.05)); 
+                $(chf_tobe_raised).html(XFormatPrice((30000000-amount)*0.05)); 
+								if (DeltaT>=0){
+								$(days_left).html(HoursLeft+DaysLeft*24+":"+addZeros(MinsLeft, 2)+":"+addZeros(SecsLeft, 2) );
+								}
+
+            },
+            error: function (response, status, error) {
+                //alert(error);
+            }
+            });
+        };
+
+       $(document).ready(function() {
+    			//UpdateAmounts();
+		      //setInterval(UpdateAmounts, 1000);
+	      });
+
+
+		
+    </script>
+
+<body>
+    <div class="container-fluid">
+        <div class="row">
+            <center class='center head hidden-xs'>
+                <div class="container">
+                    <div class="row">
+                        <div class="col-sm-2 text-left logo"><div class="logo-img"></div></div>
+                        <div class="col-sm-8 text-center">
+                            <nav class="main-nav nav-top">
+                                <a class="scrollto" href="#invest">INVEST</a>
+                                <a class="scrollto click-campaign-in-figures" href="#campaign-in-figures">CAMPAIGN IN FIGURES</a>
+                                <a class="scrollto" href="#manifesto">MANIFESTO</a>
+                                <a class="scrollto" href="#team">TEAM</a>
+                                <a class="scrollto" href="#contact-us">CONTACT US</a>
+                            </nav>
+                        </div>
+                        <div class="col-sm-2 text-right"><a href="#campaign-in-figures" class="my-btn-1 btn-invest">ICO RESULTS</a></div>
+                    </div>
+                </div>
+            </center>
+            <div class="container text-center center-video">
+                <div class="row">
+                    <div class="logo-center"><img src="/ico/img/logo-full.svg"></div>
+                    <div class="slogan">A Global Marketplace on the Blockchain</div>
+                    <div class="slogan-2">The ICO is over, but you can invest in the future of markets!</div>
+                    <div class="discover-more">DISCOVER MORE</div>
+                    <div class="scroll-down"><a class="scrollto" href="#invest"><img src="/ico/img/scroll-down.png" alt="" /></a></div>
+
+                </div>
+            </div>
+            <div class="video">
+                <video id="bg-globe" loop muted autoplay playsinline class="fullscreen-bg_video hidden-xs" poster="/ico/img/world-preview.png">
+                    <source src="/ico/video/world-header.webm" type="video/webm">
+                    <source src="/ico/video/world-header.mp4" type="video/mp4">
+                    <source src="/ico/video/world-header.3gp">
+                    <!--<img src="/ico/img/world-preview.png">-->
+                </video>
+            </div>
+        </div>
+
+    </div>
+    <div id="invest" class="container">
+        <div class="row hidden-xs">
+            <div class="col-sm-6 text-center img-iph">
+                <img src="/ico/img/iphone.svg" alt="" />
+            </div>
+            <div class="col-sm-6 ">
+                <h1>Invest</h1>
+                <p class="call-to-action">To buy Lykke coins, download and <br>open the <b>Lykke Wallet</b> app</p>
+                <div class="download-btn">
+                    <a class="appstore" href="https://appsto.re/ru/Dwjvcb.i"></a>
+                    <a class="goole-play" href="https://play.google.com/store/apps/details?id=com.lykkex.LykkeWallet"></a>
+                </div>
+                <p class="Lykke-Manifesto">
+                    To learn more about how we are building the future of markets, check out the <a href="#manifesto">Lykke Manifesto</a>, the <a href="https://lykke.com/city/blog/2016-10-05/lykke_ico_faq">Lykke ICO FAQ</a>, and the <a href="https://lykke.com/city/blog/2016-10-14/blockchain-powered_exchange_captures_1_million_from_fans">Lykke ICO Results</a>.
+                </p>
+            </div>
+        </div>
+
+        <div class="row hidden-lg hidden-md hidden-sm">
+
+            <div class="col-xs-12 text-center">
+                <h1>Invest</h1>
+                <p class="call-to-action">To buy Lykke coins download <br>the <b>Lykke Wallet</b> app</p>
+                <div class="download-btn">
+                    <a class="appstore" href="https://appsto.re/ru/Dwjvcb.i"></a>
+                    <a class="goole-play" href="https://play.google.com/store/apps/details?id=com.lykkex.LykkeWallet"></a>
+                </div>
+
+            </div>
+            <div class="col-xs-12 text-center  img-iph">
+                <img src="/ico/img/app-iphone.png" alt="" />
+            </div>
+            <div class="col-xs-12 text-center">
+                <p class="Lykke-Manifesto">
+                    To learn more about how we are building the future of markets, check out the <a href="#manifesto">Lykke Manifesto</a>, the <a href="https://lykke.com/city/blog/2016-10-05/lykke_ico_faq">Lykke ICO FAQ</a>, and the <a href="https://lykke.com/city/blog/2016-10-14/blockchain-powered_exchange_captures_1_million_from_fans">Lykke ICO Results</a>. 
+                </p>
+            </div>
+        </div>
+    </div>
+    <div class="parallax">
+        <div id="campaign-in-figures" class="field skrollable skrollable-between" data-800="top: 110px" data-1700="top: -200px">
+            <div class="container-fluid campaign-in-figures">
+                <div class="row">
+                    <div class="col-sm-12 field-title hidden-xs">Lykke ICO Campaign in Figures</div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-3 col-xs-6 field-info">
+                        <div class="field-info-data"><span class="spincrement d-none">1,200</span><span class="zero">0</span></div>
+                        <div class="field-info-point"></div>
+                        <div class="field-info-text">NEW LYKKE WALLET USERS</div>
+                    </div>
+                        <div class="col-sm-3 col-xs-6 field-info">
+                        <div class="field-info-data"><span class="spincrement d-none">717</span><span class="zero">0</span></div>
+                        <div class="field-info-point"></div>
+                        <div class="field-info-text">NEW LYKKE COIN HOLDERS</div>
+                    </div>
+                    <div class="col-sm-3 col-xs-6 field-info">
+                        <div class="field-info-data"><span class="spincrement d-none">90</span><span class="zero">0</span></div>
+                        <div class="field-info-point"></div>
+                        <div class="field-info-text">COUNTRIES</div>
+                    </div>
+                    <div class="col-sm-3 col-xs-6 field-info">
+                        <div class="field-info-data"><span class="spincrement d-none">250</span><span class="zero">0</span> CHF</div>
+                        <div class="field-info-point"></div>
+                        <div class="field-info-text">MEDIAN TICKET</div>
+                    </div>
+
+                </div>
+                <div id="amounts_table" class="row field-margin">
+                    <div class="col-sm-3 col-xs-6 field-info">
+                        <div class="field-info-data"><span id="coins_bought" class="spincrement d-none">23,226,753</span><span class="zero">0</span></div>
+                        <div class="field-info-point"></div>
+                        <div class="field-info-text">COINS BOUGHT </div>
+                    </div>
+                    <div class="col-sm-3 col-xs-6 field-info">
+                        <div class="field-info-data"><span id="chf_raised" class="spincrement d-none">1,161,338</span><span class="zero">0</span> CHF</div>
+                        <div class="field-info-point"></div>
+                        <div class="field-info-text">RAISED</div>
+                    </div>
+                    <div class="col-sm-3 col-xs-6 field-info">
+                        <div class="field-info-data"><span class="spincrement d-none">0.05</span><span class="zero">0</span> CHF</div>
+                        <div class="field-info-point"></div>
+                        <div class="field-info-text">PRICE OF A LYKKE COIN</div>
+                    </div>
+                    <div class="col-sm-3 col-xs-6 field-info">
+                        <div class="field-info-data"><span id="days_left" class="spincrement d-none">28</span><span class="zero">0</span> DAYS</div>
+                        <div class="field-info-point"></div>
+                        <div class="field-info-text">OF THE CAMPAIGN</div>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <div id="manifesto">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12 h1 text-center">Manifesto</div>
+                <div class="col-sm-12 text-center">
+                    <h2>Mission</h2>
+                    <p class="intro">Lykke is here to build the future of markets</p>
+                </div>
+            </div>
+            <div class="row manifesto-info">
+                <div class="col-sm-4 text-center ">
+                    <div class="manifesto-icon col-xs-3 col-sm-12"><img src="/ico/img/blockchain-icon.png" alt="" /></div>
+                    <p class="col-xs-9 col-sm-12">
+                        By employing transparent  blockchain technology
+                    </p>
+
+                </div>
+                <div class="col-sm-4 text-center ">
+                    <div class="manifesto-icon col-xs-3 col-sm-12"><img src="/ico/img/redundancy-icon.png" alt="" /></div>
+                    <p class="col-xs-9 col-sm-12">
+                        By achieving reliability and  accessibility of financial services
+                    </p>
+
+                </div>
+                <div class="col-sm-4 text-center ">
+                    <div class="manifesto-icon col-xs-3 col-sm-12"><img src="/ico/img/knowledge.png" alt="" /></div>
+                    <p class="col-xs-9 col-sm-12">
+                        By open-sourcing knowledge and  competences
+                    </p>
+
+                </div>
+            </div>
+            <div class="row manifesto-text">
+                <div class="col-sm-8">
+                    <h2>Vision</h2>
+                    <p>
+                        Lykke will create a single global marketplace, where any sort of financial instrument can be traded and settled peer to peer with second-by-second interest payments. Unlike the structure of prevailing markets, ours will be a level playing field to which anyone with an Internet connection can have access.
+                    </p>
+                    <p>
+                        Our marketplace utilizes the blockchain pioneered by Bitcoin to offer immediate settlement and direct ownership. All the software that serves as the foundation of the market will be developed in open source.
+                    </p>
+                    <p>
+                        Commissions are zero. We anticipate ample trade volumes. Our revenue will come from providing liquidity, offering issuance services, and supporting institutional clients.
+
+                    </p>
+                </div>
+                <div class="col-sm-4 margin-note">
+                    <div class="col-xs-3 col-sm-12">
+                        <div class="img-note "></div>
+                    </div>
+                    <div class="col-xs-9 col-sm-12">
+                        <p class="note">Lykke is a Swiss Fintech company building a global marketplace based on the blockchain. It builds on decades of thought and research by company founder Richard Olsen, a pioneer in the field of high-frequency finance. Richard served as co-founder and CEO of OANDA, a leading foreign exchange company.</p>
+                        <p class="note">
+                            Lykke received initial seed funding in 2015. The company is currently pursuing investors who want to change the face of the global market.
+                        </p>
+                    </div>
+                    <div class="clearfix"></div>
+
+                </div>
+            </div>
+            <div class="row manifesto-where">
+                <div class="col-sm-6">
+                    <h2>Where we are now</h2>
+                    <div class="manifesto-where-item clearfix">
+                        <div class="col-sm-2 col-xs-3 text-center"><img src="/ico/img/wallet-icon.png" alt="" /></div>
+                        <div class="col-sm-10 col-xs-9 ">
+                            <h3>LYKKE WALLET</h3>
+                            <p>We have built a native iOS and Android app for core currency trading with 0% commission. </p>
+                        </div>
+                    </div>
+                    <div class="manifesto-where-item clearfix">
+                        <div class="col-sm-2 text-center col-xs-3"><img src="/ico/img/exchange-1-icon.png" alt="" /></div>
+                        <div class="col-sm-10 col-xs-9">
+                            <h3>LYKKE EXCHANGE</h3>
+                            <p>We have established a semi-centralized Internet exchange for trading financial instruments issued in the form of colored coins.</p>
+                        </div>
+                    </div>
+                    <div class="manifesto-where-item clearfix">
+                        <div class="col-sm-2 text-center col-xs-3"><img src="/ico/img/team-icon.png" alt="" /></div>
+                        <div class="col-sm-10 col-xs-9">
+                            <h3>CORE TEAM</h3>
+                            <p>We have assembled an international team of experts to serve as the seed of the emergent structure.</p>
+                        </div>
+                    </div>
+                    <div class="manifesto-where-item clearfix">
+                        <div class="col-sm-2 text-center col-xs-3"><img src="/ico/img/community-icon.png" alt="" /></div>
+                        <div class="col-sm-10 col-xs-9">
+                            <h3>USER COMMUNITY</h3>
+                            <p>We are beginning to grow a global community organized around our common ideas.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <h2>Where we are going next</h2>
+                    <div class="manifesto-where-item clearfix">
+                        <div class="col-sm-2 text-center col-xs-3"><img src="/ico/img/exchange-2-icon.png" alt="" /></div>
+                        <div class="col-sm-10 col-xs-9">
+                            <h3>LYKKE EXCHANGE</h3>
+                            <p>Lykke Exchange will become a comprehensive marketplace for both retail and institutional clients.</p>
+                        </div>
+                    </div>
+                    <div class="manifesto-where-item clearfix">
+                        <div class="col-sm-2 text-center col-xs-3"><img src="/ico/img/platform-icon.png" alt="" /></div>
+                        <div class="col-sm-10 col-xs-9">
+                            <h3>COMPETITION PLATFORM</h3>
+                            <p>We are developing a competition platform to crowdsource the most innovative ideas from our user base. </p>
+                        </div>
+                    </div>
+                    <div class="manifesto-where-item clearfix">
+                        <div class="col-sm-2 text-center col-xs-3"><img src="/ico/img/offer-icon.png" alt="" /></div>
+                        <div class="col-sm-10 col-xs-9">
+                            <h3>WHITE LABELING</h3>
+                            <p>We are forging partnerships with banks, corporations, and municipal entities to speed the adoption of our wallet software. These organizations can offer Lykke Wallets to their customers.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row download-whitepaper">
+                <div class="col-sm-12 text-center">
+                    <a class="my-btn-1" href="/ico/Whitepaper_LykkeExchange.pdf">DOWNLOAD WHITEPAPER</a>
+                </div>
+
+            </div>
+            <div class="white-paper-links text-center">
+                <ul class="list-unstyled list-inline">
+                    <li>
+                        <a href="http://zh.powernet.ch/webservices/inet/HRG/HRG.asmx/getHRGHTML?chnr=0203039707&amt=020&toBeModified=0&validOnly=0&lang=4&sort=0" target="_blank">
+                            <img src="/ico/img/company-register-icn.svg" />
+                            <p>
+                                Company Register
+                            </p>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://lykke.com/Lykke_Corp_Placement_Memorandum.pdf" download>
+                            <img src="/ico/img/lykke-placement-icn.svg" />
+                            <p>
+                                Lykke Corp Placement Memorandum
+                            </p>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://www.coinprism.info/asset/AXkedGbAH1XGDpAypVzA5eyjegX4FaCnvM" target="_blank">
+                            <img src="/ico/img/blockchain-icn.svg" />
+                            <p>
+                                Lykke Corp Equity Register on Blockchain
+                            </p>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://lykke.com/Annual_Report_2015.pdf" download>
+                            <img src="/ico/img/annual-report-icn.svg" />
+                            <p>
+                                Annual Report 2015
+                            </p>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://lykke.com/Lykke_Outlook.pdf" download>
+                            <img src="/ico/img/icon-brows.svg" />
+                            <p>
+                                Lykke Outlook
+                            </p>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div id="team">
+        <div class="container">
+            <div class="row team">
+                <div class="col-xs-12 hidden-lg hidden-md hidden-sm">
+                    <div class="play text-center">
+                        <img src="/ico/img/play_2x.png" alt="" />
+                    </div>
+                </div>
+                <div class="col-sm-7">
+                    <div class="h1">Team</div>
+                    <p>The Lykke team is truly global. These are Finance and Tech professionals from all over the world - from London to Tehran, from Vancouver to Moscow. </p>
+                    <p>We are united by the vision of the future of markets we share.</p>
+                    <a class="my-btn-2" href="https://lykke.com/leadership">MEET OUR TEAM!</a>
+                </div>
+                <div class="col-sm-5 hidden-xs">
+                    <div class="play dddd text-center">
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="close-video">X</div>
+        <script src="https://www.youtube.com/iframe_api"></script>
+        <iframe id="iframe-video" src="https://www.youtube.com/embed/P2LqZcTndMM" frameborder="0" allowfullscreen></iframe>
+    </div>
+    <div id="contact-us" class="container">
+        <div class="row">
+            <div class="col-sm-12 text-center">
+                <div class="h1">Contact us</div>
+                <p class="please-feel">Please feel free to contact us to get any help or information:</p>
+                <a class="main-mail" href="mailto:support@lykke.com">support@lykke.com</a>
+            </div>
+        </div>
+        <div class="row links-block">
+            <div class="col-sm-5 col-sm-offset-1">
+                <div class="links">
+                    <h3>MEDIA</h3>
+                    <p>
+                        You can get more details from <a href="https://lykke.com/city/blog/2016-10-14/blockchain-powered_exchange_captures_1_million_from_fans">our press release</a><br> or by emailing <a href="mailto:pr@lykke.com">pr@lykke.com</a>
+                    </p>
+                </div>
+                <div class="links">
+                    <h3>BLOG</h3>
+                    <p>
+                        Read <a href="https://lykke.com/city/blog/">our blog</a> and stay tuned.
+                    </p>
+                </div>
+            </div>
+            <div class="col-sm-5 col-sm-offset-1">
+                <div class="links">
+                    <h3>SOCIAL MEDIA</h3>
+                    <p>
+                        <a href="https://www.facebook.com/groups/lykkex/">Facebook</a><br>
+                        <a href="https://twitter.com/LykkeCity">Twitter</a><br>
+                        <a href="https://www.youtube.com/channel/UCmMYipGdKMF0kzfaE-PXsNQ">YouTube</a><br>
+                        <a href="http://instagram.com/lykkecity">Instagram</a><br>
+                        <a href="https://www.linkedin.com/company/lykke-ag">Linkedin</a><br>
+                        <a href="https://t.co/TmjMYnQD7T">Telegram</a><br>
+                        <a href="https://www.reddit.com/r/lykke/">Reddit</a>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-6 hidden-xs">
+                    <div class="copyr"> &copy;  2016 Lykke. All rights reserved</div>
+                </div>
+                <div class="col-sm-6 col-xs-12 social-links-footer text-right">
+                    <a class="f" href="https://www.facebook.com/groups/lykkex/"><span></span></a>
+
+                    <a class="tw" href="https://twitter.com/LykkeCity"><span></span></a>
+
+                    <a class="y" href="https://www.youtube.com/channel/UCmMYipGdKMF0kzfaE-PXsNQ"><span></span></a>
+                    <a class="i" href="http://instagram.com/lykkecity"><span></span></a>
+                    <a class="l" href="https://www.linkedin.com/company/lykke-ag"><span></span></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <img src="/ico/img/team/1-richard.jpg" class="hidden" alt="" />
+    <img src="/ico/img/team/2-anton.jpg" class="hidden" alt="" />
+    <img src="/ico/img/team/3-mihail.jpg" class="hidden" alt="" />
+    <img src="/ico/img/team/4-sergey.jpg" class="hidden" alt="" />
+    <script src="/ico/js/bootstrap.min.js" type="text/javascript"></script>
+    <script src="/ico/js/jquery.spincrement.min.js" type="text/javascript"></script>
+    <script src="/ico/js/skrollr.js" type="text/javascript"></script>
+    <script src="/ico/js/site.js?v.1" type="text/javascript"></script>
+</body>
+</html>

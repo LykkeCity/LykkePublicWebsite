@@ -1,0 +1,345 @@
+@media(min-width:1400px) {
+    .discover-more {
+        /*margin-top: 20%;*/
+    }
+}
+
+@media(min-width:1024px) and (max-width:1100px) {
+    .fullscreen-bg_video {
+        left: -157px;
+        width: 1365px;
+    }
+
+    .main-nav a {
+        margin-right: 9px;
+        font-size: 11px;
+    }
+
+    .center-video {
+        bottom: 10%;
+    }
+
+    .video {
+        /*height: 667px !important;*/
+    }
+
+    .field {
+        background-size: initial;
+    }
+
+    .btn-invest {
+        font-size: 10px;
+    }
+
+    .img-iph img {
+        width: 90%;
+    }
+
+    .parallax {
+        height: 688px;
+    }
+}
+
+@media(min-width:768px) and (max-width:1020px) {
+
+    .img-iph img {
+        width: 100%;
+    }
+
+    .video {
+        /*height: 667px !important;*/
+    }
+
+    .fullscreen-bg_video {
+        width: 1404px;
+        left: -243px;
+    }
+
+    .main-nav a {
+        margin-right: 9px;
+        font-size: 11px;
+    }
+
+    .field {
+        background-size: initial;
+        top: -80px !important;
+    }
+
+    .parallax {
+        height: 719px;
+    }
+}
+
+@media(max-width:767px) {
+    .center-video {
+        margin-top:50%;
+    }
+
+    .img-iph img {
+        width: 100%;
+    }
+
+    .video {
+        /* height: 483px !important; */
+        background-image: url('../img/world-preview.png');
+        background-size: cover;
+        overflow: hidden;
+        background-position: center;
+        /*background-color:#282D34;*/
+    }
+
+    .fullscreen-bg_video {
+        width: 1500px;
+        top: -70px;
+        left: 50%;
+        margin-left: -700px;
+        margin-right: auto;
+    }
+
+    .logo-center {
+        width: 170px;
+        height:40px;
+    }
+
+    .slogan {
+        font-size: 26px;
+    }
+
+    .slogan-2 {
+        font-size: 20px;
+    }
+
+    .discover-more {
+    }
+
+    .scroll-down {
+    }
+
+    #invest {
+        padding: 17px;
+    }
+
+        #invest .row > div {
+            margin-bottom: 30px;
+        }
+
+    .download-btn {
+    }
+
+        .download-btn a, .download-btn a:last-child {
+            display: block;
+           margin: 5px auto;
+        }
+
+    .Lykke-Manifesto, .Lykke-Manifesto a {
+        font-size: 13px;
+        margin-top: 20px;
+    }
+
+    .call-to-action {
+        font-size: 20px;
+    }
+
+    h1, .h1 {
+        font-size: 26px;
+    }
+
+    .field-info .field-info-text {
+        font-size: 10px;
+    }
+
+    .field-info .field-info-data {
+        font-size: 28px;
+        line-height: 1.21;
+    }
+
+    #campaign-in-figures {
+        padding-top: 55px;
+        height: 739px;
+        /*background-position: 0px -249px;*/
+        background-size: inherit;
+        top: -20px !important;
+    }
+
+    .field-info {
+        margin-bottom: 56px;
+    }
+
+    .field-margin {
+        margin: 0;
+    }
+
+    #manifesto {
+        padding-top: 55px;
+    }
+
+    h2, .h2 {
+        font-size: 17px;
+    }
+
+    .intro {
+        font-size: 16px;
+    }
+
+    .manifesto-icon img {
+        width: 31px;
+    }
+
+    .manifesto-info, .manifesto-text, .margin-note, .manifesto-where {
+        margin-top: 30px;
+    }
+
+        .manifesto-info > div, .manifesto-info > div:after, .manifesto-info > div:before {
+            clear: both;
+        }
+
+        .manifesto-info p {
+            font-size: 13px;
+            font-weight: normal;
+            line-height: 1.85;
+            text-align: left;
+        }
+
+        .manifesto-text p {
+            font-size: 16px;
+        }
+
+        .manifesto-text .note {
+            font-size: 11px;
+        }
+
+    .img-note {
+        margin-top: 0px;
+    }
+
+    h3, .h3 {
+        font-size: 12px;
+        color: #ff2900;
+        font-weight: 600;
+        line-height: 1.67;
+        letter-spacing: 2px;
+    }
+
+    .manifesto-where-item p {
+        font-size: 13px;
+    }
+
+    .download-whitepaper .my-btn-1 {
+        font-size: 11px;
+    }
+
+    .download-whitepaper {
+        margin: 35px 0px;
+    }
+
+    .team {
+        padding-top: 9px;
+    }
+
+    .play {
+        padding-top: 50px;
+        padding-bottom: 50px;
+        position: relative;
+        z-index: 55;
+    }
+
+        .play img {
+            width: 100px;
+        }
+
+    .team {
+        text-align: center;
+    }
+
+        .team p {
+            font-size: 13px;
+        }
+
+        .team .my-btn-2 {
+            font-size: 11px;
+        }
+
+    #team {
+        height: 600px;
+        background-position: center;
+    }
+
+    #contact-us {
+        padding-top: 35px;
+    }
+
+    .please-feel {
+        font-size: 16px;
+    }
+
+    #contact-us a {
+        font-size: 20px;
+    }
+
+    .links p, #contact-us .links a {
+        font-size: 13px;
+    }
+
+    .links-block {
+        margin: 30px 0px;
+    }
+
+    .links {
+        margin-bottom: 20px;
+    }
+
+    .social-links-footer {
+        text-align: center;
+    }
+
+        .social-links-footer a {
+            padding: 25px;
+        }
+
+    .parallax {
+        height: 719px;
+    }
+}
+
+@media only screen and (max-width:767px) and (orientation: landscape) {
+    .slogan {
+        margin-top: 20px;
+        font-size: 22px;
+    }
+
+    .center-video {
+       margin-top:10%;
+    }
+
+    .discover-more {
+        margin-top: 20px;
+    }
+
+    .video {
+        background-size: 135%;
+    }
+}
+/* iPads (portrait) ----------- */
+@media only screen and (min-device-width : 768px) and (max-device-width : 1024px) and (orientation : portrait) {
+    .center-video {
+        margin-top:50%;
+    }
+
+    .fullscreen-bg_video {
+        width: 1820px;
+        left: -483px;
+    }
+}
+/* iPads (landscape) ----------- */
+@media only screen and (min-device-width : 768px) and (max-device-width : 1024px) and (orientation : landscape) {
+    .center-video {
+         margin-top:20%;
+    }
+
+    .fullscreen-bg_video {
+        width: 1364px;
+    }
+    .discover-more{
+        margin-top:0;
+    }
+}
