@@ -9,7 +9,7 @@ php_value error_reporting 'E_ALL & ~E_NOTICE'
     RewriteRule .* https://%{SERVER_NAME}%{REQUEST_URI} [R,L]
 
     # the main rewrite rule for the frontend application
-    RewriteCond %{REQUEST_URI} !^/(backend/web|control)
+    RewriteCond %{REQUEST_URI} !^/(backend/web|control|ico)
     RewriteRule !^frontend/web /frontend/web%{REQUEST_URI} [L]
 
     # redirect to the page without a trailing slash (uncomment if necessary)
@@ -18,6 +18,9 @@ php_value error_reporting 'E_ALL & ~E_NOTICE'
     # the main rewrite rule for the backend application
     RewriteCond %{REQUEST_URI} ^/control
     RewriteRule ^control(.*) /backend/web/$1 [L]
+
+    RewriteCond %{REQUEST_URI} ^/ico
+    RewriteRule ^ico(.*) /frontend/web/ico/$1 [L]
 
     # if a directory or a file of the frontend application exists, use the request directly
     RewriteCond %{REQUEST_URI} ^/frontend/web
@@ -32,6 +35,9 @@ php_value error_reporting 'E_ALL & ~E_NOTICE'
     RewriteCond %{REQUEST_FILENAME} !-d
     # otherwise forward the request to index.php
     RewriteRule . /backend/web/index.php [L]
+
+
+
 
     RewriteCond %{REQUEST_URI} \.(htaccess|htpasswd|svn|git)
     RewriteRule \.(htaccess|htpasswd|svn|git) - [F]
