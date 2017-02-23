@@ -18,7 +18,7 @@ use yii\helpers\Url;
           <div class="container">
             <div class="news_article__media news_article__media--main">
               <a href="<?=Url::to([$page['url'].'/'.$post['post_url']])?>">
-                <img src="<?=Yii::$app->request->hostInfo.'/media/blog/'.$post['post_img']?>" alt="">
+                <img src="<?=Yii::$app->request->hostInfo.'/media/news/'.$post['post_img']?>" alt="">
               </a>
             </div>
           </div>
@@ -41,7 +41,7 @@ use yii\helpers\Url;
                   <div class="news_article__text text">
                     <?= $post['post_text'] ?>
                   </div>
-                <?=SocialShareInnerPost::widget(['page_url' => $page['url'], 'post_url' => $post['post_url'], 'post_title' => $post['post_title']])?>
+                   <?=SocialShareInnerPost::widget(['page_url' => $page['url'], 'post_url' => $post['post_url'], 'post_title' => $post['post_title']])?>
               </div>
               <div class="col-md-9 col-md-offset-3">
                 <?php if(Yii::$app->user->isGuest) {?>
@@ -56,7 +56,7 @@ use yii\helpers\Url;
                   </div>
                 <?php }else{?>
                       <div class="block_header" >
-                        <button data-id="<?= $post['id'] ?>" data-type="<?= CommentsType::BLOG ?>" type="button" class="btn btn-sm pull-right action-<?=$subscribe == 1 ? 'unsubscribe' : 'subscribe' ;?>"><i class="icon icon--mail"></i> <span><?=$subscribe == 1 ? 'Unsubscribe' : 'Subscribe' ;?></span></button>
+                        <button data-id="<?= $post['id'] ?>" data-type="<?= $type ?>" type="button" class="btn btn-sm pull-right action-<?=$subscribe == 1 ? 'unsubscribe' : 'subscribe' ;?>"><i class="icon icon--mail"></i> <span><?=$subscribe == 1 ? 'Unsubscribe' : 'Subscribe' ;?></span></button>
                         <h3>Comments <span><?=$countComments?></span></h3>
                       </div>
                   <?php if (Yii::$app->user->identity->blocked_comment == 0) {?>

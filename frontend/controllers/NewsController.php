@@ -6,7 +6,7 @@ namespace frontend\controllers;
 
 use common\enum\CommentsType;
 use common\models\SitePages;
-use common\models\BlogPosts;
+use common\models\NewsPosts;
 use common\models\Comments;
 use common\models\CommentsSubscribe;
 
@@ -15,7 +15,7 @@ use yii\data\Pagination;
 use yii\web\NotFoundHttpException;
 use yii\web\View;
 
-class BlogController extends AppController {
+class NewsController extends AppController {
 
 
   public function actions() {
@@ -56,7 +56,7 @@ class BlogController extends AppController {
 
     $this->processPageRequest('page');
 
-    $posts = BlogPosts::find()
+    $posts = NewsPosts::find()
       ->where(['published' => 1])
       ->orderBy(['post_datetime' => SORT_DESC]);
 
@@ -75,7 +75,7 @@ class BlogController extends AppController {
 
 
     if (Yii::$app->request->isAjax) {
-      return $this->renderPartial('partial_blog_item', [
+      return $this->renderPartial('partial_news_item', [
         'page'  => $page,
         'posts' => $posts
       ]);
@@ -91,7 +91,7 @@ class BlogController extends AppController {
   }
 
   function detailsPost($page, $post_url) {
-    $post = BlogPosts::find()->where([
+    $post = NewsPosts::find()->where([
       'published' => 1,
       'post_url'  => $post_url
     ])->one();
@@ -104,8 +104,8 @@ class BlogController extends AppController {
     $comment = new Comments();
     $subscribe = new CommentsSubscribe();
 
-    $comments = $comment->getComments($post['id'], CommentsType::BLOG);
-    $subscribeStatus = $subscribe->subscribeStatus($post['id'], CommentsType::BLOG);
+    $comments = $comment->getComments($post['id'], CommentsType::NEWS);
+    $subscribeStatus = $subscribe->subscribeStatus($post['id'], CommentsType::NEWS);
 
     return $this->render('post', [
       'page'          => $page,
@@ -113,7 +113,7 @@ class BlogController extends AppController {
       'post'          => $post,
       'comments'      => $comments['comments'],
       'countComments' => $comments['count'],
-      'type'          =>  CommentsType::BLOG
+      'type'          =>  CommentsType::NEWS
     ]);
   }
 

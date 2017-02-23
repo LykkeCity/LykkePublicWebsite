@@ -7,7 +7,7 @@ $(document).ready(function () {
     $(window).scroll(function () {
         if ($(window).scrollTop() + $(window).height() >= $(document).height() - 200 && !inProgress) {
             $.ajax({
-                url: '/city/blog',
+                url: window.location.pathname,
                 method: 'POST',
                 data: {"page": page},
                 beforeSend: function () {

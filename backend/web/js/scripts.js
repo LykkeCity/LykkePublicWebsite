@@ -39,15 +39,6 @@ function openKCFinder(div) {
 }
 
 
-tinymce.init({
-    selector: ".editor_basic",
-    skin: 'light',
-    language: 'ru',
-    plugins: [
-        "searchreplace wordcount visualblocks visualchars code fullscreen insertdatetime nonbreaking, link, textcolor, colorpicker",
-    ],
-    toolbar1: "bold italic underline strikethrough | link unlink anchor | forecolor backcolor"
-});
 
 
 
@@ -55,7 +46,7 @@ var timmceOption = {
     file_browser_callback: imgManager,
     skin: 'light',
     selector: ".editor_full",
-    language: 'ru',
+    language: 'en_GB',
     plugins: [
         "noneditable importcss advlist autolink autosave link image lists charmap print preview hr anchor pagebreak spellchecker",
         "searchreplace wordcount visualblocks visualchars code fullscreen insertdatetime media nonbreaking",
@@ -124,15 +115,25 @@ var timmceOption = {
             {title: "Center", icon: "aligncenter", format: "aligncenter"},
             {title: "Right", icon: "alignright", format: "alignright"},
             {title: "Justify", icon: "alignjustify", format: "alignjustify"}
-        ]},
-        {title: "Свои стили", items: [
-            {title: "Оформление заголовка 1", selector: "h1", classes: 'title-cont-4'}
         ]}
 
 
     ]
 
 };
+
+tinymce.init({
+    selector: ".editor_basic",
+    skin: 'light',
+    language: 'en_GB',
+    plugins: [
+        "searchreplace wordcount visualblocks visualchars code fullscreen insertdatetime nonbreaking, link, textcolor, colorpicker",
+    ],
+    toolbar1: "bold italic underline strikethrough | link unlink anchor | forecolor backcolor"
+});
+
+
+
 var htmlEditor ;
 
 $(document).ready(function () {
@@ -153,7 +154,7 @@ $('.change_editor_html').on('click', function () {
     editAreaLoader.init({
         id: "editor"	// id of the textarea to transform
         ,start_highlight: true	// if start with highlight
-        ,language: "ru"
+        ,language: "en"
         ,allow_toggle: false
         ,syntax: "html"
         ,min_width:700

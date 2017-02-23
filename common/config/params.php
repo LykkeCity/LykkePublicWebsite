@@ -1,5 +1,5 @@
 <?php
 return [
    'uri_blog' => 'city/blog',
-   'uri_news' => 'city/news',
+   'uri_news' => 'company/news',
 ];

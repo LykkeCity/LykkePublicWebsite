@@ -47,6 +47,7 @@ $config = [
             'showScriptName' => false,
             'rules' => [
               $params['uri_blog'].'/<post_url:\w+>' => 'blog/index',
+              $params['uri_news'].'/<post_url:\w+>' => 'news/index',
               ['class' => 'frontend\components\pages\PagesUrlRule'],
               ['class' => 'frontend\components\pages\StrictParseRequest']
             ],

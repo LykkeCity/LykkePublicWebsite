@@ -6,10 +6,9 @@ namespace frontend\controllers;
 
 use common\classes\CommentsTypeClass;
 use common\classes\EmailNotifications;
-use common\enum\CommentsType;
+
 use common\models\BlogPosts;
 use common\models\Comments;
-use common\models\CommentsEditedHistory;
 use common\models\CommentsSubscribe;
 use common\models\LykkeUser;
 use common\models\News;

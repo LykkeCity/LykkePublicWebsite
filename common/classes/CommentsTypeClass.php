@@ -6,7 +6,7 @@ namespace common\classes;
 
 use common\enum\CommentsType;
 use common\models\BlogPosts;
-use common\models\News;
+use common\models\NewsPosts;
 
 class CommentsTypeClass {
 
@@ -19,7 +19,7 @@ class CommentsTypeClass {
         break;
 
       case CommentsType::NEWS:
-        $class = News::class;
+        $class = NewsPosts::class;
         break;
 
       default:

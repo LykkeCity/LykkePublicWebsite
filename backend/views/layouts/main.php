@@ -43,7 +43,7 @@ AppAsset::register($this);
     $menuItems[] = '<li>'
       . Html::beginForm(['/site/logout'], 'post')
       . Html::submitButton(
-        'Выйти',
+        'Logout',
         ['class' => 'btn btn-link logout']
       )
       . Html::endForm()
@@ -62,7 +62,7 @@ AppAsset::register($this);
     <?= Breadcrumbs::widget([
       'links'    => isset($this->params['breadcrumbs']) ? $this->params['breadcrumbs'] : [],
       'homeLink' => [
-        'label' => 'Главаня',
+        'label' => 'Main',
         'url'   => UrlHelper::to(['/'])
       ]
     ]) ?>
@@ -71,18 +71,21 @@ AppAsset::register($this);
       <div class="col-md-3">
         <ul class="nav nav-pills nav-stacked">
           <li role="presentation" class="<?= UrlHelper::isActive('index'); ?>">
-            <a href="<?= UrlHelper::to(['/']) ?>">Главная</a></li>
+            <a href="<?= UrlHelper::to(['/']) ?>">Main</a></li>
           <li role="presentation" class="<?= UrlHelper::isActive('page'); ?>">
-            <a href="<?= UrlHelper::to(['/page']) ?>">Страницы</a></li>
+            <a href="<?= UrlHelper::to(['/page']) ?>">Pages</a></li>
           <li role="presentation"
               class="<?= UrlHelper::isActive('blog/index'); ?>"><a
-              href="<?= UrlHelper::to(['/blog/']) ?>">Блог</a></li>
+              href="<?= UrlHelper::to(['/blog/']) ?>">Blog</a></li>
+          <li role="presentation"
+              class="<?= UrlHelper::isActive('news/index'); ?>"><a
+              href="<?= UrlHelper::to(['/news/']) ?>">News</a></li>
           <li role="presentation"
               class="<?= UrlHelper::isActive('asset/index'); ?> <?= UrlHelper::isActive('asset/pair'); ?>"><a
-              href="<?= UrlHelper::to(['/asset']) ?>">Активы</a></li>
+              href="<?= UrlHelper::to(['/asset']) ?>">Assets</a></li>
           <li role="presentation"
               class="<?= UrlHelper::isActive('user/index'); ?>"><a
-              href="<?= UrlHelper::to(['/user']) ?>">Пользователи</a></li>
+              href="<?= UrlHelper::to(['/user']) ?>">Users</a></li>
           <li role="presentation"
               class="<?= UrlHelper::isActive('comments/index'); ?>"><a
               href="<?= UrlHelper::to(['/comments']) ?>">Comments</a></li>
