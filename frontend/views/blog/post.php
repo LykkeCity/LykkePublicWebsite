@@ -40,7 +40,7 @@ use yii\helpers\Url;
                   <div class="news_article__text text">
                     <?= $post['post_text'] ?>
                   </div>
-                <?=SocialShareInnerPost::widget(['page_url' => $page['url'], 'post_url' => $post['post_url'], 'post_title' => $post['post_title']])?>
+                <?=SocialShareInnerPost::widget(['page_url' => $page['url'], 'post_url' => $post['post_url'], 'post_title' => $post['post_title'], 'picture' => Yii::$app->request->hostInfo.'/media/blog/'.$post['post_img']])?>
               </div>
               <div class="col-md-9 col-md-offset-3">
                 <?php if(Yii::$app->user->isGuest) {?>
