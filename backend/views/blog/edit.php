@@ -30,7 +30,7 @@ else {
       </button>
       <a href="<?= UrlHelper::to(['/blog/add']) ?>"
          class="btn btn-xs btn-primary">
-        Add new post
+        Create new post
       </a>
       <a href="<?= UrlHelper::to(['/blog']) ?>"
          class="btn btn-xs btn-warning">

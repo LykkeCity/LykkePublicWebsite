@@ -1,7 +1,7 @@
 <?
 use backend\components\helpers\UrlHelper;
 
-$this->title = 'Страницы';
+$this->title = 'Pages';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 
@@ -10,7 +10,7 @@ $this->params['breadcrumbs'][] = $this->title;
     <a href="<?= UrlHelper::to(['/page/add']) ?>"
        class="btn btn-primary btn-xs pull-right">
       <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
-      Добавить страницу
+      Add page
     </a>
   </div>
 </div>
@@ -19,8 +19,8 @@ $this->params['breadcrumbs'][] = $this->title;
   <thead>
   <tr>
     <th>Id</th>
-    <th>Имя</th>
-    <th>Управление</th>
+    <th>Title</th>
+    <th></th>
   </tr>
   </thead>
   <tbody>
@@ -31,12 +31,12 @@ $this->params['breadcrumbs'][] = $this->title;
       <td>
         <a href="<?= UrlHelper::to(['/page/edit', 'id' => $page['id']]) ?>"
            class="btn btn-primary btn-xs" data-toggle="tooltip"
-           data-placement="top" title="Редактровать">
+           data-placement="top" title="Edit">
           <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>
         </a>
         <a href="<?= UrlHelper::to(['/page/deleted', 'id' => $page['id']]) ?>"
            class="btn btn-danger btn-xs action-delete"
-           data-toggle="tooltip" data-placement="top" title="Удалить">
+           data-toggle="tooltip" data-placement="top" title="Delete">
           <span class="glyphicon glyphicon-trash" aria-hidden="true"></span>
         </a>
       </td>
@@ -53,7 +53,7 @@ $this->params['breadcrumbs'][] = $this->title;
               'id' => $sub_page['id']
             ]) ?>"
                class="btn btn-primary btn-xs" data-toggle="tooltip"
-               data-placement="top" title="Редактровать">
+               data-placement="top" title="Edit">
               <span class="glyphicon glyphicon-pencil"
                     aria-hidden="true"></span>
             </a>
@@ -61,7 +61,7 @@ $this->params['breadcrumbs'][] = $this->title;
               '/page/deleted',
               'id' => $sub_page['id']
             ]) ?>" class="btn btn-danger btn-xs action-delete"
-               data-toggle="tooltip" data-placement="top" title="Удалить">
+               data-toggle="tooltip" data-placement="top" title="Delete">
               <span class="glyphicon glyphicon-trash" aria-hidden="true"></span>
             </a>
           </td>

@@ -21,7 +21,7 @@ $this->params['breadcrumbs'][] = $this->title;
   <thead>
   <tr>
     <th>Id</th>
-    <th>Name</th>
+    <th>Title</th>
     <th></th>
   </tr>
   </thead>

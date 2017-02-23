@@ -1,28 +1,28 @@
 <?
 use backend\components\helpers\UrlHelper;
 
-$this->title = 'Добавить страницу';
-$this->params['breadcrumbs'][] = ['label' => 'Страницы', 'url' => ['/page/']];
+$this->title = 'Add page';
+$this->params['breadcrumbs'][] = ['label' => 'Pages', 'url' => ['/page/']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 
 <? if ($result == "error") { ?>
   <div class="alert alert-danger">
-    Ошибка создания страницы =(
+    Error create page =(
   </div>
 <? }
 else {
   if ($result == 'success') { ?>
     <div class="alert alert-success text-center">
-      <p><b>Страница успешно создана!</b></p>
+      <p><b>Page is successfully created!</b></p>
       <br>
       <a href="<?= UrlHelper::to(['page/edit', 'id' => $id]) ?>"
          class="btn btn-xs btn-success">
-        Редактировать
+        Edit
       </a>
       <a href="<?= UrlHelper::to(['page/add']) ?>"
          class="btn btn-xs btn-primary">
-        Создать новую страницу
+        Create new page
       </a>
     </div>
   <? }
@@ -33,11 +33,11 @@ else {
     <div class="col-sm-12 text-right">
       <button type="submit"
               class="btn btn-xs btn-success">
-        Добавить
+        Add
       </button>
       <a href="<?= UrlHelper::to(['/page']) ?>"
          class="btn btn-xs btn-warning">
-        Отмена
+        Cancel
       </a>
     </div>
   </div>
@@ -45,10 +45,10 @@ else {
   <div class="row">
     <div class="col-md-12">
       <div class="bs-panel">
-        <div class="bs-title">Основное</div>
+        <div class="bs-title">Main</div>
 
         <div class="form-group">
-          <label for="input-name">Название страницы</label>
+          <label for="input-name">Title page</label>
           <input type="text" name="name" onkeyup="translit(this, '#input-url')"
                  class="form-control input-sm" id="input-name" required>
         </div>
@@ -64,8 +64,8 @@ else {
 
               <!-- Nav tabs -->
               <ul class="nav nav-tabs" role="tablist">
-                <li role="presentation" class="active change_editor"><a href="#editor_view"  role="tab" data-toggle="tab">Визуальный редактор</a></li>
-                <li role="presentation" class="change_editor_html"><a href="#editor_view"  role="tab" data-toggle="tab">HTML редактор</a></li>
+                <li role="presentation" class="active change_editor"><a href="#editor_view"  role="tab" data-toggle="tab">Visual editor</a></li>
+                <li role="presentation" class="change_editor_html"><a href="#editor_view"  role="tab" data-toggle="tab">HTML editor</a></li>
               </ul>
 
               <!-- Tab panes -->
@@ -107,27 +107,27 @@ else {
 
     <div class="col-md-12">
       <div class="bs-panel">
-        <div class="bs-title">Настройки</div>
+        <div class="bs-title">Settings</div>
         <div class="checkbox">
           <label>
             <input name="published" type="checkbox" checked="checked" value="1">
-            Опубликован
+            Published
           </label>
         </div>
         <div class="checkbox">
           <label>
-            <input name="in_menu" type="checkbox" value="1"> В меню
+            <input name="in_menu" type="checkbox" value="1"> In menu
           </label>
         </div>
         <div class="checkbox">
           <label>
-            <input name="normal_tpl" type="checkbox" value="1"> Обычный шаблон
+            <input name="normal_tpl" type="checkbox" value="1"> Normal template
           </label>
         </div>
         <div class="form-group">
-          <label for="input-date">Родительская страница</label>
+          <label for="input-date">Parent page</label>
           <select name="parent" class="form-control">
-            <option value="">Без родителя</option>
+            <option value="">No parent</option>
 
             <? foreach ($parents as $parent) { ?>
               <option value="<?= $parent->id ?>"><?= $parent->name ?></option>
@@ -136,7 +136,7 @@ else {
           </select>
         </div>
         <div class="form-group">
-          <label for="input-date">Дата</label>
+          <label for="input-date">Date</label>
           <input name="datetime" type="text"
                  class="form-control input-sm datetimepicker" id="input-date">
         </div>
@@ -153,7 +153,7 @@ else {
                  value="index">
         </div>
         <div class="form-group">
-          <label for="input-template">Шаблон</label>
+          <label for="input-template">Template</label>
           <input name="template" type="text" class="form-control input-sm"
                  id="input-template"
                  value="index">
@@ -162,6 +162,6 @@ else {
     </div>
   </div>
   <div class="margin-b">
-    <button type="submit" class="btn btn-block btn-success">Добавить</button>
+    <button type="submit" class="btn btn-block btn-success">Add</button>
   </div>
 </form>
