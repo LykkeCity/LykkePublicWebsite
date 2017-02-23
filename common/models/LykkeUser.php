@@ -26,6 +26,7 @@ class LykkeUser extends ActiveRecord implements IdentityInterface {
     $user->first_name = $userInfo->firstName;
     $user->last_name = $userInfo->lastName;
     $user->email = $userInfo->email;
+    $user->kyc_status = $userInfo->kyc_status;
     $user->blocked_comment = 0;
 
     return $user->save() ? $user : FALSE;
@@ -37,6 +38,7 @@ class LykkeUser extends ActiveRecord implements IdentityInterface {
     $user->first_name = $userInfo->firstName;
     $user->last_name = $userInfo->lastName;
     $user->email = $userInfo->email;
+    $user->kyc_status = $userInfo->kyc_status;
 
     return $user->save() ? $user : FALSE;
 

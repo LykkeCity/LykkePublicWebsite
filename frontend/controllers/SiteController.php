@@ -1,6 +1,7 @@
 <?php
 namespace frontend\controllers;
 
+use common\enum\KycStatus;
 use Yii;
 use common\models\LykkeUser;
 use common\models\LykkeUserAccess;
@@ -44,6 +45,7 @@ class SiteController extends AppController {
 
   function actionLogout() {
     Yii::$app->user->logout();
+    $this->cUrl(Yii::$app->params['oAuthLykke']['urlLogout'], '');
     return $this->goHome();
   }
 
@@ -92,10 +94,17 @@ class SiteController extends AppController {
 
   }
 
+  function getKycStatus($email){
+    $kycStatus =  $this->cUrl(Yii::$app->params['oAuthLykke']['urlKycStatus'] . '?email=' . $email, '', 'GET', ['application_id: '.getenv('OAUTH_CLIENT_ID')]);
+    return empty($kycStatus) ? KycStatus::NEED_TO_FILL_DATA : $kycStatus;
+  }
+
   function authorizeUser($userInfo) {
+
 
     $model = new LykkeUser();
     $user = $model->findUserByEmail($userInfo->email);
+    $userInfo->kyc_status = $this->getKycStatus($userInfo->email);
 
     if (empty($user)) {
       $user = $model->addNewUser($userInfo);

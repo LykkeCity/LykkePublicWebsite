@@ -1,5 +1,5 @@
 
-function updateDate(e) {
+function updateData(e) {
     var _this = $(e),
         id = _this.data('id'),
         data = _this.is(':checked') ? 1 : 0;

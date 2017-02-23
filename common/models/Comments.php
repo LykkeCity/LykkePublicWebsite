@@ -124,7 +124,7 @@ class Comments extends ActiveRecord {
     $pages = new Pagination([
       'totalCount' => count($sql->createCommand()
         ->queryAll()),
-      'pageSize'   => 10
+      'pageSize'   => 15
     ]);
 
     $pages->pageSizeParam = FALSE;

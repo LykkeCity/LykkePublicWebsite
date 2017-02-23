@@ -19,11 +19,15 @@ class AppController extends Controller {
     }
   }
 
-  protected function cUrl($url, $params, $method = 'POST') {
+  protected function cUrl($url, $params, $method = 'POST', $header = []) {
 
     if ($curl = curl_init()) {
       curl_setopt($curl, CURLOPT_URL, $url);
       curl_setopt($curl, CURLOPT_RETURNTRANSFER, TRUE);
+      if (!empty($header)){
+        curl_setopt($curl,CURLOPT_HTTPHEADER, $header);
+      }
+
       if ($method == 'POST') {
         curl_setopt($curl, CURLOPT_CUSTOMREQUEST, $method);
         curl_setopt($curl, CURLOPT_POSTFIELDS, http_build_query($params));

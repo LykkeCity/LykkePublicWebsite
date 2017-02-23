@@ -1,5 +1,6 @@
 <?
 use common\enum\CommentsType;
+use common\enum\KycStatus;
 use frontend\widgets\Footer;
 use frontend\widgets\SocialShareInnerPost;
 use \frontend\widgets\SubMenu;
@@ -59,7 +60,7 @@ use yii\helpers\Url;
                         <button data-id="<?= $post['id'] ?>" data-type="<?= CommentsType::BLOG ?>" type="button" class="btn btn-sm pull-right action-<?=$subscribe == 1 ? 'unsubscribe' : 'subscribe' ;?>"><i class="icon icon--mail"></i> <span><?=$subscribe == 1 ? 'Unsubscribe' : 'Subscribe' ;?></span></button>
                         <h3>Comments <span><?=$countComments?></span></h3>
                       </div>
-                  <?php if (Yii::$app->user->identity->blocked_comment == 0) {?>
+                  <?php if (Yii::$app->user->identity->blocked_comment == 0 && Yii::$app->user->identity->kyc_status == KycStatus::OK) {?>
                       <form action="" class="form form--message" id="form-comment">
                         <input type="hidden" name="page_post_id" value=" <?= $post['id'] ?>">
                         <input type="hidden" name="author" value=" <?= $post['post_author'] ?>">
