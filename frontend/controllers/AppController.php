@@ -4,6 +4,7 @@
 namespace frontend\controllers;
 
 
+use common\models\Redirects;
 use common\models\SitePages;
 use yii\web\Controller;
 use Yii;
@@ -12,6 +13,24 @@ use Yii;
 class AppController extends Controller {
 
   public $pageId;
+
+  function init() {
+
+    $redirects = (new Redirects())->getAllRedirect();
+
+    foreach ($redirects as $redirect){
+      if($redirect['redirect_with'] === trim(Yii::$app->request->pathInfo, '/')){
+        $redirect_url = empty($redirect['redirect_to']) ? '/' : $redirect['redirect_to'];
+        $redirect_url = strripos($redirect_url, 'http') === FALSE ? '/'.$redirect_url : $redirect_url;
+        header("HTTP/1.1 301 Moved Permanently");
+        header("Location: " . $redirect_url);
+        exit();
+      }
+    }
+
+    parent::init();
+
+  }
 
   protected function processPageRequest($param = 'page') {
     if (Yii::$app->request->isAjax && isset($_POST[$param])) {

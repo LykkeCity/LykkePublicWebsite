@@ -29,6 +29,7 @@ $url = [
   "/city/blog/2016-11-22/lykke_streams"                                            => "https://temp.lykke.com/city/blog/2016-11-22/lykke_streams",
   "/city/blog/2016-11-16/vanuatu"                                                  => "https://temp.lykke.com/city/blog/2016-11-16/vanuatu",
   "/city/blog/2016-10-14/blockchain-powered_exchange_captures_1_million_from_fans" => "https://temp.lykke.com/city/blog/2016-10-14/blockchain-powered_exchange_captures_1_million_from_fans",
+  "/lykkewallet/privacy_policy.html" => "/privacy_policy",
 ];
 
 $uri = $_SERVER['REQUEST_URI'];

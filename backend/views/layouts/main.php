@@ -89,6 +89,9 @@ AppAsset::register($this);
           <li role="presentation"
               class="<?= UrlHelper::isActive('comments/index'); ?>"><a
               href="<?= UrlHelper::to(['/comments']) ?>">Comments</a></li>
+          <li role="presentation"
+              class="<?= UrlHelper::isActive('redirects/index'); ?>"><a
+              href="<?= UrlHelper::to(['/redirects']) ?>">Redirects</a></li>
         </ul>
       </div>
       <div class="col-md-9">
