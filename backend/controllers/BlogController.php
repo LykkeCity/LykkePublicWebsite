@@ -48,7 +48,7 @@ class BlogController extends AppController{
 
     $countQuery = clone $posts;
 
-    $pages = new Pagination(['totalCount' => $countQuery->count(), 'pageSize' => 10]);
+    $pages = new Pagination(['totalCount' => $countQuery->count(), 'pageSize' => 20]);
 
     $pages->pageSizeParam = false;
     $pages->forcePageParam = false;

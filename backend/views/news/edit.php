@@ -55,7 +55,7 @@ else {
                  id="input-post_url" value="<?=$post['post_url']?>" required>
         </div>
         <div class="form-group">
-          <label for="">The current image</label>
+          <label for="">Current image</label>
           <img style="display: block;max-width: 20%;" src="<?=Yii::$app->urlManager->hostInfo.'/media/news/'.$post['post_img']?>">
         </div>
         <div class="form-group">
