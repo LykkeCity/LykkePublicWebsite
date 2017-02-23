@@ -8,6 +8,11 @@ $this->params['breadcrumbs'][] = $this->title;
 
 ?>
 
+<div style="margin-bottom: 10px;">
+  <a class="btn <?=$type == CommentsType::BLOG ? 'btn-info' : 'btn-default';?> btn-xs" href="<?= UrlHelper::to(['/comments', 'type' => CommentsType::BLOG]) ?>">Blog</a>
+  <a class="btn <?=$type == CommentsType::NEWS ? 'btn-info' : 'btn-default';?> btn-xs" href="<?= UrlHelper::to(['/comments', 'type' => CommentsType::NEWS]) ?>">News</a>
+</div>
+
 <table class="table table-hover">
   <tr>
     <th>Name</th>

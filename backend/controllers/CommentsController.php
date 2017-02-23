@@ -42,10 +42,9 @@ class CommentsController extends AppController {
     return parent::beforeAction($action);
   }
 
-  function actionIndex() {
+  function actionIndex($type = CommentsType::BLOG) {
     $model = new Comments();
-    $res = $model->getAllCommentsForBackOffice();
-    $type = CommentsType::BLOG;
+    $res = $model->getAllCommentsForBackOffice($type);
     return $this->render('index', [
       'comments' => $res['comments'],
       'pages'    => $res['pages'],
@@ -70,7 +69,7 @@ class CommentsController extends AppController {
 
     $comment->delete();
 
-    $this->redirect('index');
+    $this->redirect(['index', 'type'=>$type]);
   }
 
   public function actionHistory() {
