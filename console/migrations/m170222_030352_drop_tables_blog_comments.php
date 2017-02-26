@@ -136,5 +136,72 @@ class m170222_030352_drop_tables_blog_comments extends Migration {
     $this->execute($create_table_blog_comments_edited_history);
     $this->execute($create_table_blog_comments_subscribe);
 
+
+    $this->copyDataComments();
+    $this->copyDataCommentsEditedHistory();
+    $this->copyDataCommentsSubscribe();
+
   }
+
+
+  private function copyDataComments() {
+    $comments = $this->db->createCommand("select * from comments WHERE type = 'blog'")
+      ->query();
+
+    if (!empty($comments)) {
+      foreach ($comments as $itm) {
+
+        $this->db->createCommand()->insert("blog_comments", [
+          'comment'          => $itm['comment'],
+          'lykke_user_id'    => $itm['lykke_user_id'],
+          'blog_post_id'     => $itm['page_post_id'],
+          'reply_comment_id' => empty($itm['reply_comment_id']) ? NULL : $itm['reply_comment_id'],
+          'date'             => $itm['date'],
+          'deleted'          => $itm['deleted'],
+          'spam'             => $itm['spam'],
+          'edited'           => $itm['edited']
+        ])->execute();
+      }
+
+    }
+  }
+
+  private function copyDataCommentsEditedHistory() {
+    $comments_edited_history = $this->db->createCommand("select * from comments_edited_history WHERE type = 'blog'")
+      ->query();
+
+    if (!empty($comments_edited_history)) {
+      foreach ($comments_edited_history as $itm) {
+
+        $this->db->createCommand()->insert("blog_comments_edited_history", [
+          'comments_id'   => $itm['comments_id'],
+          'blog_post_id'  => $itm['page_post_id'],
+          'lykke_user_id' => $itm['lykke_user_id'],
+          'comment'       => $itm['comment'],
+          'datetime'      => $itm['datetime']
+        ])->execute();
+      }
+
+    }
+  }
+
+
+  private function copyDataCommentsSubscribe() {
+    $comments_subscribe = $this->db->createCommand("select * from comments_subscribe WHERE type = 'blog'")
+      ->query();
+
+    if (!empty($comments_subscribe)) {
+      foreach ($comments_subscribe as $itm) {
+        $this->db->createCommand()->insert("blog_comments_subscribe", [
+          'blog_post_id'  => $itm['page_post_id'],
+          'lykke_user_id' => $itm['lykke_user_id'],
+          'subscribe'     => $itm['subscribe']
+        ])->execute();
+      }
+
+    }
+  }
+
+
+
 }

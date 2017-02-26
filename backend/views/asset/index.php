@@ -9,19 +9,19 @@ $this->params['breadcrumbs'][] = $this->title;
 
 <div class="row">
   <div class="col-sm-12">
-    <p><b>Добавить актив для отображения на странице exchange</b></p>
+    <p><b>Add asset to display on the exchange page</b></p>
     <form action="" method="post">
       <div class="row">
         <div class="col-sm-10">
           <div class="form-group">
-            <input type="text" name="name" class="form-control input-sm" placeholder="Название актива">
+            <input type="text" name="name" class="form-control input-sm" placeholder="Name Asset">
           </div>
         </div>
         <div class="col-sm-2">
           <div class="form-group">
             <button type="submit" class="btn btn-primary btn-sm btn-block pull-right">
               <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
-              Добавить
+              Add
             </button>
           </div>
         </div>
@@ -30,8 +30,8 @@ $this->params['breadcrumbs'][] = $this->title;
     <div>
       <table class="table table-hover">
         <tr>
-          <th>Имя</th>
-          <th>Управление</th>
+          <th>Name Asset</th>
+          <th></th>
         </tr>
         <? foreach ($asset as $item) { ?>
             <tr>
