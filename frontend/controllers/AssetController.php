@@ -10,53 +10,60 @@ use yii\web\Controller;
 use Yii;
 
 
-class AppController extends Controller {
+class AssetController extends AppController {
 
-  public $pageId;
 
-  function init() {
+  function actionIndex($asset) {
 
-    $redirects = (new Redirects())->getAllRedirect();
+    $extension = ['.txt', '.json'];
 
-    foreach ($redirects as $redirect){
-      if($redirect['redirect_with'] === trim(Yii::$app->request->pathInfo, '/')){
-        $redirect_url = empty($redirect['redirect_to']) ? '/' : $redirect['redirect_to'];
-        $redirect_url = strripos($redirect_url, 'http') === FALSE ? '/'.$redirect_url : $redirect_url;
-        header("HTTP/1.1 301 Moved Permanently");
-        header("Location: " . $redirect_url);
-        exit();
+    $response = $this->getAssetBlob($asset);
+
+    if ($response == FALSE) {
+      $response = $this->getAssetBlob(strtolower($asset));
+    }
+
+    if ($response == FALSE) {
+      $response = $this->getAssetBlob(strtoupper($asset));
+    }
+
+    if ($response == FALSE) {
+      foreach ($extension as $ext) {
+        $response = $this->getAssetBlob($asset . $ext);
+        if ($response != FALSE) {
+          break;
+        }
       }
     }
 
-    parent::init();
+
+    if ($response == FALSE) {
+      foreach ($extension as $ext) {
+        $response = $this->getAssetBlob(strtolower($asset . $ext));
+        if ($response != FALSE) {
+          break;
+        }
+      }
+    }
+
+    if ($response == FALSE) {
+      foreach ($extension as $ext) {
+        $response = $this->getAssetBlob(strtoupper($asset) . $ext);
+        if ($response != FALSE) {
+          break;
+        }
+      }
+    }
+
+
+    return $response;
+
 
   }
 
-  protected function processPageRequest($param = 'page') {
-    if (Yii::$app->request->isAjax && isset($_POST[$param])) {
-      $_GET[$param] = Yii::$app->request->post($param);
-    }
-  }
 
-  protected function cUrl($url, $params, $method = 'POST', $header = []) {
-
-    if ($curl = curl_init()) {
-      curl_setopt($curl, CURLOPT_URL, $url);
-      curl_setopt($curl, CURLOPT_RETURNTRANSFER, TRUE);
-      if (!empty($header)){
-        curl_setopt($curl,CURLOPT_HTTPHEADER, $header);
-      }
-
-      if ($method == 'POST') {
-        curl_setopt($curl, CURLOPT_CUSTOMREQUEST, $method);
-        curl_setopt($curl, CURLOPT_POSTFIELDS, http_build_query($params));
-      }
-      $responseJson = json_decode(curl_exec($curl));
-      curl_close($curl);
-    }
-
-    return $responseJson;
-
+  function getAssetBlob($asset) {
+    return file_get_contents('https://ccnsme.blob.core.windows.net:443/lykke/' . $asset);
   }
 
 }
