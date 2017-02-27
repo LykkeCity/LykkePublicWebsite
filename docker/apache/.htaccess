@@ -5,8 +5,8 @@ php_value error_reporting 'E_ALL & ~E_NOTICE'
     RewriteEngine On
 
     # redirect to https
-    #RewriteCond %{HTTPS} !=on
-    #RewriteRule .* https://%{SERVER_NAME}%{REQUEST_URI} [R,L]
+    RewriteCond %{HTTPS} !=on
+    RewriteRule .* https://%{SERVER_NAME}%{REQUEST_URI} [R,L]
 
     # the main rewrite rule for the frontend application
     RewriteCond %{REQUEST_URI} !^/(backend/web|control|ico)
