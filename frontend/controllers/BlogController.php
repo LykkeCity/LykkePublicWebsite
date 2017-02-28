@@ -54,6 +54,19 @@ class BlogController extends AppController {
 
   function allPost($page) {
 
+    Yii::$app->view->title = empty($page['title']) ? $page['name'] : $page['title'];
+
+    Yii::$app->view->registerMetaTag([
+      'name' => 'description',
+      'content' =>$page['description']
+    ]);
+
+    Yii::$app->view->registerMetaTag([
+      'name' => 'keywords',
+      'content' =>$page['keywords']
+    ]);
+
+
     $this->processPageRequest('page');
 
     $posts = BlogPosts::find()
@@ -91,11 +104,16 @@ class BlogController extends AppController {
   }
 
   function detailsPost($page, $post_url) {
+
+
+
     $post = BlogPosts::find()->where([
       'published' => 1,
       'post_url'  => $post_url
     ])->one();
 
+
+    Yii::$app->view->title = $post['post_title'];
 
     if (empty($post)) {
       throw new NotFoundHttpException();

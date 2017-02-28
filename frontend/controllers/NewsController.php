@@ -54,11 +54,26 @@ class NewsController extends AppController {
 
   function allPost($page) {
 
+    Yii::$app->view->title = empty($page['title']) ? $page['name'] : $page['title'];
+
+    Yii::$app->view->registerMetaTag([
+      'name' => 'description',
+      'content' =>$page['description']
+    ]);
+
+    Yii::$app->view->registerMetaTag([
+      'name' => 'keywords',
+      'content' =>$page['keywords']
+    ]);
+
+
     $this->processPageRequest('page');
 
     $posts = NewsPosts::find()
       ->where(['published' => 1])
       ->orderBy(['post_datetime' => SORT_DESC]);
+
+
 
     $countQuery = clone $posts;
 
@@ -96,6 +111,7 @@ class NewsController extends AppController {
       'post_url'  => $post_url
     ])->one();
 
+    Yii::$app->view->title = $post['post_title'];
 
     if (empty($post)) {
       throw new NotFoundHttpException();
