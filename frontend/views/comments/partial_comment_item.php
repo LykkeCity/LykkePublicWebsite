@@ -1,3 +1,6 @@
+<?
+use common\enum\KycStatus;
+?>
 <div class="message_card
            <?=$comment['deleted'] == 1 ? 'message_card--deleted' : ''?>
            <?=$comment['lykke_user_id'] == $idAuthor ? 'message_card--accent' : ''?>
@@ -26,7 +29,7 @@
 
                 <div class="card__actions">
                   <?php if (!Yii::$app->user->isGuest) { ?>
-                      <?php if (!$isReplyComment ) { ?>
+                      <?php if (!$isReplyComment && Yii::$app->user->identity->kyc_status == KycStatus::OK ) { ?>
                           <a href="" class="action_link action_link-reply">Reply</a>
                       <?php } ?>
 
