@@ -8,6 +8,7 @@ use common\models\Redirects;
 use common\models\SitePages;
 use yii\web\Controller;
 use Yii;
+use yii\web\Response;
 
 
 class AssetController extends AppController {
@@ -56,7 +57,10 @@ class AssetController extends AppController {
     }
 
 
-    return $response;
+    $finfo = new \finfo(FILEINFO_MIME);
+    header('Content-Type: '.$finfo->buffer($response));
+
+    echo $response;
 
 
   }
