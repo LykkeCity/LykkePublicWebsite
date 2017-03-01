@@ -58,9 +58,12 @@ class AssetController extends AppController {
 
 
     $finfo = new \finfo(FILEINFO_MIME);
-    header('Content-Type: '.$finfo->buffer($response));
+    
+    $header = Yii::$app->getResponse();
+    $header->format = Response::FORMAT_RAW;
+    $header->headers->add('Content-Type', $finfo->buffer($response));
 
-    echo $response;
+    return $response;
 
 
   }
