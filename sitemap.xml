@@ -1,0 +1,329 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset
+      xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
+            http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
+
+<url>
+  <loc>https://lykke.com/</loc>
+  <changefreq>weekly</changefreq>
+  <priority>1.00</priority>
+</url>
+<url>
+  <loc>https://lykke.com/exchange</loc>
+  <changefreq>weekly</changefreq>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://lykke.com/lykkex_rulebook</loc>
+  <changefreq>weekly</changefreq>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://lykke.com/terms_of_issuance</loc>
+  <changefreq>weekly</changefreq>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://lykke.com/media/Whitepaper_LykkeExchange.pdf</loc>
+  <lastmod>2017-02-18T20:05:09+00:00</lastmod>
+  <changefreq>weekly</changefreq>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://lykke.com/community</loc>
+  <changefreq>weekly</changefreq>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://lykke.com/city/faq</loc>
+  <changefreq>weekly</changefreq>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://lykke.com/city/open_positions</loc>
+  <changefreq>weekly</changefreq>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://lykke.com/city/lykke_times</loc>
+  <changefreq>weekly</changefreq>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://lykke.com/city/blog</loc>
+  <changefreq>weekly</changefreq>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://lykke.com/company</loc>
+  <changefreq>weekly</changefreq>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://lykke.com/leadership</loc>
+  <changefreq>weekly</changefreq>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://lykke.com/technology</loc>
+  <changefreq>weekly</changefreq>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://lykke.com/contacts</loc>
+  <changefreq>weekly</changefreq>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://lykke.com/company/news</loc>
+  <changefreq>weekly</changefreq>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://lykke.com/terms_of_use</loc>
+  <changefreq>weekly</changefreq>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://lykke.com/privacy_policy</loc>
+  <changefreq>weekly</changefreq>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://lykke.com/media/lykkex.rulebook.pdf</loc>
+  <lastmod>2017-02-18T20:05:09+00:00</lastmod>
+  <changefreq>weekly</changefreq>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://lykke.com/media/LykkeColoredCoinsIssue.TermsandConditions.pdf</loc>
+  <lastmod>2017-02-18T20:05:09+00:00</lastmod>
+  <changefreq>weekly</changefreq>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://lykke.com/price_spread_time_priority_white_paper</loc>
+  <changefreq>weekly</changefreq>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://lykke.com/refund_transactions</loc>
+  <changefreq>weekly</changefreq>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://lykke.com/media/lykke_times_11.pdf</loc>
+  <lastmod>2017-02-18T20:05:09+00:00</lastmod>
+  <changefreq>weekly</changefreq>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://lykke.com/media/lykke_times_10.pdf</loc>
+  <lastmod>2017-02-18T20:05:09+00:00</lastmod>
+  <changefreq>weekly</changefreq>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://lykke.com/media/lykke_times_9.pdf</loc>
+  <lastmod>2017-02-18T20:05:09+00:00</lastmod>
+  <changefreq>weekly</changefreq>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://lykke.com/media/lykke_times_8.pdf</loc>
+  <lastmod>2017-02-18T20:05:09+00:00</lastmod>
+  <changefreq>weekly</changefreq>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://lykke.com/media/lykke_times_7.pdf</loc>
+  <lastmod>2017-02-18T20:05:09+00:00</lastmod>
+  <changefreq>weekly</changefreq>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://lykke.com/media/lykke_times_6.pdf</loc>
+  <lastmod>2017-02-18T20:05:09+00:00</lastmod>
+  <changefreq>weekly</changefreq>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://lykke.com/media/lykke_times_5.pdf</loc>
+  <lastmod>2017-02-18T20:05:09+00:00</lastmod>
+  <changefreq>weekly</changefreq>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://lykke.com/media/lykke_times_4.pdf</loc>
+  <lastmod>2017-02-18T20:05:09+00:00</lastmod>
+  <changefreq>weekly</changefreq>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://lykke.com/media/lykke_times_3.pdf</loc>
+  <lastmod>2017-02-18T20:05:09+00:00</lastmod>
+  <changefreq>weekly</changefreq>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://lykke.com/media/lykke_times_2.pdf</loc>
+  <lastmod>2017-02-18T20:05:09+00:00</lastmod>
+  <changefreq>weekly</changefreq>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://lykke.com/media/lykke_times_1.pdf</loc>
+  <lastmod>2017-02-18T20:05:09+00:00</lastmod>
+  <changefreq>weekly</changefreq>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://lykke.com/city/blog/what_is_lykke_forward</loc>
+  <changefreq>weekly</changefreq>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://lykke.com/city/blog/seo_manager</loc>
+  <changefreq>weekly</changefreq>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://lykke.com/city/blog/how_blockchain_works</loc>
+  <changefreq>weekly</changefreq>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://lykke.com/city/blog/coin_interview</loc>
+  <changefreq>weekly</changefreq>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://lykke.com/city/blog/dtl_securities_markets</loc>
+  <changefreq>weekly</changefreq>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://lykke.com/city/blog/montenegro</loc>
+  <changefreq>weekly</changefreq>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://lykke.com/city/blog/richard_olsen_for_blockgeeks</loc>
+  <changefreq>weekly</changefreq>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://lykke.com/city/blog/ethereum</loc>
+  <changefreq>weekly</changefreq>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://lykke.com/city/blog/world_financial_symposium</loc>
+  <changefreq>weekly</changefreq>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://lykke.com/city/blog/new_logo</loc>
+  <changefreq>weekly</changefreq>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://lykke.com/colored_coins_exchange_white_paper</loc>
+  <changefreq>weekly</changefreq>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://lykke.com/company/news/1_year_forward_offering</loc>
+  <changefreq>weekly</changefreq>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://lykke.com/company/news/lykke_to_host_community_talks</loc>
+  <changefreq>weekly</changefreq>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://lykke.com/company/news/chronobank</loc>
+  <changefreq>weekly</changefreq>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://lykke.com/company/news/wisekey</loc>
+  <changefreq>weekly</changefreq>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://lykke.com/company/news/lykke_joins_the_hyperledger</loc>
+  <changefreq>weekly</changefreq>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://lykke.com/company/news/lykke_terms_of_issuance_update</loc>
+  <changefreq>weekly</changefreq>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://lykke.com/company/news/demetrios_zamboglou_joins_lykke</loc>
+  <changefreq>weekly</changefreq>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://lykke.com/company/news/lykke_integrates_solarcoin</loc>
+  <changefreq>weekly</changefreq>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://lykke.com/company/news/perm_winter_school_17</loc>
+  <changefreq>weekly</changefreq>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://lykke.com/company/news/streams_collaboration_platform</loc>
+  <changefreq>weekly</changefreq>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://lykke.com/media/lykke.termsofuse.pdf</loc>
+  <lastmod>2017-02-18T20:05:09+00:00</lastmod>
+  <changefreq>weekly</changefreq>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://lykke.com/media/lykke.privacypolicy.pdf</loc>
+  <lastmod>2017-02-18T20:05:09+00:00</lastmod>
+  <changefreq>weekly</changefreq>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://lykke.com/media/golubdupuisolsen.pdf</loc>
+  <lastmod>2017-02-18T20:05:09+00:00</lastmod>
+  <changefreq>weekly</changefreq>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://lykke.com/media/lykke_whitepaper_march2016.pdf</loc>
+  <lastmod>2017-02-18T20:05:09+00:00</lastmod>
+  <changefreq>weekly</changefreq>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://lykke.com/bitcoin-euro</loc>
+  <lastmod>2017-02-18T20:05:09+00:00</lastmod>
+  <changefreq>never</changefreq>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://lykke.com/bitcoin-gbp</loc>
+  <lastmod>2017-02-18T20:05:09+00:00</lastmod>
+  <changefreq>never</changefreq>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://lykke.com/why-use-bitcoin</loc>
+  <lastmod>2017-02-18T20:05:09+00:00</lastmod>
+  <changefreq>never</changefreq>
+  <priority>0.51</priority>
+</url>
+</urlset>
