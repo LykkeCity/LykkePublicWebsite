@@ -1,4 +1,6 @@
 <?php
+use yii\web\AssetBundle;
+
 $params = array_merge(
     require(__DIR__ . '/../../common/config/params.php'),
     require(__DIR__ . '/params.php')
@@ -7,7 +9,7 @@ $params = array_merge(
 $config = [
     'id' => 'app-frontend',
     'basePath' => dirname(__DIR__),
-    'bootstrap' => ['log', 'assetsAutoCompress'],
+    'bootstrap' => ['log'],
     'controllerNamespace' => 'frontend\controllers',
     'homeUrl' => "/",
     'components' => [
@@ -54,36 +56,29 @@ $config = [
             ],
         ],
 
-      'assetsAutoCompress' =>
-          [
-            'class'                         => '\skeeks\yii2\assetsAuto\AssetsAutoCompressComponent',
-            'enabled'                       => filter_var(getenv('YII_ENV_TEST'), FILTER_VALIDATE_BOOLEAN) ? false : true,
-
-            'readFileTimeout'               => 3,           //Time in seconds for reading each asset file
-
-            'jsCompress'                    => true,        //Enable minification js in html code
-            'jsCompressFlaggedComments'     => true,        //Cut comments during processing js
-
-            'cssCompress'                   => true,        //Enable minification css in html code
-
-            'cssFileCompile'                => true,        //Turning association css files
-            'cssFileRemouteCompile'         => false,       //Trying to get css files to which the specified path as the remote file, skchat him to her.
-            'cssFileCompress'               => true,        //Enable compression and processing before being stored in the css file
-            'cssFileBottom'                 => false,       //Moving down the page css files
-            'cssFileBottomLoadOnJs'         => false,       //Transfer css file down the page and uploading them using js
-
-            'jsFileCompile'                 => true,        //Turning association js files
-            'jsFileRemouteCompile'          => false,       //Trying to get a js files to which the specified path as the remote file, skchat him to her.
-            'jsFileCompress'                => true,        //Enable compression and processing js before saving a file
-            'jsFileCompressFlaggedComments' => true,        //Cut comments during processing js
-
-            'htmlCompress'                  => true,        //Enable compression html
-            'htmlCompressOptions'           =>              //options for compressing output result
-              [
-                'extra' => true,        //use more compact algorithm
-                'no-comments' => true   //cut all the html comments
-              ],
+        'view' => [
+          'class' => '\rmrevin\yii\minify\View',
+          'enableMinify' => !YII_DEBUG,
+          'concatCss' => true, // concatenate css
+          'minifyCss' => true, // minificate css
+          'concatJs' => true, // concatenate js
+          'minifyJs' => true, // minificate js
+          'minifyOutput' => true, // minificate result html page
+          'webPath' => '@web', // path alias to web base
+          'basePath' => '@webroot', // path alias to web base
+          'minifyPath' => '@webroot/minify', // path alias to save minify result
+          'jsPosition' => [ \yii\web\View::POS_END ], // positions of js files to be minified
+          'forceCharset' => 'UTF-8', // charset forcibly assign, otherwise will use all of the files found charset
+          'expandImports' => true, // whether to change @import on content
+          'compressOptions' => ['extra' => true], // options for compress
+          'excludeFiles' => [
+            'jquery.js', // exclude this file from minification
+            'app-[^.].js', // you may use regexp
           ],
+          'excludeBundles' => [
+            AssetBundle::class, // exclude this bundle from minification
+          ],
+        ]
     ],
 
     'params' => $params,

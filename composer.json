@@ -20,7 +20,7 @@
         "yiisoft/yii2-swiftmailer": "~2.0.0",
         "vlucas/phpdotenv": "^2.4",
         "microsoft/windowsazure": "^0.4",
-        "skeeks/yii2-assets-auto-compress": "*"
+        "rmrevin/yii2-minify-view": "~1.14"
     },
     "require-dev": {
         "yiisoft/yii2-debug": "~2.0.0",
