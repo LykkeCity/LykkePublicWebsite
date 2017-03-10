@@ -2340,6 +2340,10 @@ tbody.collapse.in { display: table-row-group; }
 
 .contacts__icon { background: url(../img/corp/contacts-icon.png) no-repeat; width: 26px; height: 20px; display: inline-block; vertical-align: middle; position: absolute; margin-right: 10px; right: 100%; -webkit-background-size: 26px 73px; -moz-background-size: 26px 73px; -o-background-size: 26px 73px; background-size: 26px 73px; }
 
+.contacts { padding: 22% 0 15%; }
+
+.contacts.section { background: url(../img/corp/office-bg.jpg) no-repeat center; -webkit-background-size: cover; -moz-background-size: cover; -o-background-size: cover; background-size: cover; }
+
 .contacts__icon--pin { background-position: 0 -47px; height: 30px; top: -4px; }
 
 .contacts__icon--call { background-position: 0 -21px; height: 26px; top: -2px; }

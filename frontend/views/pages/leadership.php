@@ -18,7 +18,7 @@ use \frontend\widgets\SubMenu;
           <div class="leadership_list">
             <div class="leadership_item">
               <a href="#leadership_modal" class="leadership_item__control" data-toggle="modal">
-                <div class="leadership_item__image" data-big-image="/img/corp/leadership/big/7-migin.jpg"><img src="/img/corp/leadership/7-migin-preview.jpg" alt=""></div>
+                <div class="leadership_item__image" data-big-image="/img/corp/leadership/big/7-migin.jpg"><img src="/img/corp/leadership/7-migin-preview.jpg" alt="migin"></div>
                 <div class="leadership_item__info">
                   <div class="leadership_item__title h3">Andrey Migin</div>
                   <div class="leadership_item__desc">Software Development</div>
@@ -28,7 +28,7 @@ use \frontend\widgets\SubMenu;
             </div>
             <div class="leadership_item">
               <a href="#leadership_modal" class="leadership_item__control" data-toggle="modal">
-                <div class="leadership_item__image" data-big-image="/img/corp/leadership/big/5-golub.jpg"><img src="/img/corp/leadership/5-golub-preview.jpg" alt=""></div>
+                <div class="leadership_item__image" data-big-image="/img/corp/leadership/big/5-golub.jpg"><img src="/img/corp/leadership/5-golub-preview.jpg" alt="golub"></div>
                 <div class="leadership_item__info">
                   <div class="leadership_item__title h3">Anton Golub</div>
                   <div class="leadership_item__desc">Science</div>
@@ -38,7 +38,7 @@ use \frontend\widgets\SubMenu;
             </div>
             <div class="leadership_item">
               <a href="#leadership_modal" class="leadership_item__control" data-toggle="modal">
-                <div class="leadership_item__image" data-big-image="/img/corp/leadership/big/6_steblyuk.jpg"><img src="/img/corp/leadership/6-steblyuk-preview.jpg" alt=""></div>
+                <div class="leadership_item__image" data-big-image="/img/corp/leadership/big/6_steblyuk.jpg"><img src="/img/corp/leadership/6-steblyuk-preview.jpg" alt="steblyuk"></div>
                 <div class="leadership_item__info">
                   <div class="leadership_item__title h3">Arseniy Steblyuk</div>
                   <div class="leadership_item__desc">Risk Management</div>
@@ -48,7 +48,7 @@ use \frontend\widgets\SubMenu;
             </div>
             <div class="leadership_item">
               <a href="#leadership_modal" class="leadership_item__control" data-toggle="modal">
-                <div class="leadership_item__image" data-big-image="/img/corp/leadership/big/10-zamboglou.jpg"><img src="/img/corp/leadership/10-zamboglou-preview.jpg" alt=""></div>
+                <div class="leadership_item__image" data-big-image="/img/corp/leadership/big/10-zamboglou.jpg"><img src="/img/corp/leadership/10-zamboglou-preview.jpg" alt="zamboglou"></div>
                 <div class="leadership_item__info">
                   <div class="leadership_item__title h3">Demetrios Zamboglou</div>
                   <div class="leadership_item__desc">International Operations</div>
@@ -58,7 +58,7 @@ use \frontend\widgets\SubMenu;
             </div>
             <div class="leadership_item">
               <a href="#leadership_modal" class="leadership_item__control" data-toggle="modal">
-                <div class="leadership_item__image" data-big-image="/img/corp/leadership/big/4-mechenkova.jpg"><img src="/img/corp/leadership/4-mechenkova-preview.jpg" alt=""></div>
+                <div class="leadership_item__image" data-big-image="/img/corp/leadership/big/4-mechenkova.jpg"><img src="/img/corp/leadership/4-mechenkova-preview.jpg" alt="mechenkova"></div>
                 <div class="leadership_item__info">
                   <div class="leadership_item__title h3">Lena Mechenkova</div>
                   <div class="leadership_item__desc">Communications</div>
@@ -68,7 +68,7 @@ use \frontend\widgets\SubMenu;
             </div>
             <div class="leadership_item">
               <a href="#leadership_modal" class="leadership_item__control" data-toggle="modal">
-                <div class="leadership_item__image" data-big-image="/img/corp/leadership/big/3-nikulin.jpg"><img src="/img/corp/leadership/3-nikulin-preview.jpg" alt=""></div>
+                <div class="leadership_item__image" data-big-image="/img/corp/leadership/big/3-nikulin.jpg"><img src="/img/corp/leadership/3-nikulin-preview.jpg" alt="nikulin"></div>
                 <div class="leadership_item__info">
                   <div class="leadership_item__title h3">Michael Nikulin</div>
                   <div class="leadership_item__desc">Technology</div>
@@ -79,7 +79,7 @@ use \frontend\widgets\SubMenu;
             <div class="leadership_item">
               <a href="#leadership_modal" class="leadership_item__control" data-toggle="modal">
                 <div class="leadership_item__image" data-big-image="/img/corp/leadership/big/1-olsen.jpg">
-                  <img src="/img/corp/leadership/1-olsen-preview.jpg" alt="">
+                  <img src="/img/corp/leadership/1-olsen-preview.jpg" alt="olsen">
                 </div>
                 <div class="leadership_item__info">
                   <div class="leadership_item__title h3">Richard Olsen</div>
@@ -90,7 +90,7 @@ use \frontend\widgets\SubMenu;
             </div>
             <div class="leadership_item">
               <a href="#leadership_modal" class="leadership_item__control" data-toggle="modal">
-                <div class="leadership_item__image" data-big-image="/img/corp/leadership/big/2-ivliev.jpg"><img src="/img/corp/leadership/2-ivliev-preview.jpg" alt=""></div>
+                <div class="leadership_item__image" data-big-image="/img/corp/leadership/big/2-ivliev.jpg"><img src="/img/corp/leadership/2-ivliev-preview.jpg" alt="ivliev"></div>
                 <div class="leadership_item__info">
                   <div class="leadership_item__title h3">Sergey Ivliev</div>
                   <div class="leadership_item__desc">Products &amp; Operations</div>
@@ -100,7 +100,7 @@ use \frontend\widgets\SubMenu;
             </div>
             <div class="leadership_item">
               <a href="#leadership_modal" class="leadership_item__control" data-toggle="modal">
-                <div class="leadership_item__image" data-big-image="/img/corp/leadership/big/9-moavenat.jpg"><img src="/img/corp/leadership/9-moavenat-preview.jpg" alt=""></div>
+                <div class="leadership_item__image" data-big-image="/img/corp/leadership/big/9-moavenat.jpg"><img src="/img/corp/leadership/9-moavenat-preview.jpg" alt="moavenat"></div>
                 <div class="leadership_item__info">
                   <div class="leadership_item__title h3">Shahpour Moavenat</div>
                   <div class="leadership_item__desc">Blockchain</div>
@@ -110,7 +110,7 @@ use \frontend\widgets\SubMenu;
             </div>
             <div class="leadership_item">
               <a href="#leadership_modal" class="leadership_item__control" data-toggle="modal">
-                <div class="leadership_item__image" data-big-image="/img/corp/leadership/big/8-birrer.jpg"><img src="/img/corp/leadership/8-birrer-preview.jpg" alt=""></div>
+                <div class="leadership_item__image" data-big-image="/img/corp/leadership/big/8-birrer.jpg"><img src="/img/corp/leadership/8-birrer-preview.jpg" alt="birrer"></div>
                 <div class="leadership_item__info">
                   <div class="leadership_item__title h3">Thomas Birrer</div>
                   <div class="leadership_item__desc">Finance</div>

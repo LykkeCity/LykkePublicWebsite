@@ -18,7 +18,7 @@ use yii\helpers\Url;
         <div class="news_article__header">
           <div class="container">
             <div class="news_article__media news_article__media--main">
-                <img src="<?=Yii::$app->request->hostInfo.'/media/news/'.$post['post_img']?>" alt="">
+                <img src="<?=Yii::$app->request->hostInfo.'/media/news/'.$post['post_img']?>" alt="<?=$post['post_title']?>">
             </div>
           </div>
         </div>
@@ -65,7 +65,7 @@ use yii\helpers\Url;
                         <input type="hidden" name="type" value="<?=$type?>">
                         <div class="message_card message_card--form">
                           <div class="user_badge user_badge--small">
-                            <div class="user_badge__img"><img src="/img/avatar.svg" alt=""></div>
+                            <div class="user_badge__img"><img src="/img/avatar.svg" alt="<?=$page['name']?>"></div>
                             <div class="user_badge__message">
                               <div class="message_card__inner">
                                 <div class="user_badge__title"><?=Yii::$app->user->identity->first_name?> <?=Yii::$app->user->identity->last_name?></div>
