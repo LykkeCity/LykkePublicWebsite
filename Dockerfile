@@ -16,14 +16,15 @@ COPY . /app/public_html/
 #ADD docker/apache/.htaccess /app/public_html/.htaccess
 COPY docker/dump/ /dump/
 COPY docker/scripts/ /scripts/
+RUN composer config --global github-oauth.github.com 7f320f72bdaf74dcd5f37b425883700c76c0c467
+RUN composer --working-dir=/app/public_html/ update
 RUN chown -R www-data:www-data /app/public_html
+RUN chown -R www-data:www-data /var/log/apache2
 #RUN chown -R www-data:www-data /app/public_html/frontend/web/assets
 #RUN chown -R www-data:www-data /app/public_html/frontend/web/userfiles
 #RUN chown -R www-data:www-data /app/public_html/frontend/web/media
 #RUN chown -R www-data:www-data /app/public_html/backend/web/assets
 #RUN chown -R www-data:www-data /app/public_html/backend/runtime
-RUN composer config --global github-oauth.github.com 7f320f72bdaf74dcd5f37b425883700c76c0c467
-RUN composer --working-dir=/app/public_html/ update
 
 # Apache settings
 ADD docker/apache/default-site.conf /etc/apache2/sites-available/default-site.conf
