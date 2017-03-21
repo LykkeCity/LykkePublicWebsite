@@ -14,7 +14,7 @@ $this->params['breadcrumbs'][] = $this->title;
       <div class="row">
         <div class="col-sm-5">
           <div class="form-group">
-            <input type="text" name="redirect_with" class="form-control input-sm" required placeholder="redirect with">
+            <input type="text" name="redirect_with" class="form-control input-sm" required placeholder="redirect from">
           </div>
 
         </div>
