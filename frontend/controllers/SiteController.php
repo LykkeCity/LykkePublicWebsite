@@ -68,6 +68,7 @@ class SiteController extends AppController {
         'redirect_uri'  => Yii::$app->getUrlManager()->hostInfo . '/site/auth',
       ];
 
+      //TODO: wrapping this integration with auth core
       $responseJson = $this->cUrl(Yii::$app->params['oAuthLykke']['urlToken'], $params);
 
       if (!empty($responseJson->error)) {
@@ -85,6 +86,7 @@ class SiteController extends AppController {
 
 
   function getUserInfo($access_token) {
+    // TODO: wrapping this integration with auth core
     $userInfo = $this->cUrl(Yii::$app->params['oAuthLykke']['urlUserInfo'] . '?access_token=' . $access_token, '', 'GET');
 
     if (!empty($userInfo->error)) {

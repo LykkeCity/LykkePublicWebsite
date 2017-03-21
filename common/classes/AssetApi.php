@@ -4,6 +4,8 @@
 namespace common\classes;
 
 //TODO - доработать класс
+use Exception;
+
 class AssetApi {
 
   function GetAssetDictionary() {
