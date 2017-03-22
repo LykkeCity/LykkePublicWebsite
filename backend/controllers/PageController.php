@@ -41,7 +41,11 @@ class PageController extends AppController {
 
 
   public function actionIndex() {
-    return $this->render('index', ['pages' => SitePages::getListPages()]);
+    $pages = SitePages::find()->all();
+
+    return $this->render('index', [
+      'pages' => $pages
+    ]);
   }
 
   public function actionAdd() {
