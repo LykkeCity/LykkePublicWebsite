@@ -51,16 +51,17 @@ function openKCFinder(div) {
 var timmceOption = {
     file_browser_callback: imgManager,
     skin: 'light',
+    inline: true,
     selector: ".editor_full",
     language: 'en_GB',
     plugins: [
-        "noneditable importcss advlist autolink autosave link image lists charmap print preview hr anchor pagebreak spellchecker",
-        "searchreplace wordcount visualblocks visualchars code fullscreen insertdatetime media nonbreaking",
-        "table contextmenu directionality emoticons template textcolor paste textcolor colorpicker textpattern autoresize"
+        "advlist autolink lists link image charmap print preview hr anchor pagebreak",
+        "searchreplace wordcount visualblocks visualchars code fullscreen",
+        "insertdatetime media nonbreaking save table contextmenu directionality",
+        "emoticons template paste textcolor colorpicker textpattern"
     ],
-    toolbar1: "bold italic underline strikethrough | alignleft aligncenter alignright alignjustify | styleselect formatselect fontselect fontsizeselect",
-    toolbar2: "cut copy paste | searchreplace | bullist numlist | outdent indent blockquote | undo redo | link unlink anchor image media code | insertdatetime preview | forecolor backcolor",
-    toolbar3: "table | hr removeformat | subscript superscript | charmap emoticons | print fullscreen | ltr rtl | spellchecker | visualchars visualblocks nonbreaking template pagebreak restoredraft",
+    toolbar1: "insertfile undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image",
+    toolbar2: "preview media | forecolor backcolor emoticons | styleselect formatselect fontselect fontsizeselect",
     image_advtab: true,
     relative_urls: false,
     remove_script_host: false,
@@ -139,9 +140,11 @@ var timmceOption = {
 tinymce.init({
     selector: ".editor_basic",
     skin: 'light',
+    theme: 'modern',
     language: 'en_GB',
+    insert_toolbar: 'quickimage quickvideo quicktable',
     plugins: [
-        "searchreplace wordcount visualblocks visualchars code fullscreen insertdatetime nonbreaking, link, textcolor, colorpicker"
+        "media searchreplace wordcount visualblocks visualchars code fullscreen insertdatetime nonbreaking, link, textcolor, colorpicker"
     ],
     toolbar1: "bold italic underline strikethrough | link unlink anchor | forecolor backcolor"
 });
@@ -159,6 +162,7 @@ $('.change_editor').on('click', function () {
 });
 
 $('.change_editor_html').on('click', function () {
+    console.log('destroy the editor');
     $('.editor_full').tinymce().remove();
     $('#editor_view').html('').html(htmlEditor);
     editAreaLoader.init({
@@ -191,7 +195,7 @@ function translit(id, alias) {
     var result = '';
     var curent_sim = '';
 
-    for (i = 0; i < text.length; i++) {
+    for (var i = 0; i < text.length; i++) {
         if (transl[text[i]] != undefined) {
             if (curent_sim != transl[text[i]] || curent_sim != space) {
                 result += transl[text[i]];

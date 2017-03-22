@@ -21,10 +21,11 @@ else {
 
 <form action="" method="post">
   <input type="hidden" name="id" value="<?= $page['id'] ?>">
+
+  <!-- Control buttons -->
   <div class="row margin-b">
     <div class="col-sm-12 text-right">
-      <button type="submit"
-              class="btn btn-xs btn-success">
+      <button type="submit" class="btn btn-xs btn-success">
         Save
       </button>
       <a href="<?= UrlHelper::to(['/page/add']) ?>"
@@ -38,6 +39,7 @@ else {
     </div>
   </div>
 
+  <!-- Title, Url, Content -->
   <div class="row">
     <div class="col-md-12">
 
@@ -69,7 +71,7 @@ else {
               <!-- Tab panes -->
               <div class="tab-content">
                 <div role="tabpanel" class="tab-pane active" id="editor_view">
-                   <textarea style="width: 100%" name="content" id="editor" class="editor_full"><?= $page['content'] ?></textarea>
+                   <div style="width: 100%" name="content" id="editor" class="editor_full"><?= $page['content'] ?></div>
                 </div>
               </div>
 
@@ -83,6 +85,7 @@ else {
   </div>
 
   <div class="row">
+
     <div class="col-md-12">
       <div class="bs-panel">
         <div class="bs-title">SEO</div>
@@ -98,8 +101,9 @@ else {
         </div>
         <div class="form-group">
           <label for="input-description">Description</label>
-          <input type="text" name="description" class="form-control input-sm"
-                 value="<?= $page['description'] ?>" id="input-description">
+          <textarea name="description" class="form-control input-sm" id="input-description">
+            <?= $page['description'] ?>
+          </textarea>
         </div>
       </div>
     </div>
@@ -165,8 +169,11 @@ else {
         </div>
       </div>
     </div>
+
   </div>
+
   <div class="margin-b">
     <button type="submit" class="btn btn-block btn-success">Save</button>
   </div>
+
 </form>
