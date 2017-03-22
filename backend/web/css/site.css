@@ -5,6 +5,7 @@ body {
 
 .dataTable td {
     max-width: 150px;
+    word-wrap: break-word;
 }
 
 .wrap {
