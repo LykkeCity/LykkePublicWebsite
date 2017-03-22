@@ -40,7 +40,7 @@ $this->params['breadcrumbs'][] = $this->title;
       <table class="table table-hover dataTable">
         <thead>
           <tr>
-            <th>With</th>
+            <th>From</th>
             <th>To</th>
             <th style="width: 20px;">Delete?</th>
           </tr>
