@@ -8,14 +8,14 @@ $this->params['breadcrumbs'][] = $this->title;
 <div class="row">
   <div class="col-sm-12">
     <a href="<?= UrlHelper::to(['/page/add']) ?>"
-       class="btn btn-primary btn-xs pull-right">
+       class="btn btn-primary btn-xs pull-left">
       <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
       Add page
     </a>
   </div>
 </div>
 
-<table class="table table-hover">
+<table class="table table-hover dataTable">
   <thead>
   <tr>
     <th>Id</th>
