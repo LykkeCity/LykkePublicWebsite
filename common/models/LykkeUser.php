@@ -57,23 +57,19 @@ class LykkeUser extends ActiveRecord implements IdentityInterface {
     return $this->id;
   }
 
-  public function getAll() {
+  public static function getAll() {
 
-    $sql = (new Query)->select("ua.*,
-                    ua.id as ua_id,
-                    lu.*")
+    $sql = (new Query)->select("
+        ua.*,
+        ua.id as ua_id,
+        lu.*
+      ")
       ->from(self::tableName() . ' as lu')
       ->leftJoin(LykkeUserAccess::tableName() . ' ua', 'lu.id = ua.lykke_user_id');
 
-    $pages = new Pagination(['totalCount' => count($sql->createCommand()->queryAll()), 'pageSize' => 20]);
+    $users = $sql->createCommand()->queryAll();
 
-    $pages->pageSizeParam = false;
-    $pages->forcePageParam = false;
-
-    $users = $sql->offset($pages->offset)
-      ->limit($pages->limit)->createCommand()->queryAll();
-
-    return $res = ['users' => $users, 'pages' => $pages];
+    return $users;
   }
 
   public function getAuthKey() {

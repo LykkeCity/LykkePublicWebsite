@@ -12,7 +12,8 @@ use yii\filters\VerbFilter;
 use yii\filters\AccessControl;
 use yii\web\Controller;
 
-class UserController  extends  AppController{
+class UserController extends AppController
+{
 
   public function behaviors()
   {
@@ -21,7 +22,9 @@ class UserController  extends  AppController{
         'class' => AccessControl::className(),
         'rules' => [
           [
-            'actions' => ['index', 'admin', 'frontend', 'notify-spam', 'blocked-comment'],
+            'actions' => [
+              'index', 'admin', 'frontend', 'notify-spam', 'blocked-comment'
+            ],
             'allow' => true,
             'roles' => ['@'],
           ],
@@ -40,19 +43,21 @@ class UserController  extends  AppController{
   }
 
 
-  function actionIndex(){
-    $res = (new LykkeUser())->getAll();
+  function actionIndex()
+  {
+    $users = LykkeUser::getAll();
 
-    return $this->render('index', [
-      'users' => $res['users'],
-      'pages' => $res['pages'],
-    ]);
-    
+    return $this->render(
+      'index', [
+        'users' => $users,
+      ]
+    );
   }
 
-  function actionAdmin(){
+  function actionAdmin()
+  {
 
-    if(Yii::$app->request->isAjax){
+    if (Yii::$app->request->isAjax) {
       $access = new LykkeUserAccess();
       return $access->admin(Yii::$app->request->post());
     }
@@ -61,9 +66,10 @@ class UserController  extends  AppController{
 
   }
 
-  function actionFrontend(){
+  function actionFrontend()
+  {
 
-    if(Yii::$app->request->isAjax){
+    if (Yii::$app->request->isAjax) {
       $access = new LykkeUserAccess();
       return $access->Frontend(Yii::$app->request->post());
     }
@@ -73,16 +79,18 @@ class UserController  extends  AppController{
   }
 
 
-  function actionNotifySpam(){
-    if(Yii::$app->request->isAjax){
+  function actionNotifySpam()
+  {
+    if (Yii::$app->request->isAjax) {
       $user = new LykkeUser();
       return $user->notifySpam(Yii::$app->request->post());
     }
     return false;
   }
 
-  function actionBlockedComment(){
-    if(Yii::$app->request->isAjax){
+  function actionBlockedComment()
+  {
+    if (Yii::$app->request->isAjax) {
       $user = new LykkeUser();
       return $user->blockedComment(Yii::$app->request->post());
     }

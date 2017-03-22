@@ -29,13 +29,15 @@ AppAsset::register($this);
 
 <div class="wrap">
   <?php
-  NavBar::begin([
-    'brandLabel' => '<img src="/img/lykke_white.svg"> Back Office',
-    'brandUrl'   => Yii::$app->homeUrl,
-    'options'    => [
-      'class' => 'navbar-inverse navbar-fixed-top',
-    ],
-  ]);
+  NavBar::begin(
+    [
+      'brandLabel' => '<img src="/img/lykke_white.svg"> Back Office',
+      'brandUrl' => Yii::$app->homeUrl,
+      'options' => [
+        'class' => 'navbar-inverse navbar-fixed-top',
+      ],
+    ]
+  );
 
   if (!Yii::$app->user->isGuest) {
 
@@ -49,23 +51,28 @@ AppAsset::register($this);
       . Html::endForm()
       . '</li>';
 
-    echo Nav::widget([
-      'options' => ['class' => 'navbar-nav navbar-right'],
-      'items'   => $menuItems,
-    ]);
+    echo Nav::widget(
+      [
+        'options' => ['class' => 'navbar-nav navbar-right'],
+        'items' => $menuItems,
+      ]
+    );
   }
 
   NavBar::end();
   ?>
 
   <div class="container">
-    <?= Breadcrumbs::widget([
-      'links'    => isset($this->params['breadcrumbs']) ? $this->params['breadcrumbs'] : [],
-      'homeLink' => [
-        'label' => 'Main',
-        'url'   => UrlHelper::to(['/'])
+    <?= Breadcrumbs::widget(
+      [
+        'links' => isset($this->params['breadcrumbs'])
+          ? $this->params['breadcrumbs'] : [],
+        'homeLink' => [
+          'label' => 'Main',
+          'url' => UrlHelper::to(['/'])
+        ]
       ]
-    ]) ?>
+    ) ?>
     <?= Alert::widget() ?>
     <? if (!Yii::$app->user->isGuest) { ?>
       <div class="col-md-3">
@@ -81,7 +88,9 @@ AppAsset::register($this);
               class="<?= UrlHelper::isActive('news/index'); ?>"><a
               href="<?= UrlHelper::to(['/news/']) ?>">News</a></li>
           <li role="presentation"
-              class="<?= UrlHelper::isActive('asset/index'); ?> <?= UrlHelper::isActive('asset/pair'); ?>"><a
+              class="<?= UrlHelper::isActive(
+                'asset/index'
+              ); ?> <?= UrlHelper::isActive('asset/pair'); ?>"><a
               href="<?= UrlHelper::to(['/asset']) ?>">Assets</a></li>
           <li role="presentation"
               class="<?= UrlHelper::isActive('user/index'); ?>"><a
@@ -97,8 +106,7 @@ AppAsset::register($this);
       <div class="col-md-9">
         <?= $content ?>
       </div>
-    <? }
-    else { ?>
+    <? } else { ?>
       <div class="col-md-12">
         <?= $content ?>
       </div>
@@ -114,6 +122,15 @@ AppAsset::register($this);
 </footer>
 
 <?php $this->endBody() ?>
+
+
+<!-- DATA TABLES -->
+<script src="/control/js/plugins/datatables/jquery.dataTables.min.js"></script>
+<script
+  src="/control/js/plugins/datatables/dataTables.bootstrap.min.js"></script>
+
+<link rel="stylesheet" href="/control/js/plugins/datatables/dataTables.bootstrap.css">
+
 </body>
 </html>
 <?php $this->endPage() ?>
