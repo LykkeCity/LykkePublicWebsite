@@ -18,7 +18,7 @@ $this->params['breadcrumbs'][] = $this->title;
   <? }
 } ?>
 
-<form action="." method="post">
+<form action="" method="post">
   <input type="hidden" name="id" value="<?= $page['id'] ?>">
 
   <!-- Control buttons -->

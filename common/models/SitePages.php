@@ -93,8 +93,6 @@ class SitePages extends \yii\db\ActiveRecord
 
     $page = empty($id) ? new SitePages() : SitePages::findOne($id);
 
-    print_r($post['content']);
-
     $page->name = $post['name'];
     $page->url = $post['url'];
     $page->content = $post['content'];
