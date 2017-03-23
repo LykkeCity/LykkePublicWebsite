@@ -5,8 +5,7 @@ use yii\helpers\Url;
 <ul class="nav nav--header">
   <?
   foreach ($siteMenu as $item) { ?>
-    <li
-      class=" <?= $currentUri === $item['url'] ? 'active' : '' ?>">
+    <li class=" <?= $currentUri === $item['url'] ? 'active' : '' ?>">
       <a class="dropdown__control"
          href="<?= strripos($item['url'], 'http') === false ? '/'.$item['url'] : $item['url'] ?>"><?= $item['name'] ?>
       </a>
