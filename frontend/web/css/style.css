@@ -2550,3 +2550,5 @@ tbody.collapse.in { display: table-row-group; }
 .case_studies__img--gray { background: -webkit-linear-gradient(top, #EBEDEF, #CFD2D7); background: -moz-linear-gradient(top, #EBEDEF, #CFD2D7); background: -o-linear-gradient(top, #EBEDEF, #CFD2D7); background: linear-gradient(to bottom, #EBEDEF, #CFD2D7); }
 
 .zEWidget-launcher { z-index: 100 !important; }
+
+.landing--features.section--padding .page__title, .landing--features.section--padding .landing__subtitle { text-align: left; padding: 0;}
