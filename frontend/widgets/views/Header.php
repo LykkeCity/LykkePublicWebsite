@@ -25,25 +25,10 @@
 
             </div>
           <? } else { ?>
-<!--            <div class="navbar-right">-->
-<!--              <ul class="nav nav--header pull-right">-->
-<!--                <li class="pull-right">-->
-<!--                  <a class="dropdown__control"-->
-<!--                     href="">--><?//= Yii::$app->user->identity->first_name ?><!--</a>-->
-<!--                  <div style="margin-left: -110px" class="dropdown__container">-->
-<!--                    <ul class="dropdown__nav">-->
-<!--                      <li style="text-align: center;"><a-->
-<!--                          href="--><?//= Url::to(['site/logout']) ?><!--">Sign Out</a>-->
-<!--                      </li>-->
-<!--                    </ul>-->
-<!--                  </div>-->
-<!--                </li>-->
-<!--              </ul>-->
-<!--            </div>-->
             <div class="header_user dropdown__control">
               <a href="#">
                 <div class="header_user__img">
-                  <img src="img/user_default.svg" width="40" alt="user_image">
+                  <img src="/img/user_default.svg" width="40" alt="user_image">
                 </div>
 
                 <div class="header_login__title"><?= Yii::$app->user->identity->first_name ?></div>
