@@ -1,31 +1,41 @@
 <?php
-
-
 namespace common\models;
 
+use yii\db\ActiveRecord;
 
-class Redirects extends \yii\db\ActiveRecord{
-  public static function tableName() {
-    return 'redirects';
-  }
+/**
+ * Redirects model
+ *
+ * @property integer $id
+ * @property string  $redirect_with
+ * @property string  $redirect_to
+ */
+class Redirects extends ActiveRecord
+{
 
-  function getAllRedirect(){
-    return self::find()->asArray()->all();
-  }
+    public static function tableName()
+    {
+        return 'redirects';
+    }
 
-  function addRedirect($post){
-    $redirect = new Redirects();
+    function getAllRedirect()
+    {
+        return self::find()->asArray()->all();
+    }
 
-    $redirect->redirect_with = trim(trim($post['redirect_with'], '/'));
-    $redirect->redirect_to = trim(trim($post['redirect_to'], '/'));
+    function addRedirect($post)
+    {
+        $redirect = new Redirects();
+        $redirect->redirect_with = trim(trim($post['redirect_with'], '/'));
+        $redirect->redirect_to = trim(trim($post['redirect_to'], '/'));
 
-    return $redirect->save() ? $redirect : FALSE;
+        return $redirect->save() ? $redirect : false;
+    }
 
-  }
-
-  function deleteRedirect($id){
-    $redirect = self::findOne($id);
-    $redirect->delete();
-  }
+    function deleteRedirect($id)
+    {
+        $redirect = self::findOne($id);
+        $redirect->delete();
+    }
 
 }
