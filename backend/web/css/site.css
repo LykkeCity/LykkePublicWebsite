@@ -192,3 +192,8 @@ a.desc:after {
     text-overflow: ellipsis;
     overflow: hidden;
 }
+
+.editor_basic {
+    border: 1px solid #ddd;
+    border-radius: 3px;
+}

@@ -151,9 +151,9 @@ tinymce.init({
 
     init_instance_callback: function (editor) {
         editor.on('NodeChange', function (e) {
-            // console.log('Element clicked:', e.target.getContent());
-            $('.hidden-content-input').val(e.target.getContent());
-            console.log($('.hidden-content-input').val());
+            console.log();
+            var name = $(e.target.targetElm).data('name');
+            $('.hidden-content-input[name="' + name + '"]').val(e.target.getContent());
         });
     }
 
