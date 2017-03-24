@@ -4,17 +4,37 @@ namespace common\models;
 
 use Yii;
 
-class SitePages extends \yii\db\ActiveRecord {
 
-  public static function tableName() {
+/**
+ * This is the model class for table "{{%site_pages}}".
+ *
+ * @property integer $id
+ * @property string  $name
+ * @property string  $url
+ * @property string  $content
+ * @property string  $parent
+ * @property string  $datetime
+ * @property string  $title
+ * @property string  $keywords
+ * @property string  $description
+ * @property integer $author
+ * @property string  $route
+ * @property integer $published
+ * @property integer $in_menu
+ * @property string  $normal_tpl
+ * @property integer $template
+ */
+
+class SitePages extends \yii\db\ActiveRecord
+{
+
+  public static function tableName()
+  {
     return 'site_pages';
   }
 
-
-  /**
-   * @inheritdoc
-   */
-  public function rules() {
+  public function rules()
+  {
     return [
       [['name', 'url'], 'required'],
       [['content'], 'string'],
@@ -28,39 +48,38 @@ class SitePages extends \yii\db\ActiveRecord {
     ];
   }
 
-  /**
-   * @inheritdoc
-   */
-  public function attributeLabels() {
+  public function attributeLabels()
+  {
     return [
-      'id'          => 'ID',
-      'name'        => 'Name',
-      'url'         => 'Url',
-      'content'     => 'Content',
-      'parent'      => 'Parent',
-      'datetime'    => 'Date Time',
-      'title'       => 'Title',
-      'keywords'    => 'Keywords',
+      'id' => 'ID',
+      'name' => 'Name',
+      'url' => 'Url',
+      'content' => 'Content',
+      'parent' => 'Parent',
+      'datetime' => 'Date Time',
+      'title' => 'Title',
+      'keywords' => 'Keywords',
       'description' => 'Description',
-      'author'      => 'Author',
-      'route'       => 'Route',
-      'published'   => 'Published',
-      'in_menu'     => 'In Menu',
+      'author' => 'Author',
+      'route' => 'Route',
+      'published' => 'Published',
+      'in_menu' => 'In Menu',
     ];
   }
 
-  public static function getListPages($forMenu = FALSE) {
+  public static function getListPages($forMenu = false)
+  {
 
     $getListPages = $forMenu
-      ? SitePages::find()->where(['published' => 1, 'in_menu' => 1])->asArray()->all()
+      ? SitePages::find()->where(['published' => 1, 'in_menu' => 1])->asArray()
+        ->all()
       : SitePages::find()->asArray()->all();
 
     $listPages = [];
     foreach ($getListPages as $key => $item) {
       if (array_key_exists($item['parent'], $listPages)) {
         $listPages[$item['parent']]['sub_pages'][] = $item;
-      }
-      else {
+      } else {
         $listPages[$item['id']] = $item;
       }
 
@@ -69,11 +88,10 @@ class SitePages extends \yii\db\ActiveRecord {
     return $listPages;
   }
 
-
-  public function InsertOrUpdate($post, $id = '') {
+  public function InsertOrUpdate($post, $id = '')
+  {
 
     $page = empty($id) ? new SitePages() : SitePages::findOne($id);
-
 
     $page->name = $post['name'];
     $page->url = $post['url'];
@@ -90,9 +108,8 @@ class SitePages extends \yii\db\ActiveRecord {
     $page->normal_tpl = !isset($post['normal_tpl']) ? 0 : $post['normal_tpl'];
     $page->template = $post['template'];
 
-    return $page->save() ? $page : FALSE;
+    return $page->save() ? $page : false;
 
   }
-  
 
 }

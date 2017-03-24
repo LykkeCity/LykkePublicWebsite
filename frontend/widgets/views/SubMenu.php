@@ -1,17 +1,38 @@
-<nav class="page_nav page__nav">
-  <div class="page_nav__inner">
+<!--<nav class="page_nav page__nav">-->
+<!--  <div class="page_nav__inner">-->
+<!--    <div class="container">-->
+<!---->
+<!--      --><?// if (!empty($backUrl)) {?>
+<!--        <a href="--><?//=$backUrl?><!--" class="back_link"></a>-->
+<!--      --><?// }?>
+<!---->
+<!--      <ul class="page_nav__list">-->
+<!--        --><?// foreach ($subMenu as $item) { ?>
+<!--          <li-->
+<!--            class="page_nav__item  --><?//= $currentUri == $item['url'] ? 'active' : '' ?><!--">-->
+<!--            <a href="--><?//= strripos($item['url'], 'http') === false ? '/'.$item['url'] : $item['url'] ?><!--">--><?//= $item['name'] ?><!--</a>-->
+<!--          </li>-->
+<!--        --><?// } ?>
+<!--      </ul>-->
+<!--    </div>-->
+<!--  </div>-->
+<!--</nav>-->
+
+
+<nav class="site_nav">
+  <div class="site_nav__inner">
     <div class="container">
 
       <? if (!empty($backUrl)) {?>
-        <a href="<?=$backUrl?>" class="back_link"></a>
+        <a href="<?=$backUrl?>" class="btn btn-sm pull-right smooth_scroll btn_affix" data-spy="affix">Buy Lykke Coins</a>
       <? }?>
 
-      <ul class="page_nav__list">
+      <ul class="header_nav__list nav_list nav_list--alt">
         <? foreach ($subMenu as $item) { ?>
-          <li
-            class="page_nav__item  <?= $currentUri == $item['url'] ? 'active' : '' ?>">
+          <li class="nav_list__item <?= $currentUri == $item['url'] ? 'nav_list__item--active' : '' ?>">
             <a href="<?= strripos($item['url'], 'http') === false ? '/'.$item['url'] : $item['url'] ?>"><?= $item['name'] ?></a>
           </li>
+
         <? } ?>
       </ul>
     </div>

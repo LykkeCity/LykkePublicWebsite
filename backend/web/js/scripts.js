@@ -51,7 +51,7 @@ function openKCFinder(div) {
 var timmceOption = {
     file_browser_callback: imgManager,
     skin: 'light',
-    inline: true,
+    theme: 'modern',
     selector: ".editor_full",
     language: 'en_GB',
     plugins: [
@@ -139,6 +139,7 @@ var timmceOption = {
 
 tinymce.init({
     selector: ".editor_basic",
+    inline: true,
     skin: 'light',
     theme: 'modern',
     language: 'en_GB',
@@ -146,7 +147,16 @@ tinymce.init({
     plugins: [
         "media searchreplace wordcount visualblocks visualchars code fullscreen insertdatetime nonbreaking, link, textcolor, colorpicker"
     ],
-    toolbar1: "bold italic underline strikethrough | link unlink anchor | forecolor backcolor"
+    toolbar1: "bold italic underline strikethrough | link unlink anchor | forecolor backcolor",
+
+    init_instance_callback: function (editor) {
+        editor.on('NodeChange', function (e) {
+            // console.log('Element clicked:', e.target.getContent());
+            $('.hidden-content-input').val(e.target.getContent());
+            console.log($('.hidden-content-input').val());
+        });
+    }
+
 });
 
 var htmlEditor;

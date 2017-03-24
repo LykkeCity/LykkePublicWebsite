@@ -8,47 +8,54 @@ use yii\filters\VerbFilter;
 use yii\web\Controller;
 use yii;
 
-class PageController extends AppController {
+class PageController extends AppController
+{
 
-  public function behaviors() {
+  public function behaviors()
+  {
     return [
       'access' => [
         'class' => AccessControl::className(),
-        'only'  => ['index', 'add', 'edit', 'inlinesave'],
+        'only' => ['index', 'add', 'edit', 'inlinesave'],
         'rules' => [
           [
             'actions' => ['index', 'add', 'edit', 'inlinesave'],
-            'allow'   => TRUE,
-            'roles'   => ['@'],
+            'allow' => true,
+            'roles' => ['@'],
           ],
         ],
       ],
-      'verbs'  => [
-        'class'   => VerbFilter::className(),
+      'verbs' => [
+        'class' => VerbFilter::className(),
         'actions' => [
-          'add'        => ['post', 'get'],
-          'edit'       => ['post', 'get'],
+          'add' => ['post', 'get'],
+          'edit' => ['post', 'get'],
           'inlinesave' => ['post'],
         ],
       ],
     ];
   }
 
-  public function beforeAction($action) {
-    $this->enableCsrfValidation = FALSE;
+  public function beforeAction($action)
+  {
+    $this->enableCsrfValidation = false;
     return parent::beforeAction($action);
   }
 
 
-  public function actionIndex() {
+  public function actionIndex()
+  {
     $pages = SitePages::find()->all();
 
-    return $this->render('index', [
+    return $this->render(
+      'index', [
       'pages' => $pages
-    ]);
+    ]
+    );
   }
 
-  public function actionAdd() {
+  public function actionAdd()
+  {
 
     $result = null;
     $pageid = null;
@@ -60,22 +67,29 @@ class PageController extends AppController {
       $pageid = $page->id;
     }
 
-    return $this->render('add', ['result'  => $result,
-                                 'id'      => $pageid,
-                                 'parents' => SitePages::find()->where(['parent' => ''])->all()
-    ]);
+    return $this->render(
+      'add', [
+      'result' => $result,
+      'id' => $pageid,
+      'parents' => SitePages::find()->where(['parent' => ''])->all()
+    ]
+    );
   }
 
-  public function actionEdit($id) {
+  public function actionEdit($id)
+  {
 
     $result = null;
 
-    if (empty($id))
+    if (empty($id)) {
       $this->redirect('index');
+    }
 
-    if (Yii::$app->request->isPost){
+    if (Yii::$app->request->isPost) {
       $model = new SitePages();
-      $pageUpd = $model->InsertOrUpdate(Yii::$app->request->post(), Yii::$app->request->post('id'));
+      $pageUpd = $model->InsertOrUpdate(
+        Yii::$app->request->post(), Yii::$app->request->post('id')
+      );
       $result = $pageUpd ? 'success' : 'error';
     }
 
@@ -86,22 +100,27 @@ class PageController extends AppController {
     $page['controller'] = $route[0];
     $page['action'] = $route[1];
 
-    if (empty($page))
+    if (empty($page)) {
       $this->redirect('index');
+    }
 
-
-      return $this->render('edit', ['page' => $page, 'result'  => $result, 'parents' => SitePages::find()->where(['parent' => ''])->all()]);
+    return $this->render('edit', [
+      'page' => $page, 'result' => $result,
+      'parents' => SitePages::find()->where(['parent' => ''])->all()
+    ]);
   }
 
-  public function actionDeleted ($id){
+  public function actionDeleted($id)
+  {
     $page = SitePages::findOne($id);
     $page->delete();
     $this->redirect('index');
   }
 
-  function actionInlinesave () {
-    if (Yii::$app->request->isAjax){
-      if (Yii::$app->request->isPost){
+  function actionInlinesave()
+  {
+    if (Yii::$app->request->isAjax) {
+      if (Yii::$app->request->isPost) {
         $page = SitePages::findOne(Yii::$app->request->post('id'));
         $page->content = Yii::$app->request->post('content');
         return $page->save() ? 'success' : 'fail';

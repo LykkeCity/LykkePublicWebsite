@@ -1,16 +1,12 @@
 <?php
 
-
 namespace backend\controllers;
 
-use backend\models\UpdateUserForm;
-use backend\models\SignupUserForm;
 use common\models\LykkeUser;
 use common\models\LykkeUserAccess;
 use Yii;
 use yii\filters\VerbFilter;
 use yii\filters\AccessControl;
-use yii\web\Controller;
 
 class UserController extends AppController
 {
