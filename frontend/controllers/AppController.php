@@ -10,7 +10,7 @@ use yii\web\Controller;
 use Yii;
 
 
-class AppController extends Controller {
+abstract class AppController extends Controller {
 
   public $pageId;
 
