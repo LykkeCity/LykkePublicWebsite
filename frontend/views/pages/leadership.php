@@ -4,9 +4,6 @@ use \frontend\widgets\SubMenu;
 
 ?>
 <article class="content">
-    <?=SubMenu::widget([
-        'parentId' => $page['parent'] == "" ? $page['id'] : $page['parent'],
-    ])?>
 
     <section class="leadership section--padding">
         <div class="container">

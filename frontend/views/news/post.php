@@ -10,10 +10,6 @@ use yii\helpers\Url;
 
 
 <article class="content">
-    <?=SubMenu::widget([
-        'parentId' => $page['parent'] == "" ? $page['id'] : $page['parent'],
-        'backUrl' => Url::to([$page['url']]),
-    ])?>
 
     <section class="section">
         <div class="news_article">

@@ -3,12 +3,11 @@ use frontend\assets\MainAsset;
 use frontend\widgets\Frontend_Admin;
 use frontend\widgets\SideMenu;
 use frontend\widgets\Header;
-use frontend\widgets\MainMenu;
-use frontend\widgets\Social;
+use frontend\widgets\SubMenu;
 use yii\helpers\Html;
-use yii\helpers\Url;
 
 ?>
+
 <?php $this->beginPage() ?>
     <!DOCTYPE html>
     <!--[if lt IE 7]>
@@ -26,8 +25,7 @@ use yii\helpers\Url;
         <?=$this->head()?>
         <?=Html::csrfMetaTags()?>
 
-        <meta name="viewport"
-              content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 
         <link rel="apple-touch-icon" sizes="180x180"
               href="/apple-touch-icon.png">
@@ -45,9 +43,11 @@ use yii\helpers\Url;
 
 
         <!--[if lte IE 9]>
-        <script type="text/javascript" src="js/vendor/html5shiv.js"></script>
+        <script type="text/javascript" src="/js/vendor/html5shiv.js"></script>
         <![endif]-->
 
+
+        <!-- Google Analitics script -->
         <script>
             (function (i, s, o, g, r, a, m) {
                 i['GoogleAnalyticsObject'] = r;
@@ -86,7 +86,6 @@ use yii\helpers\Url;
             /*]]>*/</script>
         <!-- End of lykkex Zendesk Widget script -->
 
-
     </head>
     <body class="<?=$this->params['class_body']?>">
     <?php $this->beginBody() ?>
@@ -95,6 +94,8 @@ use yii\helpers\Url;
 
     <?=Header::widget();?>
 
+    <?=SubMenu::widget(); ?>
+
     <?=Frontend_Admin::widget();?>
 
     <?=$content?>
@@ -102,5 +103,5 @@ use yii\helpers\Url;
     <?php $this->endBody() ?>
 
     </body>
-    </html>
+</html>
 <?php $this->endPage() ?>

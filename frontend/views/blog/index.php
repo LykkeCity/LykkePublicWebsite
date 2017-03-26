@@ -1,14 +1,10 @@
 <?
 use frontend\widgets\Footer;
-use \frontend\widgets\SubMenu;
 
 ?>
 
 
 <article class="content">
-    <?=SubMenu::widget([
-        'parentId' => $page['parent'] == "" ? $page['id'] : $page['parent'],
-    ])?>
 
     <section class="section section--lead section--padding">
         <div class="container">

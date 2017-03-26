@@ -1,16 +1,10 @@
 <?
 use frontend\widgets\Asset;
 use frontend\widgets\Footer;
-use \frontend\widgets\SubMenu;
-use yii\helpers\Url;
 
 ?>
 
 <article class="content">
-    <?=SubMenu::widget([
-        'parentId' => $page['parent'] == "" ? $page['id'] : $page['parent'],
-    ])?>
-
     <section class="exchange section--padding">
         <div class="container">
             <div class="row">

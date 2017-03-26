@@ -10,10 +10,6 @@ use yii\helpers\Url;
 
 
 <article class="content">
-    <?=SubMenu::widget([
-        'parentId' => $page['parent'] == "" ? $page['id'] : $page['parent'],
-        'backUrl' => Url::to([$page['url']]),
-    ])?>
 
     <section class="section">
         <div class="news_article">
@@ -21,8 +17,7 @@ use yii\helpers\Url;
             <div class="news_article__header">
                 <div class="container">
                     <div class="news_article__media news_article__media--main">
-                        <img src="<?=Yii::$app->request->hostInfo.'/media/blog/'
-                        .$post['post_img']?>" alt="">
+                        <img src="<?=Yii::$app->request->hostInfo.'/media/blog/'.$post['post_img']?>" alt="">
                     </div>
                 </div>
             </div>
@@ -83,10 +78,9 @@ use yii\helpers\Url;
                                     <h3>Comments
                                         <span><?=$countComments?></span></h3>
                                 </div>
-                                <?php if (Yii::$app->user->identity->blocked_comment
-                                    == 0
-                                    && Yii::$app->user->identity->kyc_status
-                                    == KycStatus::OK
+                                <?php if
+                                    ((Yii::$app->user->identity->blocked_comment == 0)
+                                    && (Yii::$app->user->identity->kyc_status == KycStatus::OK)
                                 ) { ?>
                                     <form action="" class="form form--message"
                                           id="form-comment">
