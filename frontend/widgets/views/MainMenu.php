@@ -1,30 +1,35 @@
 <?
 use yii\helpers\Url;
+
 ?>
 
 <ul class="nav nav--header">
-  <?
-  foreach ($siteMenu as $item) { ?>
-    <li class=" <?= $currentUri === $item['url'] ? 'active' : '' ?>">
-      <a class="dropdown__control"
-         href="<?= strripos($item['url'], 'http') === false ? '/'.$item['url'] : $item['url'] ?>"><?= $item['name'] ?>
-      </a>
-      <? if (!empty($item['sub_pages'])) { ?>
-        <div class="dropdown__container">
-          <ul class="dropdown__nav">
-            <? foreach ($item['sub_pages'] as $subItem) { ?>
-              <li>
-                <a href="<?= strripos($subItem['url'], 'http') === false ? '/'.$subItem['url'] : $subItem['url'] ?>"><?= $subItem['name'] ?>
-                </a>
-              </li>
+    <?
+    foreach ($siteMenu as $item) { ?>
+        <li class=" <?=$currentUri === $item['url'] ? 'active' : ''?>">
+            <a class="dropdown__control"
+               href="<?=strripos($item['url'], 'http') === false ? '/'
+                   .$item['url'] : $item['url']?>"><?=$item['name']?>
+            </a>
+            <? if (!empty($item['sub_pages'])) { ?>
+                <div class="dropdown__container">
+                    <ul class="dropdown__nav">
+                        <? foreach ($item['sub_pages'] as $subItem) { ?>
+                            <li>
+                                <a href="<?=strripos($subItem['url'], 'http')
+                                === false ? '/'.$subItem['url']
+                                    : $subItem['url']?>"><?=$subItem['name']?>
+                                </a>
+                            </li>
+                        <? } ?>
+                    </ul>
+                </div>
             <? } ?>
-          </ul>
-        </div>
-      <? } ?>
+        </li>
+    <? } ?>
+    <li class="visible-xs">
+        <hr>
     </li>
-  <? } ?>
-  <li class="visible-xs">
-    <hr>
-  </li>
-  <li class="visible-xs"><a href="<?=Url::to(['site/signin'])?>">Sign In</a></li>
+    <li class="visible-xs"><a href="<?=Url::to(['site/signin'])?>">Sign In</a>
+    </li>
 </ul>
