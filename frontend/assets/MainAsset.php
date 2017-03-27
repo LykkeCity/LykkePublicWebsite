@@ -15,6 +15,7 @@ class MainAsset extends AssetBundle
   public $css = [
     'css/vendor/bootstrap-custom.min.css',
     '/css/style.css',
+    '/css/style_addon.css',
     '/css/ico_aside.css'
   ];
 
@@ -28,6 +29,7 @@ class MainAsset extends AssetBundle
     'https://www.youtube.com/iframe_api',
     'js/YouTube.js',
     'js/functions.js',
+    'js/b2b.js',
   ];
   
 }

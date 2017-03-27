@@ -1,0 +1,97 @@
+
+.panel_group .collapse { display: none; }
+
+.panel_group .collapse.in { display: block; }
+
+.trading_data__iphone--img {
+    background-image: url("/css/../img/landing/iphone_inner.png");
+    width:375px;
+    height: 670px;
+    background-size: contain;
+}
+.trading_data__android--img {
+    background-image: url("/css/../img/landing/android_inner.jpg");
+    width: 360px;
+    height: 640px;
+    background-size: contain;
+}
+.features__img--comisssion_free_icn {
+    background-image: url("/css/../img/landing/icn/comisssion_free_icn.svg");
+    width:72px;
+    height: 74px;
+    margin: auto;
+}
+.features__img--low_spreads_icn {
+    background-image: url("/css/../img/landing/icn/low_spreads_icn.svg");
+    width: 62px;
+    height: 74px;
+    margin: auto;
+}
+.features__img--guaranteed_execution_icn {
+    background-image: url("/css/../img/landing/icn/guaranteed_execution_icn.svg");
+    width: 82px;
+    height: 71px;
+    margin: auto;
+}
+.features__img--immediate_settlement_icn {
+    background-image: url("/css/../img/landing/icn/immediate_settlement_icn.svg");
+    width: 63px;
+    height: 70px;
+    margin: auto;
+}
+.features__img--direct_ownership_icn {
+    background-image: url("/css/../img/landing/icn/direct_ownership_icn.svg");
+    width: 71px;
+    height: 61px;
+    margin: auto;
+}
+.features__img--security_icn {
+    background-image: url("/css/../img/landing/icn/security_icn.svg");
+    width: 62px;
+    height: 69px;
+    margin: auto;
+}
+.appstore-badge--img {
+    background-image: url("/css/../img/appstore-badge.svg");
+    width:170px;
+    height:50px;
+    background-size: cover;
+}
+.google-play--img {
+    background-image: url("/css/../img/google-play.svg");
+    width:170px;
+    height:50px;
+    background-size: cover;
+}
+.appstore-badge--img_2 {
+    background-image: url("/css/../img/appstore-badge.svg");
+    width:205px;
+    height:60px;
+    background-size: cover;
+}
+.google-play--img_2 {
+    background-image: url("/css/../img/google-play.svg");
+    width:205px;
+    height:60px;
+    background-size: cover;
+}
+.technology__tech--img {
+    background-image: url("/css/../img/tech.png");
+    width: 1056px;
+    height: 640px;
+    background-size: contain;
+    max-width: 100%;
+}
+
+.landing--features.section--padding .page__title, .landing--features.section--padding .landing__subtitle {
+    text-align: left; padding: 0;
+}
+
+.landing--features.section--padding .h1.page__title {
+    text-align: left; padding: 0;
+}
+
+.landing--features.section--padding .landing__subtitle {
+    text-align: left; padding: 0;
+}
+

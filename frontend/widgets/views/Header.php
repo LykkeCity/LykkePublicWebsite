@@ -19,13 +19,21 @@ use yii\helpers\Url;
                 </a>
             </div>
             <div class="header__actions header_actions pull-right">
+                <? if(!Yii::$app->user->isGuest){ ?>
+                    <div class="header_actions__logout visible-xs pull-right">
+                        <a href="<?=Url::to(['site/logout'])?>" class="btn btn--icon btn_logout">
+                            <i class="icon icon--exit"></i>
+                        </a>
+                    </div>
+
+                <? } ?>
+
                 <div class="header_actions__login header_login pull-right">
                     <? if (Yii::$app->user->isGuest) { ?>
                         <div class="header_user dropdown__control">
                             <a href="<?=Url::to(['site/signin'])?>">
                                 <div class="header_login__title">Sign in</div>
                             </a>
-
                         </div>
                     <? } else { ?>
                         <div class="header_user dropdown__control">
@@ -35,10 +43,7 @@ use yii\helpers\Url;
                                          alt="user_image">
                                 </div>
 
-                                <div
-                                    class="header_login__title"><?=Yii::$app->user->identity->first_name?></div>
-
-
+                                <div class="header_login__title"><?=Yii::$app->user->identity->first_name?></div>
                             </a>
                         </div>
                         <div class="dropdown__container">
