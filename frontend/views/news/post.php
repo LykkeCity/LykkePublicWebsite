@@ -11,7 +11,7 @@ use yii\helpers\Url;
 
 <article class="content">
 
-    <section class="section">
+    <section class="section--padding section--lead">
         <div class="news_article">
 
             <div class="news_article__header">
