@@ -80,10 +80,6 @@ class SiteController extends AppController
      */
     public function actionLogin()
     {
-        echo "<pre>";
-        print_r($_POST);
-        echo "</pre>";
-        echo "<pre>";
         var_dump(Yii::$app->request->validateCsrfToken($_POST['state']));
         echo "</pre>";
         if (!Yii::$app->user->isGuest) {
