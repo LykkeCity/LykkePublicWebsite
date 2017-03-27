@@ -30,6 +30,7 @@ class MainAsset extends AssetBundle
     'js/YouTube.js',
     'js/functions.js',
     'js/b2b.js',
+    'js/leadership_modal.js',
   ];
   
 }

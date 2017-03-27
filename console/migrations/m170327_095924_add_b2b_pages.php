@@ -1308,7 +1308,7 @@ class m170327_095924_add_b2b_pages extends Migration {
 
     public function safeDown() {
         echo "m170327_095924_add_b2b_pages cannot be reverted.\n";
-        return false;
+        return;
     }
 
 }
