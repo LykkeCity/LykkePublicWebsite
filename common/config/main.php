@@ -5,7 +5,7 @@ return [
     'cache'  => [
       'class' => 'yii\caching\FileCache',
     ],
-    'db'     => [
+    'db' => [
       'class'    => 'yii\db\Connection',
       'dsn'      => 'mysql:host=' . getenv('DB_HOST') . ';dbname=' . getenv('DB_NAME') . '',
       'username' => getenv('DB_USER_NAME'),

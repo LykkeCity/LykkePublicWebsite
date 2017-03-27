@@ -8,9 +8,9 @@ use yii\filters\AccessControl;
 use common\models\LoginForm;
 use common\models\LykkeUserAccess;
 
-
 class SiteController extends AppController
 {
+
     /**
      * @inheritdoc
      */
@@ -52,14 +52,13 @@ class SiteController extends AppController
         ];
     }
 
-  public function beforeAction($action) {
-   $this->enableCsrfValidation = FALSE;
+    public function beforeAction($action)
+    {
+        $this->enableCsrfValidation = false;
+        return parent::beforeAction($action);
+    }
 
-    return parent::beforeAction($action);
-  }
-
-
-  /**
+    /**
      * Displays homepage.
      *
      * @return string
@@ -71,7 +70,7 @@ class SiteController extends AppController
 
     public function actionUsers()
     {
-      return $this->render('index');
+        return $this->render('index');
     }
 
     /**
@@ -81,24 +80,15 @@ class SiteController extends AppController
      */
     public function actionLogin()
     {
-
-      echo "<pre>";
+        echo "<pre>";
         print_r($_POST);
-      echo "</pre>";
-
-
-      echo "<pre>";
-       var_dump(Yii::$app->request->validateCsrfToken($_POST['state']));
-      echo "</pre>";
-
-
-
+        echo "</pre>";
+        echo "<pre>";
+        var_dump(Yii::$app->request->validateCsrfToken($_POST['state']));
+        echo "</pre>";
         if (!Yii::$app->user->isGuest) {
             return $this->goHome();
         }
-
-
-
         $model = new LoginForm();
         if ($model->load(Yii::$app->request->post()) && $model->login()) {
             return $this->goBack();
@@ -117,7 +107,6 @@ class SiteController extends AppController
     public function actionLogout()
     {
         Yii::$app->user->logout();
-
         return $this->goHome();
     }
 }
