@@ -22,16 +22,13 @@ use Yii;
  * @property string  $normal_tpl
  * @property integer $template
  */
-class SitePages extends \yii\db\ActiveRecord
-{
+class SitePages extends \yii\db\ActiveRecord {
 
-    public static function tableName()
-    {
+    public static function tableName() {
         return 'site_pages';
     }
 
-    public function rules()
-    {
+    public function rules() {
         return [
             [['name', 'url'], 'required'],
             [['content'], 'string'],
@@ -45,30 +42,28 @@ class SitePages extends \yii\db\ActiveRecord
         ];
     }
 
-    public function attributeLabels()
-    {
+    public function attributeLabels() {
         return [
-            'id'          => 'ID',
-            'name'        => 'Name',
-            'url'         => 'Url',
-            'content'     => 'Content',
-            'parent'      => 'Parent',
-            'datetime'    => 'Date Time',
-            'title'       => 'Title',
-            'keywords'    => 'Keywords',
+            'id' => 'ID',
+            'name' => 'Name',
+            'url' => 'Url',
+            'content' => 'Content',
+            'parent' => 'Parent',
+            'datetime' => 'Date Time',
+            'title' => 'Title',
+            'keywords' => 'Keywords',
             'description' => 'Description',
-            'author'      => 'Author',
-            'route'       => 'Route',
-            'published'   => 'Published',
-            'in_menu'     => 'In Menu',
+            'author' => 'Author',
+            'route' => 'Route',
+            'published' => 'Published',
+            'in_menu' => 'In Menu',
         ];
     }
 
-    public static function getListPages($forMenu = false)
-    {
+    public static function getListPages($forMenu = false) {
         $getListPages = $forMenu ? SitePages::find()->where([
             'published' => 1,
-            'in_menu'   => 1,
+            'in_menu' => 1,
         ])->asArray()->all() : SitePages::find()->asArray()->all();
         $listPages = [];
         foreach ($getListPages as $key => $item) {
@@ -78,12 +73,10 @@ class SitePages extends \yii\db\ActiveRecord
                 $listPages[$item['id']] = $item;
             }
         }
-
         return $listPages;
     }
 
-    public function InsertOrUpdate($post, $id = '')
-    {
+    public function InsertOrUpdate($post, $id = '') {
         $page = empty($id) ? new SitePages() : SitePages::findOne($id);
         $page->name = $post['name'];
         $page->url = $post['url'];
@@ -100,7 +93,6 @@ class SitePages extends \yii\db\ActiveRecord
         $page->normal_tpl = !isset($post['normal_tpl']) ? 0
             : $post['normal_tpl'];
         $page->template = $post['template'];
-
         return $page->save() ? $page : false;
     }
 

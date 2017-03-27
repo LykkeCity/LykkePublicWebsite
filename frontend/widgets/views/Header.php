@@ -95,8 +95,19 @@ use yii\helpers\Url;
             <ul class="header_nav__list nav_list">
 
                 <? foreach ($siteMenu as $item) { ?>
-                    <li class="nav_list__item <?=$currentUri === $item['url']
-                        ? 'nav_list__item--active' : ''?>">
+                    <li class="nav_list__item
+                    <? if($currentUri == $item['url']){ ?>
+                        nav_list__item--active
+                    <? }else{ ?>
+                        <? if (!empty($item['sub_pages'])) { ?>
+                            <? foreach ($item['sub_pages'] as $subItem) { ?>
+                                <? if($currentUri == $subItem['url']){ ?>
+                                    nav_list__item--active
+                                <? } ?>
+                            <? } ?>
+                        <? } ?>
+                    <? } ?>
+                    ">
                         <a class="dropdown__control"
                            href="<?=strripos($item['url'], 'http') === false
                                ? '/'.$item['url']
