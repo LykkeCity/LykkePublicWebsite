@@ -67,12 +67,18 @@ else {
 
         <div class="form-group">
           <label for="">Text preview</label>
-          <textarea name="post_preview_text" id="editor" class="editor_basic"><?=$post['post_preview_text']?></textarea>
+          <div data-name="post_preview_text" id="editor" class="editor_basic"><?=$post['post_preview_text']?></div>
+          <textarea style="display: none;" class="hidden-content-input" name="post_preview_text">
+            <?= $post['post_preview_text']; ?>
+          </textarea>
         </div>
 
         <div class="form-group">
           <label for="">Main text</label>
-          <textarea name="post_text" id="editor" class="editor_full"><?=$post['post_text']?></textarea>
+          <div data-name="post_text" id="editor" class="editor_basic"><?=$post['post_text']?></div>
+          <textarea id="post_text" style="display: none;" class="hidden-content-input" name="post_text">
+            <?= $post['post_text']; ?>
+          </textarea>
         </div>
 
       </div>

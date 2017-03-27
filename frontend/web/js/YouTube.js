@@ -14,6 +14,9 @@ function onYouTubeIframeAPIReady() {
 
 function onPlayerReady(event) {
     var playButton = document.getElementById("btn_video");
+    if ((playButton === null) || (playButton === undefined)){
+        return;
+    }
     playButton.addEventListener("click", function(event) {
         if(typeof player.playVideo == 'function')
         {

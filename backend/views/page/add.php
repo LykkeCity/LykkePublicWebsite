@@ -62,16 +62,16 @@ else {
           <div class="col-sm-12">
             <div>
 
-              <!-- Nav tabs -->
-              <ul class="nav nav-tabs" role="tablist">
-                <li role="presentation" class="active change_editor"><a href="#editor_view"  role="tab" data-toggle="tab">Visual editor</a></li>
-                <li role="presentation" class="change_editor_html"><a href="#editor_view"  role="tab" data-toggle="tab">HTML editor</a></li>
-              </ul>
-
               <!-- Tab panes -->
               <div class="tab-content">
+                <label for="input-title">Content</label>
                 <div role="tabpanel" class="tab-pane active" id="editor_view">
-                  <textarea style="width: 100%" name="content" id="editor" class="editor_full"></textarea>
+                  <div style="display: block; width: 100%" data-name="content"
+                       id="editor"
+                       class="editor_basic"><?= $page['content'] ?></div>
+                  <textarea style="display: none;" class="hidden-content-input" name="content">
+                  <?= $page['content']; ?>
+                  </textarea>
                 </div>
               </div>
 

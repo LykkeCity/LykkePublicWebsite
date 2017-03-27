@@ -69,10 +69,10 @@ $this->params['breadcrumbs'][] = $this->title;
               <!-- Tab panes -->
               <div class="tab-content">
                 <div role="tabpanel" class="tab-pane active" id="editor_view">
-                  <div style="display: block; width: 100%"
+                  <div style="display: block; width: 100%" data-name="content"
                             id="editor"
                             class="editor_basic"><?= $page['content'] ?></div>
-                  <textarea style="display: none;" class="hidden-content-input" type="hidden" name="content">
+                  <textarea style="display: none;" class="hidden-content-input" name="content">
                   <?= $page['content']; ?>
                   </textarea>
                 </div>
