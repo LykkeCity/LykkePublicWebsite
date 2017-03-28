@@ -24,3 +24,18 @@ $("#hear1, #hear2, #hear3, #hear4").change(function () {
     }
 
 });
+
+var form = document.querySelector('.form_accelerate');
+    form.noValidate = true;
+
+    form.addEventListener('submit', function(event) {
+        if (!event.target.checkValidity()) {
+            event.preventDefault();
+            alert('');
+            for(var i = 0; i < event.srcElement.length;i++){
+                if(event.srcElement[i].value == '' && event.srcElement[i].required == true){
+                    alert('field '+ event.srcElement[i].name + ' is required');
+                }
+            }
+        }
+    }, false);
