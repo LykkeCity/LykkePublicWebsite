@@ -25,16 +25,30 @@ $("#hear1, #hear2, #hear3, #hear4").change(function () {
 
 });
 
-var form = document.querySelector('.form_accelerate');
+ var form = document.querySelector('.form_accelerate');
     form.noValidate = true;
-
     form.addEventListener('submit', function(event) {
         if (!event.target.checkValidity()) {
             event.preventDefault();
-            alert('');
             for(var i = 0; i < event.srcElement.length;i++){
                 if(event.srcElement[i].value == '' && event.srcElement[i].required == true){
-                    alert('field '+ event.srcElement[i].name + ' is required');
+                    var alert = document.createElement('span');
+                    alert.innerHTML = 'Please fill out this field';
+                    alert.setAttribute('style','color:red;');
+                    alert.setAttribute('class','temp-alert');
+                    
+                    if (event.srcElement[i].parentElement.getAttribute('class') == 'select'){
+                        console.log(event.srcElement[i].parentElement.parentElement.appendChild(alert));
+                    } else{
+                        console.log(event.srcElement[i].parentElement.appendChild(alert));
+                    }
+                    
+                    setTimeout(function() { 
+                        var tempAlert = document.querySelectorAll('.temp-alert');
+                        for(var i = 0; i < tempAlert.length; i++){
+                             tempAlert[i].remove();
+                        }
+                    }, 9000);
                 }
             }
         }
