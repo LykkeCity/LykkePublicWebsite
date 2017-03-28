@@ -95,3 +95,11 @@
     text-align: left; padding: 0;
 }
 
+@media all and (max-width: 425px){
+    iframe.vshare__none{
+        width: auto;
+        height: initial;
+        min-height: 300px;
+    }
+}
+

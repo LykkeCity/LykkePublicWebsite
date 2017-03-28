@@ -203,5 +203,5 @@ table.dataTable thead .non-sorting:after{
 }
 
 .non-sorting{
-    cursor: default;
+    cursor: default !important;
 }

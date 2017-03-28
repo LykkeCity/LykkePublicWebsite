@@ -46,25 +46,27 @@ use yii\helpers\Html;
         <script type="text/javascript" src="/js/vendor/html5shiv.js"></script>
         <![endif]-->
 
+        <? if (!(isset($_COOKIE['disabled_ga_to_own_user'])) and !($_COOKIE['disabled_ga_to_own_user'] == 'true')) { ?>
+            <!-- Google Analitics script -->
+            <script>
+                (function (i, s, o, g, r, a, m) {
+                    i['GoogleAnalyticsObject'] = r;
+                    i[r] = i[r] || function () {
+                            (i[r].q = i[r].q || []).push(arguments)
+                        }, i[r].l = 1 * new Date();
+                    a = s.createElement(o),
+                        m = s.getElementsByTagName(o)[0];
+                    a.async = 1;
+                    a.src = g;
+                    m.parentNode.insertBefore(a, m)
+                })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
 
-        <!-- Google Analitics script -->
-        <script>
-            (function (i, s, o, g, r, a, m) {
-                i['GoogleAnalyticsObject'] = r;
-                i[r] = i[r] || function () {
-                        (i[r].q = i[r].q || []).push(arguments)
-                    }, i[r].l = 1 * new Date();
-                a = s.createElement(o),
-                    m = s.getElementsByTagName(o)[0];
-                a.async = 1;
-                a.src = g;
-                m.parentNode.insertBefore(a, m)
-            })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+                ga('create', 'UA-68151354-1', 'auto');
+                ga('send', 'pageview');
 
-            ga('create', 'UA-68151354-1', 'auto');
-            ga('send', 'pageview');
+            </script>
+        <? } ?>
 
-        </script>
 
         <!-- Start of lykkex Zendesk Widget script -->
         <script>/*<![CDATA[*/
