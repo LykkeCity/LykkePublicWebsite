@@ -20,7 +20,7 @@ $this->params['breadcrumbs'][] = $this->title;
   <tr>
     <th>Id</th>
     <th>Title</th>
-    <th></th>
+    <th class="non-sorting" style="width: 40px;"></th>
   </tr>
   </thead>
   <tbody>

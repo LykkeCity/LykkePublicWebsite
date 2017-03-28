@@ -9,11 +9,11 @@ $this->params['breadcrumbs'][] = $this->title;
     <th>Id</th>
     <th>Name</th>
     <th>Email</th>
-    <th style="text-align: center;">Is Admin?</th>
-    <th style="text-align: center;">Frontend Edit</th>
-    <th style="text-align: center;">KYC Status</th>
-    <th>Notify spam?</th>
-    <th style="text-align: center;">Blocked comments?</th>
+    <th style="text-align: center;">Admin</th>
+    <th style="text-align: center;">Frontend</th>
+    <th style="text-align: center;">KYC</th>
+    <th>spam?</th>
+    <th style="text-align: center;">Blocked</th>
   </tr>
   </thead>
   <tbody>

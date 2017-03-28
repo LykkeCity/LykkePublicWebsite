@@ -42,7 +42,7 @@ $this->params['breadcrumbs'][] = $this->title;
           <tr>
             <th>From</th>
             <th>To</th>
-            <th style="width: 20px;">Delete?</th>
+            <th class="non-sorting" style="width: 20px;">Delete?</th>
           </tr>
         </thead>
         <tbody>

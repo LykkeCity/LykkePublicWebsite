@@ -197,3 +197,11 @@ a.desc:after {
     border: 1px solid #ddd;
     border-radius: 3px;
 }
+
+table.dataTable thead .non-sorting:after{
+    content: '' !important;
+}
+
+.non-sorting{
+    cursor: default;
+}
