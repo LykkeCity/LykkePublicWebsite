@@ -53,3 +53,8 @@ $("#hear1, #hear2, #hear3, #hear4").change(function () {
             }
         }
     }, false);
+
+window.onload = function(){
+    $('input[name=COMPLETE_URL]').val(location.origin+'/b2b-thanks');
+};
+    

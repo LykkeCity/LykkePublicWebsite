@@ -258,7 +258,7 @@ class m170327_095924_add_b2b_pages extends Migration {
                         <form action=\"https://service.capsulecrm.com/service/newlead\" method=\"post\" class=\"form form_accelerate form--simple\">
                 
                          <input type=\"hidden\" name=\"FORM_ID\" value=\"4bf7b4a8-b5c6-48a3-80c7-3b1be0ba0c6d\">
-                         <input type=\"hidden\" name=\"COMPLETE_URL\" value=\"http://lykke.dev/b2b-thanks\">
+                         <input type=\"hidden\" name=\"COMPLETE_URL\" value=\"http://lykke.com/b2b-thanks\">
                 
                           <h3 class=\"border_bottom\">Accelerate me</h3>
                 
@@ -777,7 +777,7 @@ class m170327_095924_add_b2b_pages extends Migration {
                             <form action=\"https://service.capsulecrm.com/service/newlead\" method=\"post\" class=\"form form_accelerate form--simple\">
 
                               <input type=\"hidden\" name=\"FORM_ID\" value=\"4bf7b4a8-b5c6-48a3-80c7-3b1be0ba0c6d\">
-                              <input type=\"hidden\" name=\"COMPLETE_URL\" value=\"https://lykke.dev/b2b-thanks\">
+                              <input type=\"hidden\" name=\"COMPLETE_URL\" value=\"https://lykke.com/b2b-thanks\">
 
                               <h3 class=\"border_bottom\">Join as Blockchain accelerator</h3>
                               <h4>General information</h4>
