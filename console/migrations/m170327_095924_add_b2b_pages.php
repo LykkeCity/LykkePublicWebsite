@@ -657,7 +657,7 @@ class m170327_095924_add_b2b_pages extends Migration {
                 
                            <div class=\"form-group\">
                             <label for=\"solution\" class=\"control-label\">What solution you are looking for to realize with Lykke</label>
-                            <textarea name=\"NOTE\" id=\"solution\" class=\"form-control\"></textarea>
+                            <textarea name=\"CUSTOMFIELD[Solution.Request]\" id=\"solution\" class=\"form-control\"></textarea>
                           </div>
                                    
                           <input type=\"hidden\" name=\"TAG\" value=\"WWW\">
@@ -1181,7 +1181,7 @@ class m170327_095924_add_b2b_pages extends Migration {
 
                               <div class=\"form-group\">
                                 <label for=\"solution\" class=\"control-label\">Briefly describe your proposed solution, including how you intend to utilize the Blockchain</label>
-                                <textarea name=\"NOTE\" id=\"solution\" class=\"form-control\"></textarea>
+                                <textarea name=\"CUSTOMFIELD[Solution.Request]\" id=\"solution\" class=\"form-control\"></textarea>
                               </div>
 
                               <div class=\"form-group\">
