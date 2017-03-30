@@ -28,7 +28,7 @@ use yii\helpers\Url;
                     <h1 class="news_article__title"><?=$post['post_title']?></h1>
 
                     <div class="row">
-                        <div class="col-sm-3">
+                        <div class="col-xs-12 col-sm-3">
                             <div class="news_article__info">
                                 <div class="action_text">
                                     Published in <a
@@ -39,7 +39,7 @@ use yii\helpers\Url;
                                 </div>
                             </div>
                         </div>
-                        <div id="unsubscribe" class="col-sm-9 col-md-8">
+                        <div id="unsubscribe" class="col-xs-12 col-sm-9 col-md-8">
                             <div class="news_article__text text">
                                 <?=$post['post_text']?>
                             </div>
@@ -51,7 +51,7 @@ use yii\helpers\Url;
                                     .'/media/news/'.$post['post_img'],
                             ])?>
                         </div>
-                        <div class="col-md-9 col-md-offset-3">
+                        <div class="col-xs-12 col-md-9 col-md-offset-3">
                             <?php if (Yii::$app->user->isGuest) { ?>
                                 <div class="alert alert--message" role="alert">
                                     <table>
