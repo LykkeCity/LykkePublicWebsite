@@ -1,4 +1,5 @@
 <?php
+use frontend\widgets\Footer;
 ?>
 
 <article class="content page">
@@ -33,3 +34,5 @@
     </section>
 
 </article>
+
+<?=Footer::widget();?>
