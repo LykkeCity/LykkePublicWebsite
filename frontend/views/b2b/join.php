@@ -95,7 +95,7 @@ use frontend\widgets\Footer;
                     <h4>General information</h4>
 
                     <div class="form-group">
-                        <label for="salutation" class="control-label">Salutation</label>
+                        <label for="salutation" class="control-label">Salutation*</label>
 
                         <div class="radio-group group_salutation">
                             <div class="radio radio--plate">
@@ -128,13 +128,13 @@ use frontend\widgets\Footer;
                     <div class="row">
                         <div class="col-sm-6">
                             <div class="form-group">
-                                <label for="first_name" class="control-label">First name</label>
+                                <label for="first_name" class="control-label">First name*</label>
                                 <input type="text"  name="FIRST_NAME" class="form-control" id="first_name" required >
                             </div>
                         </div>
                         <div class="col-sm-6">
                             <div class="form-group">
-                                <label for="last_name" class="control-label">Last name</label>
+                                <label for="last_name" class="control-label">Last name*</label>
                                 <input type="text" name="LAST_NAME" class="form-control" id="last_name" required >
                             </div>
                         </div>
@@ -148,13 +148,13 @@ use frontend\widgets\Footer;
                     <div class="row">
                         <div class="col-sm-6">
                             <div class="form-group">
-                                <label for="company_name" class="control-label">Organisation name</label>
+                                <label for="company_name" class="control-label">Organisation name*</label>
                                 <input type="text" name="ORGANISATION_NAME" class="form-control" id="company_name" required >
                             </div>
                         </div>
                         <div class="col-sm-6">
                             <div class="form-group">
-                                <label for="street" class="control-label">Street</label>
+                                <label for="street" class="control-label">Street*</label>
                                 <input type="text" name="STREET" class="form-control" id="street" required >
                             </div>
                         </div>
@@ -163,20 +163,20 @@ use frontend\widgets\Footer;
                     <div class="row">
                         <div class="col-sm-6">
                             <div class="form-group">
-                                <label for="city" class="control-label">City</label>
+                                <label for="city" class="control-label">City*</label>
                                 <input type="text" name="CITY" class="form-control" id="city" required >
                             </div>
                         </div>
                         <div class="col-sm-6">
                             <div class="form-group">
-                                <label for="zip" class="control-label">ZIP</label>
+                                <label for="zip" class="control-label">ZIP*</label>
                                 <input type="text" name="ZIP" class="form-control" id="zip" required >
                             </div>
                         </div>
                     </div>
 
                     <div class="form-group">
-                        <label for="country" class="control-label">Country</label>
+                        <label for="country" class="control-label">Country*</label>
                         <div class="select" data-control="select">
                             <div class="select__value"><span class="_value"></span></div>
                             <select id="country" name="COUNTRY" class="form-control select__elem" required >
@@ -435,13 +435,13 @@ use frontend\widgets\Footer;
                     <div class="row">
                         <div class="col-sm-6">
                             <div class="form-group">
-                                <label for="phone" class="control-label">Phone</label>
+                                <label for="phone" class="control-label">Phone*</label>
                                 <input type="tel" name="PHONE" class="form-control" id="phone" required >
                             </div>
                         </div>
                         <div class="col-sm-6">
                             <div class="form-group">
-                                <label for="email" class="control-label">Email</label>
+                                <label for="email" class="control-label">Email*</label>
                                 <input type="email" name="EMAIL" class="form-control" id="email" required >
                             </div>
                         </div>
@@ -497,29 +497,29 @@ use frontend\widgets\Footer;
                     </div>
 
                     <div class="form-group">
-                        <label for="industry" class="control-label">Which industry or business category does your proposal concern?</label>
+                        <label for="industry" class="control-label">Which industry or business category does your proposal concern?*</label>
                         <input type="text" name="CUSTOMFIELD[Industry]" class="form-control" id="industry" required >
                     </div>
 
                     <div class="form-group">
-                        <label for="role" class="control-label">What role do you intend to have in this project?</label>
+                        <label for="role" class="control-label">What role do you intend to have in this project?*</label>
                         <input type="text" name="CUSTOMFIELD[Project.Role]" class="form-control" id="role" required >
                     </div>
 
                     <div class="form-group">
-                        <label for="manager" class="control-label">Who do you foresee as the project manager? What experience does the project manager have in the solution area?</label>
+                        <label for="manager" class="control-label">Who do you foresee as the project manager? What experience does the project manager have in the solution area?*</label>
                         <textarea name="CUSTOMFIELD[PM.Experience] id="manager" class="form-control" required ></textarea>
                     </div>
                     <div class="form-group">
-                        <label for="partnership1" class="control-label">What do you intend to bring to the partnership?</label>
+                        <label for="partnership1" class="control-label">What do you intend to bring to the partnership?*</label>
                         <textarea name="CUSTOMFIELD[Role.Franchisee]" id="partnership1" class="form-control" required ></textarea>
                     </div>
                     <div class="form-group">
-                        <label for="role" class="control-label">What do you require for Lykke to bring to the partnership?</label>
+                        <label for="role" class="control-label">What do you require for Lykke to bring to the partnership?*</label>
                         <textarea name="CUSTOMFIELD[Role.Lykke]" id="role" class="form-control" required ></textarea>
                     </div>
                     <div class="form-group">
-                        <label for="effort" class="control-label">Person-days that should be provided by Lykke</label>
+                        <label for="effort" class="control-label">Person-days that should be provided by Lykke*</label>
                         <input type="text"  name="CUSTOMFIELD[Effort.Lykke.PD]" class="form-control" id="effort" required >
                     </div>
                     <div class="row">
@@ -540,15 +540,15 @@ use frontend\widgets\Footer;
                         </div>
                     </div>
                     <div class="form-group">
-                        <label for="currency" class="control-label">What digital currency or currencies will you use?</label>
+                        <label for="currency" class="control-label">What digital currency or currencies will you use?*</label>
                         <input type="text" name="CUSTOMFIELD[Digital.Currencies]"  class="form-control" id="currency" required >
                     </div>
                     <div class="form-group">
-                        <label for="transactions" class="control-label">What is the expected range or rough order of magnitude of the number of transactions per day?</label>
+                        <label for="transactions" class="control-label">What is the expected range or rough order of magnitude of the number of transactions per day?*</label>
                         <input type="text" name="CUSTOMFIELD[#.TRX.Day]"  class="form-control" id="transactions" required >
                     </div>
                     <div class="form-group">
-                        <label for="volume" class="control-label">What is the expected range or rough order of magnitude of the trading volume per day?</label>
+                        <label for="volume" class="control-label">What is the expected range or rough order of magnitude of the trading volume per day?*</label>
                         <input type="text" name="CUSTOMFIELD[Volume/Day]"  class="form-control" id="volume" required >
                     </div>
                     <div class="form-group">
@@ -558,7 +558,6 @@ use frontend\widgets\Footer;
                     <input type="hidden" name="TAG" value="Accelerator">
                     <input type="hidden" name="TAG" value="Lead">
 
-                    <input type="hidden" name="DEVELOPER" value="TRUE"/>
                     <div class="submit-group">
                         <input class="btn btn-block" value="Submit" type="submit">
                     </div>

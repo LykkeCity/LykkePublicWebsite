@@ -195,7 +195,7 @@ use frontend\widgets\ContactUs;
                     <h3 class="border_bottom">Accelerate me</h3>
 
                     <div class="form-group">
-                        <label for="salutation" class="control-label">Salutation</label>
+                        <label for="salutation" class="control-label">Salutation*</label>
 
                         <div class="radio-group group_salutation">
                             <div class="radio radio--plate">
@@ -228,14 +228,14 @@ use frontend\widgets\ContactUs;
                     <div class="row">
                         <div class="col-sm-6">
                             <div class="form-group">
-                                <label for="first_name" class="control-label">First name</label>
+                                <label for="first_name" class="control-label">First name*</label>
                                 <input type="text" name="FIRST_NAME" class="form-control" id="first_name" required >
                             </div>
                         </div>
 
                         <div class="col-sm-6">
                             <div class="form-group">
-                                <label for="last_name" class="control-label">Last name</label>
+                                <label for="last_name" class="control-label">Last name*</label>
                                 <input type="text" name="LAST_NAME" class="form-control" id="last_name" required >
                             </div>
                         </div>
@@ -244,14 +244,14 @@ use frontend\widgets\ContactUs;
                     <div class="row">
                         <div class="col-sm-6">
                             <div class="form-group">
-                                <label for="company_name" class="control-label">Organisation name</label>
+                                <label for="company_name" class="control-label">Organisation name*</label>
                                 <input type="text" name="ORGANISATION_NAME" class="form-control" id="company_name" required >
                             </div>
                         </div>
 
                         <div class="col-sm-6">
                             <div class="form-group">
-                                <label for="street" class="control-label">Street</label>
+                                <label for="street" class="control-label">Street*</label>
                                 <input type="text" name="STREET" class="form-control" id="street" required>
                             </div>
                         </div>
@@ -260,20 +260,20 @@ use frontend\widgets\ContactUs;
                     <div class="row">
                         <div class="col-sm-6">
                             <div class="form-group">
-                                <label for="city" class="control-label">City</label>
+                                <label for="city" class="control-label">City*</label>
                                 <input type="text" name="CITY" class="form-control" id="city" required>
                             </div>
                         </div>
                         <div class="col-sm-6">
                             <div class="form-group">
-                                <label for="zip" class="control-label">ZIP</label>
+                                <label for="zip" class="control-label">ZIP*</label>
                                 <input type="text" name="ZIP" class="form-control" id="zip" required>
                             </div>
                         </div>
                     </div>
 
                     <div class="form-group">
-                        <label for="country" class="control-label">Country</label>
+                        <label for="country" class="control-label">Country*</label>
                         <div class="select" data-control="select">
                             <div class="select__value"><span class="_value"></span></div>
                             <select name="COUNTRY" id="country" class="form-control select__elem" required>
@@ -533,13 +533,13 @@ use frontend\widgets\ContactUs;
                     <div class="row">
                         <div class="col-sm-6">
                             <div class="form-group">
-                                <label for="phone" class="control-label">Phone</label>
+                                <label for="phone" class="control-label">Phone*</label>
                                 <input type="tel" name="PHONE" class="form-control" id="phone" required>
                             </div>
                         </div>
                         <div class="col-sm-6">
                             <div class="form-group">
-                                <label for="email" class="control-label">Email</label>
+                                <label for="email" class="control-label">Email*</label>
                                 <input type="email" name="EMAIL" class="form-control" id="email" required>
                             </div>
                         </div>
@@ -594,8 +594,6 @@ use frontend\widgets\ContactUs;
 
                     <input type="hidden" name="TAG" value="WWW">
                     <input type="hidden" name="TAG" value="Lead">
-
-                    <input type="hidden" name="DEVELOPER" value="TRUE"/>   (Remove this line after testing)
 
                     <div class="submit-group">
                         <input class="btn btn-block" type="submit" value="Submit">
