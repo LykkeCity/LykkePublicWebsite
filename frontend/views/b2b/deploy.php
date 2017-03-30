@@ -22,11 +22,11 @@ use frontend\widgets\ContactUs;
 
         <div class="panel_group" id="accordion" role="tablist" aria-multiselectable="true">
             <div class="panel panel--accordion">
-                <div class="panel_heading panel_heading--active" role="tab" id="headingOne">
+                <div class="panel_heading" role="tab" id="headingOne">
                     <div class="container container--extend">
                         <div class="row">
                             <div class="col-sm-8 automargin">
-                                <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
                                     <h4 class="panel_title">Commercial banks</h4>
                                     <span class="panel_desc">Digital banking</span>
                                 </a>
@@ -34,7 +34,7 @@ use frontend\widgets\ContactUs;
                         </div>
                     </div>
                 </div>
-                <div id="collapseOne" class="panel_collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
+                <div id="collapseOne" class="panel_collapse collapse" role="tabpanel" aria-labelledby="headingOne">
                     <div class="panel_body">
                         <div class="container container--extend">
                             <div class="row">
