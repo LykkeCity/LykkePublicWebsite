@@ -13,9 +13,9 @@ use frontend\widgets\Footer;
                     <div class="form_status">
                         <div class="status_icon status_icon--success"></div>
                         <h2>Thank you for getting in&nbsp;touch!</h2>
-                        <p>We appreciate you contacting us and will get back to you as soon as possible. In the meantime, you can check the <a href="">FAQ</a> section,
-                            learn more <a href="">about Lykke</a>,
-                            or browse through our latest <a href="">blog posts</a>.</p>
+                        <p>We appreciate you contacting us and will get back to you as soon as possible. In the meantime, you can check the <a href="/city/faq">FAQ</a> section,
+                            learn more <a href="/company">about Lykke</a>,
+                            or browse through our latest <a href="/city/blog">blog posts</a>.</p>
                     </div>
                 </div>
             </div>

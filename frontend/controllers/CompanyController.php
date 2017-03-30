@@ -4,16 +4,15 @@ namespace frontend\controllers;
 use common\models\SitePages;
 use yii;
 
-class CompanyController extends AppController
-{
+class CompanyController extends AppController {
 
-    function actionIndex()
-    {
+    function actionIndex() {
+        Yii::$app->view->title = "Company";
         return $this->render('index');
     }
 
-    function actionContacts(){
-
+    function actionContacts() {
+        Yii::$app->view->title = "Contacts";
         return $this->render('contacts');
     }
 
