@@ -588,7 +588,7 @@ use frontend\widgets\ContactUs;
                     </select>
 
                     <div class="form-group">
-                        <label for="solution" class="control-label">What solution you are looking for to realize with Lykke</label>
+                        <label for="solution" class="control-label">What solution you are looking for to realize with Lykke (if you are a Lykke team member, please include your Lykke email here)</label>
                         <textarea name="CUSTOMFIELD[Solution.Request]" id="solution" class="form-control"></textarea>
                     </div>
 

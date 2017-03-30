@@ -17,7 +17,7 @@ class B2bController extends AppController {
     }
 
     function actionJoin() {
-        Yii::$app->view->title = "Deploy Blockchain Projects";
+        Yii::$app->view->title = "Join as Blockchain Accelerator";
         return $this->render('join');
     }
 

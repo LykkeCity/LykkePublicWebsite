@@ -492,7 +492,7 @@ use frontend\widgets\Footer;
                     <h4>Proposal details</h4>
 
                     <div class="form-group">
-                        <label for="solution" class="control-label">Briefly describe your proposed solution, including how you intend to utilize the Blockchain</label>
+                        <label for="solution" class="control-label">Briefly describe your proposed solution, including how you intend to utilize the Blockchain (if you are a Lykke team member, please include your Lykke email here)</label>
                         <textarea name="CUSTOMFIELD[Solution.Request]" id="solution" class="form-control"></textarea>
                     </div>
 
