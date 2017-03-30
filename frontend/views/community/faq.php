@@ -1189,5 +1189,4 @@ use frontend\widgets\Footer;
 
 </article>
 
-
 <?=Footer::widget();?>

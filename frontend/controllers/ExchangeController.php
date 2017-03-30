@@ -28,4 +28,12 @@ class ExchangeController extends AppController
         return $this->render("index", ['page' => $page, 'assets' => $assets]);
     }
 
+    public function actionRulebook(){
+        return $this->render('rulebook');
+    }
+
+    public function actionTerms(){
+        return $this->render('terms');
+    }
+
 }
