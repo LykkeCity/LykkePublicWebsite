@@ -79,8 +79,8 @@ AppAsset::register($this);
         <ul class="nav nav-pills nav-stacked">
           <li role="presentation" class="<?= UrlHelper::isActive('index'); ?>">
             <a href="<?= UrlHelper::to(['/']) ?>">Main</a></li>
-          <li role="presentation" class="<?= UrlHelper::isActive('page'); ?>">
-            <a href="<?= UrlHelper::to(['/page']) ?>">Pages</a></li>
+<!--          <li role="presentation" class="--><?//= UrlHelper::isActive('page'); ?><!--">-->
+<!--            <a href="--><?//= UrlHelper::to(['/page']) ?><!--">Pages</a></li>-->
           <li role="presentation"
               class="<?= UrlHelper::isActive('blog/index'); ?>"><a
               href="<?= UrlHelper::to(['/blog/']) ?>">Blog</a></li>
