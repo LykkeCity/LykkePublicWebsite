@@ -46,7 +46,7 @@
                                  width="50">
                         </div>
                         <div class="main_projects_list__content">
-                            <div class="main_projects_list__title">Streams</div>
+                            <div class="main_projects_list__title">Lykke Streams</div>
                             <div class="main_projects_list__text">
                                 Collaboration platform. Here the great ideas meet bright minds.
                             </div>
@@ -67,29 +67,13 @@
                             <div class="main_projects_list__title">
                                 Blockchain<span>Explorer</span></div>
                             <div class="main_projects_list__text">
-                                Explore the Blockchain. Search transaction,
+                                Search transaction,
                                 assets, addresses
                                 or blocks
                             </div>
                         </div>
                     </a>
                 </li>
-
-                <!--          <li class="main_projects_list__item">-->
-                <!--            <a href="" target="_blank" class="main_projects_list__link">-->
-                <!--              <div class="main_projects_list__img">-->
-                <!--                <img src="img/issuer_portal_logo.svg" alt="issuer_portal_logo"-->
-                <!--                     width="50">-->
-                <!--              </div>-->
-                <!--              <div class="main_projects_list__content">-->
-                <!--                <div class="main_projects_list__title">Issuer<span>Portal</span>-->
-                <!--                </div>-->
-                <!--                <div class="main_projects_list__text">-->
-                <!--                  Create and manage your digital assets-->
-                <!--                </div>-->
-                <!--              </div>-->
-                <!--            </a>-->
-                <!--          </li>-->
             </ul>
 
         </div>
