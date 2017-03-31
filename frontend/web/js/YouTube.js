@@ -31,15 +31,13 @@ $('#btn_video').click(function () {
 });
 
 
-setTimeout(function () {
-    if ((window.player==undefined)||(window.player==null)){
-        player = new YT.Player('player', {
-            videoId : $('#player').data('video-id'),
-            height: '390',
-            width: '640',
-            events: {
-                'onReady': onPlayerReady()
-            }
-        });
-    }
+setInterval(function () {
+    player = new YT.Player('player', {
+        videoId : $('#player').data('video-id'),
+        height: '390',
+        width: '640',
+        events: {
+            'onReady': onPlayerReady()
+        }
+    });
 }, 600);
