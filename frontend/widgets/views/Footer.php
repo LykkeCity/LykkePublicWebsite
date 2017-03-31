@@ -36,7 +36,7 @@
                         </ul>
                     </div>
                 </div>
-                <div class="col-xs-12 col-sm-5 text-left">
+                <div class="col-xs-12 col-md-5 text-left">
                     <div class="footer__copy">&copy; Lykke <?=date('Y')?>. All
                         rights reserved
                     </div>
