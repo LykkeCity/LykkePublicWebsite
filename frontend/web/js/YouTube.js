@@ -29,3 +29,17 @@ function onPlayerReady(event) {
 $('#btn_video').click(function () {
     $('.landing--video').addClass('video_played');
 });
+
+
+setTimeout(function () {
+    if ((window.player==undefined)||(window.player==null)){
+        player = new YT.Player('player', {
+            videoId : $('#player').data('video-id'),
+            height: '390',
+            width: '640',
+            events: {
+                'onReady': onPlayerReady()
+            }
+        });
+    }
+}, 600);
