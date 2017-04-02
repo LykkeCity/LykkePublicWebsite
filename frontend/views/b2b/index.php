@@ -37,7 +37,7 @@ use frontend\widgets\Footer;
                                         Our turnkey Lykke Accelerator solution maximizes the efficiency and cost savings in your business by applying Lykke Wallet and the Lykke Marketplace platform to your existing business environment.
                                     </p>
 
-                                    <a href="/b2b-deploy" class="btn btn-sm">Accelerate me</a>
+                                    <a href="/b2b-deploy" class="btn btn-sm">Do business smarter</a>
                                 </div>
                             </div>
                         </li>
@@ -53,7 +53,7 @@ use frontend\widgets\Footer;
                                         We invite visionary technology and sales professionals to join the revolution as our Lykke Accelerator partners.
                                     </p>
 
-                                    <a href="/b2b-join" class="btn btn-sm">Join as Blockchain Accelerator now</a>
+                                    <a href="/b2b-join" class="btn btn-sm">Become what you believe</a>
                                 </div>
                             </div>
                         </li>
