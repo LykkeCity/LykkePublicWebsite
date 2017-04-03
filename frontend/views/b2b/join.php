@@ -673,7 +673,6 @@ use frontend\widgets\Footer;
                       id="remarks" class="form-control"></textarea>
           </div>
 
-          <input type="hidden" name="DEVELOPER" value="TRUE">
           <input type="hidden" name="TAG" value="Accelerator">
           <input type="hidden" name="TAG" value="Lead">
 
