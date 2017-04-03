@@ -550,7 +550,7 @@ use frontend\widgets\Footer;
                          class="control-label radio__label">Other</label>
                 </div>
                 <div class="form-group">
-                  <input type="text" name="CUSTOMFIELD[Lead.Source]"
+                  <input type="text" name="CUSTOMFIELD[Lead_Source]"
                          class="form-control" id="other" disabled>
                 </div>
               </div>
