@@ -638,7 +638,7 @@ use frontend\widgets\ContactUs;
             <div class="col-sm-6">
               <div class="form-group">
                 <label for="email" class="control-label">Email*</label>
-                <input type="email" name="EMAIL" class="form-control" id="email"
+                <input type="text" name="EMAIL" class="form-control" id="email"
                        required>
               </div>
             </div>
@@ -689,7 +689,7 @@ use frontend\widgets\ContactUs;
           </div>
 
           <select class="hidden" id="physics_lead"
-                  name="CUSTOMFIELD[Lead.Source]">
+                  name="CUSTOMFIELD[Lead_Source]">
             <option></option>
             <option value="Event">Event</option>
             <option value="www.lykke.com">www.lykke.com</option>
@@ -701,7 +701,7 @@ use frontend\widgets\ContactUs;
             <label for="solution" class="control-label">What solution you are
               looking for to realize with Lykke (if you are a Lykke team member,
               please include your Lykke email here)*</label>
-            <textarea name="CUSTOMFIELD[Request.Description]" id="solution"
+            <textarea name="CUSTOMFIELD[Request_Description]" id="solution"
                       class="form-control" required></textarea>
           </div>
 

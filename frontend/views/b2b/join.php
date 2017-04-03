@@ -507,7 +507,7 @@ use frontend\widgets\Footer;
             <div class="col-sm-6">
               <div class="form-group">
                 <label for="email" class="control-label">Email*</label>
-                <input type="email" name="EMAIL" class="form-control" id="email"
+                <input type="text" name="EMAIL" class="form-control" id="email"
                        required>
               </div>
             </div>
@@ -558,7 +558,7 @@ use frontend\widgets\Footer;
           </div>
 
           <select class="hidden" id="physics_lead"
-                  name="CUSTOMFIELD[Lead.Source]">
+                  name="CUSTOMFIELD[Lead_Source]">
             <option></option>
             <option value="Event">Event</option>
             <option value="www.lykke.com">www.lykke.com</option>
@@ -573,7 +573,7 @@ use frontend\widgets\Footer;
               proposed solution, including how you intend to utilize the
               Blockchain (if you are a Lykke team member, please include your
               Lykke email here)*</label>
-            <textarea name="CUSTOMFIELD[Request.Description]" id="solution"
+            <textarea name="CUSTOMFIELD[Request_Description]" id="solution"
                       class="form-control" required></textarea>
           </div>
 
@@ -587,7 +587,7 @@ use frontend\widgets\Footer;
           <div class="form-group">
             <label for="role" class="control-label">What role do you intend to
               have in this project?*</label>
-            <input type="text" name="CUSTOMFIELD[Project.Role]"
+            <input type="text" name="CUSTOMFIELD[Project_Role]"
                    class="form-control" id="role" required>
           </div>
 
@@ -595,28 +595,28 @@ use frontend\widgets\Footer;
             <label for="manager" class="control-label">Who do you foresee as the
               project manager? What experience does the project manager have in
               the solution area?*</label>
-            <textarea name="CUSTOMFIELD[PM.Experience] id=" manager"
+            <textarea name="CUSTOMFIELD[PM_Experience] id=" manager"
             class="form-control" required ></textarea>
           </div>
 
           <div class="form-group">
             <label for="partnership1" class="control-label">What do you intend
               to bring to the partnership?*</label>
-            <textarea name="CUSTOMFIELD[Role.Franchisee]" id="partnership1"
+            <textarea name="CUSTOMFIELD[Role_Franchisee]" id="partnership1"
                       class="form-control" required></textarea>
           </div>
 
           <div class="form-group">
             <label for="role" class="control-label">What do you require for
               Lykke to bring to the partnership?*</label>
-            <textarea name="CUSTOMFIELD[Role.Lykke]" id="role"
+            <textarea name="CUSTOMFIELD[Role_Lykke]" id="role"
                       class="form-control" required></textarea>
           </div>
 
           <div class="form-group">
             <label for="effort" class="control-label">Person-days that should be
               provided by Lykke*</label>
-            <input type="text" name="CUSTOMFIELD[Effort.Lykke.PD]"
+            <input type="text" name="CUSTOMFIELD[Effort_Lykke_PD]"
                    class="form-control" id="effort" required>
           </div>
 
@@ -628,13 +628,13 @@ use frontend\widgets\Footer;
             <div class="col-sm-8">
               <div class="form-group">
                 <div class="radio">
-                  <input type="radio" name="CUSTOMFIELD[Wallet.Y/N]"
+                  <input type="radio" name="CUSTOMFIELD[Wallet_Y/N]"
                          id="radio11" class="radio__control" checked>
                   <label for="radio11"
                          class="control-label radio__label">Yes</label>
                 </div>
                 <div class="radio">
-                  <input type="radio" name="CUSTOMFIELD[Wallet.Y/N]"
+                  <input type="radio" name="CUSTOMFIELD[Wallet_Y/N]"
                          id="radio12" class="radio__control">
                   <label for="radio12"
                          class="control-label radio__label">No</label>
@@ -646,7 +646,7 @@ use frontend\widgets\Footer;
           <div class="form-group">
             <label for="currency" class="control-label">What digital currency or
               currencies will you use?*</label>
-            <input type="text" name="CUSTOMFIELD[Digital.Currencies]"
+            <input type="text" name="CUSTOMFIELD[Digital_Currencies]"
                    class="form-control" id="currency" required>
           </div>
 
@@ -654,7 +654,7 @@ use frontend\widgets\Footer;
             <label for="transactions" class="control-label">What is the expected
               range or rough order of magnitude of the number of transactions
               per day?*</label>
-            <input type="text" name="CUSTOMFIELD[#.TRX.Day]"
+            <input type="text" name="CUSTOMFIELD[#_TRX/Day]"
                    class="form-control" id="transactions" required>
           </div>
 
@@ -669,7 +669,7 @@ use frontend\widgets\Footer;
           <div class="form-group">
             <label for="remarks" class="control-label">Additional
               remarks</label>
-            <textarea name="remarks" name="CUSTOMFIELD[add.Remarks]"
+            <textarea name="remarks" name="CUSTOMFIELD[add_Remarks]"
                       id="remarks" class="form-control"></textarea>
           </div>
 
