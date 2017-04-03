@@ -46,7 +46,7 @@
                                  width="50">
                         </div>
                         <div class="main_projects_list__content">
-                            <div class="main_projects_list__title">Lykke <span>Streams</span></div>
+                            <div class="main_projects_list__title">Lykke<span>Streams</span></div>
                             <div class="main_projects_list__text">
                                 Collaboration platform. Here the great ideas meet bright minds.
                             </div>
