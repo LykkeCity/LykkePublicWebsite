@@ -550,7 +550,7 @@ use frontend\widgets\Footer;
                          class="control-label radio__label">Other</label>
                 </div>
                 <div class="form-group">
-                  <input type="text" name="CUSTOMFIELD[Lead_Source]"
+                  <input type="text" name=""
                          class="form-control" id="other" disabled>
                 </div>
               </div>
@@ -669,10 +669,11 @@ use frontend\widgets\Footer;
           <div class="form-group">
             <label for="remarks" class="control-label">Additional
               remarks</label>
-            <textarea name="remarks" name="CUSTOMFIELD[add_Remarks]"
+            <textarea name="CUSTOMFIELD[add_Remarks]"
                       id="remarks" class="form-control"></textarea>
           </div>
 
+          <input type="hidden" name="DEVELOPER" value="TRUE">
           <input type="hidden" name="TAG" value="Accelerator">
           <input type="hidden" name="TAG" value="Lead">
 

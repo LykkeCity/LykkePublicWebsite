@@ -681,7 +681,7 @@ use frontend\widgets\ContactUs;
                          class="control-label radio__label">Other</label>
                 </div>
                 <div class="form-group">
-                  <input type="text" name="CUSTOMFIELD[Lead_Source]"
+                  <input type="text" name=""
                          class="form-control" id="other" disabled>
                 </div>
               </div>
