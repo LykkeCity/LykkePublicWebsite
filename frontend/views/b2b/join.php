@@ -8,6 +8,7 @@ use frontend\widgets\Footer;
 
 
 <article class="content page">
+
   <section class="section section--lead section--padding">
     <div class="container container--extend">
       <div class="row">
@@ -116,10 +117,12 @@ use frontend\widgets\Footer;
 
           <input type="hidden" name="FORM_ID"
                  value="4bf7b4a8-b5c6-48a3-80c7-3b1be0ba0c6d">
+
           <input type="hidden" name="COMPLETE_URL"
                  value="https://lykke.com/b2b-thanks">
 
           <h3 class="border_bottom">Join as Blockchain accelerator</h3>
+
           <h4>General information</h4>
 
           <div class="form-group">
@@ -570,7 +573,7 @@ use frontend\widgets\Footer;
               proposed solution, including how you intend to utilize the
               Blockchain (if you are a Lykke team member, please include your
               Lykke email here)*</label>
-            <textarea name="CUSTOMFIELD[Solution.Request]" id="solution"
+            <textarea name="CUSTOMFIELD[Request.Description]" id="solution"
                       class="form-control" required></textarea>
           </div>
 
@@ -595,24 +598,28 @@ use frontend\widgets\Footer;
             <textarea name="CUSTOMFIELD[PM.Experience] id=" manager"
             class="form-control" required ></textarea>
           </div>
+
           <div class="form-group">
             <label for="partnership1" class="control-label">What do you intend
               to bring to the partnership?*</label>
             <textarea name="CUSTOMFIELD[Role.Franchisee]" id="partnership1"
                       class="form-control" required></textarea>
           </div>
+
           <div class="form-group">
             <label for="role" class="control-label">What do you require for
               Lykke to bring to the partnership?*</label>
             <textarea name="CUSTOMFIELD[Role.Lykke]" id="role"
                       class="form-control" required></textarea>
           </div>
+
           <div class="form-group">
             <label for="effort" class="control-label">Person-days that should be
               provided by Lykke*</label>
             <input type="text" name="CUSTOMFIELD[Effort.Lykke.PD]"
                    class="form-control" id="effort" required>
           </div>
+
           <div class="row">
             <div class="col-sm-4">
               <label for="radio11" class="control-label">Is a wallet needed for
@@ -635,12 +642,14 @@ use frontend\widgets\Footer;
               </div>
             </div>
           </div>
+
           <div class="form-group">
             <label for="currency" class="control-label">What digital currency or
               currencies will you use?*</label>
             <input type="text" name="CUSTOMFIELD[Digital.Currencies]"
                    class="form-control" id="currency" required>
           </div>
+
           <div class="form-group">
             <label for="transactions" class="control-label">What is the expected
               range or rough order of magnitude of the number of transactions
@@ -648,6 +657,7 @@ use frontend\widgets\Footer;
             <input type="text" name="CUSTOMFIELD[#.TRX.Day]"
                    class="form-control" id="transactions" required>
           </div>
+
           <div class="form-group">
             <label for="volume" class="control-label">What is the expected range
               or rough order of magnitude of the trading volume per
@@ -655,12 +665,14 @@ use frontend\widgets\Footer;
             <input type="text" name="CUSTOMFIELD[Volume/Day]"
                    class="form-control" id="volume" required>
           </div>
+
           <div class="form-group">
             <label for="remarks" class="control-label">Additional
               remarks</label>
             <textarea name="remarks" name="CUSTOMFIELD[add.Remarks]"
                       id="remarks" class="form-control"></textarea>
           </div>
+
           <input type="hidden" name="TAG" value="Accelerator">
           <input type="hidden" name="TAG" value="Lead">
 
