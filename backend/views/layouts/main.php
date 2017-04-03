@@ -92,25 +92,23 @@ AppAsset::register($this);
   <aside class="main-sidebar">
     <section class="sidebar">
       <ul class="sidebar-menu">
-        <li role="presentation"
-            class="<?=UrlHelper::isActive('blog/index');?>"><a
-              href="<?=UrlHelper::to(['/blog/'])?>">Blog</a></li>
-        <li role="presentation"
-            class="<?=UrlHelper::isActive('news/index');?>"><a
-              href="<?=UrlHelper::to(['/news/'])?>">News</a></li>
-        <li role="presentation"
-            class="<?=UrlHelper::isActive('asset/index');?> <?=UrlHelper::isActive('asset/pair');?>">
-          <a
-              href="<?=UrlHelper::to(['/asset'])?>">Assets</a></li>
-        <li role="presentation"
-            class="<?=UrlHelper::isActive('user/index');?>"><a
-              href="<?=UrlHelper::to(['/user'])?>">Users</a></li>
-        <li role="presentation"
-            class="<?=UrlHelper::isActive('comments/index');?>"><a
-              href="<?=UrlHelper::to(['/comments'])?>">Comments</a></li>
-        <li role="presentation"
-            class="<?=UrlHelper::isActive('redirects/index');?>"><a
-              href="<?=UrlHelper::to(['/redirects'])?>">Redirects</a>
+        <li class="<?=UrlHelper::isActive('blog/index');?>">
+          <a href="<?=UrlHelper::to(['/blog/'])?>"><i class="fa fa-pencil-square"></i> Blog</a>
+        </li>
+        <li role="presentation" class="<?=UrlHelper::isActive('news/index');?>">
+          <a href="<?=UrlHelper::to(['/news/'])?>"><i class="fa fa-newspaper-o"></i> News</a>
+        </li>
+        <li role="presentation" class="<?=UrlHelper::isActive('asset/index');?>">
+          <a href="<?=UrlHelper::to(['/asset'])?>"><i class="fa fa-exchange"></i> Assets</a>
+        </li>
+        <li role="presentation" class="<?=UrlHelper::isActive('user/index');?>">
+          <a href="<?=UrlHelper::to(['/user'])?>"><i class="fa fa-users"></i> Users</a>
+        </li>
+        <li role="presentation" class="<?=UrlHelper::isActive('comments/index');?>">
+          <a href="<?=UrlHelper::to(['/comments'])?>"><i class="fa fa-comment-o"></i> Comments</a>
+        </li>
+        <li role="presentation" class="<?=UrlHelper::isActive('redirects/index');?>">
+          <a href="<?=UrlHelper::to(['/redirects'])?>"><i class="fa fa-arrows-v"></i> Redirects</a>
         </li>
       </ul>
     </section>
@@ -147,7 +145,8 @@ AppAsset::register($this);
       <b>Version</b> 2.3.8
     </div>
     <!-- TODO: paste year gen -->
-    <strong> &copy; 2017 <a href="/">Lykke Corp.</a></strong> All rights reserved.
+    <strong> &copy; 2017 <a href="/">Lykke Corp.</a></strong> All rights
+    reserved.
   </footer>
 
 
