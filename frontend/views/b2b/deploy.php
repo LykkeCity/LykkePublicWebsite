@@ -16,9 +16,8 @@ use frontend\widgets\ContactUs;
           <p class="lead text-left ">Simply stated, the same efficiencies that
             power our global exchange platform with immediate settlement and our
             digital wallet technology for desktop or mobile can revitalize your
-            business. We can help you to shrug off the dead weight of outmoded
-            thinking and unlock the potential of the digital age with minimal
-            disruption to existing processes.</p>
+            business. We can help you to unlock the potential of the digital age with minimal
+            disruption to existing processes. </p>
           <p class="lead text-left ">Lykke Accelerator puts our team of
             world-class cryptographers, economists, legal experts, and project
             managers to work for you as your personal research and development
