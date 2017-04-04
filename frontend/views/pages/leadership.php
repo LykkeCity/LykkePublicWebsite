@@ -26,6 +26,7 @@ use \frontend\widgets\SubMenu;
                 </div>
               </a>
             </div>
+            
             <div class="leadership_item">
               <a href="#leadership_modal" class="leadership_item__control" data-toggle="modal">
                 <div class="leadership_item__image" data-big-image="/img/corp/leadership/big/5-golub.jpg"><img src="/img/corp/leadership/5-golub-preview.jpg" alt="golub"></div>
