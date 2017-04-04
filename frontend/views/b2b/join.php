@@ -559,10 +559,6 @@ use frontend\widgets\Footer;
                   <label for="hear4"
                          class="control-label radio__label">Other</label>
                 </div>
-                <div class="form-group">
-                  <input type="text" name=""
-                         class="form-control" id="other" disabled>
-                </div>
               </div>
             </div>
           </div>
@@ -583,8 +579,9 @@ use frontend\widgets\Footer;
               proposed solution, including how you intend to utilize the
               Blockchain (if you are a Lykke team member, please include your
               Lykke email here)*</label>
-            <textarea name="CUSTOMFIELD[Request_Description]" id="solution"
+            <textarea name="CUSTOMFIELD[Request_Description]" id="solution" maxlength="250"
                       class="form-control" required></textarea>
+            <label class="control-label"><small>(max - 250 characters with blanks)</small></label>
           </div>
 
           <div class="form-group">
@@ -608,6 +605,7 @@ use frontend\widgets\Footer;
               the solution area?*</label>
             <textarea name="CUSTOMFIELD[PM_Experience]" maxlength="250"
                       id="manager" class="form-control" required></textarea>
+            <label class="control-label"><small>(max - 250 characters with blanks)</small></label>
           </div>
 
           <div class="form-group">
@@ -616,6 +614,7 @@ use frontend\widgets\Footer;
             <textarea name="CUSTOMFIELD[Role_Franchisee]" id="partnership1"
                       maxlength="250"
                       class="form-control" required></textarea>
+            <label class="control-label"><small>(max - 250 characters with blanks)</small></label>
           </div>
 
           <div class="form-group">
@@ -623,6 +622,7 @@ use frontend\widgets\Footer;
               Lykke to bring to the partnership?*</label>
             <textarea name="CUSTOMFIELD[Role_Lykke]" id="role" maxlength="250"
                       class="form-control" required></textarea>
+            <label class="control-label"><small>(max - 250 characters with blanks)</small></label>
           </div>
 
           <div class="form-group">
@@ -683,6 +683,7 @@ use frontend\widgets\Footer;
               remarks</label>
             <textarea name="CUSTOMFIELD[add_Remarks]" maxlength="250"
                       id="remarks" class="form-control"></textarea>
+            <label class="control-label"><small>(max - 250 characters with blanks)</small></label>
           </div>
 
           <input type="hidden" name="TAG" value="Accelerator">

@@ -680,10 +680,6 @@ use frontend\widgets\ContactUs;
                   <label for="hear4"
                          class="control-label radio__label">Other</label>
                 </div>
-                <div class="form-group">
-                  <input type="text" name=""
-                         class="form-control" id="other" disabled>
-                </div>
               </div>
             </div>
           </div>
@@ -703,6 +699,7 @@ use frontend\widgets\ContactUs;
               please include your Lykke email here)*</label>
             <textarea name="CUSTOMFIELD[Request_Description]" id="solution" maxlength="250"
                       class="form-control" required></textarea>
+            <label class="control-label"><small>(max - 250 characters with blanks)</small></label>
           </div>
 
           <input type="hidden" name="TAG" value="WWW">
