@@ -162,6 +162,7 @@ use frontend\widgets\Footer;
                 <label for="first_name" class="control-label">First
                   name*</label>
                 <input type="text" name="FIRST_NAME" class="form-control"
+                       maxlength="250"
                        id="first_name" required>
               </div>
             </div>
@@ -169,6 +170,7 @@ use frontend\widgets\Footer;
               <div class="form-group">
                 <label for="last_name" class="control-label">Last name*</label>
                 <input type="text" name="LAST_NAME" class="form-control"
+                       maxlength="250"
                        id="last_name" required>
               </div>
             </div>
@@ -177,6 +179,7 @@ use frontend\widgets\Footer;
           <div class="form-group">
             <label for="job_title" class="control-label">Job title</label>
             <input type="text" name="JOB_TITLE" class="form-control"
+                   maxlength="250"
                    id="job_title">
           </div>
 
@@ -186,6 +189,7 @@ use frontend\widgets\Footer;
                 <label for="company_name" class="control-label">Organisation
                   name*</label>
                 <input type="text" name="ORGANISATION_NAME" class="form-control"
+                       maxlength="250"
                        id="company_name" required>
               </div>
             </div>
@@ -193,6 +197,7 @@ use frontend\widgets\Footer;
               <div class="form-group">
                 <label for="street" class="control-label">Street*</label>
                 <input type="text" name="STREET" class="form-control"
+                       maxlength="250"
                        id="street" required>
               </div>
             </div>
@@ -203,6 +208,7 @@ use frontend\widgets\Footer;
               <div class="form-group">
                 <label for="city" class="control-label">City*</label>
                 <input type="text" name="CITY" class="form-control" id="city"
+                       maxlength="250"
                        required>
               </div>
             </div>
@@ -210,6 +216,7 @@ use frontend\widgets\Footer;
               <div class="form-group">
                 <label for="zip" class="control-label">ZIP*</label>
                 <input type="text" name="ZIP" class="form-control" id="zip"
+                       maxlength="250"
                        required>
               </div>
             </div>
@@ -501,6 +508,7 @@ use frontend\widgets\Footer;
               <div class="form-group">
                 <label for="phone" class="control-label">Phone*</label>
                 <input type="tel" name="PHONE" class="form-control" id="phone"
+                       maxlength="250"
                        required>
               </div>
             </div>
@@ -508,6 +516,7 @@ use frontend\widgets\Footer;
               <div class="form-group">
                 <label for="email" class="control-label">Email*</label>
                 <input type="text" name="EMAIL" class="form-control" id="email"
+                       maxlength="250"
                        required>
               </div>
             </div>
@@ -516,6 +525,7 @@ use frontend\widgets\Footer;
           <div class="form-group">
             <label for="website" class="control-label">Website</label>
             <input type="text" name="WEBSITE" class="form-control" id="website"
+                   maxlength="250"
                    value="http://">
           </div>
 
@@ -580,14 +590,15 @@ use frontend\widgets\Footer;
           <div class="form-group">
             <label for="industry" class="control-label">Which industry or
               business category does your proposal concern?*</label>
-            <input type="text" name="CUSTOMFIELD[Industry]" class="form-control"
+            <input type="text" name="CUSTOMFIELD[Industry]" maxlength="250"
+                   class="form-control"
                    id="industry" required>
           </div>
 
           <div class="form-group">
             <label for="role" class="control-label">What role do you intend to
               have in this project?*</label>
-            <input type="text" name="CUSTOMFIELD[Project_Role]"
+            <input type="text" name="CUSTOMFIELD[Project_Role]" maxlength="250"
                    class="form-control" id="role" required>
           </div>
 
@@ -595,28 +606,29 @@ use frontend\widgets\Footer;
             <label for="manager" class="control-label">Who do you foresee as the
               project manager? What experience does the project manager have in
               the solution area?*</label>
-            <textarea name="CUSTOMFIELD[PM_Experience] id=" manager"
-            class="form-control" required ></textarea>
+            <textarea name="CUSTOMFIELD[PM_Experience]" maxlength="250"
+                      id="manager" class="form-control" required></textarea>
           </div>
 
           <div class="form-group">
             <label for="partnership1" class="control-label">What do you intend
               to bring to the partnership?*</label>
             <textarea name="CUSTOMFIELD[Role_Franchisee]" id="partnership1"
+                      maxlength="250"
                       class="form-control" required></textarea>
           </div>
 
           <div class="form-group">
             <label for="role" class="control-label">What do you require for
               Lykke to bring to the partnership?*</label>
-            <textarea name="CUSTOMFIELD[Role_Lykke]" id="role"
+            <textarea name="CUSTOMFIELD[Role_Lykke]" id="role" maxlength="250"
                       class="form-control" required></textarea>
           </div>
 
           <div class="form-group">
             <label for="effort" class="control-label">Person-days that should be
               provided by Lykke*</label>
-            <input type="text" name="CUSTOMFIELD[Effort_Lykke_PD]"
+            <input type="text" name="CUSTOMFIELD[Effort_Lykke_PD]" maxlength="250"
                    class="form-control" id="effort" required>
           </div>
 
@@ -646,7 +658,7 @@ use frontend\widgets\Footer;
           <div class="form-group">
             <label for="currency" class="control-label">What digital currency or
               currencies will you use?*</label>
-            <input type="text" name="CUSTOMFIELD[Digital_Currencies]"
+            <input type="text" name="CUSTOMFIELD[Digital_Currencies]" maxlength="250"
                    class="form-control" id="currency" required>
           </div>
 
@@ -654,7 +666,7 @@ use frontend\widgets\Footer;
             <label for="transactions" class="control-label">What is the expected
               range or rough order of magnitude of the number of transactions
               per day?*</label>
-            <input type="text" name="CUSTOMFIELD[#_TRX/Day]"
+            <input type="text" name="CUSTOMFIELD[#_TRX/Day]" maxlength="250"
                    class="form-control" id="transactions" required>
           </div>
 
@@ -662,14 +674,14 @@ use frontend\widgets\Footer;
             <label for="volume" class="control-label">What is the expected range
               or rough order of magnitude of the trading volume per
               day?*</label>
-            <input type="text" name="CUSTOMFIELD[Volume/Day]"
+            <input type="text" name="CUSTOMFIELD[Volume/Day]" maxlength="250"
                    class="form-control" id="volume" required>
           </div>
 
           <div class="form-group">
             <label for="remarks" class="control-label">Additional
               remarks</label>
-            <textarea name="CUSTOMFIELD[add_Remarks]"
+            <textarea name="CUSTOMFIELD[add_Remarks]" maxlength="250"
                       id="remarks" class="form-control"></textarea>
           </div>
 

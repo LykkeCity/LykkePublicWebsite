@@ -4,7 +4,6 @@ $("#Dr, #Mr, #Mrs, #Ms").change(function () {
     for (var i = 0; i < titleOptionsArr.length; i++) {
         titleOptionsArr[i].removeAttribute('selected');
     }
-    ;
 
     var valId = this.id;
     $("#physics_title option[value=" + valId + "]").attr('selected', 'true');
@@ -15,7 +14,7 @@ $("#hear1, #hear2, #hear3, #hear4").change(function () {
     for (var i = 0; i < leadOptionsArr.length; i++) {
         leadOptionsArr[i].removeAttribute('selected');
     }
-    ;
+
 
     var valValue = this.value;
     $("#physics_lead option[value='" + valValue + "']").attr('selected', 'true');
@@ -29,7 +28,7 @@ $("#hear1, #hear2, #hear3, #hear4").change(function () {
 
 
 var form = document.querySelector('.form_accelerate');
-if (form != null){
+if (form != null) {
     form.noValidate = true;
     form.addEventListener('submit', function (event) {
         if (!event.target.checkValidity()) {
