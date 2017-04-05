@@ -313,17 +313,17 @@ use frontend\widgets\ContactUs;
             <div class="col-sm-6">
               <div class="form-group">
                 <label for="company_name" class="control-label">Organisation
-                  name*</label>
+                  name</label>
                 <input type="text" name="ORGANISATION_NAME" class="form-control" maxlength="250"
-                       id="company_name" required>
+                       id="company_name">
               </div>
             </div>
 
             <div class="col-sm-6">
               <div class="form-group">
-                <label for="street" class="control-label">Street*</label>
+                <label for="street" class="control-label">Street</label>
                 <input type="text" name="STREET" class="form-control" maxlength="250"
-                       id="street" required>
+                       id="street">
               </div>
             </div>
           </div>
@@ -331,26 +331,24 @@ use frontend\widgets\ContactUs;
           <div class="row">
             <div class="col-sm-6">
               <div class="form-group">
-                <label for="city" class="control-label">City*</label>
-                <input type="text" name="CITY" class="form-control" id="city" maxlength="250"
-                       required>
+                <label for="city" class="control-label">City</label>
+                <input type="text" name="CITY" class="form-control" id="city" maxlength="250">
               </div>
             </div>
             <div class="col-sm-6">
               <div class="form-group">
-                <label for="zip" class="control-label">ZIP*</label>
-                <input type="text" name="ZIP" class="form-control" id="zip" maxlength="250"
-                       required>
+                <label for="zip" class="control-label">ZIP</label>
+                <input type="text" name="ZIP" class="form-control" id="zip" maxlength="250">
               </div>
             </div>
           </div>
 
           <div class="form-group">
-            <label for="country" class="control-label">Country*</label>
+            <label for="country" class="control-label">Country</label>
             <div class="select" data-control="select">
               <div class="select__value"><span class="_value"></span></div>
               <select name="COUNTRY" id="country"
-                      class="form-control select__elem" required>
+                      class="form-control select__elem">
                 <option value="">Country...</option>
                 <option value="Afganistan">Afghanistan</option>
                 <option value="Albania">Albania</option>
@@ -630,9 +628,8 @@ use frontend\widgets\ContactUs;
           <div class="row">
             <div class="col-sm-6">
               <div class="form-group">
-                <label for="phone" class="control-label">Phone*</label>
-                <input type="tel" name="PHONE" class="form-control" id="phone" maxlength="250"
-                       required>
+                <label for="phone" class="control-label">Phone</label>
+                <input type="tel" name="PHONE" class="form-control" id="phone" maxlength="250">
               </div>
             </div>
             <div class="col-sm-6">
@@ -699,7 +696,7 @@ use frontend\widgets\ContactUs;
               please include your Lykke email here)*</label>
             <textarea name="CUSTOMFIELD[Request_Description]" id="solution" maxlength="250"
                       class="form-control" required></textarea>
-            <label class="control-label"><small>(max - 250 characters with blanks)</small></label>
+            <label class="control-label"><small>(max - 250 characters with blanks)</small></label><br>
           </div>
 
           <input type="hidden" name="TAG" value="WWW">
