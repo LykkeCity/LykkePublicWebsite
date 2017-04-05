@@ -55,6 +55,7 @@ $config = [
                 'city/faq' => 'community/faq',
                 'city/open_positions' => 'community/open-positions',
                 'city/lykke_times' => 'community/lykke-times',
+                'city/invest' => 'community/invest',
                 'lykkex_rulebook' => 'exchange/rulebook',
                 'terms_of_issuance' => 'exchange/terms',
                 'b2b' => 'b2b/index',

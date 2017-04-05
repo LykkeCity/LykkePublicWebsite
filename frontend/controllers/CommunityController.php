@@ -24,4 +24,9 @@ class CommunityController extends AppController   {
         Yii::$app->view->title = "Lykke times";
         return $this->render('lykkeTimes');
     }
+    
+    function actionInvest() {
+        Yii::$app->view->title = "Invest";
+        return $this->render('invest');
+    }
 }
