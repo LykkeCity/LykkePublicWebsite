@@ -21,6 +21,7 @@ use Yii;
  * @property integer $in_menu
  * @property string  $normal_tpl
  * @property integer $template
+ * @property integer $embedded
  */
 class SitePages extends \yii\db\ActiveRecord {
 
@@ -96,4 +97,11 @@ class SitePages extends \yii\db\ActiveRecord {
         return $page->save() ? $page : false;
     }
 
+    public function createPage(){
+
+    }
+
+    public function updatePage($id, $name, $title, $keywords, $description){
+
+    }
 }

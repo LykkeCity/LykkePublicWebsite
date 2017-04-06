@@ -1,9 +1,11 @@
 <?php
 namespace backend\controllers;
 
+use common\models\ContentBlock;
 use common\models\SitePages;
 use yii\filters\AccessControl;
 use yii\filters\VerbFilter;
+use yii\helpers\Json;
 use yii\web\Controller;
 use yii;
 
@@ -108,6 +110,29 @@ class PageController extends AppController
                 return $page->save() ? 'success' : 'fail';
             }
         }
+    }
+
+    public function actionList(){
+        $pages= SitePages::find()->all();
+
+        return $this->render("list",[
+            'pages' => $pages
+        ]);
+    }
+
+    public function actionView($id){
+        $page = SitePages::findOne([
+            'id' => $id
+        ]);
+
+        $contentBlocks = ContentBlock::findAll([
+            'pageId' => $id
+        ]);
+
+        return $this->render('view', [
+            'page' => $page,
+            'contentBlocks' => $contentBlocks
+        ]);
     }
 
 }
