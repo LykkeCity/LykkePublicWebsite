@@ -16,7 +16,8 @@ use frontend\widgets\ContactUs;
           <p class="lead text-left ">Simply stated, the same efficiencies that
             power our global exchange platform with immediate settlement and our
             digital wallet technology for desktop or mobile can revitalize your
-            business. We can help you to unlock the potential of the digital age with minimal
+            business. We can help you to unlock the potential of the digital age
+            with minimal
             disruption to existing processes. </p>
           <p class="lead text-left ">Lykke Accelerator puts our team of
             world-class cryptographers, economists, legal experts, and project
@@ -25,6 +26,7 @@ use frontend\widgets\ContactUs;
             effectively, seize new opportunities, and realize huge savings.</p>
 
           <h3 class="h2">What we can do for your business</h3>
+          <h4 style="margin-top: -20px;">Example turn-key applications</h4>
         </div>
       </div>
     </div>
@@ -295,7 +297,8 @@ use frontend\widgets\ContactUs;
               <div class="form-group">
                 <label for="first_name" class="control-label">First
                   name*</label>
-                <input type="text" name="FIRST_NAME" class="form-control" maxlength="250"
+                <input type="text" name="FIRST_NAME" class="form-control"
+                       maxlength="250"
                        id="first_name" required>
               </div>
             </div>
@@ -303,7 +306,8 @@ use frontend\widgets\ContactUs;
             <div class="col-sm-6">
               <div class="form-group">
                 <label for="last_name" class="control-label">Last name*</label>
-                <input type="text" name="LAST_NAME" class="form-control" maxlength="250"
+                <input type="text" name="LAST_NAME" class="form-control"
+                       maxlength="250"
                        id="last_name" required>
               </div>
             </div>
@@ -314,7 +318,8 @@ use frontend\widgets\ContactUs;
               <div class="form-group">
                 <label for="company_name" class="control-label">Organisation
                   name</label>
-                <input type="text" name="ORGANISATION_NAME" class="form-control" maxlength="250"
+                <input type="text" name="ORGANISATION_NAME" class="form-control"
+                       maxlength="250"
                        id="company_name">
               </div>
             </div>
@@ -322,7 +327,8 @@ use frontend\widgets\ContactUs;
             <div class="col-sm-6">
               <div class="form-group">
                 <label for="street" class="control-label">Street</label>
-                <input type="text" name="STREET" class="form-control" maxlength="250"
+                <input type="text" name="STREET" class="form-control"
+                       maxlength="250"
                        id="street">
               </div>
             </div>
@@ -332,13 +338,15 @@ use frontend\widgets\ContactUs;
             <div class="col-sm-6">
               <div class="form-group">
                 <label for="city" class="control-label">City</label>
-                <input type="text" name="CITY" class="form-control" id="city" maxlength="250">
+                <input type="text" name="CITY" class="form-control" id="city"
+                       maxlength="250">
               </div>
             </div>
             <div class="col-sm-6">
               <div class="form-group">
                 <label for="zip" class="control-label">ZIP</label>
-                <input type="text" name="ZIP" class="form-control" id="zip" maxlength="250">
+                <input type="text" name="ZIP" class="form-control" id="zip"
+                       maxlength="250">
               </div>
             </div>
           </div>
@@ -629,13 +637,15 @@ use frontend\widgets\ContactUs;
             <div class="col-sm-6">
               <div class="form-group">
                 <label for="phone" class="control-label">Phone</label>
-                <input type="tel" name="PHONE" class="form-control" id="phone" maxlength="250">
+                <input type="tel" name="PHONE" class="form-control" id="phone"
+                       maxlength="250">
               </div>
             </div>
             <div class="col-sm-6">
               <div class="form-group">
                 <label for="email" class="control-label">Email*</label>
-                <input type="text" name="EMAIL" class="form-control" id="email" maxlength="250"
+                <input type="text" name="EMAIL" class="form-control" id="email"
+                       maxlength="250"
                        required>
               </div>
             </div>
@@ -643,7 +653,8 @@ use frontend\widgets\ContactUs;
 
           <div class="form-group">
             <label for="website" class="control-label">Website</label>
-            <input type="text" name="WEBSITE" class="form-control" id="website" maxlength="250"
+            <input type="text" name="WEBSITE" class="form-control" id="website"
+                   maxlength="250"
                    value="http://">
           </div>
 
@@ -694,9 +705,12 @@ use frontend\widgets\ContactUs;
             <label for="solution" class="control-label">What solution you are
               looking for to realize with Lykke (if you are a Lykke team member,
               please include your Lykke email here)*</label>
-            <textarea name="CUSTOMFIELD[Request_Description]" id="solution" maxlength="250"
+            <textarea name="CUSTOMFIELD[Request_Description]" id="solution"
+                      maxlength="250"
                       class="form-control" required></textarea>
-            <label class="control-label"><small>(max - 250 characters with blanks)</small></label><br>
+            <label class="control-label">
+              <small>(max - 250 characters with blanks)</small>
+            </label><br>
           </div>
 
           <input type="hidden" name="TAG" value="WWW">
