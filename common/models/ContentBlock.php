@@ -25,6 +25,17 @@ class ContentBlock extends ActiveRecord {
         return [];
     }
 
+    public function to_dict(){
+        return [
+            'id' => $this->id,
+            'pageId' => $this->pageId,
+            'ordering' => $this->ordering,
+            'name' => $this->name,
+            'title' => $this->title,
+            'content' => $this->content
+        ];
+    }
+
     public function attributeLabels() {
         return [
             'id' => 'ID',
@@ -66,6 +77,11 @@ class ContentBlock extends ActiveRecord {
     }
 
     public static function getBlockByPage($pageId) {
-        return ContentBlock::findAll(['pageId' => $pageId]);
+        $blocks_source = ContentBlock::findAll(['pageId' => $pageId]);
+        $blocks = [];
+        foreach ($blocks_source as $block){
+            $blocks[$block['name']] = $block->to_dict();
+        }
+        return $blocks;
     }
 }

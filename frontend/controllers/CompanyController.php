@@ -1,6 +1,7 @@
 <?php
 namespace frontend\controllers;
 
+use common\models\ContentBlock;
 use common\models\SitePages;
 use yii;
 
@@ -12,8 +13,13 @@ class CompanyController extends AppController {
     }
 
     function actionContacts() {
+        $blocks = ContentBlock::getBlockByPage($this->page->id);
+
         Yii::$app->view->title = "Contacts";
-        return $this->render('contacts');
+        return $this->render('contacts', [
+            'blocks' => $blocks,
+            'page' => $this->page
+        ]);
     }
 
     function actionTechnology() {

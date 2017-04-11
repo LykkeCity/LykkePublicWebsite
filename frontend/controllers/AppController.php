@@ -13,6 +13,7 @@ use Yii;
 abstract class AppController extends Controller {
 
   public $pageId;
+  public $page;
 
   function init() {
 
@@ -31,6 +32,12 @@ abstract class AppController extends Controller {
     }catch (\Exception $e){
 
     }
+
+    $url = Yii::$app->request->pathInfo;
+    $this->page = SitePages::findOne([
+        'url' => $url
+    ]);
+
 
 
     parent::init();
