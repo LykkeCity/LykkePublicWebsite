@@ -1,4 +1,5 @@
 <?php
+
 namespace common\models;
 
 use yii\db\ActiveRecord;
@@ -10,30 +11,24 @@ use yii\db\ActiveRecord;
  * @property string  $redirect_with
  * @property string  $redirect_to
  */
-class Redirects extends ActiveRecord
-{
+class Redirects extends ActiveRecord {
 
-    public static function tableName()
-    {
+    public static function tableName() {
         return 'redirects';
     }
 
-    function getAllRedirect()
-    {
+    function getAllRedirect() {
         return self::find()->asArray()->all();
     }
 
-    function addRedirect($post)
-    {
+    function addRedirect($post) {
         $redirect = new Redirects();
         $redirect->redirect_with = trim(trim($post['redirect_with'], '/'));
         $redirect->redirect_to = trim(trim($post['redirect_to'], '/'));
-
         return $redirect->save() ? $redirect : false;
     }
 
-    function deleteRedirect($id)
-    {
+    function deleteRedirect($id) {
         $redirect = self::findOne($id);
         $redirect->delete();
     }

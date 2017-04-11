@@ -1,4 +1,5 @@
 <?php
+
 namespace common\models;
 
 use Yii;
@@ -19,16 +20,13 @@ use yii\web\UploadedFile;
  * @property integer $post_author
  * @property integer $published
  */
-class NewsPosts extends \yii\db\ActiveRecord
-{
+class NewsPosts extends \yii\db\ActiveRecord {
 
-    public static function tableName()
-    {
+    public static function tableName() {
         return 'news_posts';
     }
 
-    public function InsertOrUpdate($post, $id = '')
-    {
+    public function InsertOrUpdate($post, $id = '') {
         $resultUpload = null;
         $newsPost = empty($id) ? new NewsPosts() : NewsPosts::findOne($id);
         $postImg = UploadedFile::getInstanceByName('post_img');
@@ -53,12 +51,10 @@ class NewsPosts extends \yii\db\ActiveRecord
         if ($resultUpload === false) {
             return false;
         }
-
         return $newsPost->save() ? $newsPost : false;
     }
 
-    public static function AuthorId($postId)
-    {
+    public static function AuthorId($postId) {
         return self::findOne(['id' => $postId])->post_author;
     }
 

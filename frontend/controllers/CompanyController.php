@@ -13,7 +13,7 @@ class CompanyController extends AppController {
     }
 
     function actionContacts() {
-        $blocks = ContentBlock::getBlockByPage($this->page->id);
+
 
         Yii::$app->view->title = "Contacts";
         return $this->render('contacts', [

@@ -1,4 +1,5 @@
 <?php
+
 namespace common\models;
 
 use common\classes\CommentsTypeClass;
@@ -17,20 +18,17 @@ use yii\data\SqlDataProvider;
  * @property integer $subscribe
  * @property string  $type
  */
-class CommentsSubscribe extends ActiveRecord
-{
+class CommentsSubscribe extends ActiveRecord {
 
-    public static function tableName()
-    {
+    public static function tableName() {
         return 'comments_subscribe';
     }
 
-    function subscribe($pagePostId, $type)
-    {
+    function subscribe($pagePostId, $type) {
         $subscribe = self::findOne([
             'lykke_user_id' => $pagePostId,
             'lykke_user_id' => Yii::$app->user->id,
-            'type'          => $type,
+            'type' => $type,
         ]);
         if (empty($subscribe)) {
             $subscribe = new CommentsSubscribe();
@@ -41,40 +39,33 @@ class CommentsSubscribe extends ActiveRecord
         } else {
             $subscribe->subscribe = 1;
         }
-
         return $subscribe->save() ? $subscribe : false;
     }
 
-    function unsubscribe($pagePostId, $type)
-    {
+    function unsubscribe($pagePostId, $type) {
         $subscribe = self::findOne([
             'lykke_user_id' => $pagePostId,
             'lykke_user_id' => Yii::$app->user->id,
-            'type'          => $type,
+            'type' => $type,
         ]);
         $subscribe->subscribe = 0;
-
         return $subscribe->save() ? $subscribe : false;
     }
 
-    function subscribeStatus($pagePostId, $type)
-    {
+    function subscribeStatus($pagePostId, $type) {
         $subscribe = self::findOne([
             'lykke_user_id' => $pagePostId,
             'lykke_user_id' => Yii::$app->user->id,
-            'type'          => $type,
+            'type' => $type,
         ]);
-
         return $subscribe->subscribe;
     }
 
-    function getSubscribers($pagePostId, $type)
-    {
+    function getSubscribers($pagePostId, $type) {
         $class = CommentsTypeClass::getClass($type);
         if (!$class) {
             return false;
         }
-
         return (new Query)->select("lu.first_name,
                     lu.email,
                     lu.last_name,

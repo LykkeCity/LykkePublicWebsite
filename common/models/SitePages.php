@@ -1,4 +1,5 @@
 <?php
+
 namespace common\models;
 
 use Yii;
@@ -98,11 +99,9 @@ class SitePages extends ActiveRecord {
         return $page->save() ? $page : false;
     }
 
-    public function createPage(){
-
+    public function createPage() {
     }
 
-    public function updatePage($id, $name, $title, $keywords, $description){
-
+    public function updatePage($id, $name, $title, $keywords, $description) {
     }
 }
