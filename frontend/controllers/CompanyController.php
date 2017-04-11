@@ -1,8 +1,6 @@
 <?php
 namespace frontend\controllers;
 
-use common\models\ContentBlock;
-use common\models\SitePages;
 use yii;
 
 class CompanyController extends AppController {
@@ -17,7 +15,7 @@ class CompanyController extends AppController {
 
         Yii::$app->view->title = "Contacts";
         return $this->render('contacts', [
-            'blocks' => $blocks,
+            'blocks' => $this->blocks,
             'page' => $this->page
         ]);
     }

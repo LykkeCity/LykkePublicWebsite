@@ -37,7 +37,7 @@ abstract class AppController extends Controller {
             'url' => $url,
         ]);
         $this->blocks = ContentBlock::getBlockByPage($this->page->id);
-        
+
         parent::init();
     }
 

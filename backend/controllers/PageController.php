@@ -1,4 +1,5 @@
 <?php
+
 namespace backend\controllers;
 
 use common\models\ContentBlock;
@@ -9,11 +10,9 @@ use yii\helpers\Json;
 use yii\web\Controller;
 use yii;
 
-class PageController extends AppController
-{
+class PageController extends AppController {
 
-    public function behaviors()
-    {
+    public function behaviors() {
         return [
             'access' => [
                 'class' => AccessControl::className(),
@@ -37,22 +36,19 @@ class PageController extends AppController
         ];
     }
 
-    public function beforeAction($action)
-    {
+    public function beforeAction($action) {
         $this->enableCsrfValidation = false;
         return parent::beforeAction($action);
     }
 
-    public function actionIndex()
-    {
+    public function actionIndex() {
         $pages = SitePages::find()->all();
         return $this->render('index', [
             'pages' => $pages,
         ]);
     }
 
-    public function actionAdd()
-    {
+    public function actionAdd() {
         $result = null;
         $pageid = null;
         if (Yii::$app->request->isPost) {
@@ -68,8 +64,7 @@ class PageController extends AppController
         ]);
     }
 
-    public function actionEdit($id)
-    {
+    public function actionEdit($id) {
         $result = null;
         if (empty($id)) {
             $this->redirect('index');
@@ -94,15 +89,13 @@ class PageController extends AppController
         ]);
     }
 
-    public function actionDeleted($id)
-    {
+    public function actionDeleted($id) {
         $page = SitePages::findOne($id);
         $page->delete();
         $this->redirect('index');
     }
 
-    function actionInlinesave()
-    {
+    function actionInlinesave() {
         if (Yii::$app->request->isAjax) {
             if (Yii::$app->request->isPost) {
                 $page = SitePages::findOne(Yii::$app->request->post('id'));
@@ -112,26 +105,23 @@ class PageController extends AppController
         }
     }
 
-    public function actionList(){
-        $pages= SitePages::find()->all();
-
-        return $this->render("list",[
-            'pages' => $pages
+    public function actionList() {
+        $pages = SitePages::find()->all();
+        return $this->render("list", [
+            'pages' => $pages,
         ]);
     }
 
-    public function actionView($id){
+    public function actionView($id) {
         $page = SitePages::findOne([
-            'id' => $id
+            'id' => $id,
         ]);
-
         $contentBlocks = ContentBlock::findAll([
-            'pageId' => $id
+            'pageId' => $id,
         ]);
-
         return $this->render('view', [
             'page' => $page,
-            'contentBlocks' => $contentBlocks
+            'contentBlocks' => $contentBlocks,
         ]);
     }
 
