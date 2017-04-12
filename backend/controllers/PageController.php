@@ -125,4 +125,128 @@ class PageController extends AppController {
         ]);
     }
 
+    public function actionSavePage() {
+        if (!Yii::$app->request->isAjax) {
+            return Json::encode([
+                'result' => 'error',
+                'message' => 'not xhr'
+            ]);
+        }
+        if (!Yii::$app->request->isPost) {
+            return Json::encode([
+                'result' => 'error',
+                'message' => 'method not allowed'
+            ]);
+        }
+
+        $id = Yii::$app->request->post('id');
+        if($id == ''){
+            return Json::encode([
+                'result' => 'error',
+                'message' => 'id - is needed param'
+            ]);
+        }
+        $page = SitePages::findOne([
+            'id' => $id
+        ]);
+
+        $page->name = Yii::$app->request->post('name');
+        $page->datetime = Yii::$app->request->post('datetime');
+        $page->template = Yii::$app->request->post('template');
+        $page->title = Yii::$app->request->post('title');
+        $page->description = Yii::$app->request->post('description');
+        $page->keywords = Yii::$app->request->post('keywords');
+        $page->url = Yii::$app->request->post('url');
+
+
+        if($page->save()){
+            return Json::encode([
+                'result' => 'OK'
+            ]);
+        }else{
+            return Json::encode([
+                'result' => 'error'
+            ]);
+        }
+    }
+
+    public function actionCreateContentBlock(){
+        if (!Yii::$app->request->isAjax) {
+            return Json::encode([
+                'result' => 'error',
+                'message' => 'not xhr'
+            ]);
+        }
+        if (!Yii::$app->request->isPost) {
+            return Json::encode([
+                'result' => 'error',
+                'message' => 'method not allowed'
+            ]);
+        }
+
+
+        $pageId = Yii::$app->request->post('pageId');
+        if($pageId == ''){
+            return Json::encode([
+                'result' => 'error',
+                'message' => 'pageId - is needed param'
+            ]);
+        }
+
+        $contentBlock = new ContentBlock();
+        $contentBlock->pageId = $pageId;
+        if($contentBlock->save()){
+            return Json::encode([
+                'result' => 'OK',
+                'id' => $contentBlock->id
+            ]);
+        }else{
+            return Json::encode([
+                'result' => 'error'
+            ]);
+        }
+    }
+
+    public function actionSaveContentBlock(){
+        if (!Yii::$app->request->isAjax) {
+            return Json::encode([
+                'result' => 'error',
+                'message' => 'not xhr'
+            ]);
+        }
+        if (!Yii::$app->request->isPost) {
+            return Json::encode([
+                'result' => 'error',
+                'message' => 'method not allowed'
+            ]);
+        }
+
+
+        $id = Yii::$app->request->post('id');
+        if($id == ''){
+            return Json::encode([
+                'result' => 'error',
+                'message' => 'id - is needed param'
+            ]);
+        }
+        $contentBlock = ContentBlock::findOne([
+            'id' => $id
+        ]);
+
+        $contentBlock->ordering = Yii::$app->request->post('ordering');
+        $contentBlock->name = Yii::$app->request->post('name');
+        $contentBlock->title = Yii::$app->request->post('title');
+        $contentBlock->content = Yii::$app->request->post('content');
+
+        if($contentBlock->save()){
+            return Json::encode([
+                'result' => 'OK'
+            ]);
+        }else{
+            return Json::encode([
+                'result' => 'error'
+            ]);
+        }
+    }
+
 }

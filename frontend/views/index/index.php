@@ -2,11 +2,6 @@
 $this->params['class_body'] = "page_landing"
 ?>
 
-<!--<div class="inline-edit" data-page-id="--><?//=Yii::$app->controller->pageId?><!--">-->
-<!--    --><?//=$page['content']?>
-<!--</div>-->
-
-
 <article class="content landing">
   <section class="section landing--intro section--padding">
     <div class="container">

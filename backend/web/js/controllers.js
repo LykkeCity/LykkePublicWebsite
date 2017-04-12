@@ -26,6 +26,16 @@ var PageModel = function (id, name, seo_title, seo_description, seo_keywords, da
     this.template = template;
     this.contentBlocks = [];
 
+    this.savePage = function ($http) {
+        $http.post(options.urls.pageSave, {})
+            .success(function (data) {
+
+            })
+            .error(function (data) {
+
+            })
+
+    }
 };
 
 var contentBlockModel = function (id, pageId, ordering, name, title, content) {
@@ -36,6 +46,15 @@ var contentBlockModel = function (id, pageId, ordering, name, title, content) {
     this.title = title;
     this.content = content;
 
+    this.saveBlock = function ($http) {
+        $http.post(options.urls.contentBlockSave, {})
+            .success(function (data) {
+                return true
+            })
+            .error(function (data) {
+
+            })
+    }
 };
 
 var app = angular.module('lykkeAdminApp',
