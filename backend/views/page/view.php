@@ -44,7 +44,7 @@
                  placeholder="Page name">
         </div>
         <div class="form-group">
-          <label for="inputDatetime">Name</label>
+          <label for="inputDatetime">Datetime</label>
           <input type="text" class="form-control"
                  id="inputDatetime"
                  ng-model="page.datetime"
