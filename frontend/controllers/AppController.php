@@ -32,7 +32,7 @@ abstract class AppController extends Controller {
             }
         } catch (\Exception $e) {
         }
-        $url = Yii::$app->request->pathInfo;
+        $url = trim(Yii::$app->request->pathInfo, '/');
         $this->page = SitePages::findOne([
             'url' => $url,
         ]);

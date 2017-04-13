@@ -15,6 +15,16 @@ var options = {
         extended_valid_elements: 'img[class|src|border=0|alt|title|hspace|vspace|width|height|align|onmouseover|onmouseout|name]',
         plugins: 'advlist autolink lists link image charmap print preview hr anchor pagebreak searchreplace wordcount visualblocks visualchars code fullscreen insertdatetime media nonbreaking save table contextmenu directionality emoticons template paste textcolor colorpicker textpattern imagetools',
         toolbar: 'undo redo | bold italic | alignleft aligncenter alignright |  bullist numlist outdent indent | code link image'
+    },
+    dateRangePickerOptions: {
+        "singleDatePicker": true,
+        "timePicker": true,
+        "timePicker24Hour": true,
+        "autoApply": true,
+        "buttonClasses": "btn btn-sm btn-flat",
+        "locale": {
+            "format": "YYYY-MM-DD HH:mm:ss"
+        }
     }
 };
 
@@ -48,7 +58,7 @@ var PageModel = function (id, name, seo_title, seo_description, seo_keywords, da
             'template': this.template,
             'title': this.seo_title,
             'description': this.seo_description,
-            'seo_keywords': this.seo_keywords,
+            'keywords': this.seo_keywords,
             'url': this.url
         };
         $http.post(options.urls.pageSave, params)
@@ -191,52 +201,9 @@ app.controller('PageViewCtrl', [
 ]);
 
 $(function () {
+    // TODO: moving into directive
     setTimeout(function(){
-        $('input.dateTimePickerSingle').daterangepicker({
-            "singleDatePicker": true,
-            "timePicker": true,
-            "timePicker24Hour": true,
-            "autoApply": true,
-            // "opens": "center",
-            // "drops": "up",
-            "buttonClasses": "btn btn-sm btn-flat",
-            "locale": {
-                "format": "YYYY-MM-DD HH:mm:ss",
-                // "separator": " ",
-                // "applyLabel": "Ok",
-                // "cancelLabel": "Отменить",
-                // "fromLabel": "От",
-                // "toLabel": "До",
-                // "customRangeLabel": "Собственный",
-                // "weekLabel": "Н",
-                // "daysOfWeek": [
-                //     "Вс",
-                //     "Пн",
-                //     "Вт",
-                //     "Ср",
-                //     "Чт",
-                //     "Пт",
-                //     "Сб"
-                // ],
-                // "monthNames": [
-                //     "Январь",
-                //     "Февраль",
-                //     "Март",
-                //     "Апрель",
-                //     "Май",
-                //     "Июнь",
-                //     "Июль",
-                //     "Август",
-                //     "Сентябрь",
-                //     "Октябрь",
-                //     "Ноябрь",
-                //     "Декабрь"
-                // ],
-                // "firstDay": 1
-            }
-        }, function(start, end, label) {
-            console.log("New date range selected: ' + start.format('YYYY-MM-DD') + ' to ' + end.format('YYYY-MM-DD') + ' (predefined range: ' + label + ')");
-        });
+        $('input.dateTimePickerSingle').daterangepicker(options.dateRangePickerOptions);
     },20);
 });
 

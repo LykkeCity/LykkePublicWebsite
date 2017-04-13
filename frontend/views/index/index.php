@@ -6,10 +6,8 @@ $this->params['class_body'] = "page_landing"
   <section class="section landing--intro section--padding">
     <div class="container">
       <div class="landing_intro">
-        <h1 class="landing_intro__title">Trade FX and Digital Assets</h1>
-        <h2 class="h3 h3--opacity">Access Easily. Use for Free.<br>
-          Settle Immediately. Own Directly.</h2>
-
+        <h1 class="landing_intro__title"><?=$blocks['Main']['title']?></h1>
+        <h2 class="h3 h3--opacity"><?=$blocks['Main']['content']?></h2>
         <div class="trading_data">
           <div class="trading_data__item trading_data__item--iphone">
             <div class="trading_data__inner">
@@ -81,7 +79,7 @@ $this->params['class_body'] = "page_landing"
           </div>
         </div>
 
-        <p class="landing__subtitle">Lykke Wallet is a key element of the Lykke trading ecosystem. The Lykke Wallet iOS and Android apps make it simple for you to buy and sell digital currencies and assets on the Lykke Exchange, our next-generation trading platform with zero commission.  Immediate settlement and direct ownership are enabled by distributed ledger technology. Now anyone can trade easily!</p>
+        <p class="landing__subtitle"><?=$blocks['LykkeWallet']['content']?></p>
 
         <div class="features">
           <div class="features__item features__item--dur1">

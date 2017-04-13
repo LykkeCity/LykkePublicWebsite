@@ -13,12 +13,17 @@ class SubMenu extends Widget {
     function run() {
         $currentUri = Yii::$app->request->getUrl();
 
-        // Hardcoded for news posts pages
+        // TODO: hardcoded for index page
+        if($currentUri == '/'){
+            return;
+        }
+
+        // TODO: Hardcoded for news posts pages
         if(stripos($currentUri, '/company/news/')!== false){
             $currentUri = 'company/news';
         }
 
-        // Hardcoded for news posts pages
+        // TODO: Hardcoded for news posts pages
         if(stripos($currentUri, '/city/blog/')!== false){
             $currentUri = 'city/blog';
         }
@@ -26,6 +31,7 @@ class SubMenu extends Widget {
         $page = SitePages::find()
             ->where(['url' => trim($currentUri, '/')])->one();
         $this->parentId = $page['parent'] == "" ? $page['id'] : $page['parent'];
+
 
 
         if (!empty($this->parentId)) {

@@ -15,7 +15,7 @@
         <?=$block->ordering;?>,
         "<?=$block->name;?>",
         "<?=$block->title;?>",
-        "<?=addslashes($block->content);?>"
+        "<?=str_replace("\n", "", addslashes($block->content));?>"
     );
     window.page.contentBlocks.push(block);
     <? } ?>

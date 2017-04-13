@@ -14,7 +14,7 @@ class m170411_081435_add_contacts_page extends Migration
         $block1 = new ContentBlock();
         $block1->pageId = $contacts_page->id;
         $block1->ordering = 1;
-        $block1->name = 'MainText';
+        $block1->name = 'Main';
         $block1->title = 'Contacts';
         $block1->content = '<p>Lykke would like to know your opinion.</p><p>Please feel free to contact us to make a suggestion, get information, or leave a comment:<a href="mailto:lykke@lykke.com">lykke@lykke.com</a></p>';
         $block1->save();
