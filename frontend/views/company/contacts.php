@@ -7,8 +7,8 @@ use frontend\widgets\Footer;
         <div class="container">
             <div class="row">
                 <div class="col-xs-10 col-sm-offset-6 col-sm-6 col-md-offset-7 col-md-5">
-                    <h1 class="h1"><?=$blocks['MainText']['title']?></h1>
-                    <?=$blocks['MainText']['content']?>
+                    <h1 class="h1"><?=$blocks['Main']['title']?></h1>
+                    <?=$blocks['Main']['content']?>
                 </div>
             </div>
         </div>

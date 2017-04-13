@@ -38,7 +38,24 @@ abstract class AppController extends Controller {
         ]);
         $this->blocks = ContentBlock::getBlockByPage($this->page->id);
 
+        Yii::$app->view->title = empty($this->page['title']) ? $this->page['name'] : $this->page['title'];
+        Yii::$app->view->registerMetaTag([
+            'name'    => 'description',
+            'content' => $this->page['description'],
+        ]);
+        Yii::$app->view->registerMetaTag([
+            'name'    => 'keywords',
+            'content' => $this->page['keywords'],
+        ]);
+
         parent::init();
+    }
+
+    public function render($view, $params = []) {
+        $params['page'] = $this->page;
+        $params['blocks'] = $this->blocks;
+
+        return parent::render($view, $params);
     }
 
     protected function processPageRequest($param = 'page') {

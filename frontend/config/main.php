@@ -49,6 +49,7 @@ $config = [
             'showScriptName' => false,
             'rules' => [
                 '' => 'index/index',
+                'exchange' => 'exchange/index',
                 'company' => 'company/index',
                 'contacts' => 'company/contacts',
                 'technology' => 'company/technology',

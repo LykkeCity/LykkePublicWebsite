@@ -12,12 +12,8 @@ class CompanyController extends AppController {
 
     function actionContacts() {
 
-
         Yii::$app->view->title = "Contacts";
-        return $this->render('contacts', [
-            'blocks' => $this->blocks,
-            'page' => $this->page
-        ]);
+        return $this->render('contacts');
     }
 
     function actionTechnology() {
