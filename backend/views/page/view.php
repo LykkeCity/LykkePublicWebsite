@@ -26,8 +26,11 @@
 ?>
 
 
-<div ng-app="lykkeAdminApp" ng-controller="PageViewCtrl">
 
+<div ng-app="lykkeAdminApp" ng-controller="PageViewCtrl">
+  <section class="content-header">
+    <h3 ng-bind="page.name"></h3>
+  </section>
   <div class="col-md-6">
     <div class="box box-success">
       <div class="box-header with-border">
@@ -45,18 +48,24 @@
         </div>
         <div class="form-group">
           <label for="inputDatetime">Datetime</label>
-          <input type="text" class="form-control"
+          <input type="text" class="form-control dateTimePickerSingle"
                  id="inputDatetime"
                  ng-model="page.datetime"
+                 dateTimePicker
                  placeholder="Publish date">
         </div>
         <div class="form-group">
-          <label for="inputDatetime">Page template</label><br>
-          <select multiple name="" id="" class="form-control">
+          <label for="inputTemplate">Page template</label><br>
+          <select multiple name="inputTemplate" id="inputTemplate" class="form-control">
             <option value="Normal">Normal</option>
             <option value="SEO">SEO-page</option>
             <option value="Embedded">Embedded</option>
           </select>
+        </div>
+      </div>
+      <div class="box-footer">
+        <div class="pull-right">
+          <div class="btn btn-success btn-flat" ng-click="savePage()">Save Page</div>
         </div>
       </div>
     </div>

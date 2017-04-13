@@ -2,8 +2,10 @@
 
 var options = {
     urls: {
-        pageSave: "",
-        contentBlockSave: ""
+        pageSave: "/control/api/page/save",
+        contentBlockSave: "/control/api/content-block/save",
+        contentBlockCreate: "/control/api/content-block/create",
+        contentBlockDelete: "/control/api/content-block/delete"
     },
     tinymceOptions: {
         language: 'ru',
@@ -16,7 +18,7 @@ var options = {
     }
 };
 
-var PageModel = function (id, name, seo_title, seo_description, seo_keywords, datetime, template) {
+var PageModel = function (id, name, seo_title, seo_description, seo_keywords, datetime, template, url) {
     this.id = id;
     this.name = name;
     this.seo_title = seo_title;
@@ -25,16 +27,39 @@ var PageModel = function (id, name, seo_title, seo_description, seo_keywords, da
     this.datetime = datetime;
     this.template = template;
     this.contentBlocks = [];
+    this.url = url;
 
-    this.savePage = function ($http) {
-        $http.post(options.urls.pageSave, {})
+    this.savePage = function ($http, successCallback, errorCallback) {
+
+        this.contentBlocks.forEach(function (block) {
+            block.saveBlock($http,
+            function (data) {
+                console.log(data);
+            },
+            function (data) {
+                console.log(data);
+            })
+        });
+
+        var params = {
+            'id': this.id,
+            'name': this.name,
+            'datetime': this.datetime,
+            'template': this.template,
+            'title': this.seo_title,
+            'description': this.seo_description,
+            'seo_keywords': this.seo_keywords,
+            'url': this.url
+        };
+        $http.post(options.urls.pageSave, params)
             .success(function (data) {
-
+                // console.log(data);
+                successCallback(data);
             })
             .error(function (data) {
-
-            })
-
+                // console.log(data);
+                errorCallback(data);
+            });
     }
 };
 
@@ -46,10 +71,39 @@ var contentBlockModel = function (id, pageId, ordering, name, title, content) {
     this.title = title;
     this.content = content;
 
-    this.saveBlock = function ($http) {
-        $http.post(options.urls.contentBlockSave, {})
+    this.createBlock = function ($http) {
+        $http.post(options.urls.contentBlockCreate, {
+
+        })
             .success(function (data) {
-                return true
+
+            })
+            .error(function (data) {
+                
+            })
+    };
+    this.saveBlock = function ($http, successCallback, errorCallback) {
+        var params = {
+            'id': this.id,
+            'ordering': this.ordering,
+            'name': this.name,
+            'title': this.title,
+            'content': this.content
+        };
+        $http.post(options.urls.contentBlockSave, params)
+            .success(function (data) {
+                successCallback(data);
+            })
+            .error(function (data) {
+                errorCallback(data);
+            })
+    };
+    this.deleteBlock = function ($http) {
+        $http.post(options.urls.contentBlockDelete, {
+
+        })
+            .success(function (data) {
+
             })
             .error(function (data) {
 
@@ -105,14 +159,85 @@ var app = angular.module('lykkeAdminApp',
         }];
     });
 
+
+app.directive('dateTimePicker', [function() {
+        return {
+            restrict: 'A',
+            link: function(scope, element, iAttrs) {
+
+            }
+        };
+    }]);
+
 app.controller('PageViewCtrl', [
     '$scope', '$http',
     function ($scope, $http) {
         $scope.tinymceOptions = options.tinymceOptions;
         $scope.page = window.page;
 
-        console.log($scope.page);
+        $scope.savePage = function () {
+            $scope.page.savePage($http,
+            function (data) {
+                console.log('success');
+                console.log(data);
+            },
+            function (data) {
+                console.log('error');
+                console.log(data);
+            })
+
+        };
     }
 ]);
+
+$(function () {
+    setTimeout(function(){
+        $('input.dateTimePickerSingle').daterangepicker({
+            "singleDatePicker": true,
+            "timePicker": true,
+            "timePicker24Hour": true,
+            "autoApply": true,
+            // "opens": "center",
+            // "drops": "up",
+            "buttonClasses": "btn btn-sm btn-flat",
+            "locale": {
+                "format": "YYYY-MM-DD HH:mm:ss",
+                // "separator": " ",
+                // "applyLabel": "Ok",
+                // "cancelLabel": "Отменить",
+                // "fromLabel": "От",
+                // "toLabel": "До",
+                // "customRangeLabel": "Собственный",
+                // "weekLabel": "Н",
+                // "daysOfWeek": [
+                //     "Вс",
+                //     "Пн",
+                //     "Вт",
+                //     "Ср",
+                //     "Чт",
+                //     "Пт",
+                //     "Сб"
+                // ],
+                // "monthNames": [
+                //     "Январь",
+                //     "Февраль",
+                //     "Март",
+                //     "Апрель",
+                //     "Май",
+                //     "Июнь",
+                //     "Июль",
+                //     "Август",
+                //     "Сентябрь",
+                //     "Октябрь",
+                //     "Ноябрь",
+                //     "Декабрь"
+                // ],
+                // "firstDay": 1
+            }
+        }, function(start, end, label) {
+            console.log("New date range selected: ' + start.format('YYYY-MM-DD') + ' to ' + end.format('YYYY-MM-DD') + ' (predefined range: ' + label + ')");
+        });
+    },20);
+});
 
 

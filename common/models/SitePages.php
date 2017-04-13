@@ -32,17 +32,7 @@ class SitePages extends ActiveRecord {
     }
 
     public function rules() {
-        return [
-            [['name', 'url'], 'required'],
-            [['content'], 'string'],
-            [['parent', 'author', 'published', 'in_menu'], 'integer'],
-            [['datetime'], 'safe'],
-            [
-                ['name', 'url', 'title', 'keywords', 'description', 'route'],
-                'string',
-                'max' => 255,
-            ],
-        ];
+        return [];
     }
 
     public function attributeLabels() {
