@@ -41,11 +41,8 @@ use frontend\widgets\Footer;
         <div class="container">
             <div class="row">
                 <div class="col-sm-8 automargin">
-                    <div class="h1">What is Lykke?</div>
-
-                    <p>The ultimate goal of Lykke is to enable every person in the world to have market access and issue his or her own currencies. If we succeed, we can establish human rights for market access and issuance of means of payment.</p>
-                    <p>The distributed ledger technology offers a unique opportunity to rewire the existing financial system for substantially greater efficiency and equality of access. We will use the technology as a global notary service to record and settle any type of transaction. We will build a single global marketplace, where any asset from around the world can be traded and exchanged for any other asset at a fair market price. Initially, we will focus on foreign exchange, but we plan to expand into money market instruments, bonds, equities, and so on. Our software is open source; <a href="https://github.com/LykkeCity/">see Lykke Github</a>.</p>
-                    <p>Our company is crowd-based at all levels, with citizen-contributors from around the world.</p>
+                    <div class="h1"><?=$blocks['Main']['title']?></div>
+                    <p><?=$blocks['Main']['content']?></p>
                 </div>
             </div>
         </div>
