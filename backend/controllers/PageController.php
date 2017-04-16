@@ -106,7 +106,26 @@ class PageController extends AppController {
         return false;
     }
 
+    public function actionNew(){
+        $page = SitePages::createPage();
+
+        return $this->redirect('/control/pages/'.$page->id.'/view');
+    }
+
+    public function actionDelete($id){
+        $page = SitePages::findOne([
+            'id' => $id
+        ]);
+
+        if($page->deletePage()){
+            return $this->redirect('/control/pages/');
+        }else{
+            return $this->redirect('/control/pages/'.$id.'/view');
+        }
+    }
+
     public function actionList() {
+        $this->view->title = "Pages";
         $pages = SitePages::find()->all();
         return $this->render("list", [
             'pages' => $pages,

@@ -1,5 +1,4 @@
 <?php
-
 ?>
 
 
@@ -7,6 +6,13 @@
   <div class="box">
     <div class="box-header">
       <h4>Pages</h4>
+      <div class="box-tools pull-right">
+        <a href="/control/pages/new">
+          <button type="button" class="btn btn-success ">
+            <i class="fa fa-plus"></i> Add page
+          </button>
+        </a>
+      </div>
     </div>
     <div class="box-body">
       <table class="table table-bordered table-hover dataTable">

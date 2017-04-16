@@ -62,7 +62,6 @@ function openKCFinder(div) {
     );
 }
 
-
 var PageModel = function (id, name, seo_title, seo_description, seo_keywords, datetime, template, url) {
     this.id = id;
     this.name = name;
@@ -161,7 +160,6 @@ var app = angular.module('lykkeAdminApp',
     function ($httpProvider) {
         // Use x-www-form-urlencoded Content-Type
         $httpProvider.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded;charset=utf-8';
-
         /**
          * The workhorse; converts an object to x-www-form-urlencoded serialization.
          * @param {Object} obj
@@ -205,15 +203,6 @@ var app = angular.module('lykkeAdminApp',
     });
 
 
-app.directive('dateTimePicker', [function() {
-        return {
-            restrict: 'A',
-            link: function(scope, element, iAttrs) {
-
-            }
-        };
-    }]);
-
 app.controller('PageViewCtrl', [
     '$scope', '$http',
     function ($scope, $http) {
@@ -223,12 +212,9 @@ app.controller('PageViewCtrl', [
         $scope.savePage = function () {
             $scope.page.savePage($http,
             function (data) {
-                console.log('success');
-                console.log(data);
+                window.location.reload();
             },
             function (data) {
-                console.log('error');
-                console.log(data);
             })
 
         };
@@ -240,6 +226,7 @@ $(function () {
     setTimeout(function(){
         $('input.dateTimePickerSingle').daterangepicker(options.dateRangePickerOptions);
     },20);
+    $(document).ajaxStart(function() { Pace.restart(); });
 });
 
 

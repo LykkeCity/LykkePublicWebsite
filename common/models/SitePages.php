@@ -89,9 +89,33 @@ class SitePages extends ActiveRecord {
         return $page->save() ? $page : false;
     }
 
-    public function createPage() {
+    public static function createPage() {
+        $page = new SitePages();
+        $page->content = '';
+        $page->datetime = date("Y-m-d H:i:s", time());
+        $page->parent = '';
+        $page->title = '';
+        $page->published = false;
+        $page->keywords = '';
+        $page->description = '';
+        $page->author = Yii::$app->user->id;
+        $page->route = '';
+        $page->in_menu = false;
+        $page->template = '';
+        $page->save();
+
+        return $page;
     }
 
     public function updatePage($id, $name, $title, $keywords, $description) {
+
+    }
+
+    public function deletePage(){
+        if($this->delete()){
+            return true;
+        }else{
+            return false;
+        }
     }
 }

@@ -62,6 +62,7 @@ AppAsset::register($this);
   <link rel="stylesheet"
         href="/control/js/plugins/datatables/dataTables.bootstrap.css">
 
+  <link rel="stylesheet" href="/control/dist/plugins/pace/pace.min.css">
   <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
   <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
   <!--[if lt IE 9]>
@@ -118,6 +119,7 @@ AppAsset::register($this);
   <script src="/control/js/plugins/edit_area/edit_area_full.js"></script>
   <script src="/control/js/plugins/tinymce/tinymce.min.js"></script>
   <script src="/control/js/plugins/moment/moment.js"></script>
+  <script src="/control/dist/plugins/pace/pace.min.js"></script>
   <script src="/control/js/plugins/datetimepicker/datetimepicker.min.js"></script>
   <script src="/control/js/scripts.js"></script>
   <script src="/control/js/scripts_new.js"></script>
@@ -206,15 +208,11 @@ AppAsset::register($this);
               ],
           ])?>
           <?=Alert::widget()?>
-          <? if (!Yii::$app->user->isGuest) { ?>
-            <div class="col-md-12">
-                <?=$content?>
-            </div>
-          <? } else { ?>
-            <div class="col-md-12">
-                <?=$content?>
-            </div>
-          <? } ?>
+
+        <div class="col-md-12">
+            <?=$content?>
+        </div>
+
       </div>
     </section>
   </div>
