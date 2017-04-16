@@ -1,26 +1,25 @@
 <?php
 use frontend\widgets\ContactUs;
 use frontend\widgets\Footer;
+
 ?>
 
 <?=ContactUs::widget()?>
 
 <article class="content page">
-    <section class="section section--lead section--padding">
-        <div class="container container--extend">
-            <div class="row">
-                <div class="col-sm-8 col-md-6 automargin">
-                    <div class="form_status">
-                        <div class="status_icon status_icon--success"></div>
-                        <h2>Thank you for getting in&nbsp;touch!</h2>
-                        <p>We appreciate you contacting us and will get back to you as soon as possible. In the meantime, you can check the <a href="/city/faq">FAQ</a> section,
-                            learn more <a href="/company">about Lykke</a>,
-                            or browse through our latest <a href="/city/blog">blog posts</a>.</p>
-                    </div>
-                </div>
-            </div>
+  <section class="section section--lead section--padding">
+    <div class="container container--extend">
+      <div class="row">
+        <div class="col-sm-8 col-md-6 automargin">
+          <div class="form_status">
+            <div class="status_icon status_icon--success"></div>
+            <h2><?=$blocks['Main']['title']?></h2>
+            <?=$blocks['Main']['content']?>
+          </div>
         </div>
-    </section>
+      </div>
+    </div>
+  </section>
 </article>
 
 <?=Footer::widget();?>
