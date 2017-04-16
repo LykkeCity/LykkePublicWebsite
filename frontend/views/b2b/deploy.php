@@ -10,12 +10,8 @@ use frontend\widgets\ContactUs;
         <div class="container container--extend">
             <div class="row">
                 <div class="col-sm-8 automargin">
-                    <h1>Deploy Blockchain Projects</h1>
-
-                    <p class="lead text-left ">Simply stated, the same efficiencies that power our global exchange platform with immediate settlement and our digital wallet technology for desktop or mobile can revitalize your business. We can help you to shrug off the dead weight of outmoded thinking and unlock the potential of the digital age with minimal disruption to existing processes.</p>
-                    <p class="lead text-left ">Lykke Accelerator puts our team of world-class cryptographers, economists, legal experts, and project managers to work for you as your personal research and development group. Together, we can help your company to compete more effectively, seize new opportunities, and realize huge savings.</p>
-
-                    <h3 class="h2">What we can do for your business</h3>
+                    <h1><?=$blocks['Main']['title']?></h1>
+                    <?=$blocks['Main']['content']?>
                 </div>
             </div>
         </div>
@@ -27,7 +23,7 @@ use frontend\widgets\ContactUs;
                         <div class="row">
                             <div class="col-sm-8 automargin">
                                 <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
-                                    <h4 class="panel_title">Commercial banks</h4>
+                                    <h4 class="panel_title"><?=$blocks['Commercial banks']['title']?></h4>
                                     <span class="panel_desc">Digital banking</span>
                                 </a>
                             </div>
@@ -39,7 +35,7 @@ use frontend\widgets\ContactUs;
                         <div class="container container--extend">
                             <div class="row">
                                 <div class="col-sm-8 automargin">
-                                    <p>Crowdlending platforms are constrained by the cash holding period, which makes the loan fulfillment process a bumpy road. Significant costs arise during all cash movements, especially during the distribution of installment payments. Lykke helps to move the cash leg onto the Blockchain, issue and allocate claim tokens for each loan, distribute installment payments to the claimholders for a trivial cost, and—cruicially—organize a secondary market for the claims, which could become a unique selling point for your p2p lending platform.</p>
+                                    <?=$blocks['Commercial banks']['content']?>
                                 </div>
                             </div>
                         </div>
@@ -53,7 +49,7 @@ use frontend\widgets\ContactUs;
                         <div class="row">
                             <div class="col-sm-8 automargin">
                                 <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                                    <h4 class="panel_title">Peer-to-peer lending companies</h4>
+                                    <h4 class="panel_title"><?=$blocks['Peer-to-peer']['title']?></h4>
                                     <span class="panel_desc">Digital lending</span>
                                 </a>
                             </div>
@@ -65,7 +61,7 @@ use frontend\widgets\ContactUs;
                         <div class="container container--extend">
                             <div class="row">
                                 <div class="col-sm-8 automargin">
-                                    <p>Crowdlending platforms are constrained by the cash holding period, which makes the loan fulfillment process a bumpy road. Significant costs arise during all cash movements, especially during the distribution of installment payments. Lykke helps to move the cash leg onto the Blockchain, issue and allocate claim tokens for each loan, distribute installment payments to the claimholders for a trivial cost, and—cruicially—organize a secondary market for the claims, which could become a unique selling point for your p2p lending platform.</p>
+                                  <?=$blocks['Peer-to-peer']['content']?>
                                 </div>
                             </div>
                         </div>
@@ -79,7 +75,7 @@ use frontend\widgets\ContactUs;
                         <div class="row">
                             <div class="col-sm-8 automargin">
                                 <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapse3" aria-expanded="false" aria-controls="collapse3">
-                                    <h4 class="panel_title">Industry consortiums</h4>
+                                    <h4 class="panel_title"><?=$blocks['Industry consortiums']['title']?></h4>
                                     <span class="panel_desc">Settlement coin</span>
                                 </a>
                             </div>
@@ -91,7 +87,7 @@ use frontend\widgets\ContactUs;
                         <div class="container container--extend">
                             <div class="row">
                                 <div class="col-sm-8 automargin">
-                                    <p>Crowdlending platforms are constrained by the cash holding period, which makes the loan fulfillment process a bumpy road. Significant costs arise during all cash movements, especially during the distribution of installment payments. Lykke helps to move the cash leg onto the Blockchain, issue and allocate claim tokens for each loan, distribute installment payments to the claimholders for a trivial cost, and—cruicially—organize a secondary market for the claims, which could become a unique selling point for your p2p lending platform.</p>
+                                  <?=$blocks['Industry consortiums']['content']?>
                                 </div>
                             </div>
                         </div>
@@ -105,7 +101,7 @@ use frontend\widgets\ContactUs;
                         <div class="row">
                             <div class="col-sm-8 automargin">
                                 <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapse5" aria-expanded="false" aria-controls="collapse5">
-                                    <h4 class="panel_title">IoT firms</h4>
+                                    <h4 class="panel_title"><?=$blocks['IoT firms']['title']?></h4>
                                     <span class="panel_desc">Digital wallet</span>
                                 </a>
                             </div>
@@ -117,7 +113,7 @@ use frontend\widgets\ContactUs;
                         <div class="container container--extend">
                             <div class="row">
                                 <div class="col-sm-8 automargin">
-                                    <p>Crowdlending platforms are constrained by the cash holding period, which makes the loan fulfillment process a bumpy road. Significant costs arise during all cash movements, especially during the distribution of installment payments. Lykke helps to move the cash leg onto the Blockchain, issue and allocate claim tokens for each loan, distribute installment payments to the claimholders for a trivial cost, and—cruicially—organize a secondary market for the claims, which could become a unique selling point for your p2p lending platform.</p>
+                                    <?=$blocks['IoT firms']['content']?>
                                 </div>
                             </div>
                         </div>
@@ -131,7 +127,7 @@ use frontend\widgets\ContactUs;
                         <div class="row">
                             <div class="col-sm-8 automargin">
                                 <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapse6" aria-expanded="false" aria-controls="collapse6">
-                                    <h4 class="panel_title">Global merchants</h4>
+                                    <h4 class="panel_title"><?=$blocks['Global merchants']['title']?></h4>
                                     <span class="panel_desc">Loyalty cards</span>
                                 </a>
                             </div>
@@ -143,7 +139,7 @@ use frontend\widgets\ContactUs;
                         <div class="container container--extend">
                             <div class="row">
                                 <div class="col-sm-8 automargin">
-                                    <p>Crowdlending platforms are constrained by the cash holding period, which makes the loan fulfillment process a bumpy road. Significant costs arise during all cash movements, especially during the distribution of installment payments. Lykke helps to move the cash leg onto the Blockchain, issue and allocate claim tokens for each loan, distribute installment payments to the claimholders for a trivial cost, and—cruicially—organize a secondary market for the claims, which could become a unique selling point for your p2p lending platform.</p>
+                                    <?=$blocks['Global merchants']['content']?>
                                 </div>
                             </div>
                         </div>
@@ -157,7 +153,7 @@ use frontend\widgets\ContactUs;
                         <div class="row">
                             <div class="col-sm-8 automargin">
                                 <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapse7" aria-expanded="false" aria-controls="collapse7">
-                                    <h4 class="panel_title">Large event organizers</h4>
+                                    <h4 class="panel_title"><?=$blocks['Large event']['title']?></h4>
                                     <span class="panel_desc">Event currency</span>
                                 </a>
                             </div>
@@ -169,7 +165,7 @@ use frontend\widgets\ContactUs;
                         <div class="container container--extend">
                             <div class="row">
                                 <div class="col-sm-8 automargin">
-                                    <p>Crowdlending platforms are constrained by the cash holding period, which makes the loan fulfillment process a bumpy road. Significant costs arise during all cash movements, especially during the distribution of installment payments. Lykke helps to move the cash leg onto the Blockchain, issue and allocate claim tokens for each loan, distribute installment payments to the claimholders for a trivial cost, and—cruicially—organize a secondary market for the claims, which could become a unique selling point for your p2p lending platform.</p>
+                                    <?=$blocks['Large event']['content']?>
                                 </div>
                             </div>
                         </div>
