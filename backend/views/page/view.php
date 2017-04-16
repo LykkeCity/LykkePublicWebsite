@@ -63,6 +63,7 @@
 
           <select name="inputTemplate" id="inputTemplate" class="form-control"
                   ng-model="page.template"
+                  ng-disabled="page.template=='embedded'"
                   ng-options="template for template in templateEnum">
           </select>
         </div>

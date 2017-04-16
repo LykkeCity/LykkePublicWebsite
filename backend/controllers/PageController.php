@@ -176,8 +176,6 @@ class PageController extends AppController {
         $page->published = Yii::$app->request->post('published', '')=='true'?1:0;
         $page->url = Yii::$app->request->post('url', '');
 
-        print_r($_POST);
-        print_r($page);
         if($page->save()){
             return Json::encode([
                 'result' => 'OK'
