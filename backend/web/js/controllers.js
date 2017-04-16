@@ -8,14 +8,15 @@ var options = {
         contentBlockDelete: "/control/api/content-block/delete"
     },
     tinymceOptions: {
-        language: 'ru',
+        language: 'en',
         height: "600",
         relative_urls: false,
         remove_script_host: false,
         convert_urls: true,
         extended_valid_elements: 'img[class|src|border=0|alt|title|hspace|vspace|width|height|align|onmouseover|onmouseout|name]',
         plugins: 'autoresize advlist autolink lists link image charmap print preview hr anchor pagebreak searchreplace wordcount visualblocks visualchars code fullscreen insertdatetime media nonbreaking save table contextmenu directionality emoticons template paste textcolor colorpicker textpattern imagetools',
-        toolbar: 'undo redo | bold italic | alignleft aligncenter alignright |  bullist numlist outdent indent | code link image'
+        toolbar: 'undo redo | bold italic | alignleft aligncenter alignright |  bullist numlist outdent indent | code link image',
+        file_browser_callback: imgManager
     },
     dateRangePickerOptions: {
         "singleDatePicker": true,
@@ -28,6 +29,39 @@ var options = {
         }
     }
 };
+
+/** Editor options (TinyMCE and HTML editor) */
+function imgManager(field, url, type, win) {
+    tinyMCE.activeEditor.windowManager.open({
+        file: '/backend/web/js/plugins/tinymce/kcfinder/browse.php?opener=tinymce4&field=' + field + '&type=' + type,
+        title: 'KCFinder',
+        width: 700,
+        height: 500,
+        inline: true,
+        close_previous: false
+    }, {
+        window: win,
+        input: field
+    });
+    return false;
+}
+
+function openKCFinder(div) {
+    window.KCFinder = {
+        callBack: function (url) {
+            window.KCFinder = null;
+            var img = new Image();
+            img.src = url;
+            div.value = url;
+            div.parent().parent().find('.imgFinder').attr('src', url);
+        }
+    };
+    window.open('/backend/web/js/plugins/tinymce/kcfinder/browse.php?type=image&dir=/frontend/web/userfiles',
+        'kcfinder_image', 'status=0, toolbar=0, location=0, menubar=0, ' +
+        'directories=0, resizable=1, scrollbars=0, width=800, height=600'
+    );
+}
+
 
 var PageModel = function (id, name, seo_title, seo_description, seo_keywords, datetime, template, url) {
     this.id = id;
