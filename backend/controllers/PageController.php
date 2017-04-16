@@ -168,11 +168,16 @@ class PageController extends AppController {
         ]);
         $page->name = Yii::$app->request->post('name', '');
         $page->datetime = Yii::$app->request->post('datetime', '');
-//        $page->template = Yii::$app->request->post('template');
+        $page->template = Yii::$app->request->post('template');
         $page->title = Yii::$app->request->post('title', '');
         $page->description = Yii::$app->request->post('description', '');
         $page->keywords = Yii::$app->request->post('keywords', '');
+        $page->in_menu = (Yii::$app->request->post('in_menu', '')=='true'?1:0);
+        $page->published = Yii::$app->request->post('published', '')=='true'?1:0;
+        $page->url = Yii::$app->request->post('url', '');
 
+        print_r($_POST);
+        print_r($page);
         if($page->save()){
             return Json::encode([
                 'result' => 'OK'

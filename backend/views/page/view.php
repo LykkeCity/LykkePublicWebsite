@@ -5,7 +5,11 @@
         "<?=$page->title?>",
         "<?=$page->description?>",
         "<?=$page->keywords?>",
-        "<?=$page->datetime?>"
+        "<?=$page->datetime?>",
+        "<?=$page->template?>",
+        "<?=$page->url?>",
+        <?echo $page->in_menu?'true':'false'?>,
+        <?echo $page->published?'true':'false'?>
     );
 
     <? foreach ($contentBlocks as $block) { ?>
@@ -56,11 +60,23 @@
         </div>
         <div class="form-group">
           <label for="inputTemplate">Page template</label><br>
-          <select multiple name="inputTemplate" id="inputTemplate" class="form-control">
-            <option value="Normal">Normal</option>
-            <option value="SEO">SEO-page</option>
-            <option value="Embedded">Embedded</option>
+
+          <select name="inputTemplate" id="inputTemplate" class="form-control"
+                  ng-model="page.template"
+                  ng-options="template for template in templateEnum">
           </select>
+        </div>
+        <div class="form-group">
+          <input type="checkbox" id="inputPublished"  ng-model="page.published">
+          <label for="inputPublished">Published</label>
+        </div>
+        <div class="form-group">
+          <input type="checkbox" id="inputInMenu" ng-model="page.in_menu">
+          <label for="inputInMenu">In menu</label>
+        </div>
+        <div class="form-group">
+          <label for="inputUrl">Url</label>
+          <input type="text" class="form-control" id="inputUrl" ng-model="page.url">
         </div>
       </div>
       <div class="box-footer">

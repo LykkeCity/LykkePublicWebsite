@@ -62,7 +62,7 @@ function openKCFinder(div) {
     );
 }
 
-var PageModel = function (id, name, seo_title, seo_description, seo_keywords, datetime, template, url) {
+var PageModel = function (id, name, seo_title, seo_description, seo_keywords, datetime, template, url, in_menu, published) {
     this.id = id;
     this.name = name;
     this.seo_title = seo_title;
@@ -72,17 +72,19 @@ var PageModel = function (id, name, seo_title, seo_description, seo_keywords, da
     this.template = template;
     this.contentBlocks = [];
     this.url = url;
+    this.in_menu = in_menu;
+    this.published = published;
 
     this.savePage = function ($http, successCallback, errorCallback) {
 
         this.contentBlocks.forEach(function (block) {
             block.saveBlock($http,
-            function (data) {
-                console.log(data);
-            },
-            function (data) {
-                console.log(data);
-            })
+                function (data) {
+                    console.log(data);
+                },
+                function (data) {
+                    console.log(data);
+                })
         });
 
         var params = {
@@ -93,7 +95,9 @@ var PageModel = function (id, name, seo_title, seo_description, seo_keywords, da
             'title': this.seo_title,
             'description': this.seo_description,
             'keywords': this.seo_keywords,
-            'url': this.url
+            'url': this.url,
+            'in_menu': this.in_menu,
+            'published': this.published
         };
         $http.post(options.urls.pageSave, params)
             .success(function (data) {
@@ -116,14 +120,12 @@ var contentBlockModel = function (id, pageId, ordering, name, title, content) {
     this.content = content;
 
     this.createBlock = function ($http) {
-        $http.post(options.urls.contentBlockCreate, {
-
-        })
+        $http.post(options.urls.contentBlockCreate, {})
             .success(function (data) {
 
             })
             .error(function (data) {
-                
+
             })
     };
     this.saveBlock = function ($http, successCallback, errorCallback) {
@@ -143,9 +145,7 @@ var contentBlockModel = function (id, pageId, ordering, name, title, content) {
             })
     };
     this.deleteBlock = function ($http) {
-        $http.post(options.urls.contentBlockDelete, {
-
-        })
+        $http.post(options.urls.contentBlockDelete, {})
             .success(function (data) {
 
             })
@@ -206,16 +206,24 @@ var app = angular.module('lykkeAdminApp',
 app.controller('PageViewCtrl', [
     '$scope', '$http',
     function ($scope, $http) {
+        $scope.templateEnum = [
+            'index',
+            'seo',
+            'embedded'
+        ];
+
         $scope.tinymceOptions = options.tinymceOptions;
         $scope.page = window.page;
 
+        console.log($scope.page);
         $scope.savePage = function () {
             $scope.page.savePage($http,
-            function (data) {
-                window.location.reload();
-            },
-            function (data) {
-            })
+                function (data) {
+                    console.log(data);
+                    // window.location.reload();
+                },
+                function (data) {
+                })
 
         };
     }
@@ -223,10 +231,9 @@ app.controller('PageViewCtrl', [
 
 $(function () {
     // TODO: moving into directive
-    setTimeout(function(){
+    setTimeout(function () {
         $('input.dateTimePickerSingle').daterangepicker(options.dateRangePickerOptions);
-    },20);
-    $(document).ajaxStart(function() { Pace.restart(); });
+    }, 20);
 });
 
 
