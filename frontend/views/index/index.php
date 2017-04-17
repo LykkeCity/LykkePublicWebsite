@@ -285,10 +285,10 @@ $this->params['class_body'] = "page_landing"
                 <p>Spot FX trading is provided by Lykke Corp UK. Leveraged FX & CFD trading is only available to Lykke Vanuatu clients who reside in Asian and African countries. Lykke services are not available to the residents of United States, Canada, Japan, and Australia. </p>
               </div>
               <div class="col-md-6">
-                <p><b>Lykke Corp (Lykke AG)</b> is registered in Zurich, Switzerland, with identification number <a href="http://zh.powernet.ch/webservices/inet/HRG/HRG.asmx/getHRGHTML?chnr=0203039707&amt=020&toBeModified=0&validOnly=0&lang=4&sort=0">CHE-345.258.499</a>.</p>
-                <p><b>Lykke Corp UK Limited</b> is a company registered in England with number 10093552, limited by shares. The registered office is located at 86-90 Paul Street, London EC2A 4NE.</p>
-                <p><b>Lykke Vanuatu Limited</b> is regulated by the Vanuatu Financial Services Commission (VFSC) of Vanuatu with company number 17909.</p>
-                <p>© 2016 Lykke. All rights reserved.</p>
+                <p><strong>Lykke Corp (Lykke AG)</strong> is registered in Zug, Switzerland, with identification number <a href="https://zg.chregister.ch/cr-portal/auszug/auszug.xhtml?uid=CHE-345.258.499">CHE-345.258.499</a>.</p>
+                <p><strong>Lykke Corp UK Limited</strong> is a company registered in England with number 10093552, limited by shares. The registered office is located at 86-90 Paul Street, London EC2A 4NE.</p>
+                <p><strong>Lykke Vanuatu Limited</strong> is regulated by the Vanuatu Financial Services Commission (VFSC) of Vanuatu with company number&nbsp;17909.</p>
+                <p>&copy; 2017 Lykke. All rights reserved.</p>
               </div>
             </div>
 
