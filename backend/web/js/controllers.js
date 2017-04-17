@@ -209,12 +209,14 @@ app.controller('PageViewCtrl', [
         $scope.templateEnum = [
             'index',
             'seo',
-            'embedded'
         ];
 
         $scope.tinymceOptions = options.tinymceOptions;
         $scope.page = window.page;
 
+        $scope.isEmbedded = function () {
+            return $scope.page.template == 'embedded';
+        };
         console.log($scope.page);
         $scope.savePage = function () {
             $scope.page.savePage($http,

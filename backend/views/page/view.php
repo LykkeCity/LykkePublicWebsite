@@ -33,8 +33,9 @@
 
 <div ng-app="lykkeAdminApp" ng-controller="PageViewCtrl">
   <section class="content-header">
-    <h3 ng-bind="page.name"></h3>
+    <h4 ng-bind="page.name"></h4>
   </section>
+
   <div class="col-md-6">
     <div class="box box-success">
       <div class="box-header with-border">
@@ -63,9 +64,10 @@
 
           <select name="inputTemplate" id="inputTemplate" class="form-control"
                   ng-model="page.template"
-                  ng-disabled="page.template=='embedded'"
+                  ng-hide="isEmbedded()"
                   ng-options="template for template in templateEnum">
           </select>
+          <span ng-hide="!isEmbedded()">Embeded</span>
         </div>
         <div class="form-group">
           <input type="checkbox" id="inputPublished"  ng-model="page.published">
@@ -128,7 +130,13 @@
         <div class="box-title">
           Content
         </div>
+        <div class="box-tools pull-right">
+            <button type="button" class="btn btn-success" ng-hide="isEmbedded()">
+              <i class="fa fa-plus"></i> Add block
+            </button>
+        </div>
       </div>
+
       <div class="box-body">
         <div class="box collapsed-box" ng-repeat="block in page.contentBlocks">
           <div class="box-header with-border">
