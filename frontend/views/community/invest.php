@@ -11,22 +11,12 @@ use frontend\widgets\Footer;
         <div class="col-md-8 col-sm-10 automargin">
           <div class="heading_with_select clearfix">
             <h1 class="h1 pull-left">Invest</h1>
-            <div class="pull-right">
-              <div class="select form-group" data-control="select">
-                <div class="select__value"><span class="_value">CHF</span></div>
-                <select id="select1" class="form-control select__elem">
-                  <option>USD</option>
-                  <option>EUR</option>
-                  <option>GBP</option>
-                </select>
-              </div>
-            </div>
           </div>
 
           <div class="features">
             <div class="features__item">
               <div class="features__img"><img src="/img/affiliates/bonuses-icn.svg" width="70" alt="bonuses"></div>
-              <div class="features__title">57,935,031 CHF</div>
+              <div class="features__title"><?= $capitalization ?> CHF</div>
               <div class="features__text">Market Capitalization</div>
             </div>
             <div class="features__item">
