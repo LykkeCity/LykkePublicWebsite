@@ -205,3 +205,8 @@ table.dataTable thead .non-sorting:after{
 .non-sorting{
     cursor: default !important;
 }
+
+.form-control.border_bottom{
+    border: none;
+    border-bottom: 1px solid #d2d6de;
+}

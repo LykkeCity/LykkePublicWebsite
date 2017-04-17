@@ -1,7 +1,9 @@
 <?php
+
 namespace common\models;
 
 use Yii;
+use yii\db\ActiveRecord;
 
 /**
  * This is the model class for table "{{%site_pages}}".
@@ -21,25 +23,16 @@ use Yii;
  * @property integer $in_menu
  * @property string  $normal_tpl
  * @property integer $template
+ * @property integer $embedded
  */
-class SitePages extends \yii\db\ActiveRecord {
+class SitePages extends ActiveRecord {
 
     public static function tableName() {
         return 'site_pages';
     }
 
     public function rules() {
-        return [
-            [['name', 'url'], 'required'],
-            [['content'], 'string'],
-            [['parent', 'author', 'published', 'in_menu'], 'integer'],
-            [['datetime'], 'safe'],
-            [
-                ['name', 'url', 'title', 'keywords', 'description', 'route'],
-                'string',
-                'max' => 255,
-            ],
-        ];
+        return [];
     }
 
     public function attributeLabels() {
@@ -96,4 +89,33 @@ class SitePages extends \yii\db\ActiveRecord {
         return $page->save() ? $page : false;
     }
 
+    public static function createPage() {
+        $page = new SitePages();
+        $page->content = '';
+        $page->datetime = date("Y-m-d H:i:s", time());
+        $page->parent = '';
+        $page->title = '';
+        $page->published = false;
+        $page->keywords = '';
+        $page->description = '';
+        $page->author = Yii::$app->user->id;
+        $page->route = '';
+        $page->in_menu = false;
+        $page->template = '';
+        $page->save();
+
+        return $page;
+    }
+
+    public function updatePage($id, $name, $title, $keywords, $description) {
+
+    }
+
+    public function deletePage(){
+        if($this->delete()){
+            return true;
+        }else{
+            return false;
+        }
+    }
 }

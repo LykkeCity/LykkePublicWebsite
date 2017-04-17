@@ -11,11 +11,8 @@ use frontend\widgets\Footer;
         <div class="container container--extend">
             <div class="row">
                 <div class="col-sm-8 automargin">
-                    <h1>Join as Blockchain Accelerator</h1>
-
-                    <p class="lead text-left ">You’re ready to transform business as we know it. You’re committed to exploring new ideas—and proposing some new ideas of your own. But the world’s not changing fast enough, and there’s only so much that you can do individually.</p>
-                    <p class="lead text-left ">So expand your reach by becoming our partner. Bring us your use case with a client in mind. We’ll supply our expertise and technological infrastructure. You own the relationship with your client throughout.</p>
-                    <p class="lead text-left ">We are actively seeking FinTech experts (on the Blockchain, but also not exclusively to the Blockchain) as well as consultants and system integration providers to become our Lykke Accelerator partners. If you share our vision for transformational technology and have a novel way to apply it, don’t wait for us for discover you; introduce yourself!</p>
+                    <h1><?=$blocks['Main']['title']?></h1>
+                    <?=$blocks['Main']['content']?>
 
                     <ul class="list list--media list--media_alt">
                         <li class="list__item">
@@ -24,10 +21,8 @@ use frontend\widgets\Footer;
                                     <img src="img/b2b/cv_icn.svg" alt="cv" width="54">
                                 </div>
                                 <div class="col-sm-10">
-                                    <h4>Apply</h4>
-                                    <p>
-                                        Send us your proposal for your use case or client. Make us understand why you’re right for this job and what role you’d like Lykke to play. If we like what we see, we’ll ask for your CV (or the CVs of your team) outlining your experience in project management.
-                                    </p>
+                                    <h4><?=$blocks['Apply']['title']?></h4>
+                                    <?=$blocks['Apply']['content']?>
                                 </div>
                             </div>
                         </li>
@@ -38,10 +33,8 @@ use frontend\widgets\Footer;
                                     <img src="img/b2b/contract_lykke_icn.svg" alt="contract_lykke" width="80" style="margin-left: -5px">
                                 </div>
                                 <div class="col-sm-10">
-                                    <h4>Sign with Lykke</h4>
-                                    <p>
-                                        We negotiate the terms of our partnership, including billing rates, guidelines, and project metrics.
-                                    </p>
+                                    <h4><?=$blocks['Sign with Lykke']['title']?></h4>
+                                    <?=$blocks['Sign with Lykke']['content']?>
                                 </div>
                             </div>
                         </li>
@@ -52,10 +45,8 @@ use frontend\widgets\Footer;
                                     <img src="img/b2b/access_icn.svg" alt="access" width="54 ">
                                 </div>
                                 <div class="col-sm-10">
-                                    <h4>Utilize Lykke resources</h4>
-                                    <p>
-                                        Receive the right to use our fully operational exchange platform and wallet app, and leverage our team’s expertise when you need it.
-                                    </p>
+                                    <h4><?=$blocks['Utilize Lykke resources']['title']?></h4>
+                                    <?=$blocks['Utilize Lykke resources']['content']?>
                                 </div>
                             </div>
                         </li>
@@ -66,10 +57,8 @@ use frontend\widgets\Footer;
                                     <img src="img/b2b/revenue_icn.svg" alt="revenue" width="68">
                                 </div>
                                 <div class="col-sm-10">
-                                    <h4>Profit</h4>
-                                    <p>
-                                        You’re not licensing Lykke. You’re partnering with us. As partners, we share in the revenues together.
-                                    </p>
+                                    <h4><?=$blocks['Profit']['title']?></h4>
+                                    <?=$blocks['Profit']['content']?>
                                 </div>
                             </div>
                         </li>

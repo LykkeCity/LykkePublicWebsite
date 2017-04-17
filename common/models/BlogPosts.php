@@ -1,20 +1,18 @@
 <?php
+
 namespace common\models;
 
 use Yii;
 use yii\helpers\Inflector;
 use yii\web\UploadedFile;
 
-class BlogPosts extends \yii\db\ActiveRecord
-{
+class BlogPosts extends \yii\db\ActiveRecord {
 
-    public static function tableName()
-    {
+    public static function tableName() {
         return 'blog_posts';
     }
 
-    public function InsertOrUpdate($post, $id = '')
-    {
+    public function InsertOrUpdate($post, $id = '') {
         $resultUpload = null;
         $blogPost = empty($id) ? new BlogPosts() : BlogPosts::findOne($id);
         $postImg = UploadedFile::getInstanceByName('post_img');
@@ -39,12 +37,10 @@ class BlogPosts extends \yii\db\ActiveRecord
         if ($resultUpload === false) {
             return false;
         }
-
         return $blogPost->save() ? $blogPost : false;
     }
 
-    public static function AuthorId($postId)
-    {
+    public static function AuthorId($postId) {
         return self::findOne(['id' => $postId])->post_author;
     }
 

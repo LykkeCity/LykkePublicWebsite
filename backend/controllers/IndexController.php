@@ -1,14 +1,13 @@
 <?php
+
 namespace backend\controllers;
 
 use yii\filters\AccessControl;
 use yii;
 
-class IndexController extends AppController
-{
+class IndexController extends AppController {
 
-    public function behaviors()
-    {
+    public function behaviors() {
         return [
             'access' => [
                 'class' => AccessControl::className(),
@@ -23,8 +22,7 @@ class IndexController extends AppController
         ];
     }
 
-    public function actions()
-    {
+    public function actions() {
         return [
             'error' => [
                 'class' => 'yii\web\ErrorAction',
@@ -32,8 +30,7 @@ class IndexController extends AppController
         ];
     }
 
-    function actionIndex()
-    {
+    function actionIndex() {
         return $this->render('index');
     }
 

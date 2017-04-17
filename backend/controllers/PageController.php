@@ -1,17 +1,18 @@
 <?php
+
 namespace backend\controllers;
 
+use common\models\ContentBlock;
 use common\models\SitePages;
 use yii\filters\AccessControl;
 use yii\filters\VerbFilter;
+use yii\helpers\Json;
 use yii\web\Controller;
 use yii;
 
-class PageController extends AppController
-{
+class PageController extends AppController {
 
-    public function behaviors()
-    {
+    public function behaviors() {
         return [
             'access' => [
                 'class' => AccessControl::className(),
@@ -35,22 +36,19 @@ class PageController extends AppController
         ];
     }
 
-    public function beforeAction($action)
-    {
+    public function beforeAction($action) {
         $this->enableCsrfValidation = false;
         return parent::beforeAction($action);
     }
 
-    public function actionIndex()
-    {
+    public function actionIndex() {
         $pages = SitePages::find()->all();
         return $this->render('index', [
             'pages' => $pages,
         ]);
     }
 
-    public function actionAdd()
-    {
+    public function actionAdd() {
         $result = null;
         $pageid = null;
         if (Yii::$app->request->isPost) {
@@ -66,8 +64,7 @@ class PageController extends AppController
         ]);
     }
 
-    public function actionEdit($id)
-    {
+    public function actionEdit($id) {
         $result = null;
         if (empty($id)) {
             $this->redirect('index');
@@ -92,21 +89,197 @@ class PageController extends AppController
         ]);
     }
 
-    public function actionDeleted($id)
-    {
+    public function actionDeleted($id) {
         $page = SitePages::findOne($id);
         $page->delete();
-        $this->redirect('index');
+        $this->redirect('/control/pages');
     }
 
-    function actionInlinesave()
-    {
+    function actionInlinesave() {
         if (Yii::$app->request->isAjax) {
             if (Yii::$app->request->isPost) {
                 $page = SitePages::findOne(Yii::$app->request->post('id'));
                 $page->content = Yii::$app->request->post('content');
                 return $page->save() ? 'success' : 'fail';
             }
+        }
+        return false;
+    }
+
+    public function actionNew(){
+        $page = SitePages::createPage();
+
+        return $this->redirect('/control/pages/'.$page->id.'/view');
+    }
+
+    public function actionDelete($id){
+        $page = SitePages::findOne([
+            'id' => $id
+        ]);
+
+        if($page->deletePage()){
+            return $this->redirect('/control/pages');
+        }else{
+            return $this->redirect('/control/pages/'.$id.'/view');
+        }
+    }
+
+    public function actionList() {
+        $this->view->title = "Pages";
+        $pages = SitePages::find()->all();
+        return $this->render("list", [
+            'pages' => $pages,
+        ]);
+    }
+
+    public function actionView($id) {
+        $page = SitePages::findOne([
+            'id' => $id,
+        ]);
+
+        $this->view->title = 'Edit page';
+
+        $contentBlocks = ContentBlock::findAll([
+            'pageId' => $id,
+        ]);
+        return $this->render('view', [
+            'page' => $page,
+            'contentBlocks' => $contentBlocks,
+        ]);
+    }
+
+    public function actionSavePage() {
+        if (!Yii::$app->request->isPost) {
+            return Json::encode([
+                'result' => 'error',
+                'message' => 'method not allowed'
+            ]);
+        }
+
+        $id = Yii::$app->request->post('id');
+        if($id == ''){
+            return Json::encode([
+                'result' => 'error',
+                'message' => 'id - is needed param'
+            ]);
+        }
+        $page = SitePages::findOne([
+            'id' => $id
+        ]);
+        $page->name = Yii::$app->request->post('name', '');
+        $page->datetime = Yii::$app->request->post('datetime', '');
+        $page->template = Yii::$app->request->post('template');
+        $page->title = Yii::$app->request->post('title', '');
+        $page->description = Yii::$app->request->post('description', '');
+        $page->keywords = Yii::$app->request->post('keywords', '');
+        $page->in_menu = (Yii::$app->request->post('in_menu', '')=='true'?1:0);
+        $page->published = Yii::$app->request->post('published', '')=='true'?1:0;
+        $page->url = Yii::$app->request->post('url', '');
+
+        if($page->save()){
+            return Json::encode([
+                'result' => 'OK'
+            ]);
+        }else{
+            return Json::encode([
+                'result' => 'error',
+            ]);
+        }
+    }
+
+    public function actionCreateContentBlock(){
+        if (!Yii::$app->request->isPost) {
+            return Json::encode([
+                'result' => 'error',
+                'message' => 'method not allowed'
+            ]);
+        }
+
+        $pageId = Yii::$app->request->post('pageId');
+        if($pageId == ''){
+            return Json::encode([
+                'result' => 'error',
+                'message' => 'pageId - is needed param'
+            ]);
+        }
+
+        $contentBlock = ContentBlock::createBlock($pageId);
+        if($contentBlock->save()){
+            $contentBlock_dict = $contentBlock->to_dict();
+            return Json::encode([
+                'result' => 'OK',
+                'contentBlock' => $contentBlock_dict,
+                'id' => $contentBlock->id
+            ]);
+        }else{
+            return Json::encode([
+                'result' => 'error'
+            ]);
+        }
+    }
+
+    public function actionDeleteContentBlock(){
+        if (!Yii::$app->request->isPost) {
+            return Json::encode([
+                'result' => 'error',
+                'message' => 'method not allowed'
+            ]);
+        }
+
+        $id = Yii::$app->request->post('id');
+        if($id == ''){
+            return Json::encode([
+                'result' => 'error',
+                'message' => 'id - is needed param'
+            ]);
+        }
+        $contentBlock = ContentBlock::findOne([
+            'id' => $id
+        ]);
+
+        if($contentBlock->delete()){
+            return Json::encode([
+                'result' => 'OK'
+            ]);
+        }else{
+            return Json::encode([
+                'result' => 'error'
+            ]);
+        }
+    }
+
+    public function actionSaveContentBlock(){
+        if (!Yii::$app->request->isPost) {
+            return Json::encode([
+                'result' => 'error',
+                'message' => 'method not allowed'
+            ]);
+        }
+
+        $id = Yii::$app->request->post('id');
+        if($id == ''){
+            return Json::encode([
+                'result' => 'error',
+                'message' => 'id - is needed param'
+            ]);
+        }
+        $contentBlock = ContentBlock::findOne([
+            'id' => $id
+        ]);
+
+        $contentBlock->ordering = Yii::$app->request->post('ordering');
+        $contentBlock->name = Yii::$app->request->post('name');
+        $contentBlock->title = Yii::$app->request->post('title');
+        $contentBlock->content = Yii::$app->request->post('content');
+
+        if($contentBlock->save()){
+            return Json::encode([
+                'result' => 'OK'
+            ]);
+        }else{
+            return Json::encode([
+                'result' => 'error'
+            ]);
         }
     }
 

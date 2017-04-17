@@ -43,6 +43,13 @@ $config = [
             'enablePrettyUrl' => true,
             'showScriptName' => false,
             'rules' => [
+                'api/page/save' => 'page/save-page',
+                'api/content-block/save' => 'page/save-content-block',
+                'api/content-block/create' => 'page/create-content-block',
+                'api/content-block/delete' => 'page/delete-content-block',
+                'pages' => 'page/list',
+                'pages/new' => 'page/new',
+                'pages/<id:[\d]+>/view' => 'page/view',
                 '<controller:\w+>/page/<page:\d+>' => '<controller>/index',
                 '<controller:\w+>' => '<controller>/index',
             ],

@@ -1,4 +1,5 @@
 <?php
+
 namespace backend\controllers;
 
 use common\enum\CommentsType;
@@ -9,11 +10,9 @@ use yii\filters\AccessControl;
 use yii\filters\VerbFilter;
 use yii;
 
-class CommentsController extends AppController
-{
+class CommentsController extends AppController {
 
-    public function behaviors()
-    {
+    public function behaviors() {
         return [
             'access' => [
                 'class' => AccessControl::className(),
@@ -37,14 +36,12 @@ class CommentsController extends AppController
         ];
     }
 
-    public function beforeAction($action)
-    {
+    public function beforeAction($action) {
         $this->enableCsrfValidation = false;
         return parent::beforeAction($action);
     }
 
-    function actionIndex($type = CommentsType::BLOG)
-    {
+    function actionIndex($type = CommentsType::BLOG) {
         $model = new Comments();
         $res = $model->getAllCommentsForBackOffice($type);
         return $this->render('index', [
@@ -54,8 +51,7 @@ class CommentsController extends AppController
         ]);
     }
 
-    public function actionDeleted($id, $type)
-    {
+    public function actionDeleted($id, $type) {
         $comment = Comments::findOne(['id' => $id, 'type' => $type]);
         CommentsEditedHistory::deleteAll([
             'comments_id' => $comment->id,
@@ -72,8 +68,7 @@ class CommentsController extends AppController
         $this->redirect(['index', 'type' => $type]);
     }
 
-    public function actionHistory()
-    {
+    public function actionHistory() {
         $history = (new CommentsEditedHistory)->get(Yii::$app->request->post());
         return $this->renderPartial('history', [
             'history' => $history,

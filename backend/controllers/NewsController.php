@@ -1,4 +1,5 @@
 <?php
+
 namespace backend\controllers;
 
 use common\models\NewsPosts;
@@ -8,11 +9,9 @@ use yii\web\Controller;
 use yii\data\Pagination;
 use yii;
 
-class NewsController extends AppController
-{
+class NewsController extends AppController {
 
-    public function behaviors()
-    {
+    public function behaviors() {
         return [
             'access' => [
                 'class' => AccessControl::className(),
@@ -35,14 +34,12 @@ class NewsController extends AppController
         ];
     }
 
-    public function beforeAction($action)
-    {
+    public function beforeAction($action) {
         $this->enableCsrfValidation = false;
         return parent::beforeAction($action);
     }
 
-    public function actionIndex()
-    {
+    public function actionIndex() {
         $posts = NewsPosts::find()->orderBy(['id' => SORT_DESC]);
         $countQuery = clone $posts;
         $pages = new Pagination([
@@ -55,8 +52,7 @@ class NewsController extends AppController
         return $this->render('index', ['posts' => $posts, 'pages' => $pages]);
     }
 
-    public function actionAdd()
-    {
+    public function actionAdd() {
         $result = null;
         $newsPostId = null;
         if (Yii::$app->request->isPost) {
@@ -68,8 +64,7 @@ class NewsController extends AppController
         return $this->render('add', ['result' => $result, 'id' => $newsPostId]);
     }
 
-    public function actionEdit($id)
-    {
+    public function actionEdit($id) {
         $result = null;
         if (empty($id)) {
             $this->redirect('index');
@@ -87,8 +82,7 @@ class NewsController extends AppController
         return $this->render('edit', ['post' => $post, 'result' => $result]);
     }
 
-    public function actionDeleted($id)
-    {
+    public function actionDeleted($id) {
         $post = NewsPosts::findOne($id);
         $post->delete();
         $this->redirect('index');

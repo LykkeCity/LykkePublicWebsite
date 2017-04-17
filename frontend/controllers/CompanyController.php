@@ -1,7 +1,6 @@
 <?php
 namespace frontend\controllers;
 
-use common\models\SitePages;
 use yii;
 
 class CompanyController extends AppController {
