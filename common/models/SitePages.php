@@ -99,7 +99,7 @@ class SitePages extends ActiveRecord {
         $page->keywords = '';
         $page->description = '';
         $page->author = Yii::$app->user->id;
-        $page->route = '';
+        $page->route = 'pages/index';
         $page->in_menu = false;
         $page->template = '';
         $page->save();
