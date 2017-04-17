@@ -161,36 +161,43 @@ AppAsset::register($this);
     <section class="sidebar">
       <ul class="sidebar-menu">
         <li class="<?=UrlHelper::isActive('page/list');?>">
-          <a href="<?=UrlHelper::to(['/pages/'])?>"><i
-                class="fa fa-pencil-square"></i> Pages</a>
+          <a href="<?=UrlHelper::to(['/pages/'])?>">
+            <i class="fa fa-files-o"></i> <span>Pages</span>
+          </a>
         </li>
         <li class="header">Deprecated</li>
         <li class="<?=UrlHelper::isActive('blog/index');?>">
-          <a href="<?=UrlHelper::to(['/blog/'])?>"><i
-                class="fa fa-pencil-square"></i> Blog</a>
+          <a href="<?=UrlHelper::to(['/blog/'])?>">
+            <i class="fa fa-pencil-square"></i> <span>Blog</span>
+          </a>
         </li>
         <li role="presentation" class="<?=UrlHelper::isActive('news/index');?>">
-          <a href="<?=UrlHelper::to(['/news/'])?>"><i
-                class="fa fa-newspaper-o"></i> News</a>
+          <a href="<?=UrlHelper::to(['/news/'])?>">
+            <i class="fa fa-newspaper-o"></i> <span>News</span>
+          </a>
         </li>
         <li role="presentation"
             class="<?=UrlHelper::isActive('asset/index');?>">
-          <a href="<?=UrlHelper::to(['/asset'])?>"><i
-                class="fa fa-exchange"></i> Assets</a>
+          <a href="<?=UrlHelper::to(['/asset'])?>">
+            <i class="fa fa-exchange"></i> <span>Assets</span>
+          </a>
         </li>
         <li role="presentation" class="<?=UrlHelper::isActive('user/index');?>">
-          <a href="<?=UrlHelper::to(['/user'])?>"><i class="fa fa-users"></i>
-            Users</a>
+          <a href="<?=UrlHelper::to(['/user'])?>">
+            <i class="fa fa-users"></i> <span>Users</span>
+          </a>
         </li>
         <li role="presentation"
             class="<?=UrlHelper::isActive('comments/index');?>">
-          <a href="<?=UrlHelper::to(['/comments'])?>"><i
-                class="fa fa-comment-o"></i> Comments</a>
+          <a href="<?=UrlHelper::to(['/comments'])?>">
+            <i class="fa fa-comment-o"></i> <span>Comments</span>
+          </a>
         </li>
         <li role="presentation"
             class="<?=UrlHelper::isActive('redirects/index');?>">
-          <a href="<?=UrlHelper::to(['/redirects'])?>"><i
-                class="fa fa-arrows-v"></i> Redirects</a>
+          <a href="<?=UrlHelper::to(['/redirects'])?>">
+            <i class="fa fa-arrows-v"></i> <span>Redirects</span>
+          </a>
         </li>
       </ul>
     </section>
