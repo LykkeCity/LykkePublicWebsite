@@ -20,12 +20,12 @@ class Header extends Widget
 
         // Hardcoded for news posts pages
         if(stripos($currentUri, 'company/news/')!== false){
-            $currentUri = 'community';
+            $currentUri = 'company';
         }
 
         // Hardcoded for news posts pages
         if(stripos($currentUri, 'city/blog/')!== false){
-            $currentUri = 'company';
+            $currentUri = 'community';
         }
 
         return $this->render('Header', compact('siteMenu', 'currentUri'));

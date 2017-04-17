@@ -20,6 +20,7 @@ class MainAsset extends AssetBundle
   ];
 
   public $js = [
+    'js/vendor/angular.min.js',
     'js/vendor/jquery.min.js',
     'js/vendor/bootstrap-custom.min.js',
     'js/vendor/fastclick.min.js',
@@ -31,6 +32,7 @@ class MainAsset extends AssetBundle
     'js/functions.js',
     'js/b2b.js',
     'js/leadership_modal.js',
+    'js/controllers.js',
   ];
   
 }
