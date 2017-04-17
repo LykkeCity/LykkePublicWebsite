@@ -32,8 +32,8 @@ use yii\helpers\Url;
                             <div class="news_article__info">
                                 <div class="action_text">
                                     Published in <a
-                                        href="<?=Url::to([$page['url']])?>"
-                                        class="text--dark_gray"><?=$page['name']?></a> 
+                                        href="<?=Url::to([$page->url])?>"
+                                        class="text--dark_gray"><?=$page->name?></a> 
                                     <time><?=date("F, d",
                                             strtotime($post['post_datetime']));?></time>
                                 </div>
@@ -44,7 +44,7 @@ use yii\helpers\Url;
                                 <?=$post['post_text']?>
                             </div>
                             <?=SocialShareInnerPost::widget([
-                                'page_url' => $page['url'],
+                                'page_url' => $page->url,
                                 'post_url' => $post['post_url'],
                                 'post_title' => $post['post_title'],
                                 'picture' => Yii::$app->request->hostInfo

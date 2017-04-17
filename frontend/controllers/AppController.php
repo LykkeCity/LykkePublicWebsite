@@ -43,14 +43,14 @@ abstract class AppController extends Controller {
     }
 
     public function render($view, $params = []) {
-        Yii::$app->view->title = empty($this->page['title']) ? $this->page['name'] : $this->page['title'];
+        Yii::$app->view->title = empty($this->page->title) ? $this->page->name : $this->page->title;
         Yii::$app->view->registerMetaTag([
             'name'    => 'description',
-            'content' => $this->page['description'],
+            'content' => $this->page->description,
         ]);
         Yii::$app->view->registerMetaTag([
             'name'    => 'keywords',
-            'content' => $this->page['keywords'],
+            'content' => $this->page->keywords,
         ]);
 
         $params['page'] = $this->page;

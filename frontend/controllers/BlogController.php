@@ -88,7 +88,6 @@ class BlogController extends AppController
             'published' => 1,
             'post_url'  => $post_url,
         ])->one();
-        Yii::$app->view->title = $post['post_title'];
         if (empty($post)) {
             throw new NotFoundHttpException();
         }
@@ -98,8 +97,12 @@ class BlogController extends AppController
         $subscribeStatus = $subscribe->subscribeStatus($post['id'],
             CommentsType::BLOG);
 
+        # Seo-block
+        $this->page->title = $post['post_title'];
+        $this->page->description = $post->getSeoDescription();
+
+
         return $this->render('post', [
-            'page'          => $page,
             'subscribe'     => $subscribeStatus,
             'post'          => $post,
             'comments'      => $comments['comments'],

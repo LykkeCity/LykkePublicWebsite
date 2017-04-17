@@ -44,4 +44,18 @@ class BlogPosts extends \yii\db\ActiveRecord {
         return self::findOne(['id' => $postId])->post_author;
     }
 
+    public function getSeoDescription(){
+        $text = strip_tags($this->post_preview_text);
+        $text = htmlspecialchars_decode($text);
+        $text = trim($text);
+        if (count($text)<=150){
+            $appendix = '...';
+        }else{
+            $appendix = '.';
+        }
+        $text = substr($text, 0, 155);
+
+        return $text.$appendix;
+    }
+
 }

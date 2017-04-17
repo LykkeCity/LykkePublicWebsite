@@ -3,6 +3,7 @@
 namespace common\models;
 
 use Yii;
+use yii\db\ActiveRecord;
 use yii\helpers\Inflector;
 use yii\web\UploadedFile;
 
@@ -20,7 +21,7 @@ use yii\web\UploadedFile;
  * @property integer $post_author
  * @property integer $published
  */
-class NewsPosts extends \yii\db\ActiveRecord {
+class NewsPosts extends ActiveRecord {
 
     public static function tableName() {
         return 'news_posts';
@@ -56,6 +57,20 @@ class NewsPosts extends \yii\db\ActiveRecord {
 
     public static function AuthorId($postId) {
         return self::findOne(['id' => $postId])->post_author;
+    }
+
+    public function getSeoDescription(){
+        $text = strip_tags($this->post_preview_text);
+        $text = htmlspecialchars_decode($text);
+        $text = trim($text);
+        if (count($text)<=150){
+            $appendix = '...';
+        }else{
+            $appendix = '.';
+        }
+        $text = substr($text, 0, 155);
+
+        return $text.$appendix;
     }
 
 }

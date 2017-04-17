@@ -1,4 +1,5 @@
 <?php
+
 namespace frontend\controllers;
 
 use common\enum\CommentsType;
@@ -79,7 +80,6 @@ class NewsController extends AppController {
             'published' => 1,
             'post_url' => $post_url,
         ])->one();
-        Yii::$app->view->title = $post['post_title'];
         if (empty($post)) {
             throw new NotFoundHttpException();
         }
@@ -88,6 +88,11 @@ class NewsController extends AppController {
         $comments = $comment->getComments($post['id'], CommentsType::NEWS);
         $subscribeStatus = $subscribe->subscribeStatus($post['id'],
             CommentsType::NEWS);
+
+        # Seo-block
+        $this->page->title = $post['post_title'];
+        $this->page->description = $post->getSeoDescription();
+
         return $this->render('post', [
             'page' => $page,
             'subscribe' => $subscribeStatus,
