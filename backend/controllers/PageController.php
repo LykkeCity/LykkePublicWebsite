@@ -92,7 +92,7 @@ class PageController extends AppController {
     public function actionDeleted($id) {
         $page = SitePages::findOne($id);
         $page->delete();
-        $this->redirect('index');
+        $this->redirect('/control/pages');
     }
 
     function actionInlinesave() {
@@ -118,7 +118,7 @@ class PageController extends AppController {
         ]);
 
         if($page->deletePage()){
-            return $this->redirect('/control/pages/');
+            return $this->redirect('/control/pages');
         }else{
             return $this->redirect('/control/pages/'.$id.'/view');
         }

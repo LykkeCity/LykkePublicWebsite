@@ -1,3 +1,7 @@
+<?php
+use backend\components\helpers\UrlHelper;
+?>
+
 <script>
     window.page = new PageModel(
         <?=$page->id?>,
@@ -174,11 +178,36 @@
           </div>
           <div class="box-footer">
             <div class="btn btn-danger btn-flat pull-right"
+                 ng-hide="isEmbedded()"
                  ng-click="deleteBlock(block.id, $index)">
               <i class="fa fa-remove"></i> Delete block
             </div>
           </div>
         </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-md-12">
+    <div class="box collapsed-box box-danger">
+      <div class="box-header with-border">
+        <div class="box-title">
+          Danger zone
+        </div>
+        <div class="box-tools pull-right">
+          <button type="button" class="btn btn-box-tool"
+                  data-widget="collapse"><i class="fa fa-plus"></i>
+          </button>
+        </div>
+      </div>
+
+      <div class="box-body">
+        <a href="<?=UrlHelper::to([
+            '/page/deleted',
+            'id' => $page->id,
+        ])?>" class="btn btn-app">
+          <i class="fa fa-remove"></i> DELETE PAGE
+        </a>
       </div>
     </div>
   </div>
