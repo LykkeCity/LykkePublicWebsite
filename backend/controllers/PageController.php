@@ -188,19 +188,12 @@ class PageController extends AppController {
     }
 
     public function actionCreateContentBlock(){
-        if (!Yii::$app->request->isAjax) {
-            return Json::encode([
-                'result' => 'error',
-                'message' => 'not xhr'
-            ]);
-        }
         if (!Yii::$app->request->isPost) {
             return Json::encode([
                 'result' => 'error',
                 'message' => 'method not allowed'
             ]);
         }
-
 
         $pageId = Yii::$app->request->post('pageId');
         if($pageId == ''){
@@ -210,11 +203,12 @@ class PageController extends AppController {
             ]);
         }
 
-        $contentBlock = new ContentBlock();
-        $contentBlock->pageId = $pageId;
+        $contentBlock = ContentBlock::createBlock($pageId);
         if($contentBlock->save()){
+            $contentBlock_dict = $contentBlock->to_dict();
             return Json::encode([
                 'result' => 'OK',
+                'contentBlock' => $contentBlock_dict,
                 'id' => $contentBlock->id
             ]);
         }else{
@@ -225,16 +219,6 @@ class PageController extends AppController {
     }
 
     public function actionDeleteContentBlock(){
-
-    }
-
-    public function actionSaveContentBlock(){
-//        if (!Yii::$app->request->isAjax) {
-//            return Json::encode([
-//                'result' => 'error',
-//                'message' => 'not xhr'
-//            ]);
-//        }
         if (!Yii::$app->request->isPost) {
             return Json::encode([
                 'result' => 'error',
@@ -242,6 +226,35 @@ class PageController extends AppController {
             ]);
         }
 
+        $id = Yii::$app->request->post('id');
+        if($id == ''){
+            return Json::encode([
+                'result' => 'error',
+                'message' => 'id - is needed param'
+            ]);
+        }
+        $contentBlock = ContentBlock::findOne([
+            'id' => $id
+        ]);
+
+        if($contentBlock->delete()){
+            return Json::encode([
+                'result' => 'OK'
+            ]);
+        }else{
+            return Json::encode([
+                'result' => 'error'
+            ]);
+        }
+    }
+
+    public function actionSaveContentBlock(){
+        if (!Yii::$app->request->isPost) {
+            return Json::encode([
+                'result' => 'error',
+                'message' => 'method not allowed'
+            ]);
+        }
 
         $id = Yii::$app->request->post('id');
         if($id == ''){

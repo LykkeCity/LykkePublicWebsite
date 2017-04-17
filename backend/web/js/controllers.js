@@ -108,6 +108,49 @@ var PageModel = function (id, name, seo_title, seo_description, seo_keywords, da
                 // console.log(data);
                 errorCallback(data);
             });
+    };
+
+    this.addBlock = function ($http, successCallBack, errorCallback) {
+        var param = {
+            'pageId': this.id
+        };
+        var page = this;
+        $http.post(options.urls.contentBlockCreate, param)
+            .success(function (data) {
+                console.log(data);
+                if (data.result == "OK") {
+                    var newBlock = new contentBlockModel(
+                        data.contentBlock.id,
+                        data.contentBlock.pageId,
+                        data.contentBlock.ordering,
+                        data.contentBlock.name,
+                        data.contentBlock.title,
+                        data.contentBlock.content
+                    );
+                    page.contentBlocks.push(newBlock);
+                    successCallBack(data);
+                } else {
+                    errorCallback(data);
+                }
+            })
+            .error(function (data) {
+                errorCallback(data);
+            })
+    };
+
+    this.deleteBlock = function ($http, id, $index) {
+        var page = this;
+        this.contentBlocks.forEach(function (el) {
+            if (el.id === id) {
+                el.deleteBlock($http,
+                    function (data) {
+                        page.contentBlocks.splice($index, 1);
+                    },
+                    function (data) {
+
+                    })
+            }
+        })
     }
 };
 
@@ -144,13 +187,19 @@ var contentBlockModel = function (id, pageId, ordering, name, title, content) {
                 errorCallback(data);
             })
     };
-    this.deleteBlock = function ($http) {
-        $http.post(options.urls.contentBlockDelete, {})
+    this.deleteBlock = function ($http, successCallback, errorCallback) {
+        var params = {
+            'id': this.id
+        };
+        $http.post(options.urls.contentBlockDelete, params)
             .success(function (data) {
-
+                if (data.result == 'OK') {
+                    successCallback(data);
+                }
+                errorCallback(data);
             })
             .error(function (data) {
-
+                errorCallback(data)
             })
     }
 };
@@ -208,7 +257,7 @@ app.controller('PageViewCtrl', [
     function ($scope, $http) {
         $scope.templateEnum = [
             'index',
-            'seo',
+            'seo'
         ];
 
         $scope.tinymceOptions = options.tinymceOptions;
@@ -217,16 +266,27 @@ app.controller('PageViewCtrl', [
         $scope.isEmbedded = function () {
             return $scope.page.template == 'embedded';
         };
-        console.log($scope.page);
+
         $scope.savePage = function () {
             $scope.page.savePage($http,
                 function (data) {
-                    console.log(data);
-                    // window.location.reload();
+                    window.location.reload();
                 },
                 function (data) {
                 })
+        };
+        $scope.addBlock = function () {
+            $scope.page.addBlock($http,
+                function (data) {
 
+                },
+                function (data) {
+
+                })
+        };
+
+        $scope.deleteBlock = function (id, $index) {
+            $scope.page.deleteBlock($http, id, $index)
         };
     }
 ]);

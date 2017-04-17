@@ -48,8 +48,11 @@ class ContentBlock extends ActiveRecord {
     }
 
     public static function createBlock($pageId) {
+        $blocks = ContentBlock::getBlockByPage($pageId);
+
         $block = new ContentBlock();
         $block->pageId = $pageId;
+        $block->ordering = count($blocks)+1;
         if ($block->save()) {
             return $block;
         } else {

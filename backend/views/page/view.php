@@ -8,8 +8,8 @@
         "<?=$page->datetime?>",
         "<?=$page->template?>",
         "<?=$page->url?>",
-        <?echo $page->in_menu?'true':'false'?>,
-        <?echo $page->published?'true':'false'?>
+        <?echo $page->in_menu ? 'true' : 'false'?>,
+        <?echo $page->published ? 'true' : 'false'?>
     );
 
     <? foreach ($contentBlocks as $block) { ?>
@@ -28,7 +28,6 @@
 
 <?php
 ?>
-
 
 
 <div ng-app="lykkeAdminApp" ng-controller="PageViewCtrl">
@@ -70,7 +69,7 @@
           <span ng-hide="!isEmbedded()">Embeded</span>
         </div>
         <div class="form-group">
-          <input type="checkbox" id="inputPublished"  ng-model="page.published">
+          <input type="checkbox" id="inputPublished" ng-model="page.published">
           <label for="inputPublished">Published</label>
         </div>
         <div class="form-group">
@@ -79,12 +78,15 @@
         </div>
         <div class="form-group">
           <label for="inputUrl">Url</label>
-          <input type="text" class="form-control" id="inputUrl" ng-model="page.url">
+          <input type="text" class="form-control" id="inputUrl"
+                 ng-model="page.url">
         </div>
       </div>
       <div class="box-footer">
         <div class="pull-right">
-          <div class="btn btn-success btn-flat" ng-click="savePage()">Save Page</div>
+          <div class="btn btn-success btn-flat" ng-click="savePage()">Save
+            Page
+          </div>
         </div>
       </div>
     </div>
@@ -131,16 +133,22 @@
           Content
         </div>
         <div class="box-tools pull-right">
-            <button type="button" class="btn btn-success" ng-hide="isEmbedded()">
-              <i class="fa fa-plus"></i> Add block
-            </button>
+          <button type="button" class="btn btn-success"
+                  ng-click="addBlock()"
+                  ng-hide="isEmbedded()">
+            <i class="fa fa-plus"></i> Add block
+          </button>
         </div>
       </div>
 
       <div class="box-body">
-        <div class="box collapsed-box" ng-repeat="block in page.contentBlocks">
+        <div class="box collapsed-box"
+             ng-repeat="block in page.contentBlocks track by $index">
           <div class="box-header with-border">
-            <div class="box-title" ng-bind="block.name"></div>
+            <div class="box-title">
+              <input type="text" class="form-control border_bottom"
+                     ng-model="block.name">
+            </div>
             <div class="box-tools pull-right">
               <button type="button" class="btn btn-box-tool"
                       data-widget="collapse"><i class="fa fa-plus"></i>
@@ -153,7 +161,7 @@
               <input type="text" class="form-control"
                      id="inputTitle"
                      ng-model="block.title"
-                     placeholder="SEO Keywords">
+                     placeholder="Title">
             </div>
             <div class="form-group">
               <label for="inputContent">Content</label>
@@ -162,6 +170,12 @@
                         ui-tinymce="tinymceOptions"
                         class="form-control"
                         placeholder="Content"></textarea>
+            </div>
+          </div>
+          <div class="box-footer">
+            <div class="btn btn-danger btn-flat pull-right"
+                 ng-click="deleteBlock(block.id, $index)">
+              <i class="fa fa-remove"></i> Delete block
             </div>
           </div>
         </div>
