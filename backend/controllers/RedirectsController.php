@@ -1,4 +1,5 @@
 <?php
+
 namespace backend\controllers;
 
 use common\models\Redirects;
@@ -6,11 +7,9 @@ use yii\filters\AccessControl;
 use yii\filters\VerbFilter;
 use yii;
 
-class RedirectsController extends AppController
-{
+class RedirectsController extends AppController {
 
-    public function behaviors()
-    {
+    public function behaviors() {
         return [
             'access' => [
                 'class' => AccessControl::className(),
@@ -33,14 +32,12 @@ class RedirectsController extends AppController
         ];
     }
 
-    public function beforeAction($action)
-    {
+    public function beforeAction($action) {
         $this->enableCsrfValidation = false;
         return parent::beforeAction($action);
     }
 
-    function actionIndex()
-    {
+    function actionIndex() {
         $model = new Redirects();
         if (Yii::$app->request->isPost) {
             $model->addRedirect(Yii::$app->request->post());
@@ -49,8 +46,7 @@ class RedirectsController extends AppController
         return $this->render('index', ['redirects' => $redirects]);
     }
 
-    function actionDelete($id)
-    {
+    function actionDelete($id) {
         (new Redirects())->deleteRedirect($id);
         $this->redirect('index');
     }

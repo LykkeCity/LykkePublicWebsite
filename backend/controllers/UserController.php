@@ -1,4 +1,5 @@
 <?php
+
 namespace backend\controllers;
 
 use common\models\LykkeUser;
@@ -7,11 +8,9 @@ use Yii;
 use yii\filters\VerbFilter;
 use yii\filters\AccessControl;
 
-class UserController extends AppController
-{
+class UserController extends AppController {
 
-    public function behaviors()
-    {
+    public function behaviors() {
         return [
             'access' => [
                 'class' => AccessControl::className(),
@@ -41,16 +40,14 @@ class UserController extends AppController
         ];
     }
 
-    function actionIndex()
-    {
+    function actionIndex() {
         $users = LykkeUser::getAll();
         return $this->render('index', [
-                'users' => $users,
-            ]);
+            'users' => $users,
+        ]);
     }
 
-    function actionAdmin()
-    {
+    function actionAdmin() {
         if (Yii::$app->request->isAjax) {
             $access = new LykkeUserAccess();
             return $access->admin(Yii::$app->request->post());
@@ -58,8 +55,7 @@ class UserController extends AppController
         return false;
     }
 
-    function actionFrontend()
-    {
+    function actionFrontend() {
         if (Yii::$app->request->isAjax) {
             $access = new LykkeUserAccess();
             return $access->Frontend(Yii::$app->request->post());
@@ -67,8 +63,7 @@ class UserController extends AppController
         return false;
     }
 
-    function actionNotifySpam()
-    {
+    function actionNotifySpam() {
         if (Yii::$app->request->isAjax) {
             $user = new LykkeUser();
             return $user->notifySpam(Yii::$app->request->post());
@@ -76,8 +71,7 @@ class UserController extends AppController
         return false;
     }
 
-    function actionBlockedComment()
-    {
+    function actionBlockedComment() {
         if (Yii::$app->request->isAjax) {
             $user = new LykkeUser();
             return $user->blockedComment(Yii::$app->request->post());

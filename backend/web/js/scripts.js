@@ -3,17 +3,6 @@ $(function () {
     $('[data-toggle="tooltip"]').tooltip()
 });
 
-/** Datatables */
-$(function () {
-    $('table.dataTable').DataTable({
-        "paging": true,
-        "lengthChange": false,
-        "searching": true,
-        "ordering": true,
-        "info": true,
-        "autoWidth": false
-    });
-});
 
 
 /** Editor options (TinyMCE and HTML editor) */

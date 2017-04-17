@@ -1,4 +1,5 @@
 <?php
+
 namespace backend\controllers;
 
 use common\models\Asset;
@@ -6,11 +7,9 @@ use yii\filters\AccessControl;
 use yii\filters\VerbFilter;
 use yii;
 
-class AssetController extends AppController
-{
+class AssetController extends AppController {
 
-    public function behaviors()
-    {
+    public function behaviors() {
         return [
             'access' => [
                 'class' => AccessControl::className(),
@@ -33,14 +32,12 @@ class AssetController extends AppController
         ];
     }
 
-    public function beforeAction($action)
-    {
+    public function beforeAction($action) {
         $this->enableCsrfValidation = false;
         return parent::beforeAction($action);
     }
 
-    function actionIndex()
-    {
+    function actionIndex() {
         $model = new Asset();
         if (Yii::$app->request->isPost) {
             $model->add(Yii::$app->request->post());
@@ -49,8 +46,7 @@ class AssetController extends AppController
         return $this->render('index', ['asset' => $asset]);
     }
 
-    public function actionDeleted($id)
-    {
+    public function actionDeleted($id) {
         $asset = Asset::findOne($id);
         $asset->delete();
         $this->redirect('index');
