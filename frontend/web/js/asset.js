@@ -5,6 +5,8 @@ $(document).ready(function () {
             url: 'https://lykke-public-api.azurewebsites.net/api/AssetPairs/rate',
             method: 'GET',
             type: 'json',
+            async: true,
+            timeout: 500,
             success: function (data) {
 
                     $.each(data, function (i, v) {
