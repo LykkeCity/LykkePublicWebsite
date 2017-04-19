@@ -312,7 +312,7 @@ $this->params['class_body'] = "page_landing"
                 return RatesData[i].ask;
             } else return '';
         }
-    }
+    };
 
     var GetBidPrice = function (ticker) {
         for (var i = 0; i < RatesData.length; i++) {
@@ -321,7 +321,7 @@ $this->params['class_body'] = "page_landing"
                 return RatesData[i].bid;
             } else return '';
         }
-    }
+    };
 
     var BuildRatesTable = function (currency, table_id) {
         var date = new Date();
@@ -344,7 +344,8 @@ $this->params['class_body'] = "page_landing"
 //                url: 'https://lykke-api.azurewebsites.net/api/AllAssetPairRates',
             url: 'https://lykke-public-api.azurewebsites.net/api/AssetPairs/rate',
             data: '',
-            async: false,
+            async: true,
+            timeout: 500,
             beforeSend: function (xhr) {
                 if (xhr && xhr.overrideMimeType) {
                     xhr.overrideMimeType('application/json;charset=utf-8');
