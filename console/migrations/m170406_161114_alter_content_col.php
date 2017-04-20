@@ -11,7 +11,8 @@ class m170406_161114_alter_content_col extends Migration
 
     public function down()
     {
-        $this->alterColumn('content_blocks', 'content', 'VARCHAR(30000)');
+//        $this->alterColumn('content_blocks', 'content', '(30000)');
+
     }
 
 }

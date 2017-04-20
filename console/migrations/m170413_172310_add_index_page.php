@@ -26,13 +26,18 @@ class m170413_172310_add_index_page extends Migration {
         $block2->content = 'Lykke Wallet is a key element of the Lykke trading ecosystem. The Lykke Wallet iOS and Android apps make it simple for you to buy and sell digital currencies and assets on the Lykke Exchange, our next-generation trading platform with zero commission. Immediate settlement and direct ownership are enabled by distributed ledger technology. Now anyone can trade easily!';
         $block2->save();
 
+        $page->url="";
+        $page->save();
 
     }
 
     public function safeDown() {
         $page = SitePages::findOne([
-            'url' => '/'
+            'url' => ''
         ]);
+        $page->url = '/';
+        $page->save();
+
         $blocks = ContentBlock::findAll([
             'pageId' => $page->id
         ]);

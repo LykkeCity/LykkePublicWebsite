@@ -14,14 +14,4 @@ class m170406_145419_site_pages_add_embeded_col extends Migration
         $this->dropColumn('site_pages', 'embedded');
     }
 
-    /*
-    // Use safeUp/safeDown to run migration code within a transaction
-    public function safeUp()
-    {
-    }
-
-    public function safeDown()
-    {
-    }
-    */
 }
