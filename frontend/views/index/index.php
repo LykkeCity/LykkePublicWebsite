@@ -342,7 +342,8 @@ $this->params['class_body'] = "page_landing"
         $.ajax({
             type: 'GET',
 //                url: 'https://lykke-api.azurewebsites.net/api/AllAssetPairRates',
-            url: 'https://lykke-public-api.azurewebsites.net/api/AssetPairs/rate',
+//            url: 'https://lykke-public-api.azurewebsites.net/api/AssetPairs/rate',
+            url: 'https://public-api.lykke.com/api/AssetPairs/rate',
             data: '',
             async: true,
             timeout: 500,
