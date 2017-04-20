@@ -151,6 +151,7 @@ use backend\components\helpers\UrlHelper;
           <div class="box-header with-border">
             <div class="box-title">
               <input type="text" class="form-control border_bottom"
+                     ng-disabled="isEmbedded()"
                      ng-model="block.name">
             </div>
             <div class="box-tools pull-right">
@@ -188,7 +189,7 @@ use backend\components\helpers\UrlHelper;
     </div>
   </div>
 
-  <div class="col-md-12">
+  <div class="col-md-12" ng-hide="isEmbedded()">
     <div class="box collapsed-box box-danger">
       <div class="box-header with-border">
         <div class="box-title">

@@ -97,7 +97,7 @@ use yii\helpers\Url;
                                                 class="user_badge user_badge--small">
                                                 <div class="user_badge__img">
                                                     <img src="/img/avatar.svg"
-                                                         alt="<?=$page['name']?>">
+                                                         alt="<?=$page->name?>">
                                                 </div>
                                                 <div
                                                     class="user_badge__message">
