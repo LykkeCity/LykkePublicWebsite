@@ -2,7 +2,8 @@ $(document).ready(function () {
 
     setInterval(function () {
         $.ajax({
-            url: 'https://lykke-public-api.azurewebsites.net/api/AssetPairs/rate',
+            // url: 'https://lykke-public-api.azurewebsites.net/api/AssetPairs/rate',
+            url: 'https://public-api.lykke.com/api/AssetPairs/rate',
             method: 'GET',
             type: 'json',
             async: true,
