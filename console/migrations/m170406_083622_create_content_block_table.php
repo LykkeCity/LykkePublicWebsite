@@ -1,4 +1,5 @@
 <?php
+use common\models\ContentBlock;
 use yii\db\Migration;
 
 /**
@@ -10,7 +11,9 @@ class m170406_083622_create_content_block_table extends Migration {
      * @inheritdoc
      */
     public function safeUp() {
-        if (Yii::$app->db->schema->getTableSchema('content_blocks', true) === null) {
+        if (Yii::$app->db->schema->getTableSchema('content_blocks', true)
+            === null
+        ) {
             $this->createTable('content_blocks', [
                 'id' => $this->primaryKey(),
                 'pageId' => $this->integer(),
@@ -19,6 +22,11 @@ class m170406_083622_create_content_block_table extends Migration {
                 'title' => $this->string(),
                 'content' => $this->string(),
             ]);
+        } else {
+            $blocks = ContentBlock::find()->all();
+            foreach ($blocks as $block) {
+                $block->delete();
+            }
         }
     }
 
