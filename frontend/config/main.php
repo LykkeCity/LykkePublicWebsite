@@ -53,6 +53,7 @@ $config = [
                 'company' => 'company/index',
                 'contacts' => 'company/contacts',
                 'technology' => 'company/technology',
+                'leadership' => 'company/leadership',
                 /* COMMUNITY */
                 'community' => 'community/index',
                 'city/faq' => 'community/faq',

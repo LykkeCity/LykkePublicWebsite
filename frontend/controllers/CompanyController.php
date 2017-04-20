@@ -20,4 +20,10 @@ class CompanyController extends AppController {
         return $this->render('technology');
     }
 
+    function actionLeadership() {
+        Yii::$app->view->title = "Leadership";
+        return $this->render('leadership');
+    }
+
+
 }

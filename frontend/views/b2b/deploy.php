@@ -191,7 +191,7 @@ use frontend\widgets\ContactUs;
                     <h3 class="border_bottom">Accelerate me</h3>
 
                     <div class="form-group">
-                        <label for="salutation" class="control-label">Salutation*</label>
+                        <label for="salutation" class="control-label">Salutation</label>
 
                         <div class="radio-group group_salutation">
                             <div class="radio radio--plate">

@@ -84,7 +84,7 @@ use frontend\widgets\Footer;
                     <h4>General information</h4>
 
                     <div class="form-group">
-                        <label for="salutation" class="control-label">Salutation*</label>
+                        <label for="salutation" class="control-label">Salutation</label>
 
                         <div class="radio-group group_salutation">
                             <div class="radio radio--plate">
