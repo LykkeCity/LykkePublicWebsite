@@ -1,9 +1,4 @@
-/** Tooltips */
-$(function () {
-    $('[data-toggle="tooltip"]').tooltip()
-});
-
-
+'use strict';
 
 /** Editor options (TinyMCE and HTML editor) */
 function imgManager(field, url, type, win) {
@@ -35,6 +30,47 @@ function openKCFinder(div) {
         'kcfinder_image', 'status=0, toolbar=0, location=0, menubar=0, ' +
         'directories=0, resizable=1, scrollbars=0, width=800, height=600'
     );
+}
+
+function translit(id, alias) {
+    var space = '_';
+    var text = $(id).val().toLowerCase();
+    var transl = {
+        'а': 'a', 'б': 'b', 'в': 'v', 'г': 'g', 'д': 'd', 'е': 'e', 'ё': 'e', 'ж': 'zh',
+        'з': 'z', 'и': 'i', 'й': 'j', 'к': 'k', 'л': 'l', 'м': 'm', 'н': 'n',
+        'о': 'o', 'п': 'p', 'р': 'r', 'с': 's', 'т': 't', 'у': 'u', 'ф': 'f', 'х': 'h',
+        'ц': 'c', 'ч': 'ch', 'ш': 'sh', 'щ': 'sh', 'ъ': space, 'ы': 'y', 'ь': space, 'э': 'e', 'ю': 'yu', 'я': 'ya',
+        ' ': space, '_': space, '`': space, '~': space, '!': space, '@': space,
+        '#': space, '$': space, '%': space, '^': space, '&': space, '*': space,
+        '(': space, ')': space, '-': space, '\=': space, '+': space, '[': space,
+        ']': space, '\\': space, '|': space, '/': space, '.': space, ',': space,
+        '{': space, '}': space, '\'': space, '"': space, ';': space, ':': space,
+        '?': space, '<': space, '>': space, '№': space
+    };
+
+    var result = '';
+    var curent_sim = '';
+
+    for (var i = 0; i < text.length; i++) {
+        if (transl[text[i]] !== undefined) {
+            if (curent_sim !== transl[text[i]] || curent_sim !== space) {
+                result += transl[text[i]];
+                curent_sim = transl[text[i]];
+            }
+        } else {
+            result += text[i];
+            curent_sim = text[i];
+        }
+    }
+
+    result = TrimStr(result);
+    $(alias).val(result);
+
+}
+
+function TrimStr(s) {
+    s = s.replace(/^-/, '');
+    return s.replace(/-$/, '');
 }
 
 var timmceOption = {
@@ -150,9 +186,34 @@ tinymce.init({
 
 var htmlEditor;
 
-$(document).ready(function () {
+/** Datatables */
+$(function () {
+
     htmlEditor = $('#editor_view').html();
     tinymce.init(timmceOption);
+
+    $('.datetimepicker').datetimepicker({
+        locale: 'ru',
+        defaultDate: new Date(),
+        format: 'YYYY/MM/DD H:m:s'
+    });
+
+    $('.action-delete').on('click', function () {
+        if (!confirm('You are sure?')) {
+            return false;
+        }
+    });
+
+    $('[data-toggle="tooltip"]').tooltip();
+
+    $('table.dataTable').DataTable({
+        "paging": true,
+        "lengthChange": true,
+        "searching": true,
+        "ordering": true,
+        "info": true,
+        "autoWidth": false
+    });
 });
 
 $('.change_editor').on('click', function () {
@@ -175,60 +236,6 @@ $('.change_editor_html').on('click', function () {
     });
 });
 
-function translit(id, alias) {
-    var space = '_';
-    var text = $(id).val().toLowerCase();
-    var transl = {
-        'а': 'a', 'б': 'b', 'в': 'v', 'г': 'g', 'д': 'd', 'е': 'e', 'ё': 'e', 'ж': 'zh',
-        'з': 'z', 'и': 'i', 'й': 'j', 'к': 'k', 'л': 'l', 'м': 'm', 'н': 'n',
-        'о': 'o', 'п': 'p', 'р': 'r', 'с': 's', 'т': 't', 'у': 'u', 'ф': 'f', 'х': 'h',
-        'ц': 'c', 'ч': 'ch', 'ш': 'sh', 'щ': 'sh', 'ъ': space, 'ы': 'y', 'ь': space, 'э': 'e', 'ю': 'yu', 'я': 'ya',
-        ' ': space, '_': space, '`': space, '~': space, '!': space, '@': space,
-        '#': space, '$': space, '%': space, '^': space, '&': space, '*': space,
-        '(': space, ')': space, '-': space, '\=': space, '+': space, '[': space,
-        ']': space, '\\': space, '|': space, '/': space, '.': space, ',': space,
-        '{': space, '}': space, '\'': space, '"': space, ';': space, ':': space,
-        '?': space, '<': space, '>': space, '№': space
-    };
 
-    var result = '';
-    var curent_sim = '';
 
-    for (var i = 0; i < text.length; i++) {
-        if (transl[text[i]] != undefined) {
-            if (curent_sim != transl[text[i]] || curent_sim != space) {
-                result += transl[text[i]];
-                curent_sim = transl[text[i]];
-            }
-        } else {
-            result += text[i];
-            curent_sim = text[i];
-        }
-    }
-
-    result = TrimStr(result);
-    $(alias).val(result);
-
-}
-
-function TrimStr(s) {
-    s = s.replace(/^-/, '');
-    return s.replace(/-$/, '');
-}
-
-$(document).ready(function () {
-
-    $('.datetimepicker').datetimepicker({
-        locale: 'ru',
-        defaultDate: new Date(),
-        format: 'YYYY/MM/DD H:m:s'
-    });
-
-    $('.action-delete').on('click', function () {
-        if (!confirm('You are sure?')) {
-            return false;
-        }
-    });
-
-});
 

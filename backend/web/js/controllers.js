@@ -193,7 +193,7 @@ var contentBlockModel = function (id, pageId, ordering, name, title, content) {
         };
         $http.post(options.urls.contentBlockDelete, params)
             .success(function (data) {
-                if (data.result == 'OK') {
+                if (data.result === 'OK') {
                     successCallback(data);
                 }
                 errorCallback(data);
@@ -264,12 +264,11 @@ app.controller('PageViewCtrl', [
         $scope.page = window.page;
 
         $scope.isEmbedded = function () {
-            return $scope.page.template == 'embedded';
+            return $scope.page.template === 'embedded';
         };
-
         $scope.savePage = function () {
             $scope.page.savePage($http,
-                function (data) {
+                function () {
                     window.location.reload();
                 },
                 function (data) {
@@ -284,7 +283,6 @@ app.controller('PageViewCtrl', [
 
                 })
         };
-
         $scope.deleteBlock = function (id, $index) {
             $scope.page.deleteBlock($http, id, $index)
         };
@@ -295,7 +293,7 @@ $(function () {
     // TODO: moving into directive
     setTimeout(function () {
         $('input.dateTimePickerSingle').daterangepicker(options.dateRangePickerOptions);
-    }, 20);
+    }, 200);
 });
 
 
