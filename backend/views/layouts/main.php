@@ -165,6 +165,11 @@ AppAsset::register($this);
             <i class="fa fa-files-o"></i> <span>Pages</span>
           </a>
         </li>
+        <li role="presentation" class="<?=UrlHelper::isActive('user/index');?>">
+          <a href="<?=UrlHelper::to(['/user'])?>">
+            <i class="fa fa-users"></i> <span>Users</span>
+          </a>
+        </li>
         <li class="header">Deprecated</li>
         <li class="<?=UrlHelper::isActive('blog/index');?>">
           <a href="<?=UrlHelper::to(['/blog/'])?>">
@@ -182,11 +187,7 @@ AppAsset::register($this);
             <i class="fa fa-exchange"></i> <span>Assets</span>
           </a>
         </li>
-        <li role="presentation" class="<?=UrlHelper::isActive('user/index');?>">
-          <a href="<?=UrlHelper::to(['/user'])?>">
-            <i class="fa fa-users"></i> <span>Users</span>
-          </a>
-        </li>
+
         <li role="presentation"
             class="<?=UrlHelper::isActive('comments/index');?>">
           <a href="<?=UrlHelper::to(['/comments'])?>">
