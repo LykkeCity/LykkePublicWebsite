@@ -30,8 +30,18 @@ class ApiController extends AppController {
             $text = str_replace('&ldquo;', ' ', $text);
             $text = str_replace('&rsquo;', ' ', $text);
             $text = str_replace('&rdquo;', ' ', $text);
+            $text = str_replace('&nbsp;', ' ', $text);
 
-            $dt = $news_post->post_datetime;
+            $text_preview = strip_tags($news_post->post_preview_text);
+            $text_preview = htmlspecialchars_decode($text_preview);
+            $text_preview = trim($text_preview);
+            $text_preview = str_replace("\r\n", ' ', $text_preview);
+            $text_preview = str_replace('&ldquo;', ' ', $text_preview);
+            $text_preview = str_replace('&rsquo;', ' ', $text_preview);
+            $text_preview = str_replace('&rdquo;', ' ', $text_preview);
+            $text_preview = str_replace('&nbsp;', ' ', $text_preview);
+
+            $dt = date(DATE_ATOM, strtotime($news_post->post_datetime));
 
             array_push($news_dict, [
                 'Author' => $user->first_name." ".$user->last_name,
@@ -39,6 +49,7 @@ class ApiController extends AppController {
                 'Datetime' => $dt,
                 'ImgUrl' => $origin.'/media/news/'.$news_post->post_img,
                 'Url' => $origin.'/company/news/'.$news_post->post_url,
+                'ShortText' => $text_preview,
                 'Text' => $text
             ]);
         }
@@ -65,8 +76,19 @@ class ApiController extends AppController {
             $text = str_replace('&ldquo;', ' ', $text);
             $text = str_replace('&rsquo;', ' ', $text);
             $text = str_replace('&rdquo;', ' ', $text);
+            $text = str_replace('&nbsp;', ' ', $text);
 
-            $dt = $news_post->post_datetime;
+            $text_preview = strip_tags($news_post->post_preview_text);
+            $text_preview = htmlspecialchars_decode($text_preview);
+            $text_preview = trim($text_preview);
+            $text_preview = str_replace("\r\n", ' ', $text_preview);
+            $text_preview = str_replace('&ldquo;', ' ', $text_preview);
+            $text_preview = str_replace('&rsquo;', ' ', $text_preview);
+            $text_preview = str_replace('&rdquo;', ' ', $text_preview);
+            $text_preview = str_replace('&nbsp;', ' ', $text_preview);
+
+
+            $dt = date(DATE_ATOM, strtotime($news_post->post_datetime));
 
             array_push($blog_dict, [
                 'Author' => $user->first_name." ".$user->last_name,
@@ -74,6 +96,7 @@ class ApiController extends AppController {
                 'Datetime' => $dt,
                 'ImgUrl' => $origin.'/media/news/'.$news_post->post_img,
                 'Url' => $origin.'/company/news/'.$news_post->post_url,
+                'ShortText' => $text_preview,
                 'Text' => $text
             ]);
         }
