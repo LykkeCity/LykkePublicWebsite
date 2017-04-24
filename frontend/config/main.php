@@ -29,7 +29,8 @@ $config = [
             'name' => 'advanced',
         ],
         'log' => [
-            'traceLevel' => YII_DEBUG ? 3 : 0,
+            // todo: change tracelavel to 3, when DEBUG is true
+            'traceLevel' => 0,
             'targets' => [
                 [
                     'class' => 'yii\log\FileTarget',
@@ -76,7 +77,7 @@ $config = [
         ],
         'view' => [
             'class' => '\rmrevin\yii\minify\View',
-            'enableMinify' => !YII_DEBUG,
+            'enableMinify' => true,
             'concatCss' => true,
             // concatenate css
             'minifyCss' => true,
@@ -118,10 +119,6 @@ if (filter_var(getenv('YII_ENV_TEST'), FILTER_VALIDATE_BOOLEAN)) {
     $config['bootstrap'][] = 'debug';
     $config['modules']['debug'] = [
         'class' => 'yii\debug\Module',
-    ];
-    $config['bootstrap'][] = 'gii';
-    $config['modules']['gii'] = [
-        'class' => 'yii\gii\Module',
     ];
 }
 return $config;
