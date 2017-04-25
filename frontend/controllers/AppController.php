@@ -36,8 +36,10 @@ abstract class AppController extends Controller {
         $this->page = SitePages::findOne([
             'url' => $url,
         ]);
+        if (!$this->page->published){
+            return $this->redirect('/404');
+        }
         $this->blocks = ContentBlock::getBlockByPage($this->page->id);
-
 
         parent::init();
     }
