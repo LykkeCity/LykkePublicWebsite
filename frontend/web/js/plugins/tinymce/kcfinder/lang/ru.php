@@ -7,13 +7,13 @@
 
 $lang = array(
 
-    '_locale' => "ru_US.UTF-8",
-    '_charset' => "utf-8",
+    '_locale' => "ru_RU.UTF-8",  // UNIX localization code
+    '_charset' => "utf-8",       // Browser charset
 
     // Date time formats. See http://www.php.net/manual/en/function.strftime.php
-    '_dateTimeFull' => "%A, %B %e, %Y %I:%M %p",
-    '_dateTimeMid' => "%a %b %e %Y %I:%M %p",
-    '_dateTimeSmall' => "%m/%d/%Y %I:%M %p",
+    '_dateTimeFull' => "%A, %e %B, %Y %H:%M",
+    '_dateTimeMid' => "%a %e %b %Y %H:%M",
+    '_dateTimeSmall' => "%d.%m.%Y %H:%M",
 
     "You don't have permissions to upload files." => "У вас нет прав для загрузки файлов.",
     "You don't have permissions to browse server." => "У вас нет прав для просмотра содержимого на сервере.",
