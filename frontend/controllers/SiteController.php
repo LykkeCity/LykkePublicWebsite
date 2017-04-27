@@ -38,7 +38,6 @@ class SiteController extends AppController {
             .http_build_query($getParams);
         $session = Yii::$app->session;
         $session->set('redirect_to', Yii::$app->request->referrer);
-        print_r($getParams);
         Yii::$app->response->redirect($urlRedirect);
     }
 
