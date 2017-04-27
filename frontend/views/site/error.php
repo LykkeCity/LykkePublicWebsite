@@ -23,7 +23,8 @@ $this->title = $name;
             <p>This content has been moved or is no longer available.  If you
               have any other problem contact ous support:
                <a href="mailto:support@lykke.com">support@lykke.com</a></p>
-
+            <div style="display: none;">name: <?=$name?></div>
+            <div style="display: none;">message: <?=$message?></div>
             <div class="form_status__button text-center">
               <a href="/" class="btn btn-sm">Go Home</a>
             </div>

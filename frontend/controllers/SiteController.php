@@ -26,15 +26,9 @@ class SiteController extends AppController {
     }
 
     function actionSignin() {
-        if (YII_DEBUG) {
-            $redirectURI = Yii::$app->getUrlManager()->hostInfo;
-        } else {
-            $redirectURI = 'https://'.Yii::$app->request->hostName;
-        }
-        $redirectURI .= '/site/auth';
         $getParams = [
             'client_id' => Yii::$app->params['oAuthLykke']['clientId'],
-            'redirect_uri' => $redirectURI,
+            'redirect_uri' => Yii::$app->params['oAuthLykke']['redirectUri'],
             'response_type' => 'code',
             'scope' => 'openid profile email address',
             'response_mode' => 'form_post',
@@ -44,6 +38,7 @@ class SiteController extends AppController {
             .http_build_query($getParams);
         $session = Yii::$app->session;
         $session->set('redirect_to', Yii::$app->request->referrer);
+        print_r($getParams);
         Yii::$app->response->redirect($urlRedirect);
     }
 
@@ -54,16 +49,15 @@ class SiteController extends AppController {
     }
 
     function actionAuth() {
-        $csrfToken
-            = Yii::$app->request->validateCsrfToken(Yii::$app->request->post('state'));
+        $state = Yii::$app->request->post('state');
+        $csrfToken = Yii::$app->request->validateCsrfToken($state);
         if (Yii::$app->request->isPost && $csrfToken) {
             $params = [
                 'code' => Yii::$app->request->post('code'),
                 'client_secret' => Yii::$app->params['oAuthLykke']['clientSecret'],
                 'client_id' => Yii::$app->params['oAuthLykke']['clientId'],
                 'grant_type' => "authorization_code",
-                'redirect_uri' => Yii::$app->getUrlManager()->hostInfo
-                    .'/site/auth',
+                'redirect_uri' => Yii::$app->params['oAuthLykke']['redirectUri'],
             ];
             //TODO: wrapping this integration with auth core
             $responseJson
