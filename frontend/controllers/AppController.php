@@ -33,6 +33,14 @@ abstract class AppController extends Controller {
         } catch (\Exception $e) {
         }
         $url = trim(Yii::$app->request->pathInfo, '/');
+
+        $uri = explode('/', ltrim(Yii::$app->request->getUrl(), '/'));
+        $uri = $uri[0].'/'.$uri[1];
+
+        if(($uri == 'company/news')or($uri == 'city/blog')){
+            $url = $uri;
+        }
+
         $this->page = SitePages::findOne([
             'url' => $url,
         ]);
