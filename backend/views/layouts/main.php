@@ -122,7 +122,6 @@ AppAsset::register($this);
   <script src="/control/dist/plugins/pace/pace.min.js"></script>
   <script src="/control/js/plugins/datetimepicker/datetimepicker.min.js"></script>
   <script src="/control/js/scripts.js"></script>
-  <script src="/control/js/scripts_new.js"></script>
   <script src="/control/js/user.js"></script>
   <script src="/control/js/comments.js"></script>
   <script src="/control/js/angular.min.js"></script>

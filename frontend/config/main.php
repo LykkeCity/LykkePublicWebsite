@@ -29,7 +29,8 @@ $config = [
             'name' => 'advanced',
         ],
         'log' => [
-            'traceLevel' => YII_DEBUG ? 3 : 0,
+            // todo: change tracelavel to 3, when DEBUG is true
+            'traceLevel' => 0,
             'targets' => [
                 [
                     'class' => 'yii\log\FileTarget',
@@ -59,12 +60,13 @@ $config = [
                 'city/faq' => 'community/faq',
                 'city/open_positions' => 'community/open-positions',
                 'city/lykke_times' => 'community/lykke-times',
-                'city/invest' => 'community/invest',
                 /* B2B */
                 'b2b' => 'b2b/index',
                 'b2b-join' => 'b2b/join',
                 'b2b-deploy' => 'b2b/deploy',
                 'b2b-thanks' => 'b2b/thanks',
+                'api/news' => 'api/get-news',
+                'api/blog' => 'api/get-blog',
                 $params['uri_blog'].'/<post_url:\w+>' => 'blog/index',
                 $params['uri_news'].'/<post_url:\w+>' => 'news/index',
                 '/asset/<asset:\w+\/?.*>' => 'asset/index',
@@ -74,7 +76,7 @@ $config = [
         ],
         'view' => [
             'class' => '\rmrevin\yii\minify\View',
-            'enableMinify' => !YII_DEBUG,
+            'enableMinify' => true,
             'concatCss' => true,
             // concatenate css
             'minifyCss' => true,
@@ -116,10 +118,6 @@ if (filter_var(getenv('YII_ENV_TEST'), FILTER_VALIDATE_BOOLEAN)) {
     $config['bootstrap'][] = 'debug';
     $config['modules']['debug'] = [
         'class' => 'yii\debug\Module',
-    ];
-    $config['bootstrap'][] = 'gii';
-    $config['modules']['gii'] = [
-        'class' => 'yii\gii\Module',
     ];
 }
 return $config;
