@@ -16,7 +16,7 @@ use frontend\widgets\Footer;
           <div class="features">
             <div class="features__item">
               <div class="features__img"><img src="/img/affiliates/bonuses-icn.svg" width="70" alt="bonuses"></div>
-              <div class="features__title"><?= $capitalization ?> CHF</div>
+              <div class="features__title"><?= $capitalization ?> USD</div>
               <div class="features__text">Market Capitalization</div>
             </div>
             <div class="features__item">
@@ -128,46 +128,44 @@ use frontend\widgets\Footer;
           <div class="row">
             <div class="col-md-6">
               <div class="invest_total invest_total--big">
-                <div class="invest_total__value">1,285,690,000 <span>LKK</span></div>
+                <div class="invest_total__value"><span id="invest_total__value-api"><?= $totalLykkeCoins ?></span> <span>LKK</span></div>
               </div>
               <a href="" class="btn btn--blue">View Lykke coinholders</a>
             </div>
             <div class="col-md-6">
               <div class="invest_total">
                 <div class="invest_total__value">
-                  1,147,666,796 <span>LKK</span>
-
+                  <span id="invest_private-wallets__value-api"><?= $privateWalletsCoins ?></span> <span>LKK</span>
                   <div class="invest_total__ownership">
-                    <span class="_value">89.3%</span>
-                    <div class="ownership_value" style="width: 89.3%"></div>
+                    <span class="_value"><span id="invest_private-wallets__value-percent"></span>%</span>
+
+                    <div class="ownership_value" id="invest_private-wallets__line"></div>
                   </div>
                 </div>
                 <div class="invest_total__desc">Private wallets</div>
               </div>
               <div class="invest_total">
                 <div class="invest_total__value">
-                  820,813,043 <span>LKK</span>
+                  <span id="invest_trading-wallets__value-api"><?= $tradingWalletsCoins ?></span> <span>LKK</span>
 
                   <div class="invest_total__ownership">
-                    <span class="_value">6.7%</span>
-                    <div class="ownership_value" style="width: 6.7%"></div>
+                    <span class="_value" ><span id="invest_trading-wallets__value-percent"></span>%</span>
+                    <div class="ownership_value" id="invest_trading-wallets__line"></div>
                   </div>
                 </div>
                 <div class="invest_total__desc">Trading wallets</div>
               </div>
               <div class="invest_total">
                 <div class="invest_total__value">
-                  52,506,403 <span>LKK</span>
+                 <span id="invest_treasury-coins__value-api"><?= $treasuryCoins ?></span> <span>LKK</span>
 
                   <div class="invest_total__ownership">
-                    <span class="_value">4.0%</span>
-                    <div class="ownership_value" style="width: 4%"></div>
+                    <span class="_value"><span id="invest_treasury-coins__value-percent"></span>%</span>
+                    <div class="ownership_value" id="invest_treasury-coins__line"></div>
                   </div>
                 </div>
                 <div class="invest_total__desc">Owned by <a href="https://www.coinprism.info/address/akFi7XEmeEXPw5zPBxtktGWf4NiqJJpFvGK" target="_blank">Lykke Corp treasury</a></div>
-
               </div>
-
             </div>
           </div>
         </div>
@@ -368,7 +366,6 @@ use frontend\widgets\Footer;
   </section>
 
 </article>
-
 
 <?=Footer::widget();?>
 
