@@ -7,7 +7,7 @@ use yii\web\Controller;
 use Yii;
 use yii\web\Response;
 
-class AssetController extends AppController
+class AssetController extends Controller
 {
 
     function actionIndex($asset)
