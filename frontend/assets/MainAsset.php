@@ -21,7 +21,6 @@ class MainAsset extends AssetBundle
 
   public $js = [
     'js/vendor/angular.min.js',
-    'js/vendor/jquery.min.js',
     'js/vendor/bootstrap-custom.min.js',
     'js/vendor/fastclick.min.js',
     'js/vendor/jquery.inview.min.js',

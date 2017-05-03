@@ -87,6 +87,7 @@ use yii\helpers\Html;
             }("https://assets.zendesk.com/embeddable_framework/main.js", "lykkex.zendesk.com");
             /*]]>*/</script>
         <!-- End of lykkex Zendesk Widget script -->
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
 
     </head>
     <body class="<?=$this->params['class_body']?>">
@@ -101,7 +102,6 @@ use yii\helpers\Html;
     <?=Frontend_Admin::widget();?>
 
     <?=$content?>
-
     <?php $this->endBody() ?>
 
     </body>
