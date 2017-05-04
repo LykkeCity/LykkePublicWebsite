@@ -7,8 +7,9 @@ use common\models\LykkeUser;
 use common\models\NewsPosts;
 use yii;
 use yii\helpers\Json;
+use yii\web\Controller;
 
-class ApiController extends AppController {
+class ApiController extends Controller {
 
     function actionGetNews() {
         $origin = Yii::$app->request->getHostInfo();
