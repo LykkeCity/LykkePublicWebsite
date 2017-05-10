@@ -128,24 +128,6 @@ use frontend\widgets\Footer;
               <a href="#leadership_modal" class="leadership_item__control"
                  data-toggle="modal">
                 <div class="leadership_item__image"
-                     data-big-image="img/corp/leadership/big/6-steblyuk.jpg">
-                  <img src="img/corp/leadership/6-steblyuk-preview.jpg"
-                       alt="steblyuk"></div>
-                <div class="leadership_item__info">
-                  <div
-                      class="leadership_item__title h3"><?=$blocks['Arseniy Steblyuk']['name']?></div>
-                  <div
-                      class="leadership_item__desc"><?=$blocks['Arseniy Steblyuk']['title']?></div>
-                  <div
-                      class="leadership_item__text"><?=$blocks['Arseniy Steblyuk']['content']?></div>
-                </div>
-              </a>
-            </div>
-
-            <div class="leadership_item">
-              <a href="#leadership_modal" class="leadership_item__control"
-                 data-toggle="modal">
-                <div class="leadership_item__image"
                      data-big-image="img/corp/leadership/big/7-migin.jpg"><img
                       src="img/corp/leadership/7-migin-preview.jpg" alt="migin">
                 </div>
