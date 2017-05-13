@@ -1,0 +1,14 @@
+.tv-chart iframe {
+    width: 100% !important;
+    height: 700px !important;
+}
+@media only screen and (max-width: 1199px) {
+    .tv-chart iframe {
+        height: 500px !important;
+    }
+}
+@media only screen and (max-width: 991px) {
+    .tv-chart iframe {
+        height: 400px !important;
+    }
+}

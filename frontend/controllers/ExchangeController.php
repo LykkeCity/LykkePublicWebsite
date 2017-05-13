@@ -29,11 +29,15 @@ class ExchangeController extends AppController
             'position' => View::POS_END,
             'depends'  => 'frontend\assets\MainAsset',
         ]);
-        Yii::$app->view->registerJsFile('/js/assets/datafeed/datafeed.js', [
+        Yii::$app->view->registerJsFile('/js/exchange/datafeed/datafeed.js', [
             'position' => View::POS_END,
             'depends'  => 'frontend\assets\MainAsset',
         ]);
-        Yii::$app->view->registerJsFile('/js/assets/advanced-chart.js', [
+        Yii::$app->view->registerJsFile('/js/exchange/advanced-chart.js', [
+            'position' => View::POS_END,
+            'depends'  => 'frontend\assets\MainAsset',
+        ]);
+        Yii::$app->view->registerCssFile('/css/exchange/advanced-chart.css', [
             'position' => View::POS_END,
             'depends'  => 'frontend\assets\MainAsset',
         ]);
