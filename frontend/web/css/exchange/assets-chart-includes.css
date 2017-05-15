@@ -1,0 +1,20 @@
+/*
+    TV chart overrides
+    Note: unsafe, but here is no possibility to override these props via API
+*/
+
+.chart-page {
+    border: 0 !important;
+}
+.chart-page .chart-container {
+    border: 0 !important;
+}
+.chart-page .tv-main-panel {
+    background: transparent !important;
+}
+.chart-page .tv-side-toolbar {
+    display: none !important;
+}
+.chart-page .onchart-tv-logo {
+    display: none !important;
+}

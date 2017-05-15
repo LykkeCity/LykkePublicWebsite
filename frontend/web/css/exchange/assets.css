@@ -1,0 +1,538 @@
+.exchange .chart-wrap {
+    padding-right: 50px;
+}
+/*
+    Data Overview (chart header)
+*/
+.exchange .data-overview .change-asset-btn {
+    display: none;
+    font-size: 1.25rem;
+    font-weight: 300;
+    color: #8c94a0;
+    margin-left: 20px;
+    vertical-align: top;
+    line-height: 2.5;
+}
+.exchange .data-overview .change-asset-btn {
+    display: none;
+}
+.exchange .data-overview .asset-value-outer {
+    display: inline-block;
+}
+.exchange .data-overview .asset-value {
+    color: #262626;
+    font-size: 40px;
+    font-weight: 300;
+}
+.exchange .data-overview .asset-value-change {
+    color: #13b72a;
+    margin-left: 15px;
+    font-size: 22px;
+}
+.exchange .data-overview .asset-value-change.negative {
+    color: #ff3a2a;
+}
+.exchange .data-overview .asset-price-outer {
+    display: inline-block;
+}
+.exchange .data-overview .asset-price {
+    font-size: 16px;
+}
+.exchange .data-overview .asset-price span {
+    font-size: 22px;
+    margin-left: 8px;
+}
+.exchange .data-overview .asset-price.bid span {
+    color: #fb8f01;
+}
+.exchange .data-overview .asset-price.ask span {
+    color: #ab00ff;
+}
+
+/*
+    Chart controls
+*/
+.exchange .chart-controls {
+    margin-top: 35px;
+    position: relative;
+    margin-bottom: 30px;
+}
+.exchange .chart-controls .periods {
+    border-bottom: 1px solid #ebedef;
+    margin: 0 !important;
+}
+.exchange .chart-controls .periods li a {
+    color: #3f4d60;
+    font-size: 16px;
+    letter-spacing: 2.7px;
+    padding: 1.4375rem 1.25rem;
+}
+.exchange .chart-controls .periods li.active a {
+    border-bottom: 2px solid #333;
+    color: #ab00ff;
+}
+.exchange .chart-controls .advanced-chart-wrap {
+}
+.exchange .chart-controls .advanced-chart-btn {
+    position: absolute;
+    top: 0;
+    right: 0;
+    display: inline-block;
+
+    color: #8c94a0;
+    padding: 1.4375rem 0;
+    cursor: pointer;
+}
+.exchange .chart-controls .advanced-chart-btn:hover,
+.exchange .chart-controls .advanced-chart-btn:focus {
+    color: #333;
+}
+
+/*
+    Chart
+ */
+.exchange .tv-chart {
+    width: 100%;
+    height: 400px;
+    margin-bottom: 30px;
+}
+.exchange .tv-chart > iframe {
+    max-width: 100%;
+}
+
+/*
+    Chart footer (details)
+*/
+.exchange .chart {
+    background: #42bcff;
+    margin-bottom: 40px;
+    max-width: 100%;
+}
+/*
+    Chart footer (details)
+*/
+.exchange .asset-details .asset-details-header {
+    border-bottom: 1px solid #ebedef;
+    margin-bottom: 23px;
+}
+.exchange .asset-details .asset-name {
+    font-size: 18px;
+    font-weight: 600;
+    padding: 14px 0;
+}
+.exchange .asset-details > div {
+    margin: 0;
+}
+.exchange .asset-details .asset-details-btn-wrap {
+    padding: 0;
+}
+.exchange .asset-details .asset-details-btn {
+    display: inline-block;
+    text-align: right;
+    line-height: 1;
+    color: #3f4d60;
+    padding: 15px 0;
+    cursor: pointer;
+    opacity: 0.6;
+}
+.exchange .asset-details .asset-details-btn:hover {
+    color: #333;
+}
+.exchange .asset-details .asset-details-row {
+    padding: 5px 0 6px 0;
+}
+.exchange .asset-details .asset-prop-name {
+    font-size: 16px;
+    opacity: 0.6;
+    line-height: 1.5;
+    padding: 0;
+}
+.exchange .asset-details .asset-prop-value {
+    font-size: 16px;
+    line-height: 1.5;
+}
+
+/*
+    Right pane
+*/
+.exchange .right-pane-outer {
+    padding-left: 50px;
+}
+.exchange .right-pane-overlay {
+    display: none;
+
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+
+    background-color: rgba(255, 255, 255, 0.16);
+    z-index: -1;
+}
+.exchange .search-box {
+    width: 100%;
+    border: 1px solid #d3d6db;
+    border-radius: 4px;
+    padding: 13px 20px;
+}
+.exchange .search-box::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+    color: #3f4d60;
+    opacity: 0.6;
+}
+.exchange .search-box::-moz-placeholder { /* Firefox 19+ */
+    color: #3f4d60;
+    opacity: 0.6;
+}
+.exchange .search-box:-ms-input-placeholder { /* IE 10+ */
+    color: #3f4d60;
+    opacity: 0.6;
+}
+.exchange .search-box:-moz-placeholder { /* Firefox 18- */
+    color: #3f4d60;
+    opacity: 0.6;
+}
+.exchange .search-box:hover,
+.exchange .search-box:focus {
+    border-color: #8c94a0;
+}
+
+/*
+    Right pane => Popup close btn
+*/
+.exchange .popup-close-btn {
+    display: none;
+    position: relative;
+    float: right;
+    width: 40px;
+    height: 40px;
+    margin-top: 4px;
+    cursor: pointer;
+    outline: 0;
+}
+.exchange .popup-close-btn span {
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+    margin-top: 19px;
+}
+.exchange .popup-close-btn span::before,
+.exchange .popup-close-btn span::after {
+    display: block;
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    background: #b2b8bf;
+
+    -webkit-transition: all 0.5s ease;
+    -moz-transition: all 0.5s ease;
+    -ms-transition: all 0.5s ease;
+    -o-transition: all 0.5s ease;
+    transition: all 0.5s ease;
+}
+.exchange .popup-close-btn span::before {
+    top: 0;
+    -webkit-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg);
+}
+.exchange .popup-close-btn span::after {
+    bottom: 0;
+    -webkit-transform: rotate(-45deg);
+    -ms-transform: rotate(-45deg);
+    transform: rotate(-45deg);
+}
+.exchange .popup-close-btn:hover span:before,
+.exchange .popup-close-btn:hover span:after {
+    background: #3f4d60;
+}
+
+/*
+    Right pane => List
+*/
+.exchange .assets-list-header {
+    margin-top: 30px;
+    padding: 0 0 0 20px;
+    border-bottom: 1px solid #ebedef;
+}
+.exchange .assets-list-header p {
+    font-size: 18px;
+    line-height: 52px;
+    font-weight: 600;
+    color: #333;
+    margin: 0;
+}
+.exchange .assets-list {
+    max-height: 800px;
+    overflow: auto;
+}
+.exchange .assets-list .assets-list-item {
+    padding: 17px 20px;
+    border-bottom: 1px solid #ebedef;
+
+    -webkit-transition: all 0.2s ease;
+    -moz-transition: all 0.2s ease;
+    -ms-transition: all 0.2s ease;
+    -o-transition: all 0.2s ease;
+    transition: all 0.2s ease;
+}
+.exchange .assets-list .assets-list-item:not(.active) {
+    cursor: pointer;
+}
+.exchange .assets-list .assets-list-item.active,
+.exchange .assets-list .assets-list-item:hover {
+    background: #f5f6f7;
+}
+.exchange .assets-list .asset-name {
+    font-size: 18px;
+    line-height: 1;
+    margin-bottom: 6px;
+}
+.exchange .assets-list .asset-price {
+    font-size: 14px;
+    color: #8c94a0;
+}
+.exchange .assets-list .asset-price:last-child {
+    margin-left: 15px;
+}
+.exchange .assets-list .asset-price span {
+    margin-left: 4px;
+}
+.exchange .assets-list .asset-price.bid span {
+    color: #ab00ff;
+}
+.exchange .assets-list .asset-price.ask span {
+    color: #fb8f01;
+}
+
+.exchange .assets-list::-webkit-scrollbar {
+    width: 8px;
+}
+
+.exchange .assets-list::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+}
+
+.exchange .assets-list::-webkit-scrollbar-thumb {
+    background-color: darkgrey;
+    outline: 1px solid slategrey;
+}
+
+/*
+    Value / time tooltip (on chart hover)
+*/
+.exchange .tv-chart-value-label {
+    display: none;
+    position: absolute;
+
+    opacity: 0.6;
+    border-radius: 3px;
+    background-color: #333333;
+    padding: 6px 10px;
+}
+.exchange .tv-chart-value-label > p {
+    color: #fff;
+    margin: 0;
+    font-size: 14px;
+}
+
+/*
+    Helpers
+*/
+.exchange .ease-500 {
+    -webkit-transition: all 0.5s ease;
+    -moz-transition: all 0.5s ease;
+    -ms-transition: all 0.5s ease;
+    -o-transition: all 0.5s ease;
+    transition: all 0.5s ease;
+}
+
+@media only screen and (max-width: 1199px) {
+    .exchange .chart-wrap {
+        padding-right: 20px;
+    }
+    .exchange .right-pane-outer {
+        padding-left: 20px;
+    }
+}
+@media only screen and (max-width: 991px) {
+    .exchange .chart-wrap {
+        padding: 0;
+    }
+
+    .exchange .tv-chart {
+        height: 350px;
+    }
+
+    .exchange .data-overview .change-asset-btn {
+        display: inline-block;
+    }
+    .exchange .chart-controls .advanced-chart-btn {
+        top: 3px;
+    }
+
+    .exchange .right-pane-outer {
+        visibility: hidden;
+        opacity: 0;
+
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        z-index: 10;
+
+        -webkit-transform: scale(0.9);
+        -moz-transform: scale(0.9);
+        -ms-transform: scale(0.9);
+        -o-transform: scale(0.9);
+        transform: scale(0.9);
+
+        padding: 120px 50px 50px 50px;
+    }
+
+    .exchange .right-pane {
+        width: 100%;
+        height: 100%;
+        float: left;
+
+        border: 1px solid #ebedef;
+        border-radius: 5px;
+        padding: 50px 50px 120px 50px;
+        background: rgb(255, 255, 255);
+    }
+    .exchange .assets-list-header {
+        display: none;
+    }
+    .exchange .assets-list {
+        margin-top: 30px;
+        height: 100%;
+    }
+    .exchange .assets-list .assets-list-item {
+        width: 50%;
+        float: left;
+        border: 1px solid #ebedef;
+        margin-left: -1px; /* border collapse */
+        margin-top: -1px;
+    }
+    .exchange .search-box {
+        width: 60%;
+    }
+    .exchange .popup-close-btn {
+        display: block;
+    }
+
+    /*
+        Styles in case assets popup opened
+    */
+    body.assets-list-opened .exchange .right-pane-outer {
+        visibility: visible;
+        opacity: 1;
+
+        -webkit-transform: scale(1);
+        -moz-transform: scale(1);
+        -ms-transform: scale(1);
+        -o-transform: scale(1);
+        transform: scale(1);
+    }
+    body.assets-list-opened .exchange .right-pane-overlay {
+        display: block;
+    }
+    body.assets-list-opened {
+        overflow: hidden;
+    }
+    body.assets-list-opened .header_nav,
+    body.assets-list-opened .site_nav,
+    body.assets-list-opened .chart-wrap {
+        -webkit-filter: blur(3px);
+        filter: blur(3px);
+    }
+    body.assets-list-opened .exchange .exchange-inner {
+        position: static;
+    }
+}
+@media only screen and (max-width: 767px) {
+    .exchange .data-overview h2 {
+        margin: 0 0px 10px 15px;
+    }
+    .exchange .data-overview .asset-value {
+        margin-left: 15px;
+        font-size: 36px
+    }
+    .exchange .data-overview .asset-value-change {
+        font-size: 18px;
+    }
+    .exchange .data-overview .asset-price {
+        margin-left: 15px;
+        font-size: 14px;
+    }
+    .exchange .data-overview .asset-price span {
+        font-size: 16px;
+    }
+
+    .exchange .chart-controls {
+        margin-top: 20px;
+        margin-bottom: 20px;
+    }
+    .exchange .chart-controls .advanced-chart-btn {
+        top: 3px;
+        right: 15px;
+        font-size: 14px;
+    }
+
+    .exchange .tv-chart {
+        height: 300px;
+    }
+
+    .exchange .asset-details {
+        margin-top: 20px;
+    }
+    .exchange .asset-details .asset-details-btn {
+        padding: 17px 0;
+    }
+
+    .exchange .right-pane-outer {
+        padding: 0;
+    }
+    .exchange .right-pane {
+        padding: 110px 0 75px;
+    }
+    .exchange .assets-list .asset-name {
+        font-size: 16px;
+    }
+    .exchange .assets-list .asset-price {
+        font-size: 12px;
+    }
+    .exchange .search-box {
+        margin-left: 20px;
+    }
+    .exchange .popup-close-btn {
+        margin: 2px 20px 0 0;
+    }
+}
+@media only screen and (max-width: 480px) {
+    .exchange .chart-controls {
+        margin-top: 35px;
+    }
+    .exchange .tv-chart {
+        height: 250px;
+    }
+    .exchange .asset-details .asset-details-btn {
+        padding: 17px 0;
+    }
+
+    .exchange .right-pane {
+        padding: 80px 0 0 0;
+    }
+    .exchange .search-box {
+        width: 65%;
+    }
+    .exchange .assets-list .assets-list-item {
+        width: 100%;
+    }
+}
+

@@ -2,12 +2,13 @@
     TV chart overrides
     Note: unsafe, but here is no possibility to override these props via API
 */
-.tv-side-toolbar .tools-group:nth-child(3) {
+.chart-page .onchart-tv-logo {
     display: none !important;
 }
-.tv-side-toolbar .tools-group .button[title="Show Objects Tree"] {
+
+.chart-page .tv-side-toolbar .tools-group:nth-child(3) {
     display: none !important;
 }
-.onchart-tv-logo {
+.chart-page .tv-side-toolbar .tools-group .button[title="Show Objects Tree"] {
     display: none !important;
 }

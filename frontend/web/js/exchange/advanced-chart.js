@@ -1,16 +1,22 @@
-TradingView.onready(function() {
-    var widget = window.tvWidget = new TradingView.widget({
+function AdvancedChartPage() {
+    this._tvWidget = null;
+    this._tvWidgetDefaults = {
         fullscreen: false,
+        autosize: true,
         symbol: 'AAPL',
         interval: 'D',
-        container_id: "tv_chart_container",
+        container_id: "tv-advanced-chart",
         //	BEWARE: no trailing slash is expected in feed URL
         datafeed: new Datafeeds.UDFCompatibleDatafeed("https://demo_feed.tradingview.com"),
         library_path: "/js/vendor/tv-charts/",
         custom_css_url: "/css/exchange/advanced-chart-includes.css",
         locale: "en",
         //	Regression Trend-related functionality is not implemented yet, so it's hidden for a while
-        drawings_access: { type: 'black', tools: [ { name: "Regression Trend" } ] },
+        drawings_access: {
+            type: 'black',
+            tools: [{
+                name: "Regression Trend"
+            }] },
         disabled_features: [
             "use_localstorage_for_settings",
             "header_settings",
@@ -24,5 +30,13 @@ TradingView.onready(function() {
             "show_chart_property_page",
             "timezone_menu"
         ]
+    };
+}
+
+AdvancedChartPage.prototype.init = function () {
+    var self = this;
+    TradingView.onready(function() {
+        self._tvWidget = new TradingView.widget(self._tvWidgetDefaults);
     });
-});
+};
+

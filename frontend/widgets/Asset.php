@@ -17,10 +17,11 @@ class Asset extends Widget
             $asset = $this->asset;
             $assetApi = new AssetApi();
             $assetsPairData = $assetApi->GetAssetsData($this->asset);
-            Yii::$app->view->registerJsFile('/js/asset.js', [
-                'position' => View::POS_END,
-                'depends'  => 'frontend\assets\MainAsset',
-            ]);
+            // TODO: remove later
+//            Yii::$app->view->registerJsFile('/js/asset.js', [
+//                'position' => View::POS_END,
+//                'depends'  => 'frontend\assets\MainAsset',
+//            ]);
 
             return $this->render('Asset', compact('asset', 'assetsPairData'));
         }

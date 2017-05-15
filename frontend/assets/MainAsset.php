@@ -16,7 +16,9 @@ class MainAsset extends AssetBundle
     'css/vendor/bootstrap-custom.min.css',
     '/css/style.css',
     '/css/style_addon.css',
-    '/css/ico_aside.css'
+    '/css/ico_aside.css',
+    '/css/exchange/assets.css',
+    '/css/exchange/advanced-chart.css',
   ];
 
   public $js = [
@@ -34,6 +36,10 @@ class MainAsset extends AssetBundle
     'js/invest.js',
     'js/leadership_modal.js',
     'js/controllers.js',
+    '/js/exchange/advanced-chart.js',
+    '/js/exchange/assets.js',
+    '/js/exchange/datafeed/datafeed.js',
+    '/js/app.js',
   ];
   
 }
