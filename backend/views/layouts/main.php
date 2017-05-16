@@ -87,7 +87,8 @@ AppAsset::register($this);
       src="https://cdnjs.cloudflare.com/ajax/libs/raphael/2.1.0/raphael-min.js"></script>
   <script src="/control/dist/plugins/morris/morris.min.js"></script>
   <!-- Sparkline -->
-  <script src="/control/dist/plugins/sparkline/jquery.sparkline.min.js"></script>
+  <script
+      src="/control/dist/plugins/sparkline/jquery.sparkline.min.js"></script>
   <!-- jvectormap -->
   <script
       src="/control/dist/plugins/jvectormap/jquery-jvectormap-1.2.2.min.js"></script>
@@ -98,9 +99,11 @@ AppAsset::register($this);
   <!-- daterangepicker -->
   <script
       src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.11.2/moment.min.js"></script>
-  <script src="/control/dist/plugins/daterangepicker/daterangepicker.js"></script>
+  <script
+      src="/control/dist/plugins/daterangepicker/daterangepicker.js"></script>
   <!-- datepicker -->
-  <script src="/control/dist/plugins/datepicker/bootstrap-datepicker.js"></script>
+  <script
+      src="/control/dist/plugins/datepicker/bootstrap-datepicker.js"></script>
   <!-- Bootstrap WYSIHTML5 -->
   <script
       src="/control/dist/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.all.min.js"></script>
@@ -113,14 +116,17 @@ AppAsset::register($this);
   <script src="/control/dist/js/app.min.js"></script>
 
   <!-- DATA TABLES -->
-  <script src="/control/js/plugins/datatables/jquery.dataTables.min.js"></script>
-  <script src="/control/js/plugins/datatables/dataTables.bootstrap.min.js"></script>
+  <script
+      src="/control/js/plugins/datatables/jquery.dataTables.min.js"></script>
+  <script
+      src="/control/js/plugins/datatables/dataTables.bootstrap.min.js"></script>
 
   <script src="/control/js/plugins/edit_area/edit_area_full.js"></script>
   <script src="/control/js/plugins/tinymce/tinymce.min.js"></script>
   <script src="/control/js/plugins/moment/moment.js"></script>
   <script src="/control/dist/plugins/pace/pace.min.js"></script>
-  <script src="/control/js/plugins/datetimepicker/datetimepicker.min.js"></script>
+  <script
+      src="/control/js/plugins/datetimepicker/datetimepicker.min.js"></script>
   <script src="/control/js/scripts.js"></script>
   <script src="/control/js/user.js"></script>
   <script src="/control/js/comments.js"></script>
@@ -236,6 +242,60 @@ AppAsset::register($this);
 
 
 </div>
+
+<!-- Modals -->
+<div>
+  <div id="successModal" class="modal modal-success">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal"
+                  aria-label="Close">
+            <span aria-hidden="true">×</span></button>
+          <h4 class="modal-title">Success!</h4>
+        </div>
+        <div class="modal-body">
+          <p>Done.</p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-outline pull-left"
+                  data-dismiss="modal">Close
+          </button>
+          <button onclick="window.location.reload();">Refresh page</button>
+          <button onclick="window.location.reload();" class="btn btn-outline pull-right">
+            Refresh page
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="errorModal" class="modal modal-danger">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal"
+                  aria-label="Close">
+            <span aria-hidden="true">×</span></button>
+          <h4 class="modal-title">Error!</h4>
+        </div>
+        <div class="modal-body">
+          <p>Any error is occurred</p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-outline pull-left"
+                  data-dismiss="modal">Close
+          </button>
+          <button onclick="window.location.reload();" class="btn btn-outline pull-right">
+            Refresh page
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- end Modals -->
+
 </body>
 </html>
 <?php $this->endPage() ?>

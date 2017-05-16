@@ -30,8 +30,7 @@ use backend\components\helpers\UrlHelper;
 
 </script>
 
-<?php
-?>
+
 
 
 <div ng-app="lykkeAdminApp" ng-controller="PageViewCtrl">

@@ -65,6 +65,14 @@ function openKCFinder(div) {
     );
 }
 
+function showModalSuccess() {
+    $("#successModal").modal()
+}
+
+function showModalError() {
+    $("#errorModal").modal()
+}
+
 var PageModel = function (id, name, seo_title, seo_description, seo_keywords, datetime, template, url, in_menu, published) {
     this.id = id;
     this.name = name;
@@ -263,6 +271,10 @@ app.controller('PageViewCtrl', [
             'seo'
         ];
 
+        $scope.validate = function () {
+
+        };
+
         $scope.tinymceOptions = options.tinymceOptions;
         $scope.page = window.page;
 
@@ -272,9 +284,10 @@ app.controller('PageViewCtrl', [
         $scope.savePage = function () {
             $scope.page.savePage($http,
                 function () {
-                    window.location.reload();
+                    showModalSuccess();
                 },
                 function (data) {
+                    showModalError();
                 })
         };
         $scope.addBlock = function () {
@@ -283,7 +296,7 @@ app.controller('PageViewCtrl', [
 
                 },
                 function (data) {
-
+                    showModalError();
                 })
         };
         $scope.deleteBlock = function (id, $index) {
