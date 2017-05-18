@@ -178,6 +178,78 @@ use frontend\widgets\Footer;
               </a>
             </div>
 
+            <div class="leadership_item">
+              <a href="#leadership_modal" class="leadership_item__control"
+                 data-toggle="modal">
+                <div class="leadership_item__image"
+                     data-big-image="img/corp/leadership/big/12-niklaus.jpg">
+                  <img src="img/corp/leadership/12-niklaus-preview.jpg"
+                       alt="zamboglou"></div>
+                <div class="leadership_item__info">
+                  <div
+                      class="leadership_item__title h3"><?=$blocks['Niklaus Mettler']['name']?></div>
+                  <div
+                      class="leadership_item__desc"><?=$blocks['Niklaus Mettler']['title']?></div>
+                  <div
+                      class="leadership_item__text"><?=$blocks['Niklaus Mettler']['content']?></div>
+                </div>
+              </a>
+            </div>
+
+            <div class="leadership_item">
+              <a href="#leadership_modal" class="leadership_item__control"
+                 data-toggle="modal">
+                <div class="leadership_item__image"
+                     data-big-image="img/corp/leadership/big/14-benedikt.jpg">
+                  <img src="img/corp/leadership/14-benedikt-preview.jpg"
+                       alt="zamboglou"></div>
+                <div class="leadership_item__info">
+                  <div
+                      class="leadership_item__title h3"><?=$blocks['Benedikt Schuppli']['name']?></div>
+                  <div
+                      class="leadership_item__desc"><?=$blocks['Benedikt Schuppli']['title']?></div>
+                  <div
+                      class="leadership_item__text"><?=$blocks['Benedikt Schuppli']['content']?></div>
+                </div>
+              </a>
+            </div>
+
+<!--            <div class="leadership_item">-->
+<!--              <a href="#leadership_modal" class="leadership_item__control"-->
+<!--                 data-toggle="modal">-->
+<!--                <div class="leadership_item__image"-->
+<!--                     data-big-image="img/corp/leadership/big/10-zamboglou.jpg">-->
+<!--                  <img src="img/corp/leadership/10-zamboglou-preview.jpg"-->
+<!--                       alt="zamboglou"></div>-->
+<!--                <div class="leadership_item__info">-->
+<!--                  <div-->
+<!--                      class="leadership_item__title h3">--><?//=$blocks['Andrey Snetkov']['name']?><!--</div>-->
+<!--                  <div-->
+<!--                      class="leadership_item__desc">--><?//=$blocks['Andrey Snetkov']['title']?><!--</div>-->
+<!--                  <div-->
+<!--                      class="leadership_item__text">--><?//=$blocks['Andrey Snetkov']['content']?><!--</div>-->
+<!--                </div>-->
+<!--              </a>-->
+<!--            </div>-->
+
+            <div class="leadership_item">
+              <a href="#leadership_modal" class="leadership_item__control"
+                 data-toggle="modal">
+                <div class="leadership_item__image"
+                     data-big-image="img/corp/leadership/big/11-seamus.jpg">
+                  <img src="img/corp/leadership/11-seamus-preview.jpg"
+                       alt="zamboglou"></div>
+                <div class="leadership_item__info">
+                  <div
+                      class="leadership_item__title h3"><?=$blocks['Seamus Donoghue']['name']?></div>
+                  <div
+                      class="leadership_item__desc"><?=$blocks['Seamus Donoghue']['title']?></div>
+                  <div
+                      class="leadership_item__text"><?=$blocks['Seamus Donoghue']['content']?></div>
+                </div>
+              </a>
+            </div>
+
           </div>
         </div>
 
