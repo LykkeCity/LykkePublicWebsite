@@ -210,7 +210,7 @@ use backend\components\helpers\UrlHelper;
 
   <!-- Modals -->
   <div>
-    <div id="dangerBlockModal" class="modal modal-danger">
+    <div id="dangerBlockModal" class="modal modal-warning">
       <div class="modal-dialog">
         <div class="modal-content">
           <div class="modal-header">
@@ -236,7 +236,7 @@ use backend\components\helpers\UrlHelper;
       </div>
     </div>
 
-    <div id="dangerPageModal" class="modal modal-danger">
+    <div id="dangerPageModal" class="modal modal-warning">
       <div class="modal-dialog">
         <div class="modal-content">
           <div class="modal-header">
