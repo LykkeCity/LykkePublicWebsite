@@ -66,11 +66,11 @@ function openKCFinder(div) {
 }
 
 function showModalSuccess() {
-    $("#successModal").modal()
+    $("#successModal").modal();
 }
 
 function showModalError() {
-    $("#errorModal").modal()
+    $("#errorModal").modal();
 }
 
 var PageModel = function (id, name, seo_title, seo_description, seo_keywords, datetime, template, url, in_menu, published) {
@@ -301,6 +301,14 @@ app.controller('PageViewCtrl', [
         };
         $scope.deleteBlock = function (id, $index) {
             $scope.page.deleteBlock($http, id, $index)
+        };
+        $scope.deleteBlockDialog = function(id, $index){
+            $("#dangerBlockModal").modal();
+            $scope.deleteBlockId = id;
+            $scope.deleteBlockIndex = $index;
+        };
+        $scope.deletePageDialog = function () {
+            $("#dangerPageModal").modal();
         };
     }
 ]);
