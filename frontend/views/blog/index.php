@@ -3,6 +3,9 @@ use frontend\widgets\Footer;
 
 ?>
 
+<script>
+    fbq('track', 'ViewContent', {});
+</script>
 
 <article class="content">
 
