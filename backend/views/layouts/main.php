@@ -261,7 +261,6 @@ AppAsset::register($this);
           <button type="button" class="btn btn-outline pull-left"
                   data-dismiss="modal">Close
           </button>
-          <button onclick="window.location.reload();">Refresh page</button>
           <button onclick="window.location.reload();" class="btn btn-outline pull-right">
             Refresh page
           </button>
