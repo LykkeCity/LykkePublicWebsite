@@ -98,6 +98,20 @@ use yii\helpers\Html;
       <!-- End Facebook Pixel Code -->
 
       <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+      <script>
+          var trackAppStoreLink = function(url) {
+              ga('send', 'event', 'appstore', 'click', url, {
+                  'transport': 'beacon',
+                  'hitCallback': function(){document.location = url;}
+              });
+          };
+          var trackPlayMarketLink = function(url) {
+              ga('send', 'event', 'googleplay', 'click', url, {
+                  'transport': 'beacon',
+                  'hitCallback': function(){document.location = url;}
+              });
+          };
+      </script>
 
     </head>
     <body class="<?=$this->params['class_body']?>">

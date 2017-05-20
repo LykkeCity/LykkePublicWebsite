@@ -73,8 +73,8 @@ $this->params['class_body'] = "page_landing"
           </div>
           <div class="col-sm-7">
             <div class="apps pull-right">
-              <div class="apps_apple"><a href="https://appsto.re/ru/Dwjvcb.i" target="_blank"><img src="img/appstore-badge.svg" width="170" alt="apps_apple"></a></div>
-              <div class="apps_google"><a href="https://play.google.com/store/apps/details?id=com.lykkex.LykkeWallet" target="_blank"><img src="img/google-play.svg" width="170" alt="apps_google"></a></div>
+              <div class="apps_apple"><a onclick="trackAppStoreLink('https://appsto.re/ru/Dwjvcb.i');" href="https://appsto.re/ru/Dwjvcb.i" target="_blank"><img src="img/appstore-badge.svg" width="170" alt="apps_apple"></a></div>
+              <div class="apps_google"><a onclick="trackPlayMarketLink('https://play.google.com/store/apps/details?id=com.lykkex.LykkeWallet');" href="https://play.google.com/store/apps/details?id=com.lykkex.LykkeWallet" target="_blank"><img src="img/google-play.svg" width="170" alt="apps_google"></a></div>
             </div>
           </div>
         </div>
@@ -250,8 +250,8 @@ $this->params['class_body'] = "page_landing"
       </div>
       <div class="col-sm-6 col-md-7">
         <div class="apps">
-          <div class="apps_apple"><a href="https://appsto.re/ru/Dwjvcb.i" target="_blank"><img src="img/appstore-badge.svg" width="203" alt="appstore"></a></div>
-          <div class="apps_google"><a href="https://play.google.com/store/apps/details?id=com.lykkex.LykkeWallet" target="_blank"><img src="img/google-play.svg" width="203" alt="googleplay"></a></div>
+          <div class="apps_apple"><a onclick="trackAppStoreLink('https://appsto.re/ru/Dwjvcb.i');" href="https://appsto.re/ru/Dwjvcb.i" target="_blank"><img src="img/appstore-badge.svg" width="203" alt="appstore"></a></div>
+          <div class="apps_google"><a onclick="trackPlayMarketLink('https://play.google.com/store/apps/details?id=com.lykkex.LykkeWallet');" href="https://play.google.com/store/apps/details?id=com.lykkex.LykkeWallet" target="_blank"><img src="img/google-play.svg" width="203" alt="googleplay"></a></div>
         </div>
       </div>
     </div>
