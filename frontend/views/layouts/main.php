@@ -102,13 +102,11 @@ use yii\helpers\Html;
           var trackAppStoreLink = function(url) {
               ga('send', 'event', 'appstore', 'click', url, {
                   'transport': 'beacon',
-                  'hitCallback': function(){document.location = url;}
               });
           };
           var trackPlayMarketLink = function(url) {
               ga('send', 'event', 'googleplay', 'click', url, {
                   'transport': 'beacon',
-                  'hitCallback': function(){document.location = url;}
               });
           };
       </script>
