@@ -21,22 +21,24 @@ use frontend\widgets\Footer;
             </div>
             <div class="features__item">
               <div class="features__img"><img src="/img/invest/wallet_icn.svg" width="70" alt="wallet_icn"></div>
-              <div class="features__title">4,766</div>
+              <div class="features__title"><?=$wallets?></div>
               <div class="features__text">Wallets downloaded</div>
             </div>
             <div class="features__item">
               <div class="features__img"><img src="/img/affiliates/lw-users-icn.svg" width="50" alt="lw"></div>
-              <div class="features__title">1,285</div>
+              <div class="features__title"><?=$holders?></div>
               <div class="features__text">Shareholders</div>
             </div>
           </div>
 
+          <?/*
           <h3>Market Cap and Price</h3>
 
           <div class="landing_media">
             <img src="/img/invest/invest_bg.jpg" alt="invest_bg" class="img-responsive">
           </div>
-
+          */?>
+          <?/*
           <h3>Currently tradable </h3>
 
           <div class="row">
@@ -94,6 +96,7 @@ use frontend\widgets\Footer;
             </div>
 
           </div>
+          */?>
         </div>
       </div>
 
@@ -248,21 +251,13 @@ use frontend\widgets\Footer;
               </div>
 
               <div class="news_list news_list--simple">
-                <div class="news_list__item">
-                  <div class="news_list__date">August 30</div>
-                  <div class="news_list__title"><a href="">Lykke Wallet for the Blockchain-Powered Exchange is Now on Android</a></div>
-                  <p class="news_list__desc">Lykke today announced the release of the Lykke Wallet for Android</p>
-                </div>
-                <div class="news_list__item">
-                  <div class="news_list__date">August 30</div>
-                  <div class="news_list__title"><a href="">Lykke Wallet for the Blockchain-Powered Exchange is Now on Android</a></div>
-                  <p class="news_list__desc">Lykke today announced the release of the Lykke Wallet for Android</p>
-                </div>
-                <div class="news_list__item">
-                  <div class="news_list__date">August 30</div>
-                  <div class="news_list__title"><a href="">Lykke Wallet for the Blockchain-Powered Exchange is Now on Android</a></div>
-                  <p class="news_list__desc">Lykke today announced the release of the Lykke Wallet for Android</p>
-                </div>
+                <?foreach ($posts as $post) {?>
+                  <div class="news_list__item">
+                    <div class="news_list__date"><?=date('F d',strtotime($post->post_datetime));?></div>
+                    <div class="news_list__title"><a href="/company/news/<?=$post->post_url?>"><?=$post->post_title?></a></div>
+                    <p class="news_list__desc"><?=$post->post_preview_text?></p>
+                  </div>
+                <?}?>
               </div>
 
             </div>

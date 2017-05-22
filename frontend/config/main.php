@@ -60,6 +60,7 @@ $config = [
                 'city/faq' => 'community/faq',
                 'city/open_positions' => 'community/open-positions',
                 'city/lykke_times' => 'community/lykke-times',
+                'city/invest' => 'community/invest', // INVEST PAGE 
                 /* B2B */
                 'b2b' => 'b2b/index',
                 'b2b-join' => 'b2b/join',

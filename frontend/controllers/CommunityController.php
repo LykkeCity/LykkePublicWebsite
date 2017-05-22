@@ -2,6 +2,7 @@
 namespace frontend\controllers;
 
 use yii;
+use common\models\NewsPosts;
 
 class CommunityController extends AppController   {
 
@@ -34,7 +35,17 @@ class CommunityController extends AppController   {
         $url = "https://lykke-public-api.azurewebsites.net/api/company/ownershipStructure";
         $ownershipStructure = $this->cUrl($url, '', 'GET');
 
+        $posts = NewsPosts::find()->where(['published' => 1])
+            ->orderBy(['post_datetime' => SORT_DESC])->limit(3)->all();
+
+        $wallets = 7372;
+
+        $holders = 1977;
+
         return $this->render('invest', [
+            'posts' => $posts,
+            'wallets' => number_format($wallets),
+            'holders' => number_format($holders),
             'capitalization' => number_format($dateCapitalization->{'amount'}),
             'totalLykkeCoins' => number_format($ownershipStructure->{'totalLykkeCoins'}),
             'privateWalletsCoins' => number_format($ownershipStructure->{'privateWalletsCoins'}),
