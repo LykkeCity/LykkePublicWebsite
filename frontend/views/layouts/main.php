@@ -87,7 +87,29 @@ use yii\helpers\Html;
             }("https://assets.zendesk.com/embeddable_framework/main.js", "lykkex.zendesk.com");
             /*]]>*/</script>
         <!-- End of lykkex Zendesk Widget script -->
+
+      <!-- Facebook Pixel Code -->
+      <script> !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(
+              n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');
+          fbq('init', '1778233902505785'); fbq('track', 'PageView');
+      </script>
+      <noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=1778233902505785&ev=PageView&noscript=1"/></noscript>
+      <!-- DO NOT MODIFY -->
+      <!-- End Facebook Pixel Code -->
+
       <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+      <script>
+          var trackAppStoreLink = function(url) {
+              ga('send', 'event', 'appstore', 'click', url, {
+                  'transport': 'beacon',
+              });
+          };
+          var trackPlayMarketLink = function(url) {
+              ga('send', 'event', 'googleplay', 'click', url, {
+                  'transport': 'beacon',
+              });
+          };
+      </script>
 
     </head>
     <body class="<?=$this->params['class_body']?>">

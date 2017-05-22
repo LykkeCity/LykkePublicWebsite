@@ -3,28 +3,22 @@
 namespace backend\controllers;
 
 use Yii;
-use yii\web\Controller;
 use yii\filters\VerbFilter;
 use yii\filters\AccessControl;
-use common\models\LoginForm;
-use common\models\LykkeUserAccess;
 
 class SiteController extends AppController {
 
-    /**
-     * @inheritdoc
-     */
     public function behaviors() {
         return [
             'access' => [
                 'class' => AccessControl::className(),
                 'rules' => [
                     [
-                        'actions' => ['login', 'error'],
+                        'actions' => ['error'],
                         'allow' => true,
                     ],
                     [
-                        'actions' => ['logout', 'index', 'users'],
+                        'actions' => ['index', 'users'],
                         'allow' => true,
                         'roles' => ['@'],
                     ],
@@ -39,15 +33,9 @@ class SiteController extends AppController {
         ];
     }
 
-    /**
-     * @inheritdoc
-     */
-    public function actions() {
-        return [
-            'error' => [
-                'class' => 'yii\web\ErrorAction',
-            ],
-        ];
+    public function actionError() {
+        header('Location:'.Yii::$app->urlManager->hostInfo.'/404');
+        exit(0);
     }
 
     public function beforeAction($action) {
@@ -55,11 +43,6 @@ class SiteController extends AppController {
         return parent::beforeAction($action);
     }
 
-    /**
-     * Displays homepage.
-     *
-     * @return string
-     */
     public function actionIndex() {
         return $this->render('index');
     }
@@ -68,34 +51,4 @@ class SiteController extends AppController {
         return $this->render('index');
     }
 
-    /**
-     * Login action.
-     *
-     * @return string
-     */
-    public function actionLogin() {
-        var_dump(Yii::$app->request->validateCsrfToken($_POST['state']));
-        echo "</pre>";
-        if (!Yii::$app->user->isGuest) {
-            return $this->goHome();
-        }
-        $model = new LoginForm();
-        if ($model->load(Yii::$app->request->post()) && $model->login()) {
-            return $this->goBack();
-        } else {
-            return $this->render('login', [
-                'model' => $model,
-            ]);
-        }
-    }
-
-    /**
-     * Logout action.
-     *
-     * @return string
-     */
-    public function actionLogout() {
-        Yii::$app->user->logout();
-        return $this->goHome();
-    }
 }

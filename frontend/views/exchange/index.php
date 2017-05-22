@@ -4,6 +4,10 @@ use frontend\widgets\Footer;
 
 ?>
 
+<script>
+    fbq('track', 'ViewContent', {});
+</script>
+
 <article class="content">
   <section class="exchange section--padding">
     <div class="container">

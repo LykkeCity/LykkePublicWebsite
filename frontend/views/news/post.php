@@ -8,6 +8,9 @@ use yii\helpers\Url;
 
 ?>
 
+<script>
+    fbq('track', 'ViewContent', {});
+</script>
 
 <article class="content">
 

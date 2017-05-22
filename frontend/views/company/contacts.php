@@ -2,6 +2,10 @@
 use frontend\widgets\Footer;
 ?>
 
+<script>
+    fbq('track', 'SupportInquiry');
+</script>
+
 <article class="content page" itemscope itemprop="organization" itemtype="http://schema.org/Organization">
     <section class="section contacts">
         <div class="container">

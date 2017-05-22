@@ -1,5 +1,6 @@
 <?php
 use backend\components\helpers\UrlHelper;
+
 ?>
 
 <script>
@@ -29,9 +30,6 @@ use backend\components\helpers\UrlHelper;
     <? } ?>
 
 </script>
-
-<?php
-?>
 
 
 <div ng-app="lykkeAdminApp" ng-controller="PageViewCtrl">
@@ -180,7 +178,7 @@ use backend\components\helpers\UrlHelper;
           <div class="box-footer">
             <div class="btn btn-danger btn-flat pull-right"
                  ng-hide="isEmbedded()"
-                 ng-click="deleteBlock(block.id, $index)">
+                 ng-click="deleteBlockDialog(block.id, $index)">
               <i class="fa fa-remove"></i> Delete block
             </div>
           </div>
@@ -203,12 +201,68 @@ use backend\components\helpers\UrlHelper;
       </div>
 
       <div class="box-body">
-        <a href="<?=UrlHelper::to([
-            '/page/deleted',
-            'id' => $page->id,
-        ])?>" class="btn btn-app">
+        <a href="#" class="btn btn-app" ng-click="deletePageDialog()">
           <i class="fa fa-remove"></i> DELETE PAGE
         </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modals -->
+  <div>
+    <div id="dangerBlockModal" class="modal modal-warning">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal"
+                    aria-label="Close">
+              <span aria-hidden="true">×</span></button>
+            <h4 class="modal-title">Danger!</h4>
+          </div>
+          <div class="modal-body">
+            <p>You already to delete this block?</p>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-outline pull-left"
+                    data-dismiss="modal">No
+            </button>
+            <button ng-click="deleteBlock(deleteBlockId, deleteBlockIndex)"
+                    data-dismiss="modal"
+                    class="btn btn-outline pull-right">
+              Yes
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div id="dangerPageModal" class="modal modal-warning">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal"
+                    aria-label="Close">
+              <span aria-hidden="true">×</span></button>
+            <h4 class="modal-title">Danger!</h4>
+          </div>
+          <div class="modal-body">
+            <p>You want to delete this page?</p>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-outline pull-left"
+                    data-dismiss="modal">No
+            </button>
+            <a href="<?=UrlHelper::to([
+                '/page/deleted',
+                'id' => $page->id,
+            ])?>">
+            <button onclick="window.location.reload();"
+                    class="btn btn-outline pull-right">
+              Yes
+            </button>
+            </a>
+          </div>
+        </div>
       </div>
     </div>
   </div>
