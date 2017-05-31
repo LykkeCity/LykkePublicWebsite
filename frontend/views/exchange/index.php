@@ -26,13 +26,13 @@ use frontend\widgets\Footer;
               </div>
               <div class="chart-controls">
                 <ul class="nav nav-tabs periods" role="tablist">
-                  <li role="presentation">
+                  <li role="presentation" class="active">
                     <a href="#tab1"
                        aria-controls="tab1"
                        role="tab"
                        data-toggle="tab">1H</a>
                   </li>
-                  <li role="presentation" class="active">
+                  <li role="presentation">
                     <a href="#tab2"
                        aria-controls="tab1"
                        role="tab"
@@ -57,7 +57,7 @@ use frontend\widgets\Footer;
                        data-toggle="tab">1Y</a>
                   </li>
                 </ul>
-                <a class="advanced-chart-btn">Advanced Chart</a>
+                <a class="advanced-chart-btn" href="/exchange/advanced-chart#BTCUSD">Advanced Chart</a>
               </div>
 
               <div id="tv-chart" class="tv-chart">

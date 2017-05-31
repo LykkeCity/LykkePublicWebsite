@@ -1,13 +1,17 @@
 function AdvancedChartPage() {
     this._tvWidget = null;
+
+    var storage = new LykkeStorageAdapter();
+    var datafeed = new Datafeeds.UDFCompatibleDatafeed(storage);
+
     this._tvWidgetDefaults = {
         fullscreen: false,
         autosize: true,
-        symbol: 'AAPL',
-        interval: 'D',
+        symbol: 'BTCUSD',
+        interval: '60',
         container_id: "tv-advanced-chart",
         //	BEWARE: no trailing slash is expected in feed URL
-        datafeed: new Datafeeds.UDFCompatibleDatafeed("https://demo_feed.tradingview.com"),
+        datafeed: datafeed,
         library_path: "/js/vendor/tv-charts/",
         custom_css_url: "/css/exchange/advanced-chart-includes.css",
         locale: "en",

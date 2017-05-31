@@ -2,15 +2,18 @@ function AssetsPage() {
     this._containerId = 'tv-chart';
     this._$container = $('#' + this._containerId);
 
+    var storage = new LykkeStorageAdapter();
+    var datafeed = new Datafeeds.UDFCompatibleDatafeed(storage);
+
     this._tvWidget = null;
     this._tvWidgetDefaults = {
         fullscreen: false,
         autosize: true,
-        symbol: 'AAPL',
-        interval: 'D',
+        symbol: 'BTCUSD',
+        interval: '60',
         container_id: this._containerId,
         //	BEWARE: no trailing slash is expected in feed URL
-        datafeed: new Datafeeds.UDFCompatibleDatafeed("https://demo_feed.tradingview.com"),
+        datafeed: datafeed,
         library_path: "/js/vendor/tv-charts/",
         custom_css_url: "/css/exchange/assets-chart-includes.css",
         locale: "en",
@@ -37,7 +40,7 @@ function AssetsPage() {
 
             "scalesProperties.showLeftScale": true,
             "scalesProperties.showRightScale": false,
-            "scalesProperties.backgroundColor": "transparent",
+            "scalesProperties.backgroundColor": "rgb(0,0,0)",
             "scalesProperties.lineColor": "transparent",
             "scalesProperties.textColor": "#8c94a0",
             "scalesProperties.scaleSeriesOnly": false,
@@ -52,7 +55,6 @@ function AssetsPage() {
             "mainSeriesProperties.visible": true,
             "mainSeriesProperties.showPriceLine": true,
             "mainSeriesProperties.priceLineWidth": 1,
-            "mainSeriesProperties.priceLineColor": "#000",
 
             "mainSeriesProperties.areaStyle.color1": "#e6f6fe",
             "mainSeriesProperties.areaStyle.color2": "#e6f6fe",
