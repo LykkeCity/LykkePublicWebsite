@@ -3,6 +3,10 @@ var app = app || {
 };
 
 app.init = function () {
+    if (typeof page === 'undefined') {
+        return;
+    }
+
     switch (page) {
         case 'advanced-chart':
             app.page = new AdvancedChartPage();

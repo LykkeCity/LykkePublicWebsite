@@ -1,5 +1,5 @@
 function LykkeStorageAdapter() {
-    this._url = 'http://lke-public-dev.azurewebsites.net/api/Candles/history/';
+    this._url = 'https://lke-public-dev.azurewebsites.net/api/Candles/history/';
     this._symbols = new SymbolsStorage();
 }
 
@@ -61,7 +61,7 @@ LykkeStorageAdapter.prototype.getHistory = function (symbol, from, to, resolutio
     var model = {
         dateFrom: new Date(from * 1000).toISOString(),
         dateTo: new Date(to * 1000).toISOString(),
-        type: 'Bid', // TODO
+        type: 'Bid',
         period: this._getPeriod(resolution)
     };
     return this._post(this._url + symbol, model).then(function (data) {
