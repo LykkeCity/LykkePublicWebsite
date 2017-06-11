@@ -119,7 +119,7 @@ use yii\helpers\Html;
 
     <?=Header::widget();?>
 
-    <?=SubMenu::widget(); ?>
+<!--    --><?//=SubMenu::widget(); ?>
 
     <?=Frontend_Admin::widget();?>
 

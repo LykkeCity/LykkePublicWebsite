@@ -172,7 +172,7 @@ tinymce.init({
     plugins: [
         "media searchreplace wordcount visualblocks visualchars code fullscreen insertdatetime nonbreaking, link, textcolor, colorpicker"
     ],
-    toolbar1: "bold italic underline strikethrough | link unlink anchor | forecolor backcolor",
+    toolbar1: "bold italic underline strikethrough | link unlink anchor | forecolor backcolor | bullist numlist",
 
     init_instance_callback: function (editor) {
         editor.on('NodeChange', function (e) {

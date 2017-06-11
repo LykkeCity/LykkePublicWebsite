@@ -38,9 +38,9 @@ class CommunityController extends AppController   {
         $posts = NewsPosts::find()->where(['published' => 1])
             ->orderBy(['post_datetime' => SORT_DESC])->limit(3)->all();
 
-        $wallets = 7372;
+        $wallets = 14567;
 
-        $holders = 1977;
+        $holders = 3322;
 
         return $this->render('invest', [
             'posts' => $posts,

@@ -133,7 +133,7 @@ use frontend\widgets\Footer;
               <div class="invest_total invest_total--big">
                 <div class="invest_total__value"><span id="invest_total__value-api"><?= $totalLykkeCoins ?></span> <span>LKK</span></div>
               </div>
-              <a href="" class="btn btn--blue">View Lykke coinholders</a>
+              <a href="https://blockchainexplorer.lykke.com/asset/AXkedGbAH1XGDpAypVzA5eyjegX4FaCnvM" class="btn btn--blue">View Lykke coinholders</a>
             </div>
             <div class="col-md-6">
               <div class="invest_total">
@@ -188,7 +188,7 @@ use frontend\widgets\Footer;
                 <div class="list__icon"><img src="/img/invest/disclosure/company_register_icn.svg" alt="company_register_icn" width="42"></div>
                 <div class="list__text">
                   <p>Company Register</p>
-                  <a href="https://zg.chregister.ch/cr-portal/auszug/auszug.xhtml?uid=CHE-345.258.499" target="_blank">View on Powernet</a>
+                  <a href=" https://zg.chregister.ch/cr-portal/auszug/auszug.xhtml?uid=CHE-345.258.499" target="_blank">View on Powernet</a>
                 </div>
               </li>
               <li class="list__item col-xs-12 col-sm-6">
@@ -209,7 +209,7 @@ use frontend\widgets\Footer;
                 <div class="list__icon"><img src="/img/invest/disclosure/roadmap_icn.svg" alt="roadmap_icn" width="40"></div>
                 <div class="list__text">
                   <p>Investor Deck</p>
-                  <a href="Investor_deck.pdf">Download</a>
+                  <a href="https://forward.lykke.com/files/Investor_deck.pdf">Download</a>
                 </div>
               </li>
               <li class="list__item col-xs-12 col-sm-6">
@@ -310,7 +310,7 @@ use frontend\widgets\Footer;
                     <p>Lykke will change the world of finance. This company has everything to make it happen!</p>
                   </div>
                   <div class="review_item__author">Alexander Spuller </div>
-                  <div class="review_item__author_info">Lykke angel investor</div>
+                  <div class="review_item__author_info">Lykke angel investor and board member</div>
                 </div>
 
                 <div class="review_item">
