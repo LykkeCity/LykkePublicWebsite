@@ -1,24 +1,21 @@
-var app = app || {
-    page: {}
-};
+var app = app || {};
 
 app.init = function () {
     if (typeof page === 'undefined') {
         return;
     }
 
-    switch (page) {
+    switch (page.name) {
         case 'advanced-chart':
-            app.page = new AdvancedChartPage();
+            app.page = new AdvancedChartPage(page.options);
             break;
         case 'assets':
-            app.page = new AssetsPage();
+            app.page = new AssetsPage(page.options);
             break;
         default:
             break;
     }
 
-    // all the pages should implement init method
     app.page.init();
 };
 

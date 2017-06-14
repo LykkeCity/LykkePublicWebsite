@@ -1,13 +1,30 @@
-function AdvancedChartPage() {
+function AdvancedChartPage(options) {
     this._tvWidget = null;
 
-    var storage = new LykkeStorageAdapter();
+    var opt = {
+        urls: {
+            dictionary: 'https://public-api.lykke.com/api/AssetPairs/dictionary',
+            rates: 'https://public-api-dev.lykkex.net/api/AssetPairs/rate',
+            description: 'https://lykke-api-dev.azurewebsites.net/api/Assets/description/list'
+        }
+    };
+    var assets = new LykkeAssetsStorage(opt);
+
+    var dataOpt = {
+        dataUrl: 'https://lke-public-dev.azurewebsites.net/api/Candles/history/'
+    };
+    var data = new LykkeDataStorage(dataOpt);
+    var storage = new LykkeTVStorageAdapter(data, assets);
     var datafeed = new Datafeeds.UDFCompatibleDatafeed(storage);
 
+    var symbol = 'BTCUSD';
+    if (window.location.hash) {
+        symbol = window.location.hash.replace('#', '');
+    }
     this._tvWidgetDefaults = {
         fullscreen: false,
         autosize: true,
-        symbol: 'BTCUSD',
+        symbol: symbol,
         interval: '60',
         container_id: "tv-advanced-chart",
         //	BEWARE: no trailing slash is expected in feed URL
@@ -20,7 +37,8 @@ function AdvancedChartPage() {
             type: 'black',
             tools: [{
                 name: "Regression Trend"
-            }] },
+            }]
+        },
         disabled_features: [
             "use_localstorage_for_settings",
             "header_settings",

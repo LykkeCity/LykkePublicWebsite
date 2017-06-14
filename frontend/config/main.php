@@ -76,7 +76,7 @@ $config = [
         ],
         'view' => [
             'class' => '\rmrevin\yii\minify\View',
-            'enableMinify' => true,
+            'enableMinify' => false,
             'concatCss' => true,
             // concatenate css
             'minifyCss' => true,

@@ -14,5 +14,8 @@ use frontend\widgets\Footer;
 <?=Footer::widget();?>
 
 <script>
-    window.page = 'advanced-chart';
+    window.page = {
+        name: 'advanced-chart',
+        options: {}
+    };
 </script>

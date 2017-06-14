@@ -1,22 +1,382 @@
-function AssetsPage() {
-    this._containerId = 'tv-chart';
-    this._$container = $('#' + this._containerId);
+function AssetsPage(options) {
+    this._options = options;
+    this._containerId = 'tv-chart-container';
 
-    var storage = new LykkeStorageAdapter();
-    var datafeed = new Datafeeds.UDFCompatibleDatafeed(storage);
+    this._assets = null;
 
     this._tvWidget = null;
-    this._tvWidgetDefaults = {
+    this._tvWidgetSettings = null;
+
+    this._lastTimeFrame = null;
+
+    var defaultsActive = {
+        baseAsset: 'BTC',
+        quotingAsset: 'USD',
+        period: '1D'
+    };
+    this._active = $.extend(true, defaultsActive, this._parseHash());
+
+    this._initState = {
+        pairs: false,
+        chart: false,
+        data: false
+    };
+}
+
+AssetsPage.prototype.init = function () {
+    var self = this;
+
+    this._templates = {
+        $assetPair: $('.templates .assets-list-item')
+    };
+    this._containers = {
+        $header: $('.data-overview h2'),
+        $advancedChartUrl: $('.advanced-chart-btn'),
+        $assetsList: $('.assets-list'),
+        $baseAsset: $('.asset-details.base-asset'),
+        $quotingAsset: $('.asset-details.quoting-asset'),
+        $tvChart: $('.tv-chart-container'),
+        $noData: $('.tv-chart-no-data'),
+        $periods: $('.chart-controls .periods')
+    };
+
+    this._containers.$periods.find('[data-period="' + this._active.period + '"]').parent().addClass('active');
+
+    var pairsInterval = null;
+    var opt = {
+        urls: {
+            dictionary: 'https://public-api.lykke.com/api/AssetPairs/dictionary',
+            rates: 'https://public-api-dev.lykkex.net/api/AssetPairs/rate',
+            description: 'https://lykke-api-dev.azurewebsites.net/api/Assets/description/list'
+        },
+        onPulse: function (data) {
+            if (self._initState.pairs) {
+                self._populatePairs(data);
+            } else {
+                // wait for pairs initialization
+                pairsInterval = setInterval(function () {
+                    if (self._initState.pairs) {
+                        self._populatePairs(data);
+                        clearInterval(pairsInterval);
+                    }
+                })
+            }
+        }
+    };
+    this._assets = new LykkeAssetsStorage(opt);
+
+    var dataOpt = {
+        dataUrl: 'https://lke-public-dev.azurewebsites.net/api/Candles/history/',
+        onDataRecieved: function (data) {
+            // data was not loaded for selected pair
+            if (!self._initState.data) {
+                if (data.data.length === 0) {
+                    // TV not firing onChartReady if no data returned in first response
+                    // manually setup chart ready flag
+                    self._initState.chart = true;
+                    self._containers.$tvChart.hide();
+                    self._containers.$noData.show();
+                }
+            }
+            self._initState.data = true;
+        }
+    };
+    this._data = new LykkeDataStorage(dataOpt);
+
+    this._initTVWidget();
+
+    this._initPairs().done(function () {
+        self.rerenderPage(self._active)
+    });
+    this._bindEvents();
+};
+
+AssetsPage.prototype.rerenderPage = function (options) {
+    var self = this;
+
+    if (options.baseAsset && options.quotingAsset) {
+        var symbol = options.baseAsset + options.quotingAsset;
+
+        var $pairs = this._containers.$assetsList.children();
+        var $active = $pairs.filter('[data-symbol="' + symbol + '"]');
+        if (!$active.length) {
+            return;
+        }
+
+        var asset = $active.data('asset');
+
+        // prep, reset no-data message / chart visibility state
+        self._containers.$tvChart.show();
+        self._containers.$noData.hide();
+
+        // update chart
+        // during initial page render chart not initialized and symbol will set via chart settings
+        // in other cases we set symbol here
+        if (this._initState.chart) {
+            this._tvWidget.activeChart().setSymbol(symbol);
+            this._initState.data = false;
+        }
+
+        // update no data
+        this._containers.$noData.find('.asset-name').text(asset.full_name);
+
+        // update header
+        var advancedHref = this._options.advancedChartUrl + '#' + symbol;
+        this._containers.$header.text(asset.full_name);
+        this._containers.$advancedChartUrl.attr('href', advancedHref);
+
+        // update assets pairs list
+        $pairs.removeClass('active');
+        $active.addClass('active');
+
+        // update details
+        this._assets.getDescription([options.baseAsset, options.quotingAsset]).done(function (result) {
+            var baseAsset = self._findAssetDescription(result, options.baseAsset);
+            var quotingAsset = self._findAssetDescription(result, options.quotingAsset);
+
+            self._populateDetails(self._containers.$baseAsset, baseAsset);
+            self._populateDetails(self._containers.$quotingAsset, quotingAsset);
+        });
+    }
+
+    // during initial page render chart not initialized, period will set via chart settings/options
+    // in other cases we set period here
+    if (this._initState.chart && options.period && this._active.period !== options.period) {
+        this.setChartRange(options.period);
+    }
+
+    this._active = $.extend(true, this._active, options);
+};
+
+AssetsPage.prototype.setChartRange = function (period) {
+    var chart = this._tvWidget.activeChart();
+
+    var date = new Date();
+    date.setMilliseconds(0);
+    date.setSeconds(0);
+    date.setMinutes(0);
+    var currentTicks = date.getTime() / 1000|0;
+
+    // With setResolution call TV not set up visible range up as expected
+    // steps to repro: choose 1D => 3D => 1M (error) => 3D (error) => 1M (ok?)
+    // we decided to hide 1H / 1Y and set up resolution to 1H because of we cannot set up any other resolution
+    // commented code are temporal and for reference (to TV?) / future changes
+    // var resolution = '';
+    var range = {
+        from: 0,
+        to: currentTicks
+    };
+
+    var hourAgo = 60 * 60;
+    var dayAgo = hourAgo * 24;
+    var threeDaysAgo = dayAgo * 3;
+    var monthAgo = dayAgo * 31;
+    var yearAgo = 365;
+
+    switch (period) {
+        // case '1H':
+        //     range.from = range.to - hourAgo;
+        //     resolution = '1';
+        //     break;
+        case '1D':
+            range.from = range.to - dayAgo;
+            // resolution = '1';
+            break;
+        case '3D':
+            range.from = range.to - threeDaysAgo;
+            // resolution = '60';
+            break;
+        case '1M':
+            range.from = range.to - monthAgo;
+            // resolution = 'D';
+            break;
+        // case '1Y':
+        //     range.from = range.to - yearAgo;
+        //     resolution = '3D';
+        //     break;
+    }
+
+    console.warn(new Date(range.from * 1000).toISOString(), new Date(range.to * 1000).toISOString());
+    // chart.setResolution(resolution, function () {
+        chart.setVisibleRange(range, function () {
+            range = chart.getVisibleRange();
+            console.warn(new Date(range.from * 1000).toISOString(), new Date(range.to * 1000).toISOString());
+        });
+    // });
+};
+
+AssetsPage.prototype._initPairs = function () {
+    var self = this;
+
+    return this._assets.getDictionary().done(function (data) {
+        var $wrap = self._containers.$assetsList;
+        var $virtual = $('<div />');
+
+        for (var i = 0; i < data.length; i++) {
+            var item = data[i];
+            var $node = self._templates.$assetPair.clone();
+            $node.find('.asset-name').text(item.full_name);
+            $node.data('asset', item);
+            $node.attr('data-symbol', item.baseAsset + item.quotingAsset);
+
+            $virtual.append($node);
+        }
+
+        $wrap.append($virtual.children());
+
+        self._initState.pairs = true;
+    });
+};
+
+AssetsPage.prototype._populatePairs = function (data) {
+    var $pairs = this._containers.$assetsList.children();
+    for (var i = 0; i < $pairs.length; i++) {
+        var $pair = $($pairs[i]);
+        var asset = $pair.data('asset');
+        var symbolData = data.filter(function (e) {
+            return e.id === asset.symbol;
+        });
+
+        var bid = 'no data';
+        var ask = 'no data';
+        if (symbolData.length) {
+            bid = symbolData[0].bid;
+            ask = symbolData[0].ask;
+
+            $pair.find('.asset-price.bid span').text(bid);
+            $pair.find('.asset-price.ask span').text(ask);
+            // $pairs with no data-val will not be shown in any case during search
+            $pair.data('val', {
+                bid: bid,
+                ask: ask
+            });
+        } else {
+            $pair.data('val', null);
+            $pair.hide();
+        }
+    }
+};
+
+AssetsPage.prototype._populateDetails = function ($node, data) {
+    $node.find('.asset-name').text(data.id);
+    $node.find('.asset-details-btn');
+    $node.find('.asset-prop-value.class').text(data.assetClass || '');
+    var $popularity = $node.find('.asset-prop-value.popularity');
+    $popularity.find('.value').text(data.popularity || '');
+    $popularity.attr('data-rating', data.popularity || null); // do not use .data(), attr used in CSS
+    $node.find('.asset-prop-value.description').text(data.description || '');
+    $node.find('.asset-prop-value.issuer').text(data.issuer || '');
+};
+
+AssetsPage.prototype._initTVWidget = function () {
+    var self = this;
+
+    this._tvWidgetSettings = this._getTVChartSettings();
+
+    TradingView.onready(function() {
+        self._tvWidget = new TradingView.widget(self._tvWidgetSettings);
+        self._tvWidget.onChartReady(function () {
+            self.setChartRange(self._active.period);
+            self._initState.chart = true;
+        });
+    });
+};
+
+AssetsPage.prototype._bindEvents = function () {
+    var self = this;
+    var $document = $(document);
+
+    var searchTimeout = null;
+    $('.search-box').on('keyup', function () {
+        var val = $(this).val();
+        clearTimeout(searchTimeout);
+        searchTimeout = setTimeout(function () {
+            self._filterAssets(val);
+        }, 300);
+    });
+
+    $document.on('click', '.chart-controls .periods a', function () {
+        self.rerenderPage({
+            period: $(this).data('period')
+        });
+    });
+
+    $document.on('click', '.assets-list-item', function () {
+        var asset = $(this).data('asset');
+
+        if (self._active.baseAsset !== asset.baseAsset || self._active.quotingAsset !== asset.quotingAsset) {
+            window.location.hash = asset.baseAsset + '.' + asset.quotingAsset;
+
+            self.rerenderPage({
+                baseAsset: asset.baseAsset,
+                quotingAsset: asset.quotingAsset
+            });
+
+            $('body').removeClass('assets-list-opened');
+        }
+
+    });
+
+    $('.change-asset-btn').on('click', function () {
+        $('body').addClass('assets-list-opened');
+    });
+    $document.on('click', '.right-pane-overlay, .popup-close-btn', function () {
+        $('body').removeClass('assets-list-opened');
+    });
+
+};
+
+AssetsPage.prototype._filterAssets = function (searchString) {
+    var self = this;
+    var $pairs = self._containers.$assetsList.children();
+
+    if (!searchString) {
+        $pairs.each(function () {
+            $(this).show();
+        });
+    }
+
+    this._assets.getDictionary(searchString).done(function (data) {
+        for (var i = 0; i < $pairs.length; i++) {
+            var $pair = $($pairs[i]);
+
+            // nodes with no bids / asks should be hidden anyway
+            if (!$pair.data('val')) {
+                $pair.hide();
+                continue;
+            }
+
+            var symbol = $pair.data('asset').symbol;
+            var isVisible = data.some(function (e) {
+                return e.symbol === symbol;
+            });
+            if (isVisible) {
+                $pair.show();
+            } else {
+                $pair.hide();
+            }
+        }
+    });
+};
+
+AssetsPage.prototype._getTVChartSettings = function () {
+    var config = {
+        supported_resolutions: ['1', '15', 'D', '3D', 'M']
+    };
+    var storage = new LykkeTVStorageAdapter(this._data, this._assets, config);
+    var datafeed = new Datafeeds.UDFCompatibleDatafeed(storage);
+
+    return {
         fullscreen: false,
         autosize: true,
-        symbol: 'BTCUSD',
+        symbol: this._active.baseAsset + this._active.quotingAsset,
         interval: '60',
         container_id: this._containerId,
-        //	BEWARE: no trailing slash is expected in feed URL
         datafeed: datafeed,
         library_path: "/js/vendor/tv-charts/",
         custom_css_url: "/css/exchange/assets-chart-includes.css",
         locale: "en",
+        timezone: 'UTC',
         disabled_features: [
             "use_localstorage_for_settings",
             "header_widget",
@@ -65,107 +425,27 @@ function AssetsPage() {
             "symbolWatermarkProperties.color": "transparent"
         }
     };
+};
 
-    this._lastTimeFrame = null;
-    this._$valueLabel = $('.tv-chart-value-label');
+AssetsPage.prototype._findAssetDescription = function (collection, id) {
+    var result = collection.filter(function (e) {
+        return e.id === id;
+    });
 
-    this._active = {
-        asset: '',
-        period: ''
+    return result[0] || {
+        id: id
+    };
+};
+
+AssetsPage.prototype._parseHash = function () {
+    var hash = window.location.hash.replace('#', '');
+    var result = {};
+
+    var elements = hash.split('.');
+    if (elements.length === 2) {
+        result.baseAsset = elements[0];
+        result.quotingAsset = elements[1];
     }
-}
 
-AssetsPage.prototype.init = function () {
-    this._initTVWidget();
-    this._bindEvents();
+    return result;
 };
-
-AssetsPage.prototype._initTVWidget = function () {
-    var self = this;
-    TradingView.onready(function() {
-        self._tvWidget = new TradingView.widget(self._tvWidgetDefaults);
-        self._tvWidget.onChartReady(function () {
-            self._tvWidget.activeChart().crossHairMoved(function (data) {
-                // if (self._lastTimeFrame !== data.time) {
-                //     self._lastTimeFrame = data.time;
-                //     self._showValueLabel(data);
-                //     console.log(data);
-                // }
-            });
-        });
-    });
-};
-
-AssetsPage.prototype._bindEvents = function () {
-    var self = this;
-    var $document = $(document);
-
-    $('.search-box').on('keypress', function () {
-
-    });
-
-    $document.on('click', '.chart-controls .chart-controls periods a', function () {
-
-    });
-
-    $document.on('click', '.assets-list-item', function () {
-        $('.assets-list-item').removeClass('active');
-        $(this).addClass('active');
-
-        $('body').removeClass('assets-list-opened');
-    });
-
-    $('.change-asset-btn').on('click', function () {
-        $('body').addClass('assets-list-opened');
-    });
-    $document.on('click', '.right-pane-overlay, .popup-close-btn', function () {
-        $('body').removeClass('assets-list-opened');
-    });
-
-};
-
-AssetsPage.prototype._filterAssets = function (criteria) {
-    console.log(criteria);
-};
-
-AssetsPage.prototype._changePeriod = function (period) {
-    console.log(period);
-};
-
-AssetsPage.prototype._changeAsset = function (asset) {
-    console.log(asset);
-};
-
-AssetsPage.prototype._showValueLabel = function (data) {
-    this._$valueLabel.show();
-    this._$valueLabel.find('.time').text(data.time);
-    this._$valueLabel.find('.price').text(data.price);
-};
-
-
-//$(document).ready(function () {
-//
-//    setInterval(function () {
-//        $.ajax({
-//            // url: 'https://lykke-public-api.azurewebsites.net/api/AssetPairs/rate',
-//            url: 'https://public-api.lykke.com/api/AssetPairs/rate',
-//            method: 'GET',
-//            type: 'json',
-//            async: true,
-//            timeout: 500,
-//            success: function (data) {
-//
-//                    $.each(data, function (i, v) {
-//                        var bid = $(".bid_" + this.id),
-//                            ask = $(".ask_" + this.id);
-//
-//                        bid.text(this.bid == '0' ? '-' : this.bid);
-//                        ask.text(this.ask == '0' ? '-' : this.ask);
-//                    })
-//
-//            }
-//        })
-//
-//    }, 1000);
-//
-//});

@@ -224,14 +224,17 @@ function initForms() {
       hash = window.location.hash;
 
   if (window.location.hash) {
-    $('html, body').animate({
-      scrollTop: $(hash).offset().top
-    }, 0);
+    var $node = $(hash);
+    if ($node.length) {
+        $('html, body').animate({
+            scrollTop: $node.offset().top
+        }, 0);
 
-    $target = hash;
+        $target = hash;
 
-    $(hash).removeClass('hide');
-    $('.btn_show_form').hide();
+        $node.removeClass('hide');
+        $('.btn_show_form').hide();
+    }
   }
 
   $('.btn_show_form').on('click', function() {

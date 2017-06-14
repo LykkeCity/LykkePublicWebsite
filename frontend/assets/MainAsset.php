@@ -39,8 +39,9 @@ class MainAsset extends AssetBundle
     '/js/exchange/advanced-chart.js',
     '/js/exchange/assets.js',
     '/js/exchange/datafeed/datafeed.js',
-    '/js/exchange/datafeed/LykkeStorageAdapter.js',
-    '/js/exchange/datafeed/SymbolsStorage.js',
+    '/js/exchange/datafeed/LykkeAssetsStorage.js',
+    '/js/exchange/datafeed/LykkeDataStorage.js',
+    '/js/exchange/datafeed/LykkeTVStorageAdapter.js',
     '/js/app.js',
   ];
   
