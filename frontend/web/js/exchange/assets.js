@@ -386,7 +386,8 @@ AssetsPage.prototype._getTVChartSettings = function () {
             "display_market_status",
             "create_volume_indicator_by_default",
             "border_around_the_chart",
-            "control_bar" // should be enabled?
+            "control_bar",
+            "countdown"
         ],
         overrides: {
             "paneProperties.vertGridProperties.color": "transparent",
