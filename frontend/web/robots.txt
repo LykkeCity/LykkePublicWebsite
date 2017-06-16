@@ -1,2 +1,10 @@
 User-agent: *
-Disallow:
+Disallow: /?ref=*
+Disallow: /site/signin*
+Disallow: /media/blog/
+Disallow: /media/news/
+Disallow: /userfiles/
+Disallow: /img/
+Disallow: /asset/img/
+Disallow: /city/_media/blog/
+Sitemap: https://www.lykke.com/sitemap.xml 
