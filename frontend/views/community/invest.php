@@ -17,7 +17,7 @@ use frontend\widgets\Footer;
             <div class="features__item">
               <div class="features__img"><img src="/img/affiliates/bonuses-icn.svg" width="70" alt="bonuses"></div>
               <div class="features__title"><?= $capitalization ?> USD</div>
-              <div class="features__text">Market Capitalization</div>
+              <div class="features__text">Free-float Capitalization</div>
             </div>
             <div class="features__item">
               <div class="features__img"><img src="/img/invest/wallet_icn.svg" width="70" alt="wallet_icn"></div>
@@ -194,7 +194,7 @@ use frontend\widgets\Footer;
               <li class="list__item col-xs-12 col-sm-6">
                 <div class="list__icon"><img src="/img/invest/disclosure/annual_report_icn.svg" alt="annual_report_icn" width="42"></div>
                 <div class="list__text">
-                  <p>Annual Report</p>
+                  <p>Annual Report (2015)</p>
                   <a href="https://www.lykke.com/Annual_Report_2015.pdf">Download</a>
                 </div>
               </li>
@@ -291,7 +291,7 @@ use frontend\widgets\Footer;
                     </p>
                   </div>
                   <div class="review_item__author">Heinrich Zetlmayer</div>
-                  <div class="review_item__author_info">Lykke angel investor</div>
+                  <div class="review_item__author_info">Lykke angel investor and board member</div>
                 </div>
                 <div class="review_item">
                   <div class="review_item__text">
