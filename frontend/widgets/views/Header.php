@@ -123,7 +123,12 @@ use yii\helpers\Url;
                                     nav_list__item--active active
                                 <? } ?>
                                 ">
-                              <a href="/<?=$subItem['url']?>"><?=$subItem['name']?></a></li>
+                                <? if(stripos("xxx".$subItem['url'], 'http')==false){ ?>
+                                  <a href="/<?=$subItem['url']?>"><?=$subItem['name']?></a></li>
+                                <? }else{ ?>
+                                  <a href="<?=$subItem['url']?>"><?=$subItem['name']?></a></li>
+                                <? } ?>
+
                           <? } ?>
                       </ul>
                     </menu>
