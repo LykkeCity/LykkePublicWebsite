@@ -278,10 +278,12 @@ function initSmoothScroll() {
 // Affix
 
 function initAffix() {
+    var hh =  $('.header_container').outerHeight() + 100;
+    console.log(hh);
     $('.btn_affix').affix({
         offset: {
             top: function () {
-                return (this.top =  $('.site_nav').offset().top - $('.header_container').outerHeight())
+                return (this.top = hh)
             }
         }
     });
@@ -354,5 +356,7 @@ $(document).ready(function() {
     initForms();
     initSmoothScroll();
     initAffix();
+    $('.contact_us_widget').css({'margin-top': '0rem'})
+
 });
 

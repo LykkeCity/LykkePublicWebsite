@@ -97,6 +97,7 @@ use yii\helpers\Html;
       <!-- DO NOT MODIFY -->
       <!-- End Facebook Pixel Code -->
 
+      <script src="https://www.youtube.com/iframe_api"></script>
       <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
       <script>
           var trackAppStoreLink = function(url) {
