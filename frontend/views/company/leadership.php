@@ -1,8 +1,10 @@
 <?php
 use frontend\widgets\Footer;
+use frontend\widgets\SubMenu;
 
 ?>
 
+<?=SubMenu::widget()?>
 
 <article class="content">
 

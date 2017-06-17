@@ -1,5 +1,6 @@
 <?php
 use frontend\widgets\Footer;
+
 ?>
 
 <script>

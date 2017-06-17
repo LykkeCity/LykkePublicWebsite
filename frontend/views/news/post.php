@@ -8,6 +8,8 @@ use yii\helpers\Url;
 
 ?>
 
+<?=SubMenu::widget()?>
+
 <script>
     fbq('track', 'ViewContent', {});
 </script>

@@ -1,8 +1,11 @@
 <?
 use frontend\widgets\Asset;
 use frontend\widgets\Footer;
+use frontend\widgets\SubMenu;
 
 ?>
+
+<?=SubMenu::widget()?>
 
 <script>
     fbq('track', 'ViewContent', {});

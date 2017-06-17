@@ -5,6 +5,7 @@ function onYouTubeIframeAPIReady() {
         videoId : $('#player').data('video-id'),
         height: '390',
         width: '640',
+        cache: false,
         events: {
             'onReady': onPlayerReady()
         }
@@ -36,6 +37,7 @@ setInterval(function () {
         videoId : $('#player').data('video-id'),
         height: '390',
         width: '640',
+        cache: false,
         events: {
             'onReady': onPlayerReady()
         }

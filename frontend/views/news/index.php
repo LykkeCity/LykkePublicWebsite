@@ -4,6 +4,8 @@ use \frontend\widgets\SubMenu;
 
 ?>
 
+<?=SubMenu::widget()?>
+
 <script>
     fbq('track', 'ViewContent', {});
 </script>

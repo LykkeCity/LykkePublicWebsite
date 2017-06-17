@@ -1,8 +1,11 @@
 <?php
 use frontend\widgets\ContactUs;
 use frontend\widgets\Footer;
+use frontend\widgets\SubMenu;
 
 ?>
+
+<?=SubMenu::widget()?>
 
 <?=ContactUs::widget()?>
 

@@ -1,16 +1,19 @@
 <?php
 use frontend\widgets\Footer;
+use frontend\widgets\SubMenu;
 
 ?>
 
-<article class="content page page--invest landing">
+<?=SubMenu::widget()?>
+
+<article class="content page page_invest landing">
   <section class="section--padding">
     <div class="container container--extend">
 
       <div class="row">
         <div class="col-md-8 col-sm-10 automargin">
           <div class="heading_with_select clearfix">
-            <h1 class="h1 pull-left">Invest</h1>
+            <h1 class="h1 text-center">Invest</h1>
           </div>
 
           <div class="features">
@@ -125,7 +128,7 @@ use frontend\widgets\Footer;
   <section class="section section--padding">
     <div class="container">
       <div class="row">
-        <div class="col-sm-10 automargin">
+        <div class="col-sm-8 col-md-10 automargin">
           <h3 class="h2">Lykke ownership structure</h3>
 
           <div class="row">
@@ -185,35 +188,35 @@ use frontend\widgets\Footer;
           <div class="row">
             <ul class="list list--invest">
               <li class="list__item col-xs-12 col-sm-6">
-                <div class="list__icon"><img src="/img/invest/disclosure/company_register_icn.svg" alt="company_register_icn" width="42"></div>
+                <div class="list__icon"><img src="/img/invest/disclosure/company_register_icn.svg" alt="company_register_icn" width="42" height="42"></div>
                 <div class="list__text">
                   <p>Company Register</p>
                   <a href=" https://zg.chregister.ch/cr-portal/auszug/auszug.xhtml?uid=CHE-345.258.499" target="_blank">View on Powernet</a>
                 </div>
               </li>
               <li class="list__item col-xs-12 col-sm-6">
-                <div class="list__icon"><img src="/img/invest/disclosure/annual_report_icn.svg" alt="annual_report_icn" width="42"></div>
+                <div class="list__icon"><img src="/img/invest/disclosure/annual_report_icn.svg" alt="annual_report_icn" width="42" height="38"></div>
                 <div class="list__text">
                   <p>Annual Report (2015)</p>
                   <a href="https://www.lykke.com/Annual_Report_2015.pdf">Download</a>
                 </div>
               </li>
               <li class="list__item col-xs-12 col-sm-6">
-                <div class="list__icon"><img src="/img/invest/disclosure/memorandum_icn.svg" alt="memorandum_icn" width="35"></div>
+                <div class="list__icon"><img src="/img/invest/disclosure/memorandum_icn.svg" alt="memorandum_icn" width="35" height="39"></div>
                 <div class="list__text">
                   <p>Lykke Corp Placement Memorandum</p>
                   <a href="https://www.lykke.com/Lykke_Corp_Placement_Memorandum.pdf">Download</a>
                 </div>
               </li>
               <li class="list__item col-xs-12 col-sm-6">
-                <div class="list__icon"><img src="/img/invest/disclosure/roadmap_icn.svg" alt="roadmap_icn" width="40"></div>
+                <div class="list__icon"><img src="i/mg/invest/disclosure/roadmap_icn.svg" alt="roadmap_icn" width="40" height="40"></div>
                 <div class="list__text">
                   <p>Investor Deck</p>
                   <a href="https://forward.lykke.com/files/Investor_deck.pdf">Download</a>
                 </div>
               </li>
               <li class="list__item col-xs-12 col-sm-6">
-                <div class="list__icon"><img src="/img/invest/disclosure/equity_icn.svg" alt="equity_icn" width="36"></div>
+                <div class="list__icon"><img src="/img/invest/disclosure/equity_icn.svg" alt="equity_icn" width="36" height="34"></div>
                 <div class="list__text">
                   <p>Lykke Corp Equity Register on Blockchain</p>
                   <a href="https://www.coinprism.info/asset/AXkedGbAH1XGDpAypVzA5eyjegX4FaCnvM" target="_blank">View on Coinprism</a>
@@ -232,7 +235,7 @@ use frontend\widgets\Footer;
     <div class="container">
 
       <div class="row">
-        <div class="col-sm-10 automargin">
+        <div class="col-md-10 automargin">
           <h3 class="h2">Lykke Feeds</h3>
 
           <div class="row">
@@ -348,8 +351,9 @@ use frontend\widgets\Footer;
                 <h3 class="h2">Buy Lykke Coins</h3>
                 <h3 class="regular">To buy Lykke coins, download and open the Lykke Wallet app</h3>
                 <div class="apps">
-                  <div class="apps_apple"><a href="https://appsto.re/ru/Dwjvcb.i" target="_blank"><img src="/img/appstore-badge.svg" width="203" alt="apps_apple"></a></div>
-                  <div class="apps_google"><a href="https://play.google.com/store/apps/details?id=com.lykkex.LykkeWallet" target="_blank"><img src="/img/google-play.svg" width="203" alt="apps_google"></a></div>
+                  <div class="apps_apple"><a href="https://appsto.re/ru/Dwjvcb.i" target="_blank"><img src="/img/appstore-badge.svg" width="203" height="60" alt="apps_apple"></a></div>
+                  <div class="apps_google"><a href="https://play.google.com/store/apps/details?id=com.lykkex.LykkeWallet" target="_blank"><img src="/img/google-play.svg" width="203" height="60" alt="apps_google"></a></div>
+
                 </div>
               </div>
             </div>

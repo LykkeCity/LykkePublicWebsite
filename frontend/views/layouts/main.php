@@ -38,7 +38,10 @@ use yii\helpers\Html;
         <meta name="theme-color" content="#ffffff">
         <script src="https://www.youtube.com/iframe_api"></script>
 
-        <?php MainAsset::register($this); ?>
+        <meta name="google-site-verification" content="-3oXJnaspLel2iCBy5H0-BvOXfPJ9i1jhJEV6LQn1Lk" />
+
+
+      <?php MainAsset::register($this); ?>
         <?php $this->head() ?>
 
 
