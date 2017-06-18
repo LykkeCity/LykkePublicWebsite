@@ -209,7 +209,7 @@ use frontend\widgets\SubMenu;
                 </div>
               </li>
               <li class="list__item col-xs-12 col-sm-6">
-                <div class="list__icon"><img src="i/mg/invest/disclosure/roadmap_icn.svg" alt="roadmap_icn" width="40" height="40"></div>
+                <div class="list__icon"><img src="/img/invest/disclosure/roadmap_icn.svg" alt="roadmap_icn" width="40" height="40"></div>
                 <div class="list__text">
                   <p>Investor Deck</p>
                   <a href="https://forward.lykke.com/files/Investor_deck.pdf">Download</a>
