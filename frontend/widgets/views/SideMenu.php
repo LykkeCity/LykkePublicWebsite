@@ -80,7 +80,7 @@
 
         <div class="sidebar_menu__footer">
             <ul class="social">
-                <li><a href="https://www.facebook.com/groups/542506412568917/"
+                <li><a href="https://www.facebook.com/LykkeCity"
                        target="_blank" class="social__item"><i
                             class="icon icon--fb_simple"></i><span> Facebook</span></a>
                 </li>

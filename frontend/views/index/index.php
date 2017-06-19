@@ -262,7 +262,7 @@ $this->params['class_body'] = "page_landing"
       <div class="row">
         <div class="col-sm-11 automargin">
           <ul class="social social--footer_alt">
-            <li><a href="https://www.facebook.com/groups/542506412568917/" target="_blank" class="social__item"><i class="icon icon--fb_simple"></i></a></li>
+            <li><a href="https://www.facebook.com/LykkeCity" target="_blank" class="social__item"><i class="icon icon--fb_simple"></i></a></li>
             <li><a href="https://twitter.com/LykkeCity" target="_blank" class="social__item"><i class="icon icon--tw"></i></a></li>
             <li><a href="http://instagram.com/lykkecity" target="_blank" class="social__item"><i class="icon icon--instagram"></i></a></li>
             <li><a href="https://www.youtube.com/channel/UCmMYipGdKMF0kzfaE-PXsNQ" target="_blank" class="social__item"><i class="icon icon--youtube"></i></a></li>

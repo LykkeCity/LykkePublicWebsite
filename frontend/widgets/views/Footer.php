@@ -6,7 +6,7 @@
           <div class="clearfix">
             <ul class="social social--footer_alt">
               <li>
-                <a href="https://www.facebook.com/groups/542506412568917/"
+                <a href="https://www.facebook.com/LykkeCity"
                    target="_blank" class="social__item"><i
                       class="icon icon--fb_simple"></i></a>
               </li>
