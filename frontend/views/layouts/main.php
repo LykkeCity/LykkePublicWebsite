@@ -36,7 +36,6 @@ use yii\helpers\Html;
         <link rel="manifest" href="/manifest.json">
         <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
         <meta name="theme-color" content="#ffffff">
-        <script src="https://www.youtube.com/iframe_api"></script>
 
         <meta name="google-site-verification" content="-3oXJnaspLel2iCBy5H0-BvOXfPJ9i1jhJEV6LQn1Lk" />
 
