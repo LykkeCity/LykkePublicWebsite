@@ -36,3 +36,4 @@ phpunit.phar
 # env
 .env
 
+/node_modules

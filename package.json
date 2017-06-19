@@ -1,0 +1,30 @@
+{
+  "name": "lykke",
+  "version": "1.0.0",
+  "description": "* Клонировать проект * Обновить зависимости composer [https://getcomposer.org/doc/03-cli.md#update](https://getcomposer.org/doc/03-cli.md#update) * Переименовать .env.example в .env и задать нужные значения переменным.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "gulp": "^3.9.1",
+    "gulp-autoprefixer": "^3.1.1",
+    "gulp-clean-css": "^3.0.3",
+    "gulp-concat": "^2.6.1",
+    "gulp-csso": "^2.0.0",
+    "gulp-sass": "^3.1.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/LykkeCity/LykkePublicWebsite.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/LykkeCity/LykkePublicWebsite/issues"
+  },
+  "homepage": "https://github.com/LykkeCity/LykkePublicWebsite#readme",
+  "devDependencies": {
+    "gulp-uglify": "^3.0.0"
+  }
+}

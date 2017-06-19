@@ -1,33 +1,33 @@
 
-.startedit, .canceledit{
-    position: fixed;
-    z-index: 5455;
-    right: 50px;
-    width: 40px;
-    height: 40px;
-    color: #000;
-    padding: 5px 6px;
-    border: 1px solid #7d7d7d;
-    border-radius: 23px;
-    text-align: center;
-    top: 20px;
-    cursor: pointer;
-    background: #fff;
-}
+/*.startedit, .canceledit{*/
+    /*position: fixed;*/
+    /*z-index: 5455;*/
+    /*right: 50px;*/
+    /*width: 40px;*/
+    /*height: 40px;*/
+    /*color: #000;*/
+    /*padding: 5px 6px;*/
+    /*border: 1px solid #7d7d7d;*/
+    /*border-radius: 23px;*/
+    /*text-align: center;*/
+    /*top: 20px;*/
+    /*cursor: pointer;*/
+    /*background: #fff;*/
+/*}*/
 
-.canceledit{
-    display: none;
-    padding: 6px;
-}
+/*.canceledit{*/
+    /*display: none;*/
+    /*padding: 6px;*/
+/*}*/
 
-.startedit img, .canceledit img{
-    width: 100%;
-}
+/*.startedit img, .canceledit img{*/
+    /*width: 100%;*/
+/*}*/
 
-.startedit:hover, .canceledit:hover{
-    background: #e4e4e4;
-}
+/*.startedit:hover, .canceledit:hover{*/
+    /*background: #e4e4e4;*/
+/*}*/
 
-.startedit span, .canceledit span {
-    display: block;
-}
+/*.startedit span, .canceledit span {*/
+    /*display: block;*/
+/*}*/

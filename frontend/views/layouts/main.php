@@ -41,7 +41,10 @@ use yii\helpers\Html;
 
 
       <?php MainAsset::register($this); ?>
+
+      <link rel="stylesheet" href="/build/styles.min.css">
         <?php $this->head() ?>
+
 
 
         <!--[if lte IE 9]>

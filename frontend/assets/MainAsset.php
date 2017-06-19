@@ -12,15 +12,14 @@ class MainAsset extends AssetBundle
   public $basePath = '@webroot';
   public $baseUrl = '@web';
 
-  public $css = [
-    'css/vendor/bootstrap-custom.min.css',
-    '/css/style.css',
-    '/css/style_addon.css',
-    '/css/ico_aside.css'
-  ];
+//  public $css = [
+//    'css/vendor/bootstrap-custom.min.css',
+//    '/css/style.css',
+//    '/css/style_addon.css',
+//    '/css/ico_aside.css'
+//  ];
 
   public $js = [
-    'js/vendor/angular.min.js',
     'js/vendor/bootstrap-custom.min.js',
     'js/vendor/fastclick.min.js',
     'js/vendor/jquery.inview.min.js',
@@ -31,7 +30,6 @@ class MainAsset extends AssetBundle
     'js/b2b.js',
     'js/invest.js',
     'js/leadership_modal.js',
-    'js/controllers.js',
   ];
-  
+
 }
