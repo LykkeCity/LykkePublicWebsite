@@ -36,7 +36,7 @@ class CommunityController extends AppController   {
         $ownershipStructure = $this->cUrl($url, '', 'GET');
 
         $posts = NewsPosts::find()->where(['published' => 1])
-            ->orderBy(['post_datetime' => SORT_DESC])->limit(3)->all();
+            ->orderBy(['post_datetime' => SORT_DESC])->limit(2)->all();
 
         $wallets = 14567;
 
