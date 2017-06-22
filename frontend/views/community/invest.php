@@ -25,12 +25,12 @@ use frontend\widgets\SubMenu;
             <div class="features__item">
               <div class="features__img"><img src="/img/invest/wallet_icn.svg" width="70" alt="wallet_icn"></div>
               <div class="features__title"><?=$wallets?></div>
-              <div class="features__text">Wallets downloaded</div>
+              <div class="features__text">Accounts registered</div>
             </div>
             <div class="features__item">
               <div class="features__img"><img src="/img/affiliates/lw-users-icn.svg" width="50" alt="lw"></div>
               <div class="features__title"><?=$holders?></div>
-              <div class="features__text">Shareholders</div>
+              <div class="features__text">Coinholders</div>
             </div>
           </div>
 
