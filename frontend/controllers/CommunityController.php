@@ -35,6 +35,17 @@ class CommunityController extends AppController   {
         $url = "https://lykke-public-api.azurewebsites.net/api/company/ownershipStructure";
         $ownershipStructure = $this->cUrl($url, '', 'GET');
 
+        $url = "https://public-api.lykke.com/api/AssetPairs/rate/LKKUSD";
+        $response = $this->cUrl($url, '', 'GET');
+        $lkkPrice = $response->{'bid'};
+
+        $url = "https://public-api.lykke.com/api/Company/ownershipStructure";
+        $response = $this->cUrl($url, '', 'GET');
+        $totalSupply = $response->{'totalLykkeCoins'};
+        $treasureCoins = $response->{'treasuryCoins'};
+
+        $marketCapitalization = ($totalSupply - $treasureCoins) * $lkkPrice;
+
         $posts = NewsPosts::find()->where(['published' => 1])
             ->orderBy(['post_datetime' => SORT_DESC])->limit(2)->all();
 
@@ -51,6 +62,7 @@ class CommunityController extends AppController   {
             'privateWalletsCoins' => number_format($ownershipStructure->{'privateWalletsCoins'}),
             'tradingWalletsCoins' => number_format($ownershipStructure->{'tradingWalletsCoins'}),
             'treasuryCoins' => number_format($ownershipStructure->{'treasuryCoins'}),
+            'marketCapitalization' => number_format($marketCapitalization)
         ]);
     }
 }

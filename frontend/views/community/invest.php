@@ -11,7 +11,7 @@ use frontend\widgets\SubMenu;
     <div class="container container--extend">
 
       <div class="row">
-        <div class="col-md-8 col-sm-10 automargin">
+        <div class="col-md-11 automargin">
           <div class="heading_with_select clearfix">
             <h1 class="h1 text-center">Invest</h1>
           </div>
@@ -21,6 +21,11 @@ use frontend\widgets\SubMenu;
               <div class="features__img"><img src="/img/affiliates/bonuses-icn.svg" width="70" alt="bonuses"></div>
               <div class="features__title"><?= $capitalization ?> USD</div>
               <div class="features__text">Free-float Capitalization</div>
+            </div>
+            <div class="features__item">
+              <div class="features__img"><img src="/img/affiliates/icon_free.svg" width="70" alt="lw"></div>
+              <div class="features__title"><?= $marketCapitalization ?> USD</div>
+              <div class="features__text">Market Capitalization</div>
             </div>
             <div class="features__item">
               <div class="features__img"><img src="/img/invest/wallet_icn.svg" width="70" alt="wallet_icn"></div>
@@ -128,7 +133,7 @@ use frontend\widgets\SubMenu;
   <section class="section section--padding">
     <div class="container">
       <div class="row">
-        <div class="col-sm-8 col-md-10 automargin">
+        <div class="col-sm-8 col-md-10 automargin text-center-md">
           <h3 class="h2">Lykke ownership structure</h3>
 
           <div class="row">
@@ -235,20 +240,37 @@ use frontend\widgets\SubMenu;
     <div class="container">
 
       <div class="row">
-        <div class="col-md-10 automargin">
+        <div class="col-sm-9 col-md-10 automargin ">
           <h3 class="h2">Lykke Feeds</h3>
 
           <div class="row">
-            <div class="col-sm-6">
+            <div class="col-md-6">
               <div class="section_header">
                 <h3>Tweets <span class="hint">by <a href="https://twitter.com/LykkeCity" target="_blank">LykkeCity</a></span></h3>
               </div>
 
               <div class="widget_tw">
-                <a class="twitter-timeline" data-height="645" href="https://twitter.com/LykkeCity">Tweets by LykkeCity</a> <script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+                <div class="hidden-xs hidden-sm">
+                  <a
+                      class="twitter-timeline"
+                      data-height="645"
+                      data-chrome="noheader noscrollbar"
+                      href="https://twitter.com/LykkeCity"
+                  >Tweets by LykkeCity</a>
+                </div>
+                <div class="visible-xs visible-sm">
+                  <a
+                      class="twitter-timeline"
+                      data-height="645"
+                      data-tweet-limit="3"
+                      data-chrome="noheader noscrollbar"
+                      href="https://twitter.com/LykkeCity"
+                  >Tweets by LykkeCity</a>
+                </div>
+                <script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
               </div>
             </div>
-            <div class="col-sm-6">
+            <div class="col-md-6">
               <div class="section_header">
                 <h3>News</h3>
               </div>

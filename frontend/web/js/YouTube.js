@@ -7,17 +7,7 @@ firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
 var player;
 
 function onYouTubeIframeAPIReady() {
-    player = new YT.Player('player', {
-        //videoId : 'h5T2gRGcMso' - home,
-        //videoId : 'Le3b6km81uc' - corp,
-        videoId: $('#player').data('video-id'),
-        height: '390',
-        width: '640',
-        events: {
-            'onReady': onPlayerReady,
-        }
-    });
-
+    initPlayer();
 }
 
 function onPlayerReady(event) {
@@ -27,3 +17,18 @@ function onPlayerReady(event) {
         $('.landing--video').addClass('video_played');
     });
 }
+
+function initPlayer() {
+    player = new YT.Player('player', {
+        //videoId : 'h5T2gRGcMso' - home,
+        //videoId : 'Le3b6km81uc' - corp,
+        videoId: $('#player').data('video-id'),
+        height: '390',
+        width: '640',
+        events: {
+            'onReady': onPlayerReady
+        }
+    });
+}
+
+setTimeout(initPlayer, 3000);
