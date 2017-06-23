@@ -109,7 +109,7 @@
                 </li>
                 <li><a href="https://lykkecommunity.slack.com/" target="_blank"
                        class="social__item"><i
-                        class="icon icon--slack"></i><span> Telegram</span></a>
+                        class="icon icon--slack"></i><span> Slack</span></a>
                 </li>
             </ul>
         </div>
