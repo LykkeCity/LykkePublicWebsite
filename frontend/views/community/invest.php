@@ -23,7 +23,7 @@ use frontend\widgets\SubMenu;
               <div class="features__text">Free-float Capitalization</div>
             </div>
             <div class="features__item">
-              <div class="features__img"><img src="/img/invest/icon_free.svg" width="70" alt="lw"></div>
+              <div class="features__img"><img src="/img/invest/cap_icn.svg" width="70" alt="lw"></div>
               <div class="features__title"><?= $marketCapitalization ?> USD</div>
               <div class="features__text">Market Capitalization</div>
             </div>
