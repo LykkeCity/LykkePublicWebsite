@@ -37,7 +37,9 @@ class CommunityController extends AppController   {
 
         $url = "https://public-api.lykke.com/api/AssetPairs/rate/LKKUSD";
         $response = $this->cUrl($url, '', 'GET');
-        $lkkPrice = $response->{'bid'};
+        $lkkAsk = $response->{'ask'};
+        $lkkBid = $response->{'bid'};
+        $lkkPrice = ($lkkAsk+$lkkBid)/2;
 
         $url = "https://public-api.lykke.com/api/Company/ownershipStructure";
         $response = $this->cUrl($url, '', 'GET');
