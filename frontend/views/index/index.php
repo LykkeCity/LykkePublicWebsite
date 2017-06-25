@@ -122,41 +122,6 @@ $this->params['class_body'] = "page_landing"
       <div class="landing--video">
         <div class="responsive_video">
           <div id="player" data-video-id="h5T2gRGcMso"></div>
-          <script>
-              var tag = document.createElement('script');
-
-              tag.src = "https://www.youtube.com/iframe_api";
-              var firstScriptTag = document.getElementsByTagName('script')[0];
-              firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
-
-
-              var player;
-
-              function onYouTubeIframeAPIReady() {
-                  player = new YT.Player('player', {
-                      videoId : 'h5T2gRGcMso',
-                      height: '390',
-                      width: '640',
-                      events: {
-                          'onReady': onPlayerReady
-                      }
-                  });
-              }
-
-              function onPlayerReady(event) {
-
-                  // bind events
-                  var playButton = document.getElementById("btn_video");
-                  playButton.addEventListener("click", function() {
-                      player.playVideo();
-
-                      console.log('play')
-
-                      $('.landing--video').addClass('video_played');
-                  });
-
-              }
-          </script>
           <!--<iframe width="100%" id="video" height="315" src="https://www.youtube.com/embed/h5T2gRGcMso?enablejsapi=1" frameborder="0" allowfullscreen></iframe>-->
         </div>
 
