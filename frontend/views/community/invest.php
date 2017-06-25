@@ -6,6 +6,16 @@ use frontend\widgets\SubMenu;
 
 <?=SubMenu::widget()?>
 
+<div class="contact_us_widget">
+  <div class="container">
+    <a href="/exchange"
+       class="btn btn_contact btn-sm pull-right btn_affix affix-top"
+       data-spy="affix" style="right: 15px;">
+      <span class="hidden-xs">Buy Lykke Coins</span>
+    </a>
+  </div>
+</div>
+
 <article class="content page page_invest landing">
   <section class="section--padding">
     <div class="container container--extend">
