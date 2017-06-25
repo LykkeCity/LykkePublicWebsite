@@ -6,8 +6,7 @@ use yii\helpers\Url;
     <div class="news_list__item">
         <div class="news_list__media">
             <a href="<?=Url::to([$page['url'].'/'.$post['post_url']])?>">
-                <img src="<?=Yii::$app->request->hostInfo.'/media/news/'
-                .$post['post_img']?>" alt="news_image_alt">
+                <img src="<?='/media/news/'.$post['post_img']?>" alt="news_<?=$post['post_title']?>">
             </a>
         </div>
         <div class="news_list__info">
