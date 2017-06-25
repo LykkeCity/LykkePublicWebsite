@@ -22,7 +22,7 @@ use yii\helpers\Url;
             <div class="news_article__header">
                 <div class="container">
                     <div class="news_article__media news_article__media--main">
-                        <img src="<?=Yii::$app->request->hostInfo.'/media/blog/'.$post['post_img']?>" alt="">
+                        <img src="<?='/media/blog/'.$post['post_img']?>" alt="">
                     </div>
                 </div>
             </div>
