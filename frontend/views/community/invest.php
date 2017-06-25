@@ -9,7 +9,7 @@ use frontend\widgets\SubMenu;
 <div class="contact_us_widget">
   <div class="container">
     <a href="#buy_lykke"
-       class="btn btn_contact smooth_scroll btn-sm pull-right btn_affix affix-top nav_up"
+       class="btn btn_contact smooth_scroll btn-sm pull-right btn_affix affix-top"
        data-spy="affix" style="right: 15px;">
       <span class="hidden-xs">Buy Lykke Coins</span>
     </a>
