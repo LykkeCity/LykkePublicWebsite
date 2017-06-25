@@ -23,6 +23,41 @@ use frontend\widgets\SubMenu;
                   <div class="landing--video">
                     <div class="responsive_video">
                       <div id="player" data-video-id="Le3b6km81uc"></div>
+                      <script>
+                          var tag = document.createElement('script');
+
+                          tag.src = "https://www.youtube.com/iframe_api";
+                          var firstScriptTag = document.getElementsByTagName('script')[0];
+                          firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+
+
+                          var player;
+
+                          function onYouTubeIframeAPIReady() {
+                              player = new YT.Player('player', {
+                                  videoId : 'Le3b6km81uc',
+                                  height: '390',
+                                  width: '640',
+                                  events: {
+                                      'onReady': onPlayerReady
+                                  }
+                              });
+                          }
+
+                          function onPlayerReady(event) {
+
+                              // bind events
+                              var playButton = document.getElementById("btn_video");
+                              playButton.addEventListener("click", function() {
+                                  player.playVideo();
+
+                                  console.log('play')
+
+                                  $('.landing--video').addClass('video_played');
+                              });
+
+                          }
+                      </script>
                       <!--                                            <iframe id="player" title="YouTube video player" src="https://www.youtube.com/embed/Le3b6km81uc?enablejsapi=1&amp;origin=https://www.lykke.com&amp;widgetid=1" width="640" height="390" frameborder="0" allowfullscreen="allowfullscreen" data-video-id="Le3b6km81uc"></iframe>-->
                     </div>
                     <button id="btn_video" class="btn_video"><span
