@@ -33,7 +33,7 @@
                      target="_blank" class="social__item"><i
                       class="icon icon--telegram"></i></a>
               </li>
-              <li><a href="https://lykkecommunity.slack.com" target="_blank"
+              <li><a href="http://lykkecommunity.herokuapp.com" target="_blank"
                      class="social__item"><i class="icon icon--slack"></i></a>
               </li>
             </ul>

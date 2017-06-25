@@ -107,7 +107,7 @@
                        class="social__item"><i
                             class="icon icon--telegram"></i><span> Telegram</span></a>
                 </li>
-                <li><a href="https://lykkecommunity.slack.com/" target="_blank"
+                <li><a href="http://lykkecommunity.herokuapp.com" target="_blank"
                        class="social__item"><i
                         class="icon icon--slack"></i><span> Slack</span></a>
                 </li>

@@ -304,7 +304,7 @@ $this->params['class_body'] = "page_landing"
             <li><a href="https://www.linkedin.com/company/lykke-ag" target="_blank" class="social__item"><i class="icon icon--linkedin-icn"></i></a></li>
             <li><a href="https://www.reddit.com/r/lykke/" target="_blank" class="social__item"><i class="icon icon--reddit"></i></a></li>
             <li><a href="https://t.co/TmjMYnQD7T" target="_blank" class="social__item"><i class="icon icon--telegram"></i></a></li>
-            <li><a href="https://lykkecommunity.slack.com/" target="_blank" class="social__item"><i class="icon icon--slack"></i></a></li>
+            <li><a href="http://lykkecommunity.herokuapp.com" target="_blank" class="social__item"><i class="icon icon--slack"></i></a></li>
           </ul>
 
           <div class="landing__text">
