@@ -212,8 +212,8 @@ use frontend\widgets\SubMenu;
               <li class="list__item col-xs-12 col-sm-6">
                 <div class="list__icon"><img src="/img/invest/disclosure/annual_report_icn.svg" alt="annual_report_icn" width="42" height="38"></div>
                 <div class="list__text">
-                  <p>Annual Report (2015)</p>
-                  <a href="https://www.lykke.com/Annual_Report_2015.pdf">Download</a>
+                  <p>Annual Report (2016)</p>
+                  <a href="https://www.lykke.com/Annual_Report_2016.pdf">Download</a>
                 </div>
               </li>
               <li class="list__item col-xs-12 col-sm-6">
@@ -237,7 +237,6 @@ use frontend\widgets\SubMenu;
                   <a href="https://www.coinprism.info/asset/AXkedGbAH1XGDpAypVzA5eyjegX4FaCnvM" target="_blank">View on Coinprism</a>
                 </div>
               </li>
-
             </ul>
           </div>
 

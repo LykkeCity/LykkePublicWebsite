@@ -53,7 +53,7 @@ class CommunityController extends AppController   {
 
         $wallets = 18900;
 
-        $holders = 3941;
+        $holders = 4221;
 
         return $this->render('invest', [
             'posts' => $posts,
