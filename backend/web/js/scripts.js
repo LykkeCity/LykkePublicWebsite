@@ -170,7 +170,10 @@ tinymce.init({
     language: 'en_GB',
     insert_toolbar: 'quickimage quickvideo quicktable',
     plugins: [
-        "media searchreplace wordcount visualblocks visualchars code fullscreen insertdatetime nonbreaking, link, textcolor, colorpicker"
+        "advlist autolink lists link image charmap print preview hr anchor pagebreak",
+        "searchreplace wordcount visualblocks visualchars code fullscreen",
+        "insertdatetime media nonbreaking save table contextmenu directionality",
+        "emoticons template paste textcolor colorpicker textpattern"
     ],
     toolbar1: "bold italic underline strikethrough | link unlink anchor | forecolor backcolor | bullist numlist",
 
