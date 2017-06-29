@@ -228,6 +228,8 @@ use frontend\widgets\SubMenu;
                 <div class="list__text">
                   <p>Annual Report (2016)</p>
                   <a href="https://www.lykke.com/Annual_Report_2016.pdf">Download</a>
+                  <span class="middot">&middot;</span>
+                  <a href="https://report2016.lykke.com">Vote</a>
                 </div>
               </li>
               <li class="list__item col-xs-12 col-sm-6">
