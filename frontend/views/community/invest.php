@@ -210,17 +210,24 @@ use frontend\widgets\SubMenu;
                 </div>
               </li>
               <li class="list__item col-xs-12 col-sm-6">
-                <div class="list__icon"><img src="/img/invest/disclosure/annual_report_icn.svg" alt="annual_report_icn" width="42" height="38"></div>
-                <div class="list__text">
-                  <p>Annual Report (2016)</p>
-                  <a href="https://www.lykke.com/Annual_Report_2016.pdf">Download</a>
-                </div>
-              </li>
-              <li class="list__item col-xs-12 col-sm-6">
                 <div class="list__icon"><img src="/img/invest/disclosure/memorandum_icn.svg" alt="memorandum_icn" width="35" height="39"></div>
                 <div class="list__text">
                   <p>Lykke Corp Placement Memorandum</p>
                   <a href="https://www.lykke.com/Lykke_Corp_Placement_Memorandum.pdf">Download</a>
+                </div>
+              </li>
+              <li class="list__item col-xs-12 col-sm-6">
+                <div class="list__icon"><img src="/img/invest/disclosure/annual_report_icn.svg" alt="annual_report_icn" width="42" height="38"></div>
+                <div class="list__text">
+                  <p>Annual Report (2015)</p>
+                  <a href="https://www.lykke.com/Annual_Report_2015.pdf">Download</a>
+                </div>
+              </li>
+              <li class="list__item col-xs-12 col-sm-6">
+                <div class="list__icon"><img src="/img/invest/disclosure/annual_report_icn.svg" alt="annual_report_icn" width="42" height="38"></div>
+                <div class="list__text">
+                  <p>Annual Report (2016)</p>
+                  <a href="https://www.lykke.com/Annual_Report_2016.pdf">Download</a>
                 </div>
               </li>
               <li class="list__item col-xs-12 col-sm-6">
