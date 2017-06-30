@@ -67,7 +67,7 @@ use yii\helpers\Url;
                   <table>
                     <tr>
                       <td>
-                        <div class="alert__text">Please <a href="">login</a> to enter your comment</div>
+                        <div class="alert__text">Please <a href="<?=Url::to(['site/signin'])?>">login</a> to enter your comment</div>
                       </td>
                     </tr>
                   </table>
