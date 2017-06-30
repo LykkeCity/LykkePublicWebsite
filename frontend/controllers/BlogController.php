@@ -101,14 +101,24 @@ class BlogController extends AppController
         $this->page->title = $post['post_title'];
         $this->page->description = $post->getSeoDescription();
 
+        if($post->report_template == 1){
+            return $this->render('post_report', [
+                'subscribe'     => $subscribeStatus,
+                'post'          => $post,
+                'comments'      => $comments['comments'],
+                'countComments' => $comments['count'],
+                'type'          => CommentsType::BLOG,
+            ]);
+        }else{
+            return $this->render('post', [
+                'subscribe'     => $subscribeStatus,
+                'post'          => $post,
+                'comments'      => $comments['comments'],
+                'countComments' => $comments['count'],
+                'type'          => CommentsType::BLOG,
+            ]);
+        }
 
-        return $this->render('post', [
-            'subscribe'     => $subscribeStatus,
-            'post'          => $post,
-            'comments'      => $comments['comments'],
-            'countComments' => $comments['count'],
-            'type'          => CommentsType::BLOG,
-        ]);
     }
 
 }
