@@ -338,8 +338,7 @@ use frontend\widgets\SubMenu;
                 </div>
                 <div class="review_item">
                   <div class="review_item__text">
-                    <p>The Lykke project is huge and visionary. They are going to create much more than a currency exchange. You’ll be able to exchange land, cars, fractional ownership of anything, stock, bonds, art, tickets - all kinds of things. If it’s digital and it holds or represents value, you’ll be able to trade it on your Lykke wallet. Think of it as a combination of Google and eBay for digital values.</p>
-                    <p>Lykke wallet is your future store of digitalized financial assets. Besides buying and selling digital assets at no cost you can store them also at no cost in your cryptographic Lykke wallet, like you store financial assets on a bank deposit.</p>
+                    <p>Imagine being part of the Netscape team in the early 90’s. This is what Lykke is about these days - the next wave.</p>
                   </div>
                   <div class="review_item__author">Michael Hobmeier</div>
                   <div class="review_item__author_info">Lykke angel investor and board member</div>
