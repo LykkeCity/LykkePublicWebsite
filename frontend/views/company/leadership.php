@@ -220,24 +220,6 @@ use frontend\widgets\SubMenu;
               <a href="#leadership_modal" class="leadership_item__control"
                  data-toggle="modal">
                 <div class="leadership_item__image"
-                     data-big-image="img/corp/leadership/big/15-snetkov.jpg">
-                  <img src="img/corp/leadership/15-snetkov-preview.jpg"
-                       alt="snetkov"></div>
-                <div class="leadership_item__info">
-                  <div
-                      class="leadership_item__title h3"><?=$blocks['Andrey Snetkov']['name']?></div>
-                  <div
-                      class="leadership_item__desc"><?=$blocks['Andrey Snetkov']['title']?></div>
-                  <div
-                      class="leadership_item__text"><?=$blocks['Andrey Snetkov']['content']?></div>
-                </div>
-              </a>
-            </div>
-
-            <div class="leadership_item">
-              <a href="#leadership_modal" class="leadership_item__control"
-                 data-toggle="modal">
-                <div class="leadership_item__image"
                      data-big-image="img/corp/leadership/big/11-seamus.jpg">
                   <img src="img/corp/leadership/11-seamus-preview.jpg"
                        alt="zamboglou"></div>
