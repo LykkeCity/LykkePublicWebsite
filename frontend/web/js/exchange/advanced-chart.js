@@ -28,7 +28,9 @@ function AdvancedChartPage(options) {
             self._fixInvertedAsset(model);
         },
         beforeSymbolResolve: function (model) {
-            self._fixInvertedAsset(model);
+            if (self._programSymbolChange) {
+                self._fixInvertedAsset(model);
+            }
         }
     };
     var data = new LykkeDataStorage(dataOpt);
@@ -72,9 +74,11 @@ function AdvancedChartPage(options) {
 AdvancedChartPage.prototype.init = function () {
     var self = this;
 
+    this._programSymbolChange = true;
     TradingView.onready(function() {
         self._tvWidget = new TradingView.widget(self._tvWidgetDefaults);
         self._tvWidget.onChartReady(function () {
+            self._programSymbolChange = false;
             self._addAssetsSwitchButton();
             self._tvWidget.activeChart().onSymbolChanged().subscribe(null, function (data) {
                 if (self._programSymbolChange) {
@@ -113,9 +117,11 @@ AdvancedChartPage.prototype._addAssetsSwitchButton = function () {
 };
 
 AdvancedChartPage.prototype._fixInvertedAsset = function(model) {
-    if (this._active.inverted) {
-        model.symbol = this._active.quotingAsset + this._active.baseAsset;
-        model.inverted = this._active.inverted;
+    var opt = this._active;
+
+    if (opt.inverted) {
+        model.symbol = opt.quotingAsset + opt.baseAsset;
+        model.inverted = opt.inverted;
     }
 };
 
