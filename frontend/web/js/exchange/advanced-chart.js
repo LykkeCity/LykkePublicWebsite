@@ -1,5 +1,15 @@
 function AdvancedChartPage(options) {
+    var self = this;
+
     this._tvWidget = null;
+
+    var defaultsActive = {
+        baseAsset: 'BTC',
+        quotingAsset: 'USD',
+        inverted: false,
+        period: '1D'
+    };
+    this._active = $.extend(true, defaultsActive, this._parseHash());
 
     var opt = {
         urls: {
@@ -13,18 +23,22 @@ function AdvancedChartPage(options) {
     var dataOpt = {
         dataUrl: 'https://lke-public-dev.azurewebsites.net/api/Candles/history/'
     };
+    var adapterOpt = {
+        beforeHistory: function (model) {
+            self._fixInvertedAsset(model);
+        },
+        beforeSymbolResolve: function (model) {
+            self._fixInvertedAsset(model);
+        }
+    };
     var data = new LykkeDataStorage(dataOpt);
-    var storage = new LykkeTVStorageAdapter(data, assets);
+    var storage = new LykkeTVStorageAdapter(data, assets, adapterOpt);
     var datafeed = new Datafeeds.UDFCompatibleDatafeed(storage);
 
-    var symbol = 'BTCUSD';
-    if (window.location.hash) {
-        symbol = window.location.hash.replace('#', '');
-    }
     this._tvWidgetDefaults = {
         fullscreen: false,
         autosize: true,
-        symbol: symbol,
+        symbol: this._active.baseAsset + this._active.quotingAsset,
         interval: '60',
         container_id: "tv-advanced-chart",
         //	BEWARE: no trailing slash is expected in feed URL
@@ -57,8 +71,84 @@ function AdvancedChartPage(options) {
 
 AdvancedChartPage.prototype.init = function () {
     var self = this;
+
     TradingView.onready(function() {
         self._tvWidget = new TradingView.widget(self._tvWidgetDefaults);
+        self._tvWidget.onChartReady(function () {
+            self._addAssetsSwitchButton();
+            self._tvWidget.activeChart().onSymbolChanged().subscribe(null, function (data) {
+                if (self._programSymbolChange) {
+                    self._programSymbolChange = false;
+                    return;
+                }
+
+                self._active.baseAsset = data.baseAsset;
+                self._active.quotingAsset = data.quotingAsset;
+                self._active.inverted = false;
+
+                self._updateHash();
+            });
+        });
     });
+};
+
+AdvancedChartPage.prototype._addAssetsSwitchButton = function () {
+    var self = this;
+
+    var $iframe = $('.tv-advanced-chart iframe').contents();
+    var $node = $('<div class="group space-single header-group-switch-assets"><a class="button toggle-caption"><img src="/img/exchange/switch-icon.svg" alt="Switch Assets" /></a></div>');
+
+    $node.on('click', function () {
+        var tmp = self._active.baseAsset;
+        self._active.baseAsset = self._active.quotingAsset;
+        self._active.quotingAsset = tmp;
+        self._active.inverted = !self._active.inverted;
+
+        self._updateHash();
+
+        self._programSymbolChange = true;
+        self._tvWidget.activeChart().setSymbol(self._active.baseAsset + self._active.quotingAsset);
+    });
+    $iframe.find('.header-group-intervals').after($node)
+};
+
+AdvancedChartPage.prototype._fixInvertedAsset = function(model) {
+    if (this._active.inverted) {
+        model.symbol = this._active.quotingAsset + this._active.baseAsset;
+        model.inverted = this._active.inverted;
+    }
+};
+
+AdvancedChartPage.prototype._updateHash = function () {
+    var options = this._active;
+    var hash = '#';
+
+    if (options.inverted) {
+        hash += options.quotingAsset + '.' + options.baseAsset + '.inverted';
+    } else {
+        hash += options.baseAsset + '.' + options.quotingAsset;
+    }
+
+    window.location.hash = hash;
+};
+
+AdvancedChartPage.prototype._parseHash = function () {
+    var hash = window.location.hash.replace('#', '');
+    var result = {};
+
+    var elements = hash.split('.');
+    if (elements.length > 1) {
+        if (elements.length === 3 && elements[2] === 'inverted') {
+            result.baseAsset = elements[1];
+            result.quotingAsset = elements[0];
+            result.inverted = true;
+        } else {
+            result.baseAsset = elements[0];
+            result.quotingAsset = elements[1];
+            result.inverted = false;
+        }
+    }
+
+    return result;
 };
 

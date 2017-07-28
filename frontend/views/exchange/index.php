@@ -6,13 +6,20 @@ use frontend\widgets\Footer;
 
 <article class="content">
     <section class="exchange section--padding">
+
+        <div class="overlay"></div>
+
         <div class="container">
             <div class="row">
                 <div class="col-xs-12 col-sm-11 col-md-12 automargin exchange-inner ease-500">
                     <div class="row">
                         <div class="col-md-8 chart-wrap">
                             <div class="data-overview">
-                                <h2 class="asset-name"></h2>
+                                <h2 class="asset-name">
+                                    <span class="base-asset"></span>
+                                    <img src="/img/exchange/switch-icon.svg" alt="Switch Assets" />
+                                    <span class="quoting-asset"></span>
+                                </h2>
                                 <span class="change-asset-btn">Change asset</span>
                                 <div class="data-row">
                                     <div class="asset-value-outer">
@@ -156,6 +163,7 @@ use frontend\widgets\Footer;
         </li>
     </ul>
 </div>
+
 
 <?=Footer::widget();?>
 

@@ -12,6 +12,7 @@ function AssetsPage(options) {
     var defaultsActive = {
         baseAsset: 'BTC',
         quotingAsset: 'USD',
+        inverted: false,
         period: '1D'
     };
     this._active = $.extend(true, defaultsActive, this._parseHash());
@@ -19,7 +20,16 @@ function AssetsPage(options) {
     this._initState = {
         pairs: false,
         chart: false,
-        data: false
+        data: false,
+
+        checkIfReady: function () {
+            if (this.pairs && this.chart && this.data) {
+                this.onReady();
+            }
+        },
+        onReady: function () {
+            $('.overlay').hide();
+        }
     };
 }
 
@@ -30,7 +40,8 @@ AssetsPage.prototype.init = function () {
         $assetPair: $('.templates .assets-list-item')
     };
     this._containers = {
-        $header: $('.data-overview h2'),
+        $headerBaseAsset: $('.data-overview h2 .base-asset'),
+        $headerQuotingAsset: $('.data-overview h2 .quoting-asset'),
         $advancedChartUrl: $('.advanced-chart-btn'),
         $assetsList: $('.assets-list'),
         $baseAsset: $('.asset-details.base-asset'),
@@ -39,6 +50,9 @@ AssetsPage.prototype.init = function () {
         $noData: $('.tv-chart-no-data'),
         $periods: $('.chart-controls .periods')
     };
+
+    this._containers.$headerBaseAsset.text(this._active.baseAsset);
+    this._containers.$headerQuotingAsset.text(this._active.quotingAsset);
 
     this._containers.$periods.find('[data-period="' + this._active.period + '"]').parent().addClass('active');
 
@@ -79,6 +93,7 @@ AssetsPage.prototype.init = function () {
                 }
             }
             self._initState.data = true;
+            self._initState.checkIfReady();
         }
     };
     this._data = new LykkeDataStorage(dataOpt);
@@ -94,11 +109,15 @@ AssetsPage.prototype.init = function () {
 AssetsPage.prototype.rerenderPage = function (options) {
     var self = this;
 
+    $('.overlay').show();
+
     if (options.baseAsset && options.quotingAsset) {
         var symbol = options.baseAsset + options.quotingAsset;
+        var invertedSymbol = options.quotingAsset + options.baseAsset;
+        var normalizedSymbol = options.inverted ? invertedSymbol : symbol;
 
         var $pairs = this._containers.$assetsList.children();
-        var $active = $pairs.filter('[data-symbol="' + symbol + '"]');
+        var $active = $pairs.filter('[data-symbol="' + normalizedSymbol + '"]');
         if (!$active.length) {
             return;
         }
@@ -118,11 +137,18 @@ AssetsPage.prototype.rerenderPage = function (options) {
         }
 
         // update no data
-        this._containers.$noData.find('.asset-name').text(asset.full_name);
+        var assetName = options.inverted ? options.quotingAsset + '/' + options.baseAsset : asset.full_name;
+        this._containers.$noData.find('.asset-name').text(assetName);
 
         // update header
-        var advancedHref = this._options.advancedChartUrl + '#' + symbol;
-        this._containers.$header.text(asset.full_name);
+        var advancedHref = this._options.advancedChartUrl + '#';
+        if (options.inverted) {
+            advancedHref += options.quotingAsset + '.' + options.baseAsset + '.inverted';
+        } else {
+            advancedHref += options.baseAsset + '.' + options.quotingAsset;
+        }
+        this._containers.$headerBaseAsset.text(options.baseAsset);
+        this._containers.$headerQuotingAsset.text(options.quotingAsset);
         this._containers.$advancedChartUrl.attr('href', advancedHref);
 
         // update assets pairs list
@@ -225,6 +251,7 @@ AssetsPage.prototype._initPairs = function () {
         $wrap.append($virtual.children());
 
         self._initState.pairs = true;
+        self._initState.checkIfReady();
     });
 };
 
@@ -278,6 +305,7 @@ AssetsPage.prototype._initTVWidget = function () {
         self._tvWidget.onChartReady(function () {
             self.setChartRange(self._active.period);
             self._initState.chart = true;
+            self._initState.checkIfReady();
         });
     });
 };
@@ -309,7 +337,8 @@ AssetsPage.prototype._bindEvents = function () {
 
             self.rerenderPage({
                 baseAsset: asset.baseAsset,
-                quotingAsset: asset.quotingAsset
+                quotingAsset: asset.quotingAsset,
+                inverted: false
             });
 
             $('body').removeClass('assets-list-opened');
@@ -317,9 +346,22 @@ AssetsPage.prototype._bindEvents = function () {
 
     });
 
+    $document.on('click', '.data-overview h2', function () {
+        window.location.hash = !self._active.inverted ?
+            window.location.hash + '.inverted' :
+            window.location.hash.replace('.inverted', '');
+
+        self.rerenderPage({
+            baseAsset: self._active.quotingAsset,
+            quotingAsset: self._active.baseAsset,
+            inverted: !self._active.inverted
+        });
+    });
+
     $('.change-asset-btn').on('click', function () {
         $('body').addClass('assets-list-opened');
     });
+
     $document.on('click', '.right-pane-overlay, .popup-close-btn', function () {
         $('body').removeClass('assets-list-opened');
     });
@@ -359,9 +401,23 @@ AssetsPage.prototype._filterAssets = function (searchString) {
     });
 };
 
+AssetsPage.prototype._fixInvertedAsset = function(model) {
+    if (this._active.inverted) {
+        model.symbol = this._active.quotingAsset + this._active.baseAsset;
+        model.inverted = this._active.inverted;
+    }
+};
+
 AssetsPage.prototype._getTVChartSettings = function () {
+    var self = this;
     var config = {
-        supported_resolutions: ['1', '15', 'D', '3D', 'M']
+        supported_resolutions: ['1', '15', 'D', '3D', 'M'],
+        beforeHistory: function (model) {
+            self._fixInvertedAsset(model);
+        },
+        beforeSymbolResolve: function (model) {
+            self._fixInvertedAsset(model);
+        }
     };
     var storage = new LykkeTVStorageAdapter(this._data, this._assets, config);
     var datafeed = new Datafeeds.UDFCompatibleDatafeed(storage);
@@ -443,9 +499,16 @@ AssetsPage.prototype._parseHash = function () {
     var result = {};
 
     var elements = hash.split('.');
-    if (elements.length === 2) {
-        result.baseAsset = elements[0];
-        result.quotingAsset = elements[1];
+    if (elements.length > 1) {
+        if (elements.length === 3 && elements[2] === 'inverted') {
+            result.baseAsset = elements[1];
+            result.quotingAsset = elements[0];
+            result.inverted = true;
+        } else {
+            result.baseAsset = elements[0];
+            result.quotingAsset = elements[1];
+            result.inverted = false;
+        }
     }
 
     return result;

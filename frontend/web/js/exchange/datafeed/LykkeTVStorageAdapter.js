@@ -1,7 +1,7 @@
 function LykkeTVStorageAdapter(dataStorage, symbolsStorage, config) {
     this._data = dataStorage;
     this._symbols = symbolsStorage;
-    this._config = config;
+    this._config = config || {};
     this._debug = false;
 }
 
@@ -31,8 +31,18 @@ LykkeTVStorageAdapter.prototype.getServerTime = function() {
 
 LykkeTVStorageAdapter.prototype.getHistory = function (symbol, from, to, resolution) {
     var self = this;
+    var model = {
+        symbol: symbol,
+        from: from,
+        to: to,
+        resolution: resolution
+    };
 
-    return this._data.getData(symbol, from, to, resolution).then(function (data) {
+    if (typeof this._config.beforeHistory === 'function') {
+        this._config.beforeHistory(model);
+    }
+
+    return this._data.getData(model.symbol, model.from, model.to, model.resolution).then(function (data) {
         if (self._debug) {
             console.warn('Data for ' + data.dateFrom + ' – ' + data.dateTo);
             if (data.data.length) {
@@ -40,9 +50,14 @@ LykkeTVStorageAdapter.prototype.getHistory = function (symbol, from, to, resolut
             }
             console.warn('Transform start: ' + new Date().toISOString() + '; Elements: ' + data.data.length);
         }
+
+        if (model.inverted) {
+            data = self._invertValues(data);
+        }
         data = self._convertDateProperties(data);
         //data = self._patchHistoryData(data);
         data = self._pivotHistoryData(data);
+
         if (self._debug) {
             console.warn('Transform end: ' + new Date().toISOString() + '; Elements: ' + data.t.length);
             if (data.t.length) {
@@ -62,29 +77,40 @@ LykkeTVStorageAdapter.prototype.search = function (limit, query, type, exchange)
 
 // supports_group_request: false and supports_search: true
 LykkeTVStorageAdapter.prototype.resolveSymbol = function (symbolName) {
-    return this._symbols.getDictionary(symbolName).then(function (symbols) {
+    var model = {
+        symbol: symbolName
+    };
+    if (typeof this._config.beforeSymbolResolve === 'function') {
+        this._config.beforeSymbolResolve(model);
+    }
+
+    return this._symbols.getDictionary(model.symbol).then(function (symbols) {
         if (symbols.length === 0) {
             return '{}';
         }
         var symbol = symbols[0];
 
         var result = {
-            'name': symbol.symbol,
-            'ticker': symbol.symbol,
-            'description': symbol.description,
+            'name': symbolName,
+            'ticker': symbolName,
+            'description': model.inverted ? symbol.quotingAsset + '/' + symbol.baseAsset : symbol.description,
             'type': symbol.type,
             'exchange-traded': '',
             'exchange-listed': '',
             'timezone': 'UTC',
             'session': '0000-0000:1234567',
             'minmov': 1,
-            'pricescale': 100,
+            'pricescale': Math.pow(10, model.inverted ? symbol.invertedAccuracy : symbol.accuracy),
             'minmov2': 0,
             'has_no_volume': true,
             'has_daily': true,
             'has_intraday': true,
             'has_empty_bars': true,
-            'intraday_multipliers': ['1', '60']
+            'intraday_multipliers': ['1', '60'],
+
+            // additional props, used on advanced chart
+            baseAsset: symbol.baseAsset,
+            quotingAsset: symbol.quotingAsset
         };
 
         return JSON.stringify(result);
@@ -172,6 +198,7 @@ LykkeTVStorageAdapter.prototype._patchHistoryData = function (data) {
     data.data = result;
     return data;
 };
+
 LykkeTVStorageAdapter.prototype._pivotHistoryData = function (data) {
     var result = {
         t: [], // time
@@ -195,6 +222,19 @@ LykkeTVStorageAdapter.prototype._pivotHistoryData = function (data) {
     result.s = data.data.length === 0 ? 'no_data' : 'ok';
     return result;
 };
+
+LykkeTVStorageAdapter.prototype._invertValues = function (data) {
+    for (var i = 0; i < data.data.length; i++) {
+        var point = data.data[i];
+
+        point.c = 1 / point.c;
+        point.o = 1 / point.o;
+        point.h = 1 / point.h;
+        point.l = 1 / point.l;
+    }
+
+    return data;
+}
 
 
 LykkeTVStorageAdapter.prototype.calculateHistoryDepth = function(period, resolutionBack, intervalBack) {

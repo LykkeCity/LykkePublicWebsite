@@ -31,6 +31,19 @@ LykkeAssetsStorage.prototype.getDictionary = function (searchString) {
 LykkeAssetsStorage.prototype.getDescription = function (assets) {
     var self = this;
 
+    // var model = {
+    //     Ids: assets
+    // };
+    // return $.ajax({
+    //     type: 'POST',
+    //     url: this._options.urls.description,
+    //     contentType: 'application/json',
+    //     data: JSON.stringify(model),
+    //     crossDomain: true
+    // }).then(function (response) {
+    //     return self._transformDescription(response);
+    // });
+
     return $.Deferred().resolve(LykkeAssetsStorage._descriptionsListResponse)
         .then(function (response) {
             return self._transformDescription(response);
@@ -100,6 +113,8 @@ LykkeAssetsStorage.prototype._transformAssetPairs = function (response) {
             exchange: '', // omit
             ticker: e.id,
             type: 'Lykke',
+            accuracy: e.accuracy,
+            invertedAccuracy: e.invertedAccuracy,
 
             // additional props, not used in TV
             baseAsset: e.baseAssetId,

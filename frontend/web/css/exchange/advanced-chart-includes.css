@@ -12,3 +12,10 @@
 .chart-page .tv-side-toolbar .tools-group .button[title="Show Objects Tree"] {
     display: none !important;
 }
+
+.chart-page .header-group-switch-assets .button {
+    padding: 7px 9px;
+}
+.chart-page .header-group-switch-assets img {
+    width: 16px;
+}
